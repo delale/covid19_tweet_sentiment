@@ -26,7 +26,7 @@ The two factors we are analysing are:
 - Mitigation Measures:
     - https://www.kaggle.com/davidoj/covid19-national-responses-dataset
     - https://www.kaggle.com/barun2104/government-measures-to-combat-covid19
-    - https://www.kaggle.com/paultimothymooney/covid19-containment-and-mitigation-measures
+    - https://www.kaggle.com/paultimothymooney/covid19-containment-and-mitigation-measures  
     (still to choose exactly which dataset)
 
 ## Questions
