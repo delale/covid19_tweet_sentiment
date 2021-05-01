@@ -18,14 +18,16 @@ The two factors we are analysing are:
 - Tweets:
     - https://www.kaggle.com/gpreda/covid19-tweets
     - https://www.kaggle.com/smid80/coronavirus-covid19-tweets-late-april
-    - https://www.kaggle.com/smid80/coronavirus-covid19-tweets-early-april
+    - https://www.kaggle.com/smid80/coronavirus-covid19-tweets-early-april  
+    ⇒ combined into `covid19_tweets.csv`.  
+  
+- COVID-19 Cases: https://www.kaggle.com/gpreda/coronavirus-2019ncov  ⇒ `covid-19-all.csv`    
 
-- COVID-19 Cases: https://www.kaggle.com/gpreda/coronavirus-2019ncov
 - Mitigation Measures:
     - https://www.kaggle.com/davidoj/covid19-national-responses-dataset
     - https://www.kaggle.com/barun2104/government-measures-to-combat-covid19
     - https://www.kaggle.com/paultimothymooney/covid19-containment-and-mitigation-measures
-    - https://www.kaggle.com/gustavomodelli/covid-community-measures
+    (still to choose exactly which dataset)
 
 ## Questions
 - Is there any relationship between the pandemic course and the sentiments from the tweets? 
@@ -37,12 +39,12 @@ The two factors we are analysing are:
 - Are the two months April and August comparable ?
  
 ## Analysis
-Analysed countries (as of now):
-- Switzerland (CH)
+*Analysed countries* (as of now):
+- United Kingdom (UK)
 - Germany (DE)
-- Italy (IT)
+
   
-Data Analysis & Processing:
+*Data Analysis & Processing*:
 1.	Clean the dataset and filter for the three countries 
 2.	Exploratory data analysis (EDA) to conduct summary statistics and check for correlation
 3.	Sentiment analysis & modification of sentiment analysis for other languages (Italian and German): 
@@ -60,3 +62,4 @@ Data Analysis & Processing:
         - Artificial neural network
 6.	If time: temporal analysis of response changes (i.e., first wave, second wave) using the same predictors
 
+*Packages used*: (?)
