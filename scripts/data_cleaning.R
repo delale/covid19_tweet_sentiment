@@ -2,45 +2,95 @@ rm(list = ls())
 
 library(tidyverse)
 
-## load data ####
-covid19_tweets <- read.csv("covid19_tweets.csv", comment.char = "#")
-glimpse(covid19_tweets)
-covid19_tweets$date <- as.Date(covid19_tweets$date)
-covid19_tweets$is_retweet <- as.logical(covid19_tweets$is_retweet)
-covid19_tweets$user_friends <- as.numeric(covid19_tweets$user_friends)
-covid19_tweets$user_followers <- as.numeric(covid19_tweets$user_followers)
-covid19_tweets$user_favourites <- as.numeric(covid19_tweets$user_favourites)
-covid19_tweets$user_verified <- as.logical(covid19_tweets$user_verified)
+## covid cases data cleaning ####
+## TODO: subset data for the countries needed (UK, DE)
 
-head(covid19_tweets)
-summary(covid19_tweets)
+covid_all <- read.csv("datasets/original/covid-19-all.csv")
+glimpse(covid_all)
 
-## select only Switzerland, Germany, Italy ####
+# column cleaning
+covid_all <- select(covid_all, -c(Latitude, Longitude))
+
+# select countries (UK, Germany) #
+covid_all_filtered <- filter(
+    covid_all,
+    Country.Region %in% c("United Kingdom", "Germany")
+)
+glimpse(covid_all_filtered)
+covid_all_filtered$Date <- as.Date(covid_all_filtered$Date)
+
+# write.csv(covid_all_filtered, "datasets/covid_cases_filtered.csv")
+
+
+## tweets ####
+
+covid_tweets <- read.csv("datasets/original/covid19_tweets.csv")
+glimpse(covid_tweets)
+
+# some refactoring
+covid_tweets$date <- as.Date(covid_tweets$date)
+covid_tweets$is_retweet <- as.logical(covid_tweets$is_retweet)
+covid_tweets$user_friends <- as.numeric(covid_tweets$user_friends)
+covid_tweets$user_followers <- as.numeric(covid_tweets$user_followers)
+covid_tweets$user_favourites <- as.numeric(covid_tweets$user_favourites)
+covid_tweets$user_verified <- as.logical(covid_tweets$user_verified)
+
+glimpse(covid_tweets)
+
+# select only UK and DE #
 # using regex and str_detect from stringr
 
-tweetsCH <- filter(
-    covid19_tweets,
-    str_detect(user_location, regex("Switzerland", ignore_case = TRUE)) |
-        str_detect(user_location, regex("Schweiz", ignore_case = TRUE))
+# cleaning for regex: space padding for exact match
+covid_tweets$user_location <- paste(" ", covid_tweets$user_location, " ")
+
+countries_uk <- c(
+    " United Kingdom ",
+    " Britain ",
+    " Wales ",
+    " Northern Ireland ",
+    " Scotland ",
+    " England ",
+    " UK ",
+    " GB "
+)
+countries_de <- c(" Germany ", " Deutschland ")
+
+# filtering
+tweets_uk <- data.frame()
+
+for (country in countries_uk) {
+    tweets_uk <- rbind(
+        tweets_uk,
+        filter(
+            covid_tweets,
+            str_detect(user_location, regex(country, ignore_case = TRUE))
+        )
+    )
+}
+
+tweets_de <- data.frame()
+
+for (country in countries_de) {
+    tweets_de <- rbind(
+        tweets_de,
+        filter(
+            covid_tweets,
+            str_detect(user_location, regex(country, ignore_case = TRUE))
+        )
+    )
+}
+
+# refactor tweets location in new var
+tweets_uk <- cbind(
+    tweets_uk,
+    data.frame(loc_short = as.factor(rep("UK", nrow(tweets_uk))))
+)
+tweets_de <- cbind(
+    tweets_de,
+    data.frame(loc_short = as.factor(rep("DE", nrow(tweets_de))))
 )
 
-tweetsDE <- filter(
-    covid19_tweets,
-    str_detect(user_location, regex("Germany", ignore_case = TRUE)) |
-        str_detect(user_location, regex("Deutschland", ignore_case = TRUE))
-)
+# complete df
+filtered_tweets <- rbind(tweets_uk, tweets_de)
+# write.csv(filtered_tweets, "datasets/filtered_tweets.csv")
 
-tweetsIT <- filter(
-    covid19_tweets,
-    str_detect(user_location, regex("Italy", ignore_case = TRUE)) |
-        str_detect(user_location, regex("Italia", ignore_case = TRUE))
-)
-
-## clean the tweet location ####
-tweetsCH$user_location <- rep("CH", nrow(tweetsCH))
-tweetsIT$user_location <- rep("IT", nrow(tweetsIT))
-tweetsDE$user_location <- rep("DE", nrow(tweetsDE))
-
-## filtered set ####
-filtered_tweets <- rbind(tweetsCH, tweetsDE, tweetsIT)
-filtered_tweets$user_location <- as.factor(filtered_tweets$user_location)
