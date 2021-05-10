@@ -1,0 +1,253 @@
+---
+title: "Sentiment Analysis Covid 19 Tweets"
+author: "Jessy J. Duran Ramirez"
+date: "`r format(Sys.time(), '%d/%m/%y')`"
+output: pdf_document
+---
+https://www.youtube.com/watch?v=otoXeVPhT7Q 
+https://www.kaggle.com/henilvedant/covid-19-sentiment-analysis-social-net-7957cd
+https://www.kaggle.com/andradaolteanu/covid-19-sentiment-analysis-social-networks
+
+
+```{r, message=FALSE, error=FALSE}
+#Clear R's brain
+rm(list=ls()) 
+
+## get the packages 
+#if (!require("rtweets")) {install.packages("rtweets", dependencies=TRUE)} 
+if (!require("dplyr")) {install.packages("dplyr", dependencies=TRUE)} 
+if (!require("tidyr")) {install.packages("tidyr", dependencies=TRUE)} 
+#if (!require("tidyext")) {install.packages("tidyext", dependencies=TRUE)} 
+
+
+#tweets check up:
+if (!require("textcat")) {install.packages("textcat", dependencies=TRUE)} #language detection
+if (!require("ggplot2")) {install.packages("ggplot2", dependencies=TRUE)}
+if (!require("ggcharts")) {install.packages("ggcharts", dependencies=TRUE)} #bar chart
+
+#sentiment analysis:
+if (!require("tm")) {install.packages("tm", dependencies=TRUE)} #build corpus
+if (!require("syuzhet")) {install.packages("syuzhet", dependencies=TRUE)} 
+if (!require("lubridate")) {install.packages("lubridate", dependencies=TRUE)} 
+if (!require("scales")) {install.packages("scales", dependencies=TRUE)} 
+if (!require("reshape2")) {install.packages("reshape2", dependencies=TRUE)} 
+
+
+if (!require("wordcloud")) {install.packages("wordcloud", dependencies=TRUE)} 
+if (!require("wordcloud2")) {install.packages("wordcloud2", dependencies=TRUE)} 
+
+
+
+
+```
+
+
+```{r tweets}
+## get the data 
+setwd("~/switchdrive/ESC403_FinalProject/Datasets/Cleaned")
+data <-read.csv("filtered_tweets.csv", header = T)
+data <- data[,-1]
+
+setwd("~/switchdrive/FS21/ESC403/Project")
+data.github <-read.csv("filtered_tweets.csv", header = T)
+data.github <- data.github[,-1]
+unique(data.github$loc_short)
+
+## look at the dataset
+str(data)
+summary(data)
+
+
+## convert into character vector --> No need aleady char
+ #tweets <- as.character(data$text)
+
+## UK
+UK <- data[data$user_location =="UK",]
+DE <- data[data$user_location =="DE",]
+
+ 
+```
+
+
+```{r language of UK tweets}
+## Problem 1: language detection
+textcat(c(
+  "This is an English sentence.",
+  "Das ist ein deutscher Satz.",
+  "Esta es una frase en espa~nol.")) #Example
+
+languages.UK<-textcat(UK$text)
+table.UK <- table(languages.UK) %>%
+  as.data.frame() %>%
+  arrange(desc(Freq))
+
+
+#all
+ggcharts::bar_chart(table.UK, languages.UK,Freq,
+                    bar_color = "darkblue",
+                    sort=T)
+
+## Limit the number of bars to the top 10
+ggcharts::bar_chart(table.UK, languages.UK,Freq,
+                    bar_color = "darkblue",
+                    sort=T,
+                    highlight = "english",
+                    top_n = 10)
+
+## Take only English tweets
+UK<- cbind(UK, languages.UK)
+tweets.UK <- UK %>% 
+  filter(languages.UK == "english")
+
+```
+
+```{r language of DE tweets}
+## Problem 1: language detection
+languages.DE<-textcat(DE$text)
+table.DE <- table(languages.DE) %>%
+  as.data.frame() %>%
+  arrange(desc(Freq))
+
+#all
+ggcharts::bar_chart(table.DE, languages.DE,Freq,
+                    bar_color = "darkblue",
+                    sort=T)
+
+## Limit the number of bars to the top 10
+ggcharts::bar_chart(table.DE, languages.DE,Freq,
+                    bar_color = "darkblue",
+                    sort=T,
+                    highlight = "german",
+                    top_n = 10)
+
+```
+
+```{r}
+
+```
+
+
+
+
+### Sentiment Analysis
+a.	Tokenization (Segregation into words)
+b.	Cleaning (Removing the special characters)
+c.	Removing Stop words (preposition, auxiliary verbs, etc.) 
+d.	Classification of words (+1: positive, -1 negative, 0: neutral)
+e.	Apply supervised algorithm for classification (train model with word or lexicons, and test on the analysis statement)
+f.	Calculation sentiment of statement (look at polarity) 
+
+
+##  Text Mining
+# Clean Corpus Function
+This predefined function is going to clean the text from:
+
++ the punctuation - removePunctuation
++ extra white space - stripWhitespace
++ transforms to lower case - tolower
++ stopwords (common words that should be ignored) - stopwords
++ numbers - removeNumbers
+
+```{r}
+
+ # build corpus with tm
+corpus <- iconv(tweets.UK$text, to ="utf-8-mac")
+corpus <- Corpus(VectorSource(corpus))
+inspect(corpus[1:5]) #check first 5 tweets
+
+
+## clean the tweets
+corpus <- tm_map(corpus, tolower) #set to lower case
+
+corpus <- tm_map(corpus, removePunctuation) #remove punctuation
+
+corpus <- tm_map(corpus, removeNumbers) #remove Numbers
+
+corpus <- tm_map(corpus, removeNumbers) #remove punctuation
+inspect(corpus[1:5])
+#stopwords(kind="german")
+cleanset.UK <- tm_map(corpus, removeWords, stopwords(kind="english")) #remove stopwords
+
+removeURL <- function(x) gsub('http[[:alnum:]]*',"", x)
+cleanset.UK <- tm_map(cleanset.UK, content_transformer(removeURL)) #remove URL
+inspect(cleanset.UK[1:5])
+
+
+cleanset.UK <- tm_map(cleanset.UK, stripWhitespace) #remove blank space
+
+## term document matrix
+tdm <- TermDocumentMatrix(cleanset.UK)
+tdm <- as.matrix(tdm)
+tdm[1:10, 1:20] #pull the tweets based on covid, must values are 0's
+
+cleanset.UK <- tm_map(cleanset.UK, removeWords, "covid")
+tdm <- TermDocumentMatrix(cleanset.UK)
+tdm <- as.matrix(tdm)
+
+#Bar plot
+w <- rowSums(tdm)
+summary(w)
+subset.w <- subset(w, w>=100)
+barplot(subset.w,
+        las=2,
+        col=rainbow(50))
+
+
+v <- sort(rowSums(tdm),decreasing=TRUE)
+d <- data.frame(word=names(v), freq=v)
+head(d, 25)
+d25<- d[1:25,]
+print(d25)
+
+barplot(d25$freq, las=2, names.arg=d25$word, 
+        col="lightblue",
+        main="most frequent words in Twitter",ylab="Word frequencies")
+
+
+##*********************************************************************
+## still need to remove ?, ..., ??, 's 
+library(stringr)
+twitter_edited <- str_replace_all(string=cleanset.UK, pattern= "[&â€¦™ðŸ¥..._]" , replacement= "")
+inspect(twitter_edited[1:5])
+
+```
+
+
+
+```{r wordcloud}
+set.seed(1234) #reproducibility
+
+# wordcloud(word=names(v), freq=v,
+#           max.words = 150,
+#           random.order = F,
+#           min.freq = 5,
+#           colors = brewer.pal(8, "Dark2"),
+#           scale = c(7,0.3),
+#           rot.per = 0.3) 
+
+wordcloud2(d25,
+           size = 0.7,
+           shape = 'triangle',
+           rotateRatio = 0.5,
+           minSize = 1)
+
+
+# letterCloud(d,
+#             word = 'covid',
+#             size=1)
+
+```
+
+```{r}
+## obtain the sentiment score
+sentiment.score <- get_nrc_sentiment(tweets.UK$text)
+head(sentiment.score)
+
+#bar plot
+barplot(colSums(sentiment.score),
+        las=2,
+        col = rainbow(10),
+        ylab = 'Count',
+        main = "Sentiment Scores for Covid19 Tweets")
+```
+
