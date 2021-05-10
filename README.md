@@ -23,43 +23,37 @@ The two factors we are analysing are:
   
 - COVID-19 Cases: https://www.kaggle.com/gpreda/coronavirus-2019ncov  ⇒ `covid-19-all.csv`    
 
-- Mitigation Measures:
-    - https://www.kaggle.com/davidoj/covid19-national-responses-dataset
-    - https://www.kaggle.com/barun2104/government-measures-to-combat-covid19
-    - https://www.kaggle.com/paultimothymooney/covid19-containment-and-mitigation-measures  
-    (still to choose exactly which dataset)
+- Mitigation Measures: https://www.kaggle.com/barun2104/government-measures-to-combat-covid19
 
 ## Questions
 - Is there any relationship between the pandemic course and the sentiments from the tweets? 
-- Is there any forecast possible based on tweet sentiments for the pandemic development:  
-    neutral tweets no change in trend of pandemic course, negative tweets worse pandemic course  
-    and positive tweets better pandemic course?
-- Or is the sentiment of the people influenced based on the pandemic course? 
-- Does the relationship of sentiments and pandemic course differ in the 3 countries (or regions)? 
-- Are the two months April and August comparable ?
+- Does the sentiment of the general public influence governmental decisions on mitigation measures?
+- Does the relationship of sentiments and pandemic course differ in the 4 countries (or regions)? 
+- Are the two months April and August comparable?
  
 ## Analysis
-*Analysed countries* (as of now):
+*Analysed countries*:
 - United Kingdom (UK)
 - Germany (DE)
-
+- Switzerland (CH)
+- Italy (IT)
   
+
 *Data Analysis & Processing*:
 1.	Clean the dataset and filter for the three countries 
-2.	Exploratory data analysis (EDA) to conduct summary statistics and check for correlation
-3.	Sentiment analysis & modification of sentiment analysis for other languages (Italian and German): 
+2.	Sentiment analysis (there is no need for modifications for non-English countries as most tweets are in English): 
     - Tokenization (segregation into words)
     - Cleaning (removing the special characters)
     - Removing Stop words (preposition, auxiliary verbs, etc.) 
     - Classification of words (+1: positive, -1 negative, 0: neutral)
     - Apply supervised algorithm for classification (train model with word or lexicons, and test on the analysis statement)
-    - Calculate sentiment of statement (look at polarity) 
-4.	Categorization of mitigation measures (response variable) into strict, medium, and light
-5.	Predictive modelling of mitigation measure based on sentiment and pandemic course
+    - Calculate sentiment of statement (look at polarity)
+3.  - Timeseries analysis of daily COVID-19 cases ⇒ moving average used as predictor in the model 
+4.	Inferential modelling of mitigation measure based on sentiment and pandemic course
     - Importantly the response and predictors are polytomous variables (>2 possible categories)
     - Possible machine learning models: 
-        - Logistic regression
-        - Artificial neural network
-6.	If time: temporal analysis of response changes (i.e., first wave, second wave) using the same predictors
+        - Logistic regression ✔
+        - Artificial neural network ❌
+5.	If time: temporal analysis of response changes (i.e., first wave, second wave) using the same predictors.
 
 *Packages used*: (?)
