@@ -93,4 +93,3 @@ tweets_de <- cbind(
 # complete df
 filtered_tweets <- rbind(tweets_uk, tweets_de)
 # write.csv(filtered_tweets, "datasets/filtered_tweets.csv")
-
