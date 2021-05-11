@@ -38,6 +38,10 @@ The two factors we are analysing are:
 - Switzerland (CH)
 - Italy (IT)
   
+*Analysed Timeframes*:
+- April
+- August  
+This is due to the limiting dates on the tweets dataset.
 
 *Data Analysis & Processing*:
 1.	Clean the dataset and filter for the three countries 
