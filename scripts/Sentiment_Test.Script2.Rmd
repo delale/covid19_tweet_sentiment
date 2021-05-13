@@ -1,0 +1,637 @@
+---
+title: "Sentiment Analysis Covid 19 Tweets"
+author: "Jessy J. Duran Ramirez"
+date: "`r format(Sys.time(), '%d/%m/%y')`"
+output: pdf_document
+---
+https://www.youtube.com/watch?v=otoXeVPhT7Q 
+https://www.kaggle.com/henilvedant/covid-19-sentiment-analysis-social-net-7957cd
+https://www.kaggle.com/andradaolteanu/covid-19-sentiment-analysis-social-networks
+
+# Introduction
+
+EDA and Sentiment Analysis on COVID-19 Tweets!
+
+# Imports
+
+## Libraries
+```{r, message=FALSE, error=FALSE}
+#Clear R's brain
+rm(list=ls()) 
+
+## get the packages 
+#if (!require("rtweets")) {install.packages("rtweets", dependencies=TRUE)} 
+if (!require("dplyr")) {install.packages("dplyr", dependencies=TRUE)} 
+if (!require("tidyr")) {install.packages("tidyr", dependencies=TRUE)} 
+#if (!require("tidyext")) {install.packages("tidyext", dependencies=TRUE)} 
+
+
+#tweets check up:
+if (!require("textcat")) {install.packages("textcat", dependencies=TRUE)} #language detection
+if (!require("VIM")) {install.packages("VIM", dependencies=TRUE)}         # missing values visual
+if (!require("ggplot2")) {install.packages("ggplot2", dependencies=TRUE)} # plot library
+if (!require("ggcharts")) {install.packages("ggcharts", dependencies=TRUE)} #bar chart
+
+#sentiment analysis:
+if (!require("tm")) {install.packages("tm", dependencies=TRUE)} #build corpus
+if (!require("syuzhet")) {install.packages("syuzhet", dependencies=TRUE)} 
+if (!require("lubridate")) {install.packages("lubridate", dependencies=TRUE)} # for date and time
+if (!require("scales")) {install.packages("scales", dependencies=TRUE)}  # show the colors
+if (!require("reshape2")) {install.packages("reshape2", dependencies=TRUE)} 
+if (!require("tidytext")) {install.packages("tidytext", dependencies=TRUE)} # tokenization
+
+if (!require("wordcloud")) {install.packages("wordcloud", dependencies=TRUE)} # beautiful wordclouds
+if (!require("wordcloud2")) {install.packages("wordcloud2", dependencies=TRUE)} 
+
+
+
+nrc <- read_csv("../input/bing-nrc-afinn-lexicons/NRC.csv",
+                col_types = cols(word = col_character(), sentiment = col_character()))
+```
+
+## Theme Setup
+
+```{r}
+options(repr.plot.width=15, repr.plot.height=7)
+
+# Custom Color Palette
+my_colors <- c("#05A4C0", "#85CEDA", "#D2A7D8", "#A67BC5", "#BB1C8B", "#8D266E")
+show_col(my_colors, labels = F, borders = NA)
+
+
+# Custom Theme Variable
+my_theme <- theme(plot.background = element_rect(fill = "grey98", color = "grey20"),
+                  panel.background = element_rect(fill = "grey98"),
+                  panel.grid.major = element_line(colour = "grey87"),
+                  text = element_text(color = "grey20"),
+                  plot.title = element_text(size = 22),
+                  plot.subtitle = element_text(size = 17),
+                  axis.title = element_text(size = 15),
+                  axis.text = element_text(size = 15),
+                  legend.box.background = element_rect(color = "grey20", fill = "grey98", size = 0.1),
+                  legend.box.margin = margin(t = 3, r = 3, b = 3, l = 3),
+                  legend.title = element_blank(),
+                  legend.text = element_text(size = 15),
+                  strip.text = element_text(size=17))
+
+```
+
+
+## Data
+```{r tweets}
+## get the data 
+# setwd("~/switchdrive/ESC403_FinalProject/Datasets/Cleaned")
+setwd("~/switchdrive/FS21/ESC403/Project")
+
+# data <-read.csv("filtered_tweets.csv", header = T)
+data <-read.csv("filtered_tweets_updateMay2021.csv", header = T)
+data <- data[,-1]
+
+# setwd("~/switchdrive/FS21/ESC403/Project")
+# data.github <-read.csv("filtered_tweets.csv", header = T)
+# data.github <- data.github[,-1]
+# unique(data.github$loc_short)
+
+## look at the dataset
+data %>% head(5)
+str(data)
+summary(data)
+ 
+```
+### Missing information?
+*** No missing values
+```{r}
+aggr(data)
+```
+# Tweets Preparation
+
+## Tweets for 4 countries 
+
+```{r}
+## convert into character vector --> No need aleady char
+ #tweets <- as.character(data$text)
+unique(data$user_location)
+
+## seperate dataframes per country
+UK <- data[data$user_location =="UK",] 
+dim(UK)
+DE <- data[data$user_location =="DE",]
+dim(DE)
+CH <- data[data$user_location =="CH",]
+dim(CH)
+IT <- data[data$user_location =="IT",]
+dim(IT)
+
+```
+UK is the largest data frame, followed by DE, CH, and IT. 
+
+## languages of the tweets
+*** Problem 1: Wanted to check the tweets based on the national languages. 
+
+### UK
+```{r language of UK tweets}
+## Problem 1: language detection
+textcat(c(
+  "This is an English sentence.",
+  "Das ist ein deutscher Satz.",
+  "Esta es una frase en espa~nol.")) #Example
+
+languages.UK<-textcat(UK$text)
+length(unique(languages.UK)) #53
+
+table.UK <- table(languages.UK) %>%
+  as.data.frame() %>%
+  arrange(desc(Freq))
+
+
+#all
+# ggcharts::bar_chart(table.UK, languages.UK,Freq,
+#                     bar_color = "darkblue",
+#                     sort=T)
+
+## Limit the number of bars to the top 10
+ggcharts::bar_chart(table.UK, languages.UK,Freq,
+                    bar_color = "darkblue",
+                    sort=T,
+                    highlight = "english",
+                    top_n = 10)
+
+## Take only English tweets
+UK<- cbind(UK, languages.UK)
+tweets.UK <- UK %>% #54079
+  filter(languages.UK == "english")
+
+
+
+names(tweets.UK) <- c("date"  ,   
+                      "user_name"   ,  "text"        ,  "user_location" ,"languages")
+
+# write.csv(UK, file = "tweets_UK.csv")
+# write.csv(tweets.UK, file = "tweets_UK_english.csv")
+```
+
+### DE
+
+*** now having german as most freuent one, then english
+```{r language of DE tweets}
+## Problem 1: language detection
+languages.DE<-textcat(DE$text)
+length(unique(languages.DE)) #51
+
+table.DE <- table(languages.DE) %>%
+  as.data.frame() %>%
+  arrange(desc(Freq))
+
+#all
+# ggcharts::bar_chart(table.DE, languages.DE,Freq,
+#                     bar_color = "darkblue",
+#                     sort=T)
+
+## Limit the number of bars to the top 10
+ggcharts::bar_chart(table.DE, languages.DE,Freq,
+                    bar_color = "darkblue",
+                    sort=T,
+                    highlight = "german",
+                    top_n = 10)
+
+## Take only English tweets
+DE<- cbind(DE, languages.DE)
+tweets.DE <- DE %>% #54079
+  filter(languages.DE == "english")
+
+
+names(tweets.DE) <- c("date"  ,   
+                      "user_name"   ,  "text"        ,  "user_location" ,"languages")
+
+# write.csv(DE, file = "tweets_DE.csv")
+# write.csv(tweets.DE, file = "tweets_DE_english.csv")
+```
+
+### CH
+
+*** E > D
+```{r language of CH tweets}
+## Problem 1: language detection
+languages.CH<-textcat(CH$text)
+length(unique(languages.CH)) #38
+
+table.CH <- table(languages.CH) %>%
+  as.data.frame() %>%
+  arrange(desc(Freq))
+
+#all
+# ggcharts::bar_chart(table.CH, languages.CH,Freq,
+#                     bar_color = "darkblue",
+#                     sort=T)
+
+## Limit the number of bars to the top 10
+ggcharts::bar_chart(table.CH, languages.CH,Freq,
+                    bar_color = "darkblue",
+                    sort=T,
+                    highlight = "german",
+                    top_n = 10)
+
+## Take only English tweets
+CH<- cbind(CH, languages.CH)
+tweets.CH <- CH %>% #54079
+  filter(languages.CH == "english")
+
+names(tweets.CH) <- c("date"  ,   
+                      "user_name"   ,  "text"        ,  "user_location" ,"languages")
+
+# write.csv(CH, file = "tweets_CH.csv")
+# write.csv(tweets.CH, file = "tweets_CH_english.csv")
+
+```
+
+### IT
+*** E > I
+```{r language of IT tweets}
+## Problem 1: language detection
+languages.IT<-textcat(IT$text)
+length(unique(languages.IT)) #27
+
+table.IT <- table(languages.IT) %>%
+  as.data.frame() %>%
+  arrange(desc(Freq))
+
+#all
+# ggcharts::bar_chart(table.IT, languages.IT,Freq,
+#                     bar_color = "darkblue",
+#                     sort=T)
+
+## Limit the number of bars to the top 10
+ggcharts::bar_chart(table.IT, languages.IT,Freq,
+                    bar_color = "darkblue",
+                    sort=T,
+                    highlight = "italian",
+                    top_n = 10)
+
+## Take only English tweets
+IT<- cbind(IT, languages.IT)
+tweets.IT <- IT %>% #54079
+  filter(languages == "english")
+
+names(tweets.IT) <- c("date"  ,   
+                      "user_name"   ,  "text"        ,  "user_location" ,"languages")
+
+# write.csv(IT, file = "tweets_IT.csv")
+# write.csv(tweets.IT, file = "tweets_IT_english.csv")
+```
+
+
+# Sentiment Analysis
+a.	Tokenization (Segregation into words)
+b.	Cleaning (Removing the special characters)
+c.	Removing Stop words (preposition, auxiliary verbs, etc.) 
+d.	Classification of words (+1: positive, -1 negative, 0: neutral)
+e.	Apply supervised algorithm for classification (train model with word or lexicons, and test on the analysis statement)
+f.	Calculation sentiment of statement (look at polarity) 
+
+
+#  Text Mining
+## Clean Corpus Function
+This predefined function is going to clean the text from:
++ the punctuation - removePunctuation
++ extra white space - stripWhitespace
++ transforms to lower case - tolower
++ stopwords (common words that should be ignored) - stopwords
++ numbers - removeNumbers
++ remove URLs -removeURL
+
+```{r}
+# 
+#  # build corpus with tm
+# corpus <- iconv(tweets.UK$text, to ="utf-8-mac")
+# corpus <- Corpus(VectorSource(corpus))
+# inspect(corpus[1:5]) #check first 5 tweets
+# 
+# 
+# ## clean the tweets
+# corpus <- tm_map(corpus, tolower) #set to lower case
+# corpus <- tm_map(corpus, removePunctuation) #remove punctuation
+# corpus <- tm_map(corpus, removeNumbers) #remove Numbers
+# corpus <- tm_map(corpus, removeNumbers) #remove punctuation
+# inspect(corpus[1:5])
+# #stopwords(kind="german")
+# cleanset.UK <- tm_map(corpus, removeWords, stopwords(kind="english")) #remove stopwords
+# 
+# removeURL <- function(x) gsub('http[[:alnum:]]*',"", x)
+# cleanset.UK <- tm_map(cleanset.UK, content_transformer(removeURL)) #remove URL
+# inspect(cleanset.UK[1:5])
+# 
+# 
+# cleanset.UK <- tm_map(cleanset.UK, stripWhitespace) #remove blank space
+
+
+
+cleanCorpus <- function(text){
+  # punctuation, whitespace, lowercase, numbers
+  text.tmp <- tm_map(text, removePunctuation)
+  text.tmp <- tm_map(text.tmp, stripWhitespace)
+  text.tmp <- tm_map(text.tmp, content_transformer(tolower))
+  text.tmp <- tm_map(text.tmp, removeNumbers)
+  
+  # removes stopwords, too freq. words
+  stopwords_list <- c(stopwords("english"),c("thats","weve","hes","theres","ive","im","will","can","cant","dont","youve","us","youre","youll","theyre","whats","didnt",
+                                             ))
+  freqwords_list <- c("covid", "coronavirus")
+  text.tmp <- tm_map(text.tmp, removeWords, stopwords_list)
+  
+  # remove URLs
+  removeURL <- function(x) gsub('http[[:alnum:]]*',"", x)
+  text.tmp <- tm_map(text.tmp, content_transformer(removeURL))
+
+
+  return(text.tmp)
+}
+
+
+## term document matrix
+tdm <- TermDocumentMatrix(cleanset.UK)
+tdm <- as.matrix(tdm)
+tdm[1:10, 1:20] #pull the tweets based on covid, must values are 0's
+
+cleanset.UK <- tm_map(cleanset.UK, removeWords, "covid")
+tdm <- TermDocumentMatrix(cleanset.UK)
+tdm <- as.matrix(tdm)
+
+
+
+
+# 
+# #Bar plot
+# w <- rowSums(tdm)
+# summary(w)
+# subset.w <- subset(w, w>=100)
+# barplot(subset.w,
+#         las=2,
+#         col=rainbow(50))
+# 
+# 
+# v <- sort(rowSums(tdm),decreasing=TRUE)
+# d <- data.frame(word=names(v), freq=v)
+# head(d, 25)
+# d25<- d[1:25,]
+# print(d25)
+# 
+# barplot(d25$freq, las=2, names.arg=d25$word, 
+#         col="lightblue",
+#         main="most frequent words in Twitter",ylab="Word frequencies")
+
+
+##*********************************************************************
+## still need to remove ?, ..., ??, 's 
+library(stringr)
+twitter_edited <- str_replace_all(string=cleanset.UK, pattern= "[&â€¦™ðŸ¥..._]" , replacement= "")
+inspect(twitter_edited[1:5])
+
+```
+
+```{r}
+# --- UNIGRAM ---
+frequentTerms <- function(text){
+  
+  # create the matrix
+  s.cor <- VCorpus(VectorSource(text))
+  s.cor.cl <- cleanCorpus(s.cor)
+  s.tdm <- TermDocumentMatrix(s.cor.cl)
+  s.tdm <- removeSparseTerms(s.tdm, 0.999)
+  m <- as.matrix(s.tdm)
+  word_freqs <- sort(rowSums(m), decreasing = T)
+  
+  # change to dataframe
+  dm <- data.frame(word=names(word_freqs), freq=word_freqs)
+  
+  return(dm)
+}
+
+
+c_UK <-frequentTerms(tweets.UK$text)
+c_DE <-frequentTerms(tweets.DE$text)
+c_CH <-frequentTerms(tweets.CH$text)
+c_IT <-frequentTerms(tweets.IT$text)
+
+# wc_data <- frequentTerms(tweets$text) %>% filter(word != "covid")
+
+```
+
+
+```{r wordcloud}
+set.seed(1234) #reproducibility
+
+# wordcloud(word=names(v), freq=v,
+#           max.words = 150,
+#           random.order = F,
+#           min.freq = 5,
+#           colors = brewer.pal(8, "Dark2"),
+#           scale = c(7,0.3),
+#           rot.per = 0.3) 
+
+wordcloud2(d25,
+           size = 0.7,
+           shape = 'triangle',
+           rotateRatio = 0.5,
+           minSize = 1)
+
+
+# letterCloud(d,
+#             word = 'covid',
+#             size=1)
+
+```
+
+```{r}
+## obtain the sentiment score
+sentiment.score <- get_nrc_sentiment(tweets.UK$text)
+head(sentiment.score)
+
+#bar plot
+barplot(colSums(sentiment.score),
+        las=2,
+        col = rainbow(10),
+        ylab = 'Count',
+        main = "Sentiment Scores for Covid19 Tweets")
+
+
+
+```
+
+```{r}
+# Extract the location to map it separately
+tweets <- rbind(tweets.CH,tweets.DE,tweets.IT,tweets.UK)
+
+tweets_location <- tweets %>%
+                        # convert to lower case
+                        mutate(user_location = tolower(user_location)) %>%
+                        group_by(user_location) %>%
+                        summarise(n = n(), .groups = "drop_last") %>%
+                        arrange(desc(n))
+
+# Create a new column and fill it with NA
+tweets_location$country <- NA
+
+
+
+tweets %>%
+    group_by(user_location) %>%
+    summarise(n = n(), .groups = "drop_last") %>%
+
+    ggplot(aes(x = reorder(user_location, n), y = n, fill=n)) +
+    geom_bar(stat = "identity") +
+    coord_flip() +
+    scale_fill_gradient(low=my_colors[2], high=my_colors[6], guide="none") +
+    geom_label(aes(label=n), size=5, fill="white") +
+    labs(title = "Countries Location for Tweets", subtitle = " ") +
+    my_theme + theme(axis.text.x = element_blank(),
+                     axis.title = element_blank())
+
+
+```
+
+```{r}
+# Breaks the tweet into words on each row
+# in order to append the "sentiment" of the tweet
+unnest_tweets <- tweets %>% 
+    mutate(text = as.character(tweets$text)) %>% 
+    unnest_tokens(word, text)
+
+aggr(unnest_tweets)
+
+```
+
+
+
+The three lexicons are
+
++ **AFINN** from Finn Årup Nielsen
++ **bing** from Bing Liu and collaborators
++ ***nrc** from Saif Mohammad and Peter Turney
+
+> All three of these lexicons are based on unigrams (or single words). These lexicons contain many English words and the words are assigned scores for positive/negative sentiment, and also possibly emotions like joy, anger, sadness, and so forth. The nrc lexicon categorizes words in a binary fashion (“yes”/“no”) into categories of positive, negative, anger, anticipation, disgust, fear, joy, sadness, surprise, and trust. The bing lexicon categorizes words in a binary fashion into positive and negative categories. The AFINN lexicon assigns words with a score that runs between -5 and 5, with negative scores indicating negative sentiment and positive scores indicating positive sentiment. 
+
+```{r}
+# to see the individual lexicons try
+get_sentiments("afinn")
+get_sentiments("bing")
+get_sentiments("nrc")
+```
+
+```{r}
+## pol. for each day
+tweets_daily_polarity <-unnest_tweets %>%
+        inner_join(get_sentiments("bing"), by = "word") %>%
+  group_by(date, user_location) %>% 
+        filter(!is.na(sentiment)) %>%
+        count(sentiment, sort = F)
+
+
+
+
+```
+
+
+
+### Here index of dates! 
+```{r}
+tt <-unnest_tweets %>%
+   group_by(date, user_location) %>% 
+        mutate(date = as.Date(date),
+               word_count = 1:n(),
+               index = word_count %/% 500 + 1) %>%
+          inner_join(get_sentiments("bing"), by = "word") %>%
+  count(word, index=index, sentiment) %>% 
+        ungroup() %>%
+        spread(sentiment, n, fill = 0) %>%
+        mutate(net_sentiment = positive - negative) %>%
+        ggplot(aes(index, net_sentiment, fill = user_location)) +
+          geom_bar(alpha = 0.5, stat = "identity", show.legend = FALSE) +
+          facet_wrap(~ user_location, ncol = 2, scales = "free_x")+
+  my_theme + theme(axis.text.x = element_blank()) 
+```
+
+
+
+### Negative and positive words
+```{r}
+
+#neg_pos_words_tweets
+unnest_tweets %>% 
+  group_by(date, user_location) %>% 
+   inner_join(get_sentiments("bing"), by = "word") %>%
+    count(word, sentiment, sort=T) %>% 
+    acast(word ~ sentiment, value.var = "n", fill=0) %>% 
+  
+    # wordcloud
+    comparison.cloud(colors=my_colors[c(5, 1)], max.words = 400, title.size = 2,
+                  scale = c(3,.5))
+
+
+
+unnest_tweets %>% 
+  inner_join(get_sentiments("bing"), by = "word") %>%
+  count(sentiment, word, sort=T) %>%
+  group_by(sentiment) %>% 
+  arrange(desc(n)) %>% 
+  slice(1:7) %>% 
+  
+  # Plot:
+  ggplot(aes(x=reorder(word, n), y=n)) +
+  geom_col(aes(fill=sentiment), show.legend = F) +
+  facet_wrap(~sentiment, scales = "free_y", nrow = 2, ncol = 5) +
+  coord_flip() +
+  my_theme + theme(axis.text.x = element_blank()) +
+  labs(x="Word", y="Frequency", title="Sentiment split by most frequent words") +
+  scale_fill_manual(values = c(my_colors, "#BE82AF", "#9D4387", "#DEC0D7",
+                                 "#40BDC8", "#80D3DB", "#BFE9ED"))
+```
+
+
+```{r}
+#### Season and User_location
+
+tweets <- tweets %>%
+            mutate(day_of_month = mday(date),
+                   month = month(date),
+                   season = ifelse(month %in% c(12, 1, 2), "Winter",
+                                   ifelse(month %in% c(3, 4, 5), "Spring", 
+                                          ifelse(month %in% c(6, 7, 8), "Summer", "Autumn"))),
+            )
+
+
+## total 
+ tweets %>% 
+    select(date,user_location,season) %>% 
+  # mutate(season = as.factor(season))  %>% 
+   mutate(date = as.Date(date)) %>% 
+    group_by(date, user_location, season) %>% 
+    summarize(n = n(), .groups = "drop_last") %>%
+
+    ggplot(aes(x=date, y = n, color = season)) +  
+    geom_line(size = 1.5) +
+    coord_cartesian(clip = 'off') +
+    my_theme+
+       theme(axis.title.x = element_blank(),
+           axis.text.x = element_text(angle = 45, vjust = 0.5, size = 8)) +
+    labs(title = "Number of Tweets in Time", subtitle = "2020", y = "Frequency")
+
+## per country
+
+tweets %>% 
+    select(date,user_location,season) %>% 
+    group_by(date, user_location, season) %>% 
+  mutate(date = as.Date(date)) %>%
+    summarize(n = n(), .groups = "drop_last")  %>% 
+
+    ggplot(aes(x=date, y = n, group = user_location, colour= season)) + 
+  facet_wrap(~user_location, scales = "free_y") +
+    geom_line(size = 1.5) +
+    coord_cartesian(clip = 'off') +
+  my_theme+
+     theme(axis.title.x = element_blank(),
+           axis.text.x = element_text(angle = 45, vjust = 0.5, size = 8)) +
+    # scale_x_date(labels = function(x) format(x, "%d-%b")) +
+  # scale_x_date(labels = date_format("%d-%b"), breaks = date_breaks("2 weeks")) +
+    labs(title = "Number of Tweets in Time", subtitle = "2020", y = "Frequency")                 
+```
+
