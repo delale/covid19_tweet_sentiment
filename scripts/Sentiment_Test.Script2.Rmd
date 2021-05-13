@@ -40,13 +40,14 @@ if (!require("scales")) {install.packages("scales", dependencies=TRUE)}  # show 
 if (!require("reshape2")) {install.packages("reshape2", dependencies=TRUE)} 
 if (!require("tidytext")) {install.packages("tidytext", dependencies=TRUE)} # tokenization
 
+
+
+
+if (!require("circlize")) {install.packages("circlize", dependencies=TRUE)} # chord diagramm
+
 if (!require("wordcloud")) {install.packages("wordcloud", dependencies=TRUE)} # beautiful wordclouds
 if (!require("wordcloud2")) {install.packages("wordcloud2", dependencies=TRUE)} 
 
-
-
-nrc <- read_csv("../input/bing-nrc-afinn-lexicons/NRC.csv",
-                col_types = cols(word = col_character(), sentiment = col_character()))
 ```
 
 ## Theme Setup
@@ -420,6 +421,13 @@ c_IT <-frequentTerms(tweets.IT$text)
 ```{r wordcloud}
 set.seed(1234) #reproducibility
 
+
+wc_data <- frequentTerms(tweets$text) %>% filter(word != c("covid", "amp","nhs"))
+
+a <- wordcloud2(wc_data, size=1.6, minSize = 0.9,
+           color='random-light', backgroundColor="black", shape="diamond",
+           fontFamily="HersheySymbol")
+
 # wordcloud(word=names(v), freq=v,
 #           max.words = 150,
 #           random.order = F,
@@ -428,11 +436,11 @@ set.seed(1234) #reproducibility
 #           scale = c(7,0.3),
 #           rot.per = 0.3) 
 
-wordcloud2(d25,
-           size = 0.7,
-           shape = 'triangle',
-           rotateRatio = 0.5,
-           minSize = 1)
+# wordcloud2(d25,
+#            size = 0.7,
+#            shape = 'triangle',
+#            rotateRatio = 0.5,
+#            minSize = 1)
 
 
 # letterCloud(d,
@@ -443,22 +451,40 @@ wordcloud2(d25,
 
 ```{r}
 ## obtain the sentiment score
-sentiment.score <- get_nrc_sentiment(tweets.UK$text)
-head(sentiment.score)
-
-#bar plot
-barplot(colSums(sentiment.score),
-        las=2,
-        col = rainbow(10),
-        ylab = 'Count',
-        main = "Sentiment Scores for Covid19 Tweets")
-
+# sentiment.score <- get_nrc_sentiment(tweets.UK$text)
+# head(sentiment.score)
+# 
+# #bar plot
+# barplot(colSums(sentiment.score),
+#         las=2,
+#         col = rainbow(10),
+#         ylab = 'Count',
+#         main = "Sentiment Scores for Covid19 Tweets")
+# 
 
 
 ```
 
 ```{r}
 # Extract the location to map it separately
+
+df.UK <- data.frame(Date = as.Date(tweets.UK$date))
+df.UK$index <- c(1,1+cumsum(diff(df.UK$Date)!=0))
+tweets.UK <- cbind(tweets.UK,df.UK[2]) 
+
+df.DE <- data.frame(Date = as.Date(tweets.DE$date))
+df.DE$index <- c(1,1+cumsum(diff(df.DE$Date)!=0))
+tweets.DE <- cbind(tweets.DE,df.DE[2]) 
+
+df.CH <- data.frame(Date = as.Date(tweets.CH$date))
+df.CH$index <- c(1,1+cumsum(diff(df.CH$Date)!=0))
+tweets.CH<- cbind(tweets.CH,df.CH[2]) 
+
+df.IT <- data.frame(Date = as.Date(tweets.IT$date))
+df.IT$index <- c(1,1+cumsum(diff(df.IT$Date)!=0))
+tweets.IT <- cbind(tweets.IT,df.IT[2]) 
+
+
 tweets <- rbind(tweets.CH,tweets.DE,tweets.IT,tweets.UK)
 
 tweets_location <- tweets %>%
@@ -467,9 +493,6 @@ tweets_location <- tweets %>%
                         group_by(user_location) %>%
                         summarise(n = n(), .groups = "drop_last") %>%
                         arrange(desc(n))
-
-# Create a new column and fill it with NA
-tweets_location$country <- NA
 
 
 
@@ -531,23 +554,43 @@ tweets_daily_polarity <-unnest_tweets %>%
 ```
 
 
+### bing library
 
 ### Here index of dates! 
+> 
+1.  create an index that breaks up each tweets by each day
+2.  join the bing lexicon with inner_join to assess the positive vs. negative     sentiment of each word
+3.  count up how many positive and negative words there are for every day”
+4.  spread our data 
+5   calculate a net sentiment (positive - negative)
+6.  plot it
+
 ```{r}
-tt <-unnest_tweets %>%
-   group_by(date, user_location) %>% 
+tweets_sentiment <-unnest_tweets %>%
+   group_by(date, user_location, user_name) %>% 
         mutate(date = as.Date(date),
-               word_count = 1:n(),
-               index = word_count %/% 500 + 1) %>%
+               word_count = 1:n()) %>%
           inner_join(get_sentiments("bing"), by = "word") %>%
   count(word, index=index, sentiment) %>% 
-        ungroup() %>%
+        # ungroup() %>%
+        spread(sentiment, n, fill = 0) %>%
+        mutate(net_sentiment = positive - negative)
+
+
+unnest_tweets %>%
+   group_by(date, user_location, user_name) %>% 
+        mutate(date = as.Date(date),
+               word_count = 1:n()) %>%
+          inner_join(get_sentiments("bing"), by = "word") %>%
+  count(word, index=index, sentiment) %>% 
+        # ungroup() %>%
         spread(sentiment, n, fill = 0) %>%
         mutate(net_sentiment = positive - negative) %>%
+  
         ggplot(aes(index, net_sentiment, fill = user_location)) +
           geom_bar(alpha = 0.5, stat = "identity", show.legend = FALSE) +
-          facet_wrap(~ user_location, ncol = 2, scales = "free_x")+
-  my_theme + theme(axis.text.x = element_blank()) 
+          facet_wrap(~ user_location, ncol = 2, scales = "free_y")+
+  my_theme 
 ```
 
 
@@ -584,7 +627,199 @@ unnest_tweets %>%
   labs(x="Word", y="Frequency", title="Sentiment split by most frequent words") +
   scale_fill_manual(values = c(my_colors, "#BE82AF", "#9D4387", "#DEC0D7",
                                  "#40BDC8", "#80D3DB", "#BFE9ED"))
+
+
 ```
+
+## Comparing the three sentiment dictionaries
+```{r}
+
+
+nrc <-unnest_tweets %>%
+   group_by(date, user_location, user_name) %>% 
+        mutate(date = as.Date(date),
+               word_count = 1:n()) %>%
+          inner_join(get_sentiments("bing"), by = "word") %>%
+  count(word, index=index, sentiment) %>% 
+        # ungroup() %>%
+        spread(sentiment, n, fill = 0) %>%
+        mutate(net_sentiment = positive - negative)
+
+
+afinn <- unnest_tweets %>%
+   group_by(date, user_location, user_name) %>% 
+  mutate(date = as.Date(date),
+               word_count = 1:n()) %>%
+          inner_join(get_sentiments("afinn"), by = "word") %>%
+  count(word, index=index, value) %>% 
+        # summarise(sentiment = sum(score)) %>%
+        mutate(method = "AFINN",
+               net_sentiment = value) %>%
+        select(date, user_location, user_name, index, method, net_sentiment)
+# afinn$value <- NULL
+
+
+bing_and_nrc <- bind_rows(unnest_tweets %>%
+                  group_by(date, user_location, user_name) %>% 
+                  mutate(date = as.Date(date),
+               word_count = 1:n()) %>% 
+                  inner_join(get_sentiments("bing"), by = "word") %>%
+                  mutate(method = "BING"),
+          unnest_tweets %>%
+                  group_by(date, user_location, user_name) %>% 
+                  mutate(date = as.Date(date),
+               word_count = 1:n()) %>% 
+                  inner_join(get_sentiments("nrc") %>%
+                                     filter(sentiment %in% c("positive", "negative"))) %>%
+                  mutate(method = "NRC")) %>%
+  count(word,method,  index=index, sentiment) %>% 
+        # ungroup() %>%
+        spread(sentiment, n, fill = 0) %>%
+        mutate(net_sentiment = positive - negative) %>%
+        select(date, user_location, user_name, index, method, net_sentiment)
+
+#Plot:
+tweets_sentiment_scores_method <-bind_rows(afinn, 
+          bing_and_nrc)
+
+write.csv(tweets_sentiment_scores_method, file = "tweets_sentiment_scores_method.csv")
+
+
+bind_rows(afinn, 
+          bing_and_nrc) %>%
+        ungroup() %>%
+  ggplot(aes(index, net_sentiment, fill = method)) +
+  geom_bar(alpha = 0.8, stat = "identity", show.legend = FALSE) +
+  facet_grid(user_location ~ method,scales = "free_y")+
+  my_theme 
+
+```
+
+
+# nrc library
+> 
+
+```{r}
+
+# tweet mood overall:
+unnest_tweets %>% 
+    inner_join(get_sentiments("nrc"), by = "word") %>%
+    filter(!sentiment %in% c("positive", "negative")) %>% 
+    count(sentiment, sort=T) %>% 
+
+    ggplot(aes(x=reorder(sentiment, n), y=n)) +
+    geom_bar(stat="identity", aes(fill=n), show.legend=F) +
+    geom_label(aes(label=format(n, big.mark = ",")), size=5, fill="white") +
+    labs(x="Sentiment", y="Frequency", title="What is the overall mood in Tweets?") +
+    scale_fill_gradient(low = my_colors[3], high = my_colors[1], guide="none") +
+    coord_flip() + 
+    my_theme + theme(axis.text.x = element_blank())
+
+# tweet mood overall:
+options(repr.plot.width=15, repr.plot.height=9)
+unnest_tweets %>% 
+    select(date,user_location, word) %>% 
+    inner_join(get_sentiments("nrc"), by = "word") %>%
+    filter(!sentiment %in% c("positive", "negative")) %>% 
+     group_by( user_location, sentiment) %>% 
+    # count(sentiment, sort=T) %>% 
+   summarize(n = n(), .groups = "drop_last")  %>% 
+
+    ggplot(aes(x=reorder(sentiment, n), y=n)) +
+    geom_bar(stat="identity", aes(fill=n), show.legend=F) +
+    geom_label(aes(label=format(n)), size=3, fill="white") +
+    labs(x="Sentiment", y="Frequency", title="Overall mood in Tweets?") +
+    scale_fill_gradient(low = my_colors[3], high = my_colors[1], guide="none") +
+    coord_flip() + 
+  facet_wrap(~user_location, scales = "free_x")  +
+  my_theme +
+  theme(axis.text.x = element_blank())
+ 
+```
+ Emotions Split by Words
+ 
+```{r}
+
+unnest_tweets %>% 
+   inner_join(get_sentiments("nrc"), by = "word") %>%
+  count(sentiment, word, sort=T) %>%
+  group_by(sentiment) %>% 
+  arrange(desc(n)) %>% 
+  slice(1:7) %>% 
+  
+  # Plot:
+  ggplot(aes(x=reorder(word, n), y=n)) +
+  geom_col(aes(fill=sentiment), show.legend = F) +
+  facet_wrap(~sentiment, scales = "free_y", nrow = 2, ncol = 5) +
+  coord_flip() + theme(axis.text.x = element_blank()) +
+  labs(x="Word", y="Frequency", title="Sentiment split by most frequent words") +
+  scale_fill_manual(values = c(my_colors, "#BE82AF", "#9D4387", "#DEC0D7",
+                                 "#40BDC8", "#80D3DB", "#BFE9ED"))
+```
+
+
+Sentiment Distribution
+```{r}
+unnest_tweets %>% 
+  # Count how many word per value
+  inner_join(get_sentiments("afinn"), "word") %>% 
+  group_by(value) %>% 
+  count(value, sort=T)  %>% 
+  
+  # Plot
+  ggplot(aes(x=value, y=n)) +
+  geom_bar(stat="identity", show.legend = F, width = 0.5, fill = my_colors[1]) +
+  geom_label(aes(label=format(n, big.mark = ",")), size=5) +
+  scale_x_continuous(breaks=seq(-5, 5, 1)) +
+  labs(x="Score", y="Frequency", title="Word count distribution over intensity of sentiment: Neg - Pos") +
+  my_theme + theme(axis.text.y = element_blank())
+```
+
+
+
+
+```{r}
+# Create totals dataframe for the 3 countries
+total_bing <- unnest_tweets %>% 
+  inner_join(get_sentiments("bing"), "word") %>% 
+    count(user_location) %>% 
+    group_by(user_location) %>% 
+    summarise(total_tweets = sum(n), .groups = "drop_last")
+
+
+
+to_plot <- unnest_tweets %>% 
+    # get 'bing' and filter the data
+    inner_join(get_sentiments("bing"), by="word") %>%
+
+    # sum number of words per sentiment and country
+    count(sentiment, user_location) %>% 
+    group_by(user_location, sentiment) %>% 
+    summarise(sentiment_sum = sum(n), .groups = "drop_last") %>% 
+    inner_join(total_bing, by="user_location") %>% 
+    mutate(sentiment_perc = sentiment_sum/total_tweets) %>% 
+    select(user_location, sentiment, sentiment_perc)
+
+# The Chord Diagram  
+circos.clear()
+circos.par(gap.after = c(rep(2, length(unique(to_plot[[1]])) - 1), 15,
+                         rep(2, length(unique(to_plot[[2]])) - 1), 15), gap.degree=2)
+
+myColors = c("UK" = my_colors[3], "CH" = my_colors[4], "DE" = my_colors[5], "IT" = my_colors[2], 
+             "positive" = "#D7DBDD", "negative" = "#D7DBDD")
+
+chordDiagram(to_plot, grid.col = myColors, transparency = 0.2, annotationTrack = c("name", "grid"),
+             annotationTrackHeight = c(0.03, 0.06))
+title("Relationship between Sentiment and Countries")
+
+
+```
+
+CH positively
+UK, IT negatively
+DE balanced
+
+
 
 
 ```{r}
