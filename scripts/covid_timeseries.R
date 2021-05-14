@@ -1,6 +1,6 @@
 ################################################################################
 ## Author: Alessandro De Luca
-## Description: Timeseries of covid-19 cases to use in regression
+## Description: Timeseries of covid-19 cases EDA
 ################################################################################
 
 rm(list = ls())
