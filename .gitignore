@@ -6,3 +6,4 @@
 .gitignore~
 *.docx
 datasets/original/
+*.txt

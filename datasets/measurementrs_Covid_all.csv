@@ -1,0 +1,2509 @@
+"","Country.Region","Province.State","Confirmed","Recovered","Deaths","Date"
+"1","United Kingdom","Anguilla",2,0,0,2020-03-29
+"2","United Kingdom","Bermuda",22,2,0,2020-03-29
+"3","United Kingdom","British Virgin Islands",2,0,0,2020-03-29
+"4","United Kingdom","Cayman Islands",8,0,1,2020-03-29
+"5","United Kingdom","Channel Islands",108,0,2,2020-03-29
+"6","United Kingdom","Gibraltar",65,14,0,2020-03-29
+"7","United Kingdom","Isle of Man",42,0,0,2020-03-29
+"8","United Kingdom","Montserrat",5,0,0,2020-03-29
+"9","United Kingdom","Turks and Caicos Islands",4,0,0,2020-03-29
+"10","Germany","",62095,9211,533,2020-03-29
+"11","Italy","",97689,13030,10779,2020-03-29
+"12","Switzerland","",14829,1595,300,2020-03-29
+"13","United Kingdom","",19522,135,1228,2020-03-29
+"14","United Kingdom","Anguilla",2,0,0,2020-03-30
+"15","United Kingdom","Bermuda",27,2,0,2020-03-30
+"16","United Kingdom","British Virgin Islands",2,0,0,2020-03-30
+"17","United Kingdom","Cayman Islands",12,0,1,2020-03-30
+"18","United Kingdom","Channel Islands",141,0,2,2020-03-30
+"19","United Kingdom","Gibraltar",69,34,0,2020-03-30
+"20","United Kingdom","Isle of Man",49,0,0,2020-03-30
+"21","United Kingdom","Montserrat",5,0,0,2020-03-30
+"22","United Kingdom","Turks and Caicos Islands",5,0,0,2020-03-30
+"23","Germany","",66885,13500,645,2020-03-30
+"24","Italy","",101739,14620,11591,2020-03-30
+"25","Switzerland","",15922,1823,359,2020-03-30
+"26","United Kingdom","",22141,135,1408,2020-03-30
+"27","United Kingdom","Anguilla",2,0,0,2020-03-31
+"28","United Kingdom","Bermuda",32,10,0,2020-03-31
+"29","United Kingdom","British Virgin Islands",3,0,0,2020-03-31
+"30","United Kingdom","Cayman Islands",14,0,1,2020-03-31
+"31","United Kingdom","Channel Islands",141,0,3,2020-03-31
+"32","United Kingdom","Gibraltar",69,34,0,2020-03-31
+"33","United Kingdom","Isle of Man",60,0,0,2020-03-31
+"34","United Kingdom","Montserrat",5,0,0,2020-03-31
+"35","United Kingdom","Turks and Caicos Islands",5,0,0,2020-03-31
+"36","Germany","",71808,16100,775,2020-03-31
+"37","Italy","",105792,15729,12428,2020-03-31
+"38","Switzerland","",16605,1823,433,2020-03-31
+"39","United Kingdom","",25150,135,1789,2020-03-31
+"40","United Kingdom","Anguilla",2,0,0,2020-04-01
+"41","United Kingdom","Bermuda",32,10,0,2020-04-01
+"42","United Kingdom","British Virgin Islands",3,0,0,2020-04-01
+"43","United Kingdom","Cayman Islands",22,0,1,2020-04-01
+"44","United Kingdom","Channel Islands",172,0,3,2020-04-01
+"45","United Kingdom","Gibraltar",81,34,0,2020-04-01
+"46","United Kingdom","Isle of Man",68,0,1,2020-04-01
+"47","United Kingdom","Montserrat",5,0,0,2020-04-01
+"48","United Kingdom","Turks and Caicos Islands",6,0,0,2020-04-01
+"49","Germany","",77872,18700,920,2020-04-01
+"50","Italy","",110574,16847,13155,2020-04-01
+"51","Switzerland","",17768,2967,488,2020-04-01
+"52","United Kingdom","",29474,135,2352,2020-04-01
+"53","United Kingdom","Anguilla",3,0,0,2020-04-02
+"54","United Kingdom","Bermuda",35,11,0,2020-04-02
+"55","United Kingdom","British Virgin Islands",3,0,0,2020-04-02
+"56","United Kingdom","Cayman Islands",28,0,1,2020-04-02
+"57","United Kingdom","Channel Islands",193,0,3,2020-04-02
+"58","United Kingdom","Gibraltar",88,46,0,2020-04-02
+"59","United Kingdom","Isle of Man",95,0,1,2020-04-02
+"60","United Kingdom","Montserrat",5,0,0,2020-04-02
+"61","United Kingdom","Turks and Caicos Islands",5,0,0,2020-04-02
+"62","Germany","",84794,22440,1107,2020-04-02
+"63","Italy","",115242,18278,13915,2020-04-02
+"64","Switzerland","",18827,4013,536,2020-04-02
+"65","United Kingdom","",33718,135,2921,2020-04-02
+"66","United Kingdom","Anguilla",3,0,0,2020-04-03
+"67","United Kingdom","Bermuda",35,14,0,2020-04-03
+"68","United Kingdom","British Virgin Islands",3,0,0,2020-04-03
+"69","United Kingdom","Cayman Islands",28,0,1,2020-04-03
+"70","United Kingdom","Channel Islands",232,13,4,2020-04-03
+"71","United Kingdom","Gibraltar",95,46,0,2020-04-03
+"72","United Kingdom","Isle of Man",114,0,1,2020-04-03
+"73","United Kingdom","Montserrat",6,0,0,2020-04-03
+"74","United Kingdom","Turks and Caicos Islands",5,0,0,2020-04-03
+"75","Germany","",91159,24575,1275,2020-04-03
+"76","Italy","",119827,19758,14681,2020-04-03
+"77","Switzerland","",19606,4846,591,2020-04-03
+"78","United Kingdom","",38168,135,3605,2020-04-03
+"79","United Kingdom","Anguilla",3,0,0,2020-04-04
+"80","United Kingdom","Bermuda",35,14,0,2020-04-04
+"81","United Kingdom","British Virgin Islands",3,0,0,2020-04-04
+"82","United Kingdom","Cayman Islands",35,1,1,2020-04-04
+"83","United Kingdom","Channel Islands",262,13,5,2020-04-04
+"84","United Kingdom","Falkland Islands (Islas Malvinas)",1,0,0,2020-04-04
+"85","United Kingdom","Gibraltar",98,52,0,2020-04-04
+"86","United Kingdom","Isle of Man",126,0,1,2020-04-04
+"87","United Kingdom","Montserrat",6,0,0,2020-04-04
+"88","United Kingdom","Turks and Caicos Islands",5,0,0,2020-04-04
+"89","Germany","",96092,26400,1444,2020-04-04
+"90","Italy","",124632,20996,15362,2020-04-04
+"91","Switzerland","",20505,6415,666,2020-04-04
+"92","United Kingdom","",41903,135,4313,2020-04-04
+"93","United Kingdom","Anguilla",3,0,0,2020-04-05
+"94","United Kingdom","Bermuda",37,14,0,2020-04-05
+"95","United Kingdom","British Virgin Islands",3,0,0,2020-04-05
+"96","United Kingdom","Cayman Islands",35,1,1,2020-04-05
+"97","United Kingdom","Channel Islands",309,27,6,2020-04-05
+"98","United Kingdom","Falkland Islands (Islas Malvinas)",2,0,0,2020-04-05
+"99","United Kingdom","Gibraltar",103,52,0,2020-04-05
+"100","United Kingdom","Isle of Man",127,0,1,2020-04-05
+"101","United Kingdom","Montserrat",6,0,0,2020-04-05
+"102","United Kingdom","Turks and Caicos Islands",5,0,1,2020-04-05
+"103","Germany","",100123,28700,1584,2020-04-05
+"104","Italy","",128948,21815,15887,2020-04-05
+"105","Switzerland","",21100,6415,715,2020-04-05
+"106","United Kingdom","",47806,135,4934,2020-04-05
+"107","United Kingdom","Anguilla",3,0,0,2020-04-06
+"108","United Kingdom","Bermuda",39,17,2,2020-04-06
+"109","United Kingdom","British Virgin Islands",3,0,0,2020-04-06
+"110","United Kingdom","Cayman Islands",39,1,1,2020-04-06
+"111","United Kingdom","Channel Islands",323,27,7,2020-04-06
+"112","United Kingdom","Falkland Islands (Islas Malvinas)",2,0,0,2020-04-06
+"113","United Kingdom","Gibraltar",109,52,0,2020-04-06
+"114","United Kingdom","Isle of Man",139,55,1,2020-04-06
+"115","United Kingdom","Montserrat",6,0,0,2020-04-06
+"116","United Kingdom","Turks and Caicos Islands",8,0,1,2020-04-06
+"117","Germany","",103374,28700,1810,2020-04-06
+"118","Italy","",132547,22837,16523,2020-04-06
+"119","Switzerland","",21657,8056,765,2020-04-06
+"120","United Kingdom","",51608,135,5373,2020-04-06
+"121","United Kingdom","Anguilla",3,0,0,2020-04-07
+"122","United Kingdom","Bermuda",39,17,2,2020-04-07
+"123","United Kingdom","British Virgin Islands",3,0,0,2020-04-07
+"124","United Kingdom","Cayman Islands",45,6,1,2020-04-07
+"125","United Kingdom","Channel Islands",335,34,7,2020-04-07
+"126","United Kingdom","Falkland Islands (Malvinas)",2,0,0,2020-04-07
+"127","United Kingdom","Gibraltar",113,60,0,2020-04-07
+"128","United Kingdom","Isle of Man",150,73,1,2020-04-07
+"129","United Kingdom","Montserrat",9,0,0,2020-04-07
+"130","United Kingdom","Turks and Caicos Islands",8,0,1,2020-04-07
+"131","Germany","",107663,36081,2016,2020-04-07
+"132","Italy","",135586,24392,17127,2020-04-07
+"133","Switzerland","",22253,8704,821,2020-04-07
+"134","United Kingdom","",55242,135,6159,2020-04-07
+"135","United Kingdom","Anguilla",3,0,0,2020-04-08
+"136","United Kingdom","Bermuda",39,23,3,2020-04-08
+"137","United Kingdom","British Virgin Islands",3,0,0,2020-04-08
+"138","United Kingdom","Cayman Islands",45,6,1,2020-04-08
+"139","United Kingdom","Channel Islands",351,38,8,2020-04-08
+"140","United Kingdom","Falkland Islands (Malvinas)",5,1,0,2020-04-08
+"141","United Kingdom","Gibraltar",120,60,0,2020-04-08
+"142","United Kingdom","Isle of Man",158,82,1,2020-04-08
+"143","United Kingdom","Montserrat",9,0,0,2020-04-08
+"144","United Kingdom","Turks and Caicos Islands",8,0,1,2020-04-08
+"145","Germany","",113296,46300,2349,2020-04-08
+"146","Italy","",139422,26491,17669,2020-04-08
+"147","Switzerland","",23280,9800,895,2020-04-08
+"148","United Kingdom","",60733,135,7097,2020-04-08
+"149","United Kingdom","Anguilla",3,0,0,2020-04-09
+"150","United Kingdom","Bermuda",48,25,4,2020-04-09
+"151","United Kingdom","British Virgin Islands",3,0,0,2020-04-09
+"152","United Kingdom","Cayman Islands",45,6,1,2020-04-09
+"153","United Kingdom","Channel Islands",361,40,8,2020-04-09
+"154","United Kingdom","Falkland Islands (Malvinas)",5,1,0,2020-04-09
+"155","United Kingdom","Gibraltar",123,60,0,2020-04-09
+"156","United Kingdom","Isle of Man",190,92,1,2020-04-09
+"157","United Kingdom","Montserrat",9,0,0,2020-04-09
+"158","United Kingdom","Turks and Caicos Islands",8,0,1,2020-04-09
+"159","Germany","",118181,52407,2607,2020-04-09
+"160","Italy","",143626,28470,18279,2020-04-09
+"161","Switzerland","",24051,10600,948,2020-04-09
+"162","United Kingdom","",65077,135,7978,2020-04-09
+"163","United Kingdom","Anguilla",3,0,0,2020-04-10
+"164","United Kingdom","Bermuda",48,25,4,2020-04-10
+"165","United Kingdom","British Virgin Islands",3,0,0,2020-04-10
+"166","United Kingdom","Cayman Islands",45,6,1,2020-04-10
+"167","United Kingdom","Channel Islands",398,40,9,2020-04-10
+"168","United Kingdom","Falkland Islands (Malvinas)",5,1,0,2020-04-10
+"169","United Kingdom","Gibraltar",127,69,0,2020-04-10
+"170","United Kingdom","Isle of Man",201,103,1,2020-04-10
+"171","United Kingdom","Montserrat",9,0,0,2020-04-10
+"172","United Kingdom","Turks and Caicos Islands",8,0,1,2020-04-10
+"173","Germany","",122171,53913,2767,2020-04-10
+"174","Italy","",147577,30455,18849,2020-04-10
+"175","Switzerland","",24551,11100,1002,2020-04-10
+"176","United Kingdom","",73758,344,8958,2020-04-10
+"177","United Kingdom","Anguilla",3,0,0,2020-04-11
+"178","United Kingdom","Bermuda",48,25,4,2020-04-11
+"179","United Kingdom","British Virgin Islands",3,2,0,2020-04-11
+"180","United Kingdom","Cayman Islands",45,6,1,2020-04-11
+"181","United Kingdom","Channel Islands",407,48,9,2020-04-11
+"182","United Kingdom","Falkland Islands (Malvinas)",5,1,0,2020-04-11
+"183","United Kingdom","Gibraltar",129,84,0,2020-04-11
+"184","United Kingdom","Isle of Man",226,112,2,2020-04-11
+"185","United Kingdom","Montserrat",9,0,0,2020-04-11
+"186","United Kingdom","Turks and Caicos Islands",8,0,1,2020-04-11
+"187","Germany","",124908,57400,2736,2020-04-11
+"188","Italy","",152271,32534,19468,2020-04-11
+"189","Switzerland","",25107,12100,1036,2020-04-11
+"190","United Kingdom","",78991,344,9875,2020-04-11
+"191","United Kingdom","Anguilla",3,0,0,2020-04-12
+"192","United Kingdom","Bermuda",57,29,4,2020-04-12
+"193","United Kingdom","British Virgin Islands",3,2,0,2020-04-12
+"194","United Kingdom","Cayman Islands",53,6,1,2020-04-12
+"195","United Kingdom","Channel Islands",431,48,9,2020-04-12
+"196","United Kingdom","Falkland Islands (Malvinas)",5,1,0,2020-04-12
+"197","United Kingdom","Gibraltar",129,84,0,2020-04-12
+"198","United Kingdom","Isle of Man",228,112,2,2020-04-12
+"199","United Kingdom","Montserrat",9,0,0,2020-04-12
+"200","United Kingdom","Turks and Caicos Islands",9,0,1,2020-04-12
+"201","Germany","",127854,60300,3022,2020-04-12
+"202","Italy","",156363,34211,19899,2020-04-12
+"203","Switzerland","",25415,12700,1106,2020-04-12
+"204","United Kingdom","",84279,344,10612,2020-04-12
+"205","United Kingdom","Anguilla",3,1,0,2020-04-13
+"206","United Kingdom","Bermuda",57,30,5,2020-04-13
+"207","United Kingdom","British Virgin Islands",3,2,0,2020-04-13
+"208","United Kingdom","Cayman Islands",53,6,1,2020-04-13
+"209","United Kingdom","Channel Islands",436,48,9,2020-04-13
+"210","United Kingdom","Falkland Islands (Malvinas)",5,1,0,2020-04-13
+"211","United Kingdom","Gibraltar",129,84,0,2020-04-13
+"212","United Kingdom","Isle of Man",242,131,2,2020-04-13
+"213","United Kingdom","Montserrat",11,1,0,2020-04-13
+"214","United Kingdom","Turks and Caicos Islands",10,0,1,2020-04-13
+"215","Germany","",130072,64300,3194,2020-04-13
+"216","Italy","",159516,35435,20465,2020-04-13
+"217","Switzerland","",25688,13700,1138,2020-04-13
+"218","United Kingdom","",88621,0,11329,2020-04-13
+"219","United Kingdom","Anguilla",3,1,0,2020-04-14
+"220","United Kingdom","Bermuda",57,30,5,2020-04-14
+"221","United Kingdom","British Virgin Islands",3,2,0,2020-04-14
+"222","United Kingdom","Cayman Islands",54,6,1,2020-04-14
+"223","United Kingdom","Channel Islands",440,48,13,2020-04-14
+"224","United Kingdom","Falkland Islands (Malvinas)",11,1,0,2020-04-14
+"225","United Kingdom","Gibraltar",129,93,0,2020-04-14
+"226","United Kingdom","Isle of Man",254,141,2,2020-04-14
+"227","United Kingdom","Montserrat",11,1,0,2020-04-14
+"228","United Kingdom","Turks and Caicos Islands",10,0,1,2020-04-14
+"229","Germany","",131359,68200,3294,2020-04-14
+"230","Italy","",162488,37130,21067,2020-04-14
+"231","Switzerland","",25936,13700,1174,2020-04-14
+"232","United Kingdom","",93873,0,12107,2020-04-14
+"233","United Kingdom","Anguilla",3,1,0,2020-04-15
+"234","United Kingdom","Bermuda",81,33,5,2020-04-15
+"235","United Kingdom","British Virgin Islands",3,2,0,2020-04-15
+"236","United Kingdom","Cayman Islands",54,6,1,2020-04-15
+"237","United Kingdom","Channel Islands",447,69,15,2020-04-15
+"238","United Kingdom","Falkland Islands (Malvinas)",11,1,0,2020-04-15
+"239","United Kingdom","Gibraltar",131,104,0,2020-04-15
+"240","United Kingdom","Isle of Man",256,151,4,2020-04-15
+"241","United Kingdom","Montserrat",11,1,0,2020-04-15
+"242","United Kingdom","Turks and Caicos Islands",10,0,1,2020-04-15
+"243","Germany","",134753,72600,3804,2020-04-15
+"244","Italy","",165155,38092,21645,2020-04-15
+"245","Switzerland","",26336,15400,1239,2020-04-15
+"246","United Kingdom","",98476,0,12868,2020-04-15
+"247","United Kingdom","Anguilla",3,1,0,2020-04-16
+"248","United Kingdom","Bermuda",81,33,5,2020-04-16
+"249","United Kingdom","British Virgin Islands",3,2,0,2020-04-16
+"250","United Kingdom","Cayman Islands",60,6,1,2020-04-16
+"251","United Kingdom","Channel Islands",457,73,19,2020-04-16
+"252","United Kingdom","Falkland Islands (Malvinas)",11,1,0,2020-04-16
+"253","United Kingdom","Gibraltar",131,104,0,2020-04-16
+"254","United Kingdom","Isle of Man",284,154,4,2020-04-16
+"255","United Kingdom","Montserrat",11,1,0,2020-04-16
+"256","United Kingdom","Turks and Caicos Islands",11,0,1,2020-04-16
+"257","Germany","",137698,77000,4052,2020-04-16
+"258","Italy","",168941,40164,22170,2020-04-16
+"259","Switzerland","",26732,15900,1281,2020-04-16
+"260","United Kingdom","",103093,0,13729,2020-04-16
+"261","United Kingdom","Anguilla",3,1,0,2020-04-17
+"262","United Kingdom","Bermuda",83,35,5,2020-04-17
+"263","United Kingdom","British Virgin Islands",4,2,0,2020-04-17
+"264","United Kingdom","Cayman Islands",61,7,1,2020-04-17
+"265","United Kingdom","Channel Islands",470,73,20,2020-04-17
+"266","United Kingdom","Falkland Islands (Malvinas)",11,1,0,2020-04-17
+"267","United Kingdom","Gibraltar",132,105,0,2020-04-17
+"268","United Kingdom","Isle of Man",291,169,4,2020-04-17
+"269","United Kingdom","Montserrat",11,1,0,2020-04-17
+"270","United Kingdom","Turks and Caicos Islands",11,0,1,2020-04-17
+"271","Germany","",141397,83114,4352,2020-04-17
+"272","Italy","",172434,42727,22745,2020-04-17
+"273","Switzerland","",27078,16400,1327,2020-04-17
+"274","United Kingdom","",108692,0,14576,2020-04-17
+"275","United Kingdom","Anguilla",3,1,0,2020-04-18
+"276","United Kingdom","Bermuda",83,35,5,2020-04-18
+"277","United Kingdom","British Virgin Islands",4,2,0,2020-04-18
+"278","United Kingdom","Cayman Islands",61,7,1,2020-04-18
+"279","United Kingdom","Channel Islands",484,73,21,2020-04-18
+"280","United Kingdom","Falkland Islands (Malvinas)",11,3,0,2020-04-18
+"281","United Kingdom","Gibraltar",132,111,0,2020-04-18
+"282","United Kingdom","Isle of Man",297,180,6,2020-04-18
+"283","United Kingdom","Montserrat",11,2,0,2020-04-18
+"284","United Kingdom","Turks and Caicos Islands",11,0,1,2020-04-18
+"285","Germany","",143342,85400,4459,2020-04-18
+"286","Italy","",175925,44927,23227,2020-04-18
+"287","Switzerland","",27404,17100,1368,2020-04-18
+"288","United Kingdom","",114217,0,15464,2020-04-18
+"289","United Kingdom","Anguilla",3,1,0,2020-04-19
+"290","United Kingdom","Bermuda",86,35,5,2020-04-19
+"291","United Kingdom","British Virgin Islands",4,2,1,2020-04-19
+"292","United Kingdom","Cayman Islands",61,7,1,2020-04-19
+"293","United Kingdom","Channel Islands",488,73,21,2020-04-19
+"294","United Kingdom","Falkland Islands (Malvinas)",11,3,0,2020-04-19
+"295","United Kingdom","Gibraltar",132,120,0,2020-04-19
+"296","United Kingdom","Isle of Man",298,193,6,2020-04-19
+"297","United Kingdom","Montserrat",11,2,0,2020-04-19
+"298","United Kingdom","Turks and Caicos Islands",11,0,1,2020-04-19
+"299","Germany","",145184,88000,4586,2020-04-19
+"300","Italy","",178972,47055,23660,2020-04-19
+"301","Switzerland","",27740,17800,1393,2020-04-19
+"302","United Kingdom","",120067,0,16060,2020-04-19
+"303","United Kingdom","Anguilla",3,1,0,2020-04-20
+"304","United Kingdom","Bermuda",86,37,5,2020-04-20
+"305","United Kingdom","British Virgin Islands",5,3,1,2020-04-20
+"306","United Kingdom","Cayman Islands",66,7,1,2020-04-20
+"307","United Kingdom","Channel Islands",488,73,24,2020-04-20
+"308","United Kingdom","Falkland Islands (Malvinas)",11,3,0,2020-04-20
+"309","United Kingdom","Gibraltar",132,120,0,2020-04-20
+"310","United Kingdom","Isle of Man",300,200,9,2020-04-20
+"311","United Kingdom","Montserrat",11,2,0,2020-04-20
+"312","United Kingdom","Turks and Caicos Islands",11,0,1,2020-04-20
+"313","Germany","",147065,91500,4862,2020-04-20
+"314","Italy","",181228,48877,24114,2020-04-20
+"315","Switzerland","",27944,18600,1429,2020-04-20
+"316","United Kingdom","",124743,0,16509,2020-04-20
+"317","United Kingdom","Anguilla",3,1,0,2020-04-21
+"318","United Kingdom","Bermuda",86,37,5,2020-04-21
+"319","United Kingdom","British Virgin Islands",5,3,1,2020-04-21
+"320","United Kingdom","Cayman Islands",66,7,1,2020-04-21
+"321","United Kingdom","Channel Islands",496,256,24,2020-04-21
+"322","United Kingdom","Falkland Islands (Malvinas)",11,3,0,2020-04-21
+"323","United Kingdom","Gibraltar",132,120,0,2020-04-21
+"324","United Kingdom","Isle of Man",307,209,9,2020-04-21
+"325","United Kingdom","Montserrat",11,2,0,2020-04-21
+"326","United Kingdom","Turks and Caicos Islands",11,0,1,2020-04-21
+"327","Germany","",148291,95200,5033,2020-04-21
+"328","Italy","",183957,51600,24648,2020-04-21
+"329","Switzerland","",28063,19400,1478,2020-04-21
+"330","United Kingdom","",129044,0,17337,2020-04-21
+"331","United Kingdom","Anguilla",3,1,0,2020-04-22
+"332","United Kingdom","Bermuda",99,39,5,2020-04-22
+"333","United Kingdom","British Virgin Islands",5,3,1,2020-04-22
+"334","United Kingdom","Cayman Islands",66,7,1,2020-04-22
+"335","United Kingdom","Channel Islands",498,285,28,2020-04-22
+"336","United Kingdom","Falkland Islands (Malvinas)",11,3,0,2020-04-22
+"337","United Kingdom","Gibraltar",132,127,0,2020-04-22
+"338","United Kingdom","Isle of Man",307,212,15,2020-04-22
+"339","United Kingdom","Montserrat",11,2,0,2020-04-22
+"340","United Kingdom","Turks and Caicos Islands",11,4,1,2020-04-22
+"341","Germany","",150648,99400,5279,2020-04-22
+"342","Italy","",187327,54543,25085,2020-04-22
+"343","Switzerland","",28268,19900,1509,2020-04-22
+"344","United Kingdom","",133495,0,18100,2020-04-22
+"345","United Kingdom","Anguilla",3,1,0,2020-04-23
+"346","United Kingdom","Bermuda",99,39,5,2020-04-23
+"347","United Kingdom","British Virgin Islands",5,3,1,2020-04-23
+"348","United Kingdom","Cayman Islands",66,7,1,2020-04-23
+"349","United Kingdom","Channel Islands",521,295,29,2020-04-23
+"350","United Kingdom","Falkland Islands (Malvinas)",12,11,0,2020-04-23
+"351","United Kingdom","Gibraltar",133,129,0,2020-04-23
+"352","United Kingdom","Isle of Man",307,221,16,2020-04-23
+"353","United Kingdom","Montserrat",11,2,0,2020-04-23
+"354","United Kingdom","Turks and Caicos Islands",11,4,1,2020-04-23
+"355","Germany","",153129,103300,5575,2020-04-23
+"356","Italy","",189973,57576,25549,2020-04-23
+"357","Switzerland","",28496,20600,1549,2020-04-23
+"358","United Kingdom","",138078,0,18738,2020-04-23
+"359","United Kingdom","Anguilla",3,1,0,2020-04-24
+"360","United Kingdom","Bermuda",99,39,5,2020-04-24
+"361","United Kingdom","British Virgin Islands",5,3,1,2020-04-24
+"362","United Kingdom","Cayman Islands",70,8,1,2020-04-24
+"363","United Kingdom","Channel Islands",523,295,34,2020-04-24
+"364","United Kingdom","Falkland Islands (Malvinas)",13,11,0,2020-04-24
+"365","United Kingdom","Gibraltar",133,131,0,2020-04-24
+"366","United Kingdom","Isle of Man",308,230,18,2020-04-24
+"367","United Kingdom","Montserrat",11,2,1,2020-04-24
+"368","United Kingdom","Turks and Caicos Islands",11,4,1,2020-04-24
+"369","Germany","",154999,109800,5760,2020-04-24
+"370","Italy","",192994,60498,25969,2020-04-24
+"371","Switzerland","",28677,21000,1589,2020-04-24
+"372","United Kingdom","",143464,0,19506,2020-04-24
+"373","United Kingdom","Anguilla",3,1,0,2020-04-25
+"374","United Kingdom","Bermuda",109,39,5,2020-04-25
+"375","United Kingdom","British Virgin Islands",6,3,1,2020-04-25
+"376","United Kingdom","Cayman Islands",70,8,1,2020-04-25
+"377","United Kingdom","Channel Islands",525,332,35,2020-04-25
+"378","United Kingdom","Falkland Islands (Malvinas)",13,11,0,2020-04-25
+"379","United Kingdom","Gibraltar",136,131,0,2020-04-25
+"380","United Kingdom","Isle of Man",308,243,18,2020-04-25
+"381","United Kingdom","Montserrat",11,2,1,2020-04-25
+"382","United Kingdom","Turks and Caicos Islands",11,4,1,2020-04-25
+"383","Germany","",156513,109800,5877,2020-04-25
+"384","Italy","",195351,63120,26384,2020-04-25
+"385","Switzerland","",28894,21300,1599,2020-04-25
+"386","United Kingdom","",148377,0,20319,2020-04-25
+"387","United Kingdom","Anguilla",3,1,0,2020-04-26
+"388","United Kingdom","Bermuda",109,39,5,2020-04-26
+"389","United Kingdom","British Virgin Islands",6,3,1,2020-04-26
+"390","United Kingdom","Cayman Islands",70,8,1,2020-04-26
+"391","United Kingdom","Channel Islands",525,332,35,2020-04-26
+"392","United Kingdom","Falkland Islands (Malvinas)",13,11,0,2020-04-26
+"393","United Kingdom","Gibraltar",141,131,0,2020-04-26
+"394","United Kingdom","Isle of Man",308,247,18,2020-04-26
+"395","United Kingdom","Montserrat",11,2,1,2020-04-26
+"396","United Kingdom","Turks and Caicos Islands",11,4,1,2020-04-26
+"397","Germany","",157770,112000,5976,2020-04-26
+"398","Italy","",197675,64928,26644,2020-04-26
+"399","Switzerland","",29061,21800,1610,2020-04-26
+"400","United Kingdom","",152840,0,20732,2020-04-26
+"401","United Kingdom","Anguilla",3,3,0,2020-04-27
+"402","United Kingdom","Bermuda",110,44,6,2020-04-27
+"403","United Kingdom","British Virgin Islands",6,3,1,2020-04-27
+"404","United Kingdom","Cayman Islands",70,8,1,2020-04-27
+"405","United Kingdom","Channel Islands",525,352,35,2020-04-27
+"406","United Kingdom","Falkland Islands (Malvinas)",13,11,0,2020-04-27
+"407","United Kingdom","Gibraltar",141,131,0,2020-04-27
+"408","United Kingdom","Isle of Man",308,248,20,2020-04-27
+"409","United Kingdom","Montserrat",11,2,1,2020-04-27
+"410","United Kingdom","Turks and Caicos Islands",12,5,1,2020-04-27
+"411","Germany","",158758,114500,6126,2020-04-27
+"412","Italy","",199414,66624,26977,2020-04-27
+"413","Switzerland","",29164,22200,1665,2020-04-27
+"414","United Kingdom","",157149,0,21092,2020-04-27
+"415","United Kingdom","Anguilla",3,3,0,2020-04-28
+"416","United Kingdom","Bermuda",110,44,6,2020-04-28
+"417","United Kingdom","British Virgin Islands",6,3,1,2020-04-28
+"418","United Kingdom","Cayman Islands",70,10,1,2020-04-28
+"419","United Kingdom","Channel Islands",530,352,36,2020-04-28
+"420","United Kingdom","Falkland Islands (Malvinas)",13,11,0,2020-04-28
+"421","United Kingdom","Gibraltar",141,131,0,2020-04-28
+"422","United Kingdom","Isle of Man",309,252,21,2020-04-28
+"423","United Kingdom","Montserrat",11,2,1,2020-04-28
+"424","United Kingdom","Turks and Caicos Islands",12,5,1,2020-04-28
+"425","Germany","",159912,117400,6314,2020-04-28
+"426","Italy","",201505,68941,27359,2020-04-28
+"427","Switzerland","",29264,22600,1699,2020-04-28
+"428","United Kingdom","",161145,0,21678,2020-04-28
+"429","United Kingdom","Anguilla",3,3,0,2020-04-29
+"430","United Kingdom","Bermuda",111,48,6,2020-04-29
+"431","United Kingdom","British Virgin Islands",6,3,1,2020-04-29
+"432","United Kingdom","Cayman Islands",73,10,1,2020-04-29
+"433","United Kingdom","Channel Islands",537,386,38,2020-04-29
+"434","United Kingdom","Falkland Islands (Malvinas)",13,11,0,2020-04-29
+"435","United Kingdom","Gibraltar",141,131,0,2020-04-29
+"436","United Kingdom","Isle of Man",313,258,21,2020-04-29
+"437","United Kingdom","Montserrat",11,2,1,2020-04-29
+"438","United Kingdom","Turks and Caicos Islands",12,5,1,2020-04-29
+"439","Germany","",161539,120400,6467,2020-04-29
+"440","Italy","",203591,71252,27682,2020-04-29
+"441","Switzerland","",29407,22600,1716,2020-04-29
+"442","United Kingdom","",165221,0,26097,2020-04-29
+"443","United Kingdom","Anguilla",3,3,0,2020-04-30
+"444","United Kingdom","Bermuda",114,48,6,2020-04-30
+"445","United Kingdom","British Virgin Islands",6,3,1,2020-04-30
+"446","United Kingdom","Cayman Islands",73,10,1,2020-04-30
+"447","United Kingdom","Channel Islands",537,386,40,2020-04-30
+"448","United Kingdom","Falkland Islands (Malvinas)",13,11,0,2020-04-30
+"449","United Kingdom","Gibraltar",144,131,0,2020-04-30
+"450","United Kingdom","Isle of Man",315,260,21,2020-04-30
+"451","United Kingdom","Montserrat",11,2,1,2020-04-30
+"452","United Kingdom","Turks and Caicos Islands",12,5,1,2020-04-30
+"453","Germany","",163009,123500,6623,2020-04-30
+"454","Italy","",205463,75945,27967,2020-04-30
+"455","Switzerland","",29586,23400,1737,2020-04-30
+"456","United Kingdom","",171253,0,26771,2020-04-30
+"457","Italy","Abruzzo",3356,2773,470,2020-07-24
+"458","United Kingdom","Anguilla",3,3,0,2020-07-24
+"459","Germany","Baden-Wurttemberg",36828,34260,1841,2020-07-24
+"460","Italy","Basilicata",447,373,28,2020-07-24
+"461","Germany","Bayern",50127,46600,2619,2020-07-24
+"462","Germany","Berlin",8956,8418,223,2020-07-24
+"463","United Kingdom","Bermuda",153,139,9,2020-07-24
+"464","Germany","Brandenburg",3544,3300,173,2020-07-24
+"465","Germany","Bremen",1745,1635,55,2020-07-24
+"466","United Kingdom","British Virgin Islands",8,7,1,2020-07-24
+"467","Italy","Calabria",1246,1071,97,2020-07-24
+"468","Italy","Campania",4880,4114,434,2020-07-24
+"469","United Kingdom","Cayman Islands",203,202,1,2020-07-24
+"470","United Kingdom","Channel Islands",584,533,47,2020-07-24
+"471","Italy","Emilia-Romagna",29413,23758,4283,2020-07-24
+"472","United Kingdom","England",256428,0,41082,2020-07-24
+"473","United Kingdom","Falkland Islands (Malvinas)",13,13,0,2020-07-24
+"474","Italy","Friuli Venezia Giulia",3368,2925,345,2020-07-24
+"475","United Kingdom","Gibraltar",184,180,0,2020-07-24
+"476","Germany","Hamburg",5290,5000,261,2020-07-24
+"477","Germany","Hessen",11591,10700,517,2020-07-24
+"478","United Kingdom","Isle of Man",336,312,24,2020-07-24
+"479","Italy","Lazio",8516,6743,857,2020-07-24
+"480","Italy","Liguria",10144,8380,1566,2020-07-24
+"481","Italy","Lombardia",95768,72208,16801,2020-07-24
+"482","Italy","Marche",6816,5697,987,2020-07-24
+"483","Germany","Mecklenburg-Vorpommern",843,786,20,2020-07-24
+"484","Italy","Molise",460,419,23,2020-07-24
+"485","United Kingdom","Montserrat",12,10,1,2020-07-24
+"486","Germany","Niedersachsen",14185,13200,648,2020-07-24
+"487","Germany","Nordrhein-Westfalen",46956,43000,1726,2020-07-24
+"488","United Kingdom","Northern Ireland",5891,0,556,2020-07-24
+"489","Italy","P.A. Bolzano",2687,2312,292,2020-07-24
+"490","Italy","P.A. Trento",4957,4465,405,2020-07-24
+"491","Italy","Piemonte",31578,26679,4123,2020-07-24
+"492","Italy","Puglia",4578,3962,549,2020-07-24
+"493","Germany","Rheinland-Pfalz",7398,6853,238,2020-07-24
+"494","Germany","Saarland",2841,2609,174,2020-07-24
+"495","Germany","Sachsen",5510,5240,225,2020-07-24
+"496","Germany","Sachsen-Anhalt",1981,1855,63,2020-07-24
+"497","Italy","Sardegna",1385,1235,134,2020-07-24
+"498","Germany","Schleswig-Holstein",3311,3100,155,2020-07-24
+"499","United Kingdom","Scotland",18520,0,2491,2020-07-24
+"500","Italy","Sicilia",3166,2713,283,2020-07-24
+"501","Germany","Thuringen",3339,3140,182,2020-07-24
+"502","Italy","Toscana",10405,8939,1131,2020-07-24
+"503","United Kingdom","Turks and Caicos Islands",90,26,2,2020-07-24
+"504","Italy","Umbria",1465,1366,80,2020-07-24
+"505","Germany","Unknown",1178,0,0,2020-07-24
+"506","United Kingdom","Unknown",0,0,0,2020-07-24
+"507","Italy","Valle d'Aosta",1196,1049,146,2020-07-24
+"508","Italy","Veneto",19759,17011,2063,2020-07-24
+"509","United Kingdom","Wales",17075,0,1548,2020-07-24
+"510","Switzerland","",34154,30500,1977,2020-07-24
+"511","Italy","Abruzzo",3359,2777,470,2020-07-25
+"512","United Kingdom","Anguilla",3,3,0,2020-07-25
+"513","Germany","Baden-Wurttemberg",36828,34260,1841,2020-07-25
+"514","Italy","Basilicata",448,374,28,2020-07-25
+"515","Germany","Bayern",50267,46600,2619,2020-07-25
+"516","Germany","Berlin",8990,8429,223,2020-07-25
+"517","United Kingdom","Bermuda",153,139,9,2020-07-25
+"518","Germany","Brandenburg",3543,3300,173,2020-07-25
+"519","Germany","Bremen",1745,1635,55,2020-07-25
+"520","United Kingdom","British Virgin Islands",8,7,1,2020-07-25
+"521","Italy","Calabria",1247,1071,97,2020-07-25
+"522","Italy","Campania",4901,4126,434,2020-07-25
+"523","United Kingdom","Cayman Islands",203,202,1,2020-07-25
+"524","United Kingdom","Channel Islands",584,533,47,2020-07-25
+"525","Italy","Emilia-Romagna",29461,23778,4284,2020-07-25
+"526","United Kingdom","England",257138,0,41143,2020-07-25
+"527","United Kingdom","Falkland Islands (Malvinas)",13,13,0,2020-07-25
+"528","Italy","Friuli Venezia Giulia",3373,2925,345,2020-07-25
+"529","United Kingdom","Gibraltar",185,180,0,2020-07-25
+"530","Germany","Hamburg",5303,5000,261,2020-07-25
+"531","Germany","Hessen",11649,10700,518,2020-07-25
+"532","United Kingdom","Isle of Man",336,312,24,2020-07-25
+"533","Italy","Lazio",8535,6749,858,2020-07-25
+"534","Italy","Liguria",10147,8381,1566,2020-07-25
+"535","Italy","Lombardia",95847,72271,16801,2020-07-25
+"536","Italy","Marche",6818,5702,987,2020-07-25
+"537","Germany","Mecklenburg-Vorpommern",843,786,20,2020-07-25
+"538","Italy","Molise",463,419,23,2020-07-25
+"539","United Kingdom","Montserrat",12,10,1,2020-07-25
+"540","Germany","Niedersachsen",14222,13200,649,2020-07-25
+"541","Germany","Nordrhein-Westfalen",47257,43200,1728,2020-07-25
+"542","United Kingdom","Northern Ireland",5891,0,556,2020-07-25
+"543","Italy","P.A. Bolzano",2693,2314,292,2020-07-25
+"544","Italy","P.A. Trento",4959,4466,405,2020-07-25
+"545","Italy","Piemonte",31594,26677,4125,2020-07-25
+"546","Italy","Puglia",4586,3961,549,2020-07-25
+"547","Germany","Rheinland-Pfalz",7412,6865,238,2020-07-25
+"548","Germany","Saarland",2849,2609,174,2020-07-25
+"549","Germany","Sachsen",5512,5240,225,2020-07-25
+"550","Germany","Sachsen-Anhalt",1981,1855,63,2020-07-25
+"551","Italy","Sardegna",1388,1235,134,2020-07-25
+"552","Germany","Schleswig-Holstein",3318,3100,155,2020-07-25
+"553","United Kingdom","Scotland",18547,0,2491,2020-07-25
+"554","Italy","Sicilia",3179,2715,283,2020-07-25
+"555","Germany","Thuringen",3340,3140,182,2020-07-25
+"556","Italy","Toscana",10415,8941,1131,2020-07-25
+"557","United Kingdom","Turks and Caicos Islands",92,28,2,2020-07-25
+"558","Italy","Umbria",1465,1368,80,2020-07-25
+"559","Germany","Unknown",1219,0,0,2020-07-25
+"560","United Kingdom","Unknown",0,0,0,2020-07-25
+"561","Italy","Valle d'Aosta",1196,1049,146,2020-07-25
+"562","Italy","Veneto",19790,17021,2064,2020-07-25
+"563","United Kingdom","Wales",17105,0,1548,2020-07-25
+"564","Switzerland","",34302,30500,1977,2020-07-25
+"565","Italy","Abruzzo",3359,2777,470,2020-07-26
+"566","United Kingdom","Anguilla",3,3,0,2020-07-26
+"567","Germany","Baden-Wurttemberg",36831,34260,1841,2020-07-26
+"568","Italy","Basilicata",448,374,28,2020-07-26
+"569","Germany","Bayern",50282,46700,2619,2020-07-26
+"570","Germany","Berlin",9000,8450,223,2020-07-26
+"571","United Kingdom","Bermuda",153,139,9,2020-07-26
+"572","Germany","Brandenburg",3544,3300,173,2020-07-26
+"573","Germany","Bremen",1746,1635,55,2020-07-26
+"574","United Kingdom","British Virgin Islands",8,7,1,2020-07-26
+"575","Italy","Calabria",1247,1071,97,2020-07-26
+"576","Italy","Campania",4912,4126,434,2020-07-26
+"577","United Kingdom","Cayman Islands",203,202,1,2020-07-26
+"578","United Kingdom","Channel Islands",584,533,47,2020-07-26
+"579","Italy","Emilia-Romagna",29522,23793,4285,2020-07-26
+"580","United Kingdom","England",257859,0,41156,2020-07-26
+"581","United Kingdom","Falkland Islands (Malvinas)",13,13,0,2020-07-26
+"582","Italy","Friuli Venezia Giulia",3375,2925,345,2020-07-26
+"583","United Kingdom","Gibraltar",185,180,0,2020-07-26
+"584","Germany","Hamburg",5321,5000,261,2020-07-26
+"585","Germany","Hessen",11680,10700,518,2020-07-26
+"586","United Kingdom","Isle of Man",336,312,24,2020-07-26
+"587","Italy","Lazio",8554,6759,860,2020-07-26
+"588","Italy","Liguria",10150,8381,1566,2020-07-26
+"589","Italy","Lombardia",95921,72349,16801,2020-07-26
+"590","Italy","Marche",6825,5716,987,2020-07-26
+"591","Germany","Mecklenburg-Vorpommern",843,786,20,2020-07-26
+"592","Italy","Molise",466,421,23,2020-07-26
+"593","United Kingdom","Montserrat",12,10,1,2020-07-26
+"594","Germany","Niedersachsen",14223,13200,649,2020-07-26
+"595","Germany","Nordrhein-Westfalen",47430,43200,1728,2020-07-26
+"596","United Kingdom","Northern Ireland",5891,0,556,2020-07-26
+"597","Italy","P.A. Bolzano",2698,2314,292,2020-07-26
+"598","Italy","P.A. Trento",4965,4467,405,2020-07-26
+"599","Italy","Piemonte",31606,26678,4126,2020-07-26
+"600","Italy","Puglia",4589,3961,550,2020-07-26
+"601","Germany","Rheinland-Pfalz",7426,6876,238,2020-07-26
+"602","Germany","Saarland",2850,2613,174,2020-07-26
+"603","Germany","Sachsen",5512,5240,225,2020-07-26
+"604","Germany","Sachsen-Anhalt",1986,1855,63,2020-07-26
+"605","Italy","Sardegna",1388,1235,134,2020-07-26
+"606","Germany","Schleswig-Holstein",3322,3100,155,2020-07-26
+"607","United Kingdom","Scotland",18551,0,2491,2020-07-26
+"608","Italy","Sicilia",3193,2715,283,2020-07-26
+"609","Germany","Thuringen",3345,3140,182,2020-07-26
+"610","Italy","Toscana",10430,8944,1131,2020-07-26
+"611","United Kingdom","Turks and Caicos Islands",97,35,2,2020-07-26
+"612","Italy","Umbria",1465,1368,80,2020-07-26
+"613","Germany","Unknown",1326,0,0,2020-07-26
+"614","United Kingdom","Unknown",0,0,0,2020-07-26
+"615","Italy","Valle d'Aosta",1196,1049,146,2020-07-26
+"616","Italy","Veneto",19809,17023,2064,2020-07-26
+"617","United Kingdom","Wales",17125,0,1549,2020-07-26
+"618","Switzerland","",34412,30700,1977,2020-07-26
+"619","Italy","Abruzzo",3368,2783,471,2020-07-27
+"620","United Kingdom","Anguilla",3,3,0,2020-07-27
+"621","Germany","Baden-Wurttemberg",36926,34260,1841,2020-07-27
+"622","Italy","Basilicata",449,374,28,2020-07-27
+"623","Germany","Bayern",50501,46800,2619,2020-07-27
+"624","Germany","Berlin",9019,8482,223,2020-07-27
+"625","United Kingdom","Bermuda",154,141,9,2020-07-27
+"626","Germany","Brandenburg",3545,3300,173,2020-07-27
+"627","Germany","Bremen",1755,1638,55,2020-07-27
+"628","United Kingdom","British Virgin Islands",8,7,1,2020-07-27
+"629","Italy","Calabria",1247,1072,97,2020-07-27
+"630","Italy","Campania",4926,4127,434,2020-07-27
+"631","United Kingdom","Cayman Islands",203,202,1,2020-07-27
+"632","United Kingdom","Channel Islands",584,533,47,2020-07-27
+"633","Italy","Emilia-Romagna",29555,23814,4285,2020-07-27
+"634","United Kingdom","England",258475,0,41163,2020-07-27
+"635","United Kingdom","Falkland Islands (Malvinas)",13,13,0,2020-07-27
+"636","Italy","Friuli Venezia Giulia",3375,2918,345,2020-07-27
+"637","United Kingdom","Gibraltar",185,180,0,2020-07-27
+"638","Germany","Hamburg",5325,5000,261,2020-07-27
+"639","Germany","Hessen",11685,10700,518,2020-07-27
+"640","United Kingdom","Isle of Man",336,312,24,2020-07-27
+"641","Italy","Lazio",8567,6762,861,2020-07-27
+"642","Italy","Liguria",10174,8398,1566,2020-07-27
+"643","Italy","Lombardia",95955,72429,16801,2020-07-27
+"644","Italy","Marche",6827,5728,987,2020-07-27
+"645","Germany","Mecklenburg-Vorpommern",845,786,20,2020-07-27
+"646","Italy","Molise",469,421,23,2020-07-27
+"647","United Kingdom","Montserrat",12,10,1,2020-07-27
+"648","Germany","Niedersachsen",14241,13200,649,2020-07-27
+"649","Germany","Nordrhein-Westfalen",47471,43300,1728,2020-07-27
+"650","United Kingdom","Northern Ireland",5912,0,556,2020-07-27
+"651","Italy","P.A. Bolzano",2700,2314,292,2020-07-27
+"652","Italy","P.A. Trento",4966,4467,405,2020-07-27
+"653","Italy","Piemonte",31610,26681,4127,2020-07-27
+"654","Italy","Puglia",4592,3962,551,2020-07-27
+"655","Germany","Rheinland-Pfalz",7434,6886,238,2020-07-27
+"656","Germany","Saarland",2851,2617,174,2020-07-27
+"657","Germany","Sachsen",5514,5245,225,2020-07-27
+"658","Germany","Sachsen-Anhalt",1993,1860,64,2020-07-27
+"659","Italy","Sardegna",1386,1236,135,2020-07-27
+"660","Germany","Schleswig-Holstein",3341,3100,155,2020-07-27
+"661","United Kingdom","Scotland",18554,0,2491,2020-07-27
+"662","Italy","Sicilia",3196,2719,283,2020-07-27
+"663","Germany","Thuringen",3347,3140,182,2020-07-27
+"664","Italy","Toscana",10438,8944,1131,2020-07-27
+"665","United Kingdom","Turks and Caicos Islands",99,36,2,2020-07-27
+"666","Italy","Umbria",1465,1368,80,2020-07-27
+"667","Germany","Unknown",1319,0,0,2020-07-27
+"668","United Kingdom","Unknown",0,0,0,2020-07-27
+"669","Italy","Valle d'Aosta",1196,1049,146,2020-07-27
+"670","Italy","Veneto",19825,17027,2064,2020-07-27
+"671","United Kingdom","Wales",17170,0,1549,2020-07-27
+"672","Switzerland","",34477,30900,1978,2020-07-27
+"673","Italy","Abruzzo",3369,2790,472,2020-07-28
+"674","United Kingdom","Anguilla",3,3,0,2020-07-28
+"675","Germany","Baden-Wurttemberg",37047,34291,1843,2020-07-28
+"676","Italy","Basilicata",449,374,28,2020-07-28
+"677","Germany","Bayern",50589,46800,2619,2020-07-28
+"678","Germany","Berlin",9070,8514,223,2020-07-28
+"679","United Kingdom","Bermuda",156,141,9,2020-07-28
+"680","Germany","Brandenburg",3550,3300,173,2020-07-28
+"681","Germany","Bremen",1761,1638,55,2020-07-28
+"682","United Kingdom","British Virgin Islands",8,7,1,2020-07-28
+"683","Italy","Calabria",1252,1072,97,2020-07-28
+"684","Italy","Campania",4955,4128,434,2020-07-28
+"685","United Kingdom","Cayman Islands",203,202,1,2020-07-28
+"686","United Kingdom","Channel Islands",587,533,47,2020-07-28
+"687","Italy","Emilia-Romagna",29575,23830,4286,2020-07-28
+"688","United Kingdom","England",259022,0,41282,2020-07-28
+"689","United Kingdom","Falkland Islands (Malvinas)",13,13,0,2020-07-28
+"690","Italy","Friuli Venezia Giulia",3375,2918,345,2020-07-28
+"691","United Kingdom","Gibraltar",186,180,0,2020-07-28
+"692","Germany","Hamburg",5337,5000,261,2020-07-28
+"693","Germany","Hessen",11743,10800,518,2020-07-28
+"694","United Kingdom","Isle of Man",336,312,24,2020-07-28
+"695","Italy","Lazio",8577,6773,862,2020-07-28
+"696","Italy","Liguria",10177,8402,1566,2020-07-28
+"697","Italy","Lombardia",96008,72528,16802,2020-07-28
+"698","Italy","Marche",6838,5731,987,2020-07-28
+"699","Germany","Mecklenburg-Vorpommern",849,786,20,2020-07-28
+"700","Italy","Molise",469,421,23,2020-07-28
+"701","United Kingdom","Montserrat",12,10,1,2020-07-28
+"702","Germany","Niedersachsen",14288,13200,649,2020-07-28
+"703","Germany","Nordrhein-Westfalen",47740,43500,1730,2020-07-28
+"704","United Kingdom","Northern Ireland",5912,0,556,2020-07-28
+"705","Italy","P.A. Bolzano",2692,2315,292,2020-07-28
+"706","Italy","P.A. Trento",4966,4467,405,2020-07-28
+"707","Italy","Piemonte",31622,26694,4127,2020-07-28
+"708","Italy","Puglia",4596,3963,551,2020-07-28
+"709","Germany","Rheinland-Pfalz",7445,6909,239,2020-07-28
+"710","Germany","Saarland",2852,2617,174,2020-07-28
+"711","Germany","Sachsen",5522,5245,225,2020-07-28
+"712","Germany","Sachsen-Anhalt",1999,1861,64,2020-07-28
+"713","Italy","Sardegna",1392,1237,134,2020-07-28
+"714","Germany","Schleswig-Holstein",3379,3100,156,2020-07-28
+"715","United Kingdom","Scotland",18554,0,2491,2020-07-28
+"716","Italy","Sicilia",3215,2726,283,2020-07-28
+"717","Germany","Thuringen",3351,3150,182,2020-07-28
+"718","Italy","Toscana",10441,8944,1134,2020-07-28
+"719","United Kingdom","Turks and Caicos Islands",99,37,2,2020-07-28
+"720","Italy","Umbria",1465,1368,80,2020-07-28
+"721","Germany","Unknown",1185,0,0,2020-07-28
+"722","United Kingdom","Unknown",34,0,0,2020-07-28
+"723","Italy","Valle d'Aosta",1206,1049,146,2020-07-28
+"724","Italy","Veneto",19849,17026,2069,2020-07-28
+"725","United Kingdom","Wales",17170,0,1549,2020-07-28
+"726","Switzerland","",34609,31000,1978,2020-07-28
+"727","Italy","Abruzzo",3373,2792,472,2020-07-29
+"728","United Kingdom","Anguilla",3,3,0,2020-07-29
+"729","Germany","Baden-Wurttemberg",37124,34400,1845,2020-07-29
+"730","Italy","Basilicata",449,374,28,2020-07-29
+"731","Germany","Bayern",50701,46900,2621,2020-07-29
+"732","Germany","Berlin",9149,8542,223,2020-07-29
+"733","United Kingdom","Bermuda",156,141,9,2020-07-29
+"734","Germany","Brandenburg",3559,3300,173,2020-07-29
+"735","Germany","Bremen",1766,1645,55,2020-07-29
+"736","United Kingdom","British Virgin Islands",8,7,1,2020-07-29
+"737","Italy","Calabria",1255,1072,97,2020-07-29
+"738","Italy","Campania",4974,4132,434,2020-07-29
+"739","United Kingdom","Cayman Islands",203,202,1,2020-07-29
+"740","United Kingdom","Channel Islands",587,533,47,2020-07-29
+"741","Italy","Emilia-Romagna",29603,23865,4287,2020-07-29
+"742","United Kingdom","England",259722,0,41360,2020-07-29
+"743","United Kingdom","Falkland Islands (Malvinas)",13,13,0,2020-07-29
+"744","Italy","Friuli Venezia Giulia",3378,2921,345,2020-07-29
+"745","United Kingdom","Gibraltar",186,180,0,2020-07-29
+"746","Germany","Hamburg",5355,5000,261,2020-07-29
+"747","Germany","Hessen",11806,10800,518,2020-07-29
+"748","United Kingdom","Isle of Man",336,312,24,2020-07-29
+"749","Italy","Lazio",8611,6780,862,2020-07-29
+"750","Italy","Liguria",10197,8434,1566,2020-07-29
+"751","Italy","Lombardia",96054,72689,16802,2020-07-29
+"752","Italy","Marche",6855,5738,987,2020-07-29
+"753","Germany","Mecklenburg-Vorpommern",861,786,20,2020-07-29
+"754","Italy","Molise",470,421,23,2020-07-29
+"755","United Kingdom","Montserrat",12,10,1,2020-07-29
+"756","Germany","Niedersachsen",14313,13300,649,2020-07-29
+"757","Germany","Nordrhein-Westfalen",47965,43700,1730,2020-07-29
+"758","United Kingdom","Northern Ireland",5930,0,556,2020-07-29
+"759","Italy","P.A. Bolzano",2696,2318,292,2020-07-29
+"760","Italy","P.A. Trento",4970,4467,405,2020-07-29
+"761","Italy","Piemonte",31636,26707,4128,2020-07-29
+"762","Italy","Puglia",4606,3963,551,2020-07-29
+"763","Germany","Rheinland-Pfalz",7475,6924,239,2020-07-29
+"764","Germany","Saarland",2857,2620,174,2020-07-29
+"765","Germany","Sachsen",5529,5245,225,2020-07-29
+"766","Germany","Sachsen-Anhalt",2011,1867,64,2020-07-29
+"767","Italy","Sardegna",1394,1237,134,2020-07-29
+"768","Germany","Schleswig-Holstein",3401,3100,156,2020-07-29
+"769","United Kingdom","Scotland",18580,0,2491,2020-07-29
+"770","Italy","Sicilia",3233,2726,283,2020-07-29
+"771","Germany","Thuringen",3356,3150,182,2020-07-29
+"772","Italy","Toscana",10458,8944,1134,2020-07-29
+"773","United Kingdom","Turks and Caicos Islands",104,37,2,2020-07-29
+"774","Italy","Umbria",1465,1368,80,2020-07-29
+"775","Germany","Unknown",1318,0,0,2020-07-29
+"776","United Kingdom","Unknown",0,0,0,2020-07-29
+"777","Italy","Valle d'Aosta",1208,1049,146,2020-07-29
+"778","Italy","Veneto",19891,17034,2073,2020-07-29
+"779","United Kingdom","Wales",17223,0,1554,2020-07-29
+"780","Switzerland","",34802,31100,1979,2020-07-29
+"781","Italy","Abruzzo",3377,2799,472,2020-07-30
+"782","United Kingdom","Anguilla",3,3,0,2020-07-30
+"783","Germany","Baden-Wurttemberg",37233,34401,1847,2020-07-30
+"784","Italy","Basilicata",449,374,28,2020-07-30
+"785","Germany","Bayern",50821,46930,2622,2020-07-30
+"786","Germany","Berlin",9191,8572,223,2020-07-30
+"787","United Kingdom","Bermuda",156,141,9,2020-07-30
+"788","Germany","Brandenburg",3571,3300,173,2020-07-30
+"789","Germany","Bremen",1777,1647,56,2020-07-30
+"790","United Kingdom","British Virgin Islands",8,7,1,2020-07-30
+"791","Italy","Calabria",1262,1072,97,2020-07-30
+"792","Italy","Campania",4990,4157,434,2020-07-30
+"793","United Kingdom","Cayman Islands",203,202,1,2020-07-30
+"794","United Kingdom","Channel Islands",587,533,47,2020-07-30
+"795","Italy","Emilia-Romagna",29634,23874,4289,2020-07-30
+"796","United Kingdom","England",260534,0,41398,2020-07-30
+"797","United Kingdom","Falkland Islands (Malvinas)",13,13,0,2020-07-30
+"798","Italy","Friuli Venezia Giulia",3391,2924,345,2020-07-30
+"799","United Kingdom","Gibraltar",187,180,0,2020-07-30
+"800","Germany","Hamburg",5385,5000,261,2020-07-30
+"801","Germany","Hessen",11895,10800,519,2020-07-30
+"802","United Kingdom","Isle of Man",336,312,24,2020-07-30
+"803","Italy","Lazio",8629,6829,863,2020-07-30
+"804","Italy","Liguria",10210,8448,1566,2020-07-30
+"805","Italy","Lombardia",96142,73305,16802,2020-07-30
+"806","Italy","Marche",6863,5746,987,2020-07-30
+"807","Germany","Mecklenburg-Vorpommern",864,787,20,2020-07-30
+"808","Italy","Molise",470,421,23,2020-07-30
+"809","United Kingdom","Montserrat",12,10,1,2020-07-30
+"810","Germany","Niedersachsen",14382,13300,651,2020-07-30
+"811","Germany","Nordrhein-Westfalen",48301,43868,1732,2020-07-30
+"812","United Kingdom","Northern Ireland",5938,0,556,2020-07-30
+"813","Italy","P.A. Bolzano",2702,2318,292,2020-07-30
+"814","Italy","P.A. Trento",4973,4467,405,2020-07-30
+"815","Italy","Piemonte",31646,26728,4128,2020-07-30
+"816","Italy","Puglia",4609,3964,551,2020-07-30
+"817","Germany","Rheinland-Pfalz",7488,6944,239,2020-07-30
+"818","Germany","Saarland",2862,2625,174,2020-07-30
+"819","Germany","Sachsen",5533,5255,225,2020-07-30
+"820","Germany","Sachsen-Anhalt",2017,1872,64,2020-07-30
+"821","Italy","Sardegna",1394,1237,134,2020-07-30
+"822","Germany","Schleswig-Holstein",3427,3100,156,2020-07-30
+"823","United Kingdom","Scotland",18597,0,2491,2020-07-30
+"824","Italy","Sicilia",3272,2730,283,2020-07-30
+"825","Germany","Thuringen",3358,3150,182,2020-07-30
+"826","Italy","Toscana",10469,8946,1134,2020-07-30
+"827","United Kingdom","Turks and Caicos Islands",104,37,2,2020-07-30
+"828","Italy","Umbria",1465,1368,80,2020-07-30
+"829","Germany","Unknown",1430,0,0,2020-07-30
+"830","United Kingdom","Unknown",0,0,0,2020-07-30
+"831","Italy","Valle d'Aosta",1208,1050,146,2020-07-30
+"832","Italy","Veneto",20003,17039,2073,2020-07-30
+"833","United Kingdom","Wales",17232,0,1554,2020-07-30
+"834","Switzerland","",35022,31100,1980,2020-07-30
+"835","Italy","Abruzzo",3382,2799,472,2020-07-31
+"836","United Kingdom","Anguilla",3,3,0,2020-07-31
+"837","Germany","Baden-Wurttemberg",37317,34448,1847,2020-07-31
+"838","Italy","Basilicata",452,374,28,2020-07-31
+"839","Germany","Bayern",50919,46990,2622,2020-07-31
+"840","Germany","Berlin",9273,8590,223,2020-07-31
+"841","United Kingdom","Bermuda",156,141,9,2020-07-31
+"842","Germany","Brandenburg",3582,3300,173,2020-07-31
+"843","Germany","Bremen",1784,1656,56,2020-07-31
+"844","United Kingdom","British Virgin Islands",8,7,1,2020-07-31
+"845","Italy","Calabria",1266,1072,97,2020-07-31
+"846","Italy","Campania",4999,4169,435,2020-07-31
+"847","United Kingdom","Cayman Islands",203,202,1,2020-07-31
+"848","United Kingdom","Channel Islands",587,533,47,2020-07-31
+"849","Italy","Emilia-Romagna",29670,23885,4289,2020-07-31
+"850","United Kingdom","England",261348,0,41512,2020-07-31
+"851","United Kingdom","Falkland Islands (Malvinas)",13,13,0,2020-07-31
+"852","Italy","Friuli Venezia Giulia",3394,2927,345,2020-07-31
+"853","United Kingdom","Gibraltar",187,181,0,2020-07-31
+"854","Germany","Hamburg",5401,5000,261,2020-07-31
+"855","Germany","Hessen",11965,10800,520,2020-07-31
+"856","United Kingdom","Isle of Man",336,312,24,2020-07-31
+"857","Italy","Lazio",8647,6839,863,2020-07-31
+"858","Italy","Liguria",10214,8447,1567,2020-07-31
+"859","Italy","Lombardia",96219,73402,16806,2020-07-31
+"860","Italy","Marche",6884,5750,987,2020-07-31
+"861","Germany","Mecklenburg-Vorpommern",868,789,20,2020-07-31
+"862","Italy","Molise",471,421,23,2020-07-31
+"863","United Kingdom","Montserrat",12,10,1,2020-07-31
+"864","Germany","Niedersachsen",14440,13300,652,2020-07-31
+"865","Germany","Nordrhein-Westfalen",48689,44151,1733,2020-07-31
+"866","United Kingdom","Northern Ireland",5948,0,556,2020-07-31
+"867","Italy","P.A. Bolzano",2717,2323,292,2020-07-31
+"868","Italy","P.A. Trento",4975,4470,405,2020-07-31
+"869","Italy","Piemonte",31667,26739,4129,2020-07-31
+"870","Italy","Puglia",4611,3964,552,2020-07-31
+"871","Germany","Rheinland-Pfalz",7516,6961,239,2020-07-31
+"872","Germany","Saarland",2862,2625,174,2020-07-31
+"873","Germany","Sachsen",5539,5260,225,2020-07-31
+"874","Germany","Sachsen-Anhalt",2024,1872,64,2020-07-31
+"875","Italy","Sardegna",1404,1237,134,2020-07-31
+"876","Germany","Schleswig-Holstein",3451,3100,156,2020-07-31
+"877","United Kingdom","Scotland",18627,0,2491,2020-07-31
+"878","Italy","Sicilia",3288,2730,283,2020-07-31
+"879","Germany","Thuringen",3361,3150,182,2020-07-31
+"880","Italy","Toscana",10483,8962,1134,2020-07-31
+"881","United Kingdom","Turks and Caicos Islands",107,37,2,2020-07-31
+"882","Italy","Umbria",1466,1368,80,2020-07-31
+"883","Germany","Unknown",1408,0,0,2020-07-31
+"884","United Kingdom","Unknown",0,0,0,2020-07-31
+"885","Italy","Valle d'Aosta",1208,1050,146,2020-07-31
+"886","Italy","Veneto",20120,17046,2074,2020-07-31
+"887","United Kingdom","Wales",17258,0,1560,2020-07-31
+"888","Switzerland","",35232,31100,1981,2020-07-31
+"889","Italy","Abruzzo",3387,2800,472,2020-08-01
+"890","United Kingdom","Anguilla",3,3,0,2020-08-01
+"891","Germany","Baden-Wurttemberg",37317,34448,1847,2020-08-01
+"892","Italy","Basilicata",452,374,28,2020-08-01
+"893","Germany","Bayern",51068,47100,2622,2020-08-01
+"894","Germany","Berlin",9318,8627,223,2020-08-01
+"895","United Kingdom","Bermuda",156,141,9,2020-08-01
+"896","Germany","Brandenburg",3591,3300,173,2020-08-01
+"897","Germany","Bremen",1784,1656,56,2020-08-01
+"898","United Kingdom","British Virgin Islands",8,7,1,2020-08-01
+"899","Italy","Calabria",1269,1075,97,2020-08-01
+"900","Italy","Campania",5009,4177,435,2020-08-01
+"901","United Kingdom","Cayman Islands",203,202,1,2020-08-01
+"902","United Kingdom","Channel Islands",587,533,47,2020-08-01
+"903","Italy","Emilia-Romagna",29726,23925,4291,2020-08-01
+"904","United Kingdom","England",262070,0,41584,2020-08-01
+"905","United Kingdom","Falkland Islands (Malvinas)",13,13,0,2020-08-01
+"906","Italy","Friuli Venezia Giulia",3401,2927,345,2020-08-01
+"907","United Kingdom","Gibraltar",188,182,0,2020-08-01
+"908","Germany","Hamburg",5420,5000,261,2020-08-01
+"909","Germany","Hessen",12029,10900,520,2020-08-01
+"910","United Kingdom","Isle of Man",336,312,24,2020-08-01
+"911","Italy","Lazio",8665,6852,863,2020-08-01
+"912","Italy","Liguria",10230,8450,1567,2020-08-01
+"913","Italy","Lombardia",96274,73512,16807,2020-08-01
+"914","Italy","Marche",6889,5758,987,2020-08-01
+"915","Germany","Mecklenburg-Vorpommern",875,791,20,2020-08-01
+"916","Italy","Molise",473,421,23,2020-08-01
+"917","United Kingdom","Montserrat",12,10,1,2020-08-01
+"918","Germany","Niedersachsen",14499,13400,653,2020-08-01
+"919","Germany","Nordrhein-Westfalen",49102,44417,1739,2020-08-01
+"920","United Kingdom","Northern Ireland",5948,0,556,2020-08-01
+"921","Italy","P.A. Bolzano",2725,2326,292,2020-08-01
+"922","Italy","P.A. Trento",4975,4471,405,2020-08-01
+"923","Italy","Piemonte",31683,26753,4129,2020-08-01
+"924","Italy","Puglia",4631,3967,552,2020-08-01
+"925","Germany","Rheinland-Pfalz",7533,6989,239,2020-08-01
+"926","Germany","Saarland",2874,2626,174,2020-08-01
+"927","Germany","Sachsen",5541,5260,225,2020-08-01
+"928","Germany","Sachsen-Anhalt",2024,1872,64,2020-08-01
+"929","Italy","Sardegna",1410,1237,134,2020-08-01
+"930","Germany","Schleswig-Holstein",3463,3100,156,2020-08-01
+"931","United Kingdom","Scotland",18645,0,2491,2020-08-01
+"932","Italy","Sicilia",3298,2734,283,2020-08-01
+"933","Germany","Thuringen",3369,3150,182,2020-08-01
+"934","Italy","Toscana",10489,8962,1135,2020-08-01
+"935","United Kingdom","Turks and Caicos Islands",114,38,2,2020-08-01
+"936","Italy","Umbria",1472,1368,80,2020-08-01
+"937","Germany","Unknown",1198,0,0,2020-08-01
+"938","United Kingdom","Unknown",10,0,0,2020-08-01
+"939","Italy","Valle d'Aosta",1208,1050,146,2020-08-01
+"940","Italy","Veneto",20166,17090,2075,2020-08-01
+"941","United Kingdom","Wales",17279,0,1562,2020-08-01
+"942","Switzerland","",35412,31300,1981,2020-08-01
+"943","Italy","Abruzzo",3389,2801,472,2020-08-02
+"944","United Kingdom","Anguilla",3,3,0,2020-08-02
+"945","Germany","Baden-Wurttemberg",37317,34448,1847,2020-08-02
+"946","Italy","Basilicata",453,374,28,2020-08-02
+"947","Germany","Bayern",51080,47200,2622,2020-08-02
+"948","Germany","Berlin",9327,8658,223,2020-08-02
+"949","United Kingdom","Bermuda",157,143,9,2020-08-02
+"950","Germany","Brandenburg",3592,3300,173,2020-08-02
+"951","Germany","Bremen",1784,1656,56,2020-08-02
+"952","United Kingdom","British Virgin Islands",8,7,1,2020-08-02
+"953","Italy","Calabria",1270,1075,97,2020-08-02
+"954","Italy","Campania",5016,4180,435,2020-08-02
+"955","United Kingdom","Cayman Islands",203,202,1,2020-08-02
+"956","United Kingdom","Channel Islands",587,533,47,2020-08-02
+"957","Italy","Emilia-Romagna",29774,23943,4291,2020-08-02
+"958","United Kingdom","England",262746,0,41589,2020-08-02
+"959","United Kingdom","Falkland Islands (Malvinas)",13,13,0,2020-08-02
+"960","Italy","Friuli Venezia Giulia",3411,2929,345,2020-08-02
+"961","United Kingdom","Gibraltar",188,183,0,2020-08-02
+"962","Germany","Hamburg",5435,5000,261,2020-08-02
+"963","Germany","Hessen",12117,11000,520,2020-08-02
+"964","United Kingdom","Isle of Man",336,312,24,2020-08-02
+"965","Italy","Lazio",8682,6855,863,2020-08-02
+"966","Italy","Liguria",10236,8453,1567,2020-08-02
+"967","Italy","Lombardia",96312,73676,16815,2020-08-02
+"968","Italy","Marche",6897,5763,987,2020-08-02
+"969","Germany","Mecklenburg-Vorpommern",877,792,20,2020-08-02
+"970","Italy","Molise",475,421,23,2020-08-02
+"971","United Kingdom","Montserrat",13,10,1,2020-08-02
+"972","Germany","Niedersachsen",14524,13400,653,2020-08-02
+"973","Germany","Nordrhein-Westfalen",49145,44417,1739,2020-08-02
+"974","United Kingdom","Northern Ireland",5948,0,556,2020-08-02
+"975","Italy","P.A. Bolzano",2728,2329,292,2020-08-02
+"976","Italy","P.A. Trento",4979,4475,405,2020-08-02
+"977","Italy","Piemonte",31698,26759,4129,2020-08-02
+"978","Italy","Puglia",4639,3967,552,2020-08-02
+"979","Germany","Rheinland-Pfalz",7535,7016,239,2020-08-02
+"980","Germany","Saarland",2879,2629,174,2020-08-02
+"981","Germany","Sachsen",5541,5260,225,2020-08-02
+"982","Germany","Sachsen-Anhalt",2030,1872,64,2020-08-02
+"983","Italy","Sardegna",1414,1237,134,2020-08-02
+"984","Germany","Schleswig-Holstein",3463,3100,156,2020-08-02
+"985","United Kingdom","Scotland",18676,0,2491,2020-08-02
+"986","Italy","Sicilia",3305,2737,283,2020-08-02
+"987","Germany","Thuringen",3370,3160,182,2020-08-02
+"988","Italy","Toscana",10498,8966,1135,2020-08-02
+"989","United Kingdom","Turks and Caicos Islands",116,38,2,2020-08-02
+"990","Italy","Umbria",1474,1368,80,2020-08-02
+"991","Germany","Unknown",1204,0,0,2020-08-02
+"992","United Kingdom","Unknown",10,0,0,2020-08-02
+"993","Italy","Valle d'Aosta",1209,1050,146,2020-08-02
+"994","Italy","Veneto",20211,17102,2075,2020-08-02
+"995","United Kingdom","Wales",17315,0,1565,2020-08-02
+"996","Switzerland","",35550,31500,1981,2020-08-02
+"997","Italy","Abruzzo",3398,2802,472,2020-08-03
+"998","United Kingdom","Anguilla",3,3,0,2020-08-03
+"999","Germany","Baden-Wurttemberg",37463,34616,1847,2020-08-03
+"1000","Italy","Basilicata",453,374,28,2020-08-03
+"1001","Germany","Bayern",51217,47300,2622,2020-08-03
+"1002","Germany","Berlin",9366,8705,223,2020-08-03
+"1003","United Kingdom","Bermuda",157,144,9,2020-08-03
+"1004","Germany","Brandenburg",3593,3350,173,2020-08-03
+"1005","Germany","Bremen",1789,1664,56,2020-08-03
+"1006","United Kingdom","British Virgin Islands",8,7,1,2020-08-03
+"1007","Italy","Calabria",1270,1075,97,2020-08-03
+"1008","Italy","Campania",5020,4187,436,2020-08-03
+"1009","United Kingdom","Cayman Islands",203,202,1,2020-08-03
+"1010","United Kingdom","Channel Islands",591,533,47,2020-08-03
+"1011","Italy","Emilia-Romagna",29808,23957,4291,2020-08-03
+"1012","United Kingdom","England",263602,0,41598,2020-08-03
+"1013","United Kingdom","Falkland Islands (Malvinas)",13,13,0,2020-08-03
+"1014","Italy","Friuli Venezia Giulia",3411,2929,346,2020-08-03
+"1015","United Kingdom","Gibraltar",188,183,0,2020-08-03
+"1016","Germany","Hamburg",5443,5000,261,2020-08-03
+"1017","Germany","Hessen",12142,11000,520,2020-08-03
+"1018","United Kingdom","Isle of Man",336,312,24,2020-08-03
+"1019","Italy","Lazio",8697,6859,864,2020-08-03
+"1020","Italy","Liguria",10238,8475,1568,2020-08-03
+"1021","Italy","Lombardia",96337,73724,16818,2020-08-03
+"1022","Italy","Marche",6897,5770,987,2020-08-03
+"1023","Germany","Mecklenburg-Vorpommern",880,793,20,2020-08-03
+"1024","Italy","Molise",477,421,23,2020-08-03
+"1025","United Kingdom","Montserrat",13,10,1,2020-08-03
+"1026","Germany","Niedersachsen",14567,13436,653,2020-08-03
+"1027","Germany","Nordrhein-Westfalen",49435,44620,1739,2020-08-03
+"1028","United Kingdom","Northern Ireland",5988,0,556,2020-08-03
+"1029","Italy","P.A. Bolzano",2734,2330,292,2020-08-03
+"1030","Italy","P.A. Trento",4981,4476,405,2020-08-03
+"1031","Italy","Piemonte",31711,26767,4131,2020-08-03
+"1032","Italy","Puglia",4648,3970,553,2020-08-03
+"1033","Germany","Rheinland-Pfalz",7543,7027,239,2020-08-03
+"1034","Germany","Saarland",2881,2632,174,2020-08-03
+"1035","Germany","Sachsen",5543,5270,225,2020-08-03
+"1036","Germany","Sachsen-Anhalt",2036,1892,64,2020-08-03
+"1037","Italy","Sardegna",1416,1238,134,2020-08-03
+"1038","Germany","Schleswig-Holstein",3494,3129,156,2020-08-03
+"1039","United Kingdom","Scotland",18694,0,2491,2020-08-03
+"1040","Italy","Sicilia",3308,2737,283,2020-08-03
+"1041","Germany","Thuringen",3371,3160,182,2020-08-03
+"1042","Italy","Toscana",10508,8974,1136,2020-08-03
+"1043","United Kingdom","Turks and Caicos Islands",116,38,2,2020-08-03
+"1044","Italy","Umbria",1475,1368,80,2020-08-03
+"1045","Germany","Unknown",1348,0,0,2020-08-03
+"1046","United Kingdom","Unknown",0,0,0,2020-08-03
+"1047","Italy","Valle d'Aosta",1209,1050,146,2020-08-03
+"1048","Italy","Veneto",20233,17106,2076,2020-08-03
+"1049","United Kingdom","Wales",17339,0,1565,2020-08-03
+"1050","Switzerland","",35616,31500,1981,2020-08-03
+"1051","Italy","Abruzzo",3401,2804,472,2020-08-04
+"1052","United Kingdom","Anguilla",3,3,0,2020-08-04
+"1053","Germany","Baden-Wurttemberg",37522,34700,1847,2020-08-04
+"1054","Italy","Basilicata",453,374,28,2020-08-04
+"1055","Germany","Bayern",51279,47400,2623,2020-08-04
+"1056","Germany","Berlin",9398,8748,223,2020-08-04
+"1057","United Kingdom","Bermuda",157,144,9,2020-08-04
+"1058","Germany","Brandenburg",3601,3400,173,2020-08-04
+"1059","Germany","Bremen",1793,1673,56,2020-08-04
+"1060","United Kingdom","British Virgin Islands",8,7,1,2020-08-04
+"1061","Italy","Calabria",1272,1076,97,2020-08-04
+"1062","Italy","Campania",5022,4194,436,2020-08-04
+"1063","United Kingdom","Cayman Islands",203,202,1,2020-08-04
+"1064","United Kingdom","Channel Islands",595,533,47,2020-08-04
+"1065","Italy","Emilia-Romagna",29850,23978,4291,2020-08-04
+"1066","United Kingdom","England",264219,0,41686,2020-08-04
+"1067","United Kingdom","Falkland Islands (Malvinas)",13,13,0,2020-08-04
+"1068","Italy","Friuli Venezia Giulia",3416,2932,346,2020-08-04
+"1069","United Kingdom","Gibraltar",189,183,0,2020-08-04
+"1070","Germany","Hamburg",5460,5000,261,2020-08-04
+"1071","Germany","Hessen",12199,11038,521,2020-08-04
+"1072","United Kingdom","Isle of Man",336,312,24,2020-08-04
+"1073","Italy","Lazio",8714,6863,864,2020-08-04
+"1074","Italy","Liguria",10243,8475,1568,2020-08-04
+"1075","Italy","Lombardia",96381,73810,16819,2020-08-04
+"1076","Italy","Marche",6899,5773,987,2020-08-04
+"1077","Germany","Mecklenburg-Vorpommern",889,794,20,2020-08-04
+"1078","Italy","Molise",477,421,23,2020-08-04
+"1079","United Kingdom","Montserrat",13,10,1,2020-08-04
+"1080","Germany","Niedersachsen",14634,13464,654,2020-08-04
+"1081","Germany","Nordrhein-Westfalen",49727,44800,1744,2020-08-04
+"1082","United Kingdom","Northern Ireland",5996,0,556,2020-08-04
+"1083","Italy","P.A. Bolzano",2740,2330,292,2020-08-04
+"1084","Italy","P.A. Trento",4983,4490,405,2020-08-04
+"1085","Italy","Piemonte",31719,26789,4132,2020-08-04
+"1086","Italy","Puglia",4655,3971,553,2020-08-04
+"1087","Germany","Rheinland-Pfalz",7601,7047,239,2020-08-04
+"1088","Germany","Saarland",2886,2635,174,2020-08-04
+"1089","Germany","Sachsen",5556,5275,225,2020-08-04
+"1090","Germany","Sachsen-Anhalt",2038,1892,64,2020-08-04
+"1091","Italy","Sardegna",1418,1239,134,2020-08-04
+"1092","Germany","Schleswig-Holstein",3516,3137,157,2020-08-04
+"1093","United Kingdom","Scotland",18717,0,2491,2020-08-04
+"1094","Italy","Sicilia",3318,2741,284,2020-08-04
+"1095","Germany","Thuringen",3385,3170,182,2020-08-04
+"1096","Italy","Toscana",10519,8977,1137,2020-08-04
+"1097","United Kingdom","Turks and Caicos Islands",116,38,2,2020-08-04
+"1098","Italy","Umbria",1477,1368,80,2020-08-04
+"1099","Germany","Unknown",1344,0,0,2020-08-04
+"1100","United Kingdom","Unknown",0,0,0,2020-08-04
+"1101","Italy","Valle d'Aosta",1209,1050,146,2020-08-04
+"1102","Italy","Veneto",20253,17111,2077,2020-08-04
+"1103","United Kingdom","Wales",17361,0,1566,2020-08-04
+"1104","Switzerland","",35746,31600,1981,2020-08-04
+"1105","Italy","Abruzzo",3420,2808,472,2020-08-05
+"1106","United Kingdom","Anguilla",3,3,0,2020-08-05
+"1107","Germany","Baden-Wurttemberg",37579,34743,1851,2020-08-05
+"1108","Italy","Basilicata",454,373,28,2020-08-05
+"1109","Germany","Bayern",51494,47400,2624,2020-08-05
+"1110","Germany","Berlin",9489,8800,224,2020-08-05
+"1111","United Kingdom","Bermuda",157,144,9,2020-08-05
+"1112","Germany","Brandenburg",3615,3400,173,2020-08-05
+"1113","Germany","Bremen",1795,1674,56,2020-08-05
+"1114","United Kingdom","British Virgin Islands",9,7,1,2020-08-05
+"1115","Italy","Calabria",1274,1076,97,2020-08-05
+"1116","Italy","Campania",5030,4198,438,2020-08-05
+"1117","United Kingdom","Cayman Islands",203,202,1,2020-08-05
+"1118","United Kingdom","Channel Islands",596,533,47,2020-08-05
+"1119","Italy","Emilia-Romagna",29897,23997,4291,2020-08-05
+"1120","United Kingdom","England",265023,0,41749,2020-08-05
+"1121","United Kingdom","Falkland Islands (Malvinas)",13,13,0,2020-08-05
+"1122","Italy","Friuli Venezia Giulia",3425,2932,346,2020-08-05
+"1123","United Kingdom","Gibraltar",189,183,0,2020-08-05
+"1124","Germany","Hamburg",5485,5000,261,2020-08-05
+"1125","Germany","Hessen",12254,11100,523,2020-08-05
+"1126","United Kingdom","Isle of Man",336,312,24,2020-08-05
+"1127","Italy","Lazio",8726,6878,865,2020-08-05
+"1128","Italy","Liguria",10250,8475,1568,2020-08-05
+"1129","Italy","Lombardia",96519,73872,16824,2020-08-05
+"1130","Italy","Marche",6905,5781,987,2020-08-05
+"1131","Germany","Mecklenburg-Vorpommern",907,799,20,2020-08-05
+"1132","Italy","Molise",478,421,23,2020-08-05
+"1133","United Kingdom","Montserrat",13,10,1,2020-08-05
+"1134","Germany","Niedersachsen",14671,13464,654,2020-08-05
+"1135","Germany","Nordrhein-Westfalen",50068,45000,1751,2020-08-05
+"1136","United Kingdom","Northern Ireland",6006,0,556,2020-08-05
+"1137","Italy","P.A. Bolzano",2745,2337,292,2020-08-05
+"1138","Italy","P.A. Trento",4984,4500,405,2020-08-05
+"1139","Italy","Piemonte",31740,26826,4134,2020-08-05
+"1140","Italy","Puglia",4678,3973,553,2020-08-05
+"1141","Germany","Rheinland-Pfalz",7627,7063,239,2020-08-05
+"1142","Germany","Saarland",2891,2643,174,2020-08-05
+"1143","Germany","Sachsen",5568,5275,225,2020-08-05
+"1144","Germany","Sachsen-Anhalt",2044,1892,64,2020-08-05
+"1145","Italy","Sardegna",1427,1240,134,2020-08-05
+"1146","Germany","Schleswig-Holstein",3534,3145,158,2020-08-05
+"1147","United Kingdom","Scotland",18781,0,2491,2020-08-05
+"1148","Italy","Sicilia",3339,2741,284,2020-08-05
+"1149","Germany","Thuringen",3390,3170,182,2020-08-05
+"1150","Italy","Toscana",10530,8978,1137,2020-08-05
+"1151","United Kingdom","Turks and Caicos Islands",129,39,2,2020-08-05
+"1152","Italy","Umbria",1479,1369,80,2020-08-05
+"1153","Germany","Unknown",1702,0,0,2020-08-05
+"1154","United Kingdom","Unknown",0,0,0,2020-08-05
+"1155","Italy","Valle d'Aosta",1209,1051,146,2020-08-05
+"1156","Italy","Veneto",20294,17150,2077,2020-08-05
+"1157","United Kingdom","Wales",17374,0,1568,2020-08-05
+"1158","Switzerland","",35927,31600,1984,2020-08-05
+"1159","Italy","Abruzzo",3435,2810,472,2020-08-06
+"1160","United Kingdom","Anguilla",3,3,0,2020-08-06
+"1161","Germany","Baden-Wurttemberg",37647,34812,1852,2020-08-06
+"1162","Italy","Basilicata",454,373,28,2020-08-06
+"1163","Germany","Bayern",51583,47531,2624,2020-08-06
+"1164","Germany","Berlin",9542,8857,224,2020-08-06
+"1165","United Kingdom","Bermuda",157,144,9,2020-08-06
+"1166","Germany","Brandenburg",3622,3400,173,2020-08-06
+"1167","Germany","Bremen",1801,1680,56,2020-08-06
+"1168","United Kingdom","British Virgin Islands",9,7,1,2020-08-06
+"1169","Italy","Calabria",1276,1088,97,2020-08-06
+"1170","Italy","Campania",5035,4212,438,2020-08-06
+"1171","United Kingdom","Cayman Islands",203,202,1,2020-08-06
+"1172","United Kingdom","Channel Islands",597,533,47,2020-08-06
+"1173","Italy","Emilia-Romagna",29954,24011,4291,2020-08-06
+"1174","United Kingdom","England",265849,0,41795,2020-08-06
+"1175","United Kingdom","Falkland Islands (Malvinas)",13,13,0,2020-08-06
+"1176","Italy","Friuli Venezia Giulia",3432,2933,346,2020-08-06
+"1177","United Kingdom","Gibraltar",190,184,0,2020-08-06
+"1178","Germany","Hamburg",5529,5000,261,2020-08-06
+"1179","Germany","Hessen",12310,11134,523,2020-08-06
+"1180","United Kingdom","Isle of Man",336,312,24,2020-08-06
+"1181","Italy","Lazio",8744,6886,865,2020-08-06
+"1182","Italy","Liguria",10263,8485,1568,2020-08-06
+"1183","Italy","Lombardia",96637,74080,16829,2020-08-06
+"1184","Italy","Marche",6914,5786,987,2020-08-06
+"1185","Germany","Mecklenburg-Vorpommern",910,805,20,2020-08-06
+"1186","Italy","Molise",478,421,23,2020-08-06
+"1187","United Kingdom","Montserrat",13,10,1,2020-08-06
+"1188","Germany","Niedersachsen",14736,13515,654,2020-08-06
+"1189","Germany","Nordrhein-Westfalen",50493,45323,1752,2020-08-06
+"1190","United Kingdom","Northern Ireland",6049,0,556,2020-08-06
+"1191","Italy","P.A. Bolzano",2757,2341,292,2020-08-06
+"1192","Italy","P.A. Trento",4988,4503,405,2020-08-06
+"1193","Italy","Piemonte",31762,26849,4135,2020-08-06
+"1194","Italy","Puglia",4685,3974,553,2020-08-06
+"1195","Germany","Rheinland-Pfalz",7687,7079,239,2020-08-06
+"1196","Germany","Saarland",2897,2644,174,2020-08-06
+"1197","Germany","Sachsen",5588,5280,225,2020-08-06
+"1198","Germany","Sachsen-Anhalt",2050,1906,64,2020-08-06
+"1199","Italy","Sardegna",1430,1241,134,2020-08-06
+"1200","Germany","Schleswig-Holstein",3569,3145,158,2020-08-06
+"1201","United Kingdom","Scotland",18847,0,2491,2020-08-06
+"1202","Italy","Sicilia",3369,2743,284,2020-08-06
+"1203","Germany","Thuringen",3401,3170,182,2020-08-06
+"1204","Italy","Toscana",10547,8985,1137,2020-08-06
+"1205","United Kingdom","Turks and Caicos Islands",141,39,2,2020-08-06
+"1206","Italy","Umbria",1482,1373,80,2020-08-06
+"1207","Germany","Unknown",1674,0,0,2020-08-06
+"1208","United Kingdom","Unknown",0,0,0,2020-08-06
+"1209","Italy","Valle d'Aosta",1210,1051,146,2020-08-06
+"1210","Italy","Veneto",20352,17178,2077,2020-08-06
+"1211","United Kingdom","Wales",17389,0,1571,2020-08-06
+"1212","Switzerland","",36108,31600,1985,2020-08-06
+"1213","Italy","Abruzzo",3474,2812,472,2020-08-07
+"1214","United Kingdom","Anguilla",3,3,0,2020-08-07
+"1215","Germany","Baden-Wurttemberg",37752,34889,1858,2020-08-07
+"1216","Italy","Basilicata",475,373,28,2020-08-07
+"1217","Germany","Bayern",51710,47531,2626,2020-08-07
+"1218","Germany","Berlin",9639,8888,224,2020-08-07
+"1219","United Kingdom","Bermuda",157,144,9,2020-08-07
+"1220","Germany","Brandenburg",3638,3400,174,2020-08-07
+"1221","Germany","Bremen",1803,1684,56,2020-08-07
+"1222","United Kingdom","British Virgin Islands",9,7,1,2020-08-07
+"1223","Italy","Calabria",1283,1089,97,2020-08-07
+"1224","Italy","Campania",5050,4240,438,2020-08-07
+"1225","United Kingdom","Cayman Islands",203,202,1,2020-08-07
+"1226","United Kingdom","Channel Islands",597,533,47,2020-08-07
+"1227","Italy","Emilia-Romagna",30008,24041,4292,2020-08-07
+"1228","United Kingdom","England",266645,0,41886,2020-08-07
+"1229","United Kingdom","Falkland Islands (Malvinas)",13,13,0,2020-08-07
+"1230","Italy","Friuli Venezia Giulia",3436,2935,346,2020-08-07
+"1231","United Kingdom","Gibraltar",190,184,0,2020-08-07
+"1232","Germany","Hamburg",5609,5000,262,2020-08-07
+"1233","Germany","Hessen",12468,11208,524,2020-08-07
+"1234","United Kingdom","Isle of Man",336,312,24,2020-08-07
+"1235","Italy","Lazio",8764,6891,865,2020-08-07
+"1236","Italy","Liguria",10272,8488,1568,2020-08-07
+"1237","Italy","Lombardia",96706,74232,16829,2020-08-07
+"1238","Italy","Marche",6935,5790,987,2020-08-07
+"1239","Germany","Mecklenburg-Vorpommern",931,820,20,2020-08-07
+"1240","Italy","Molise",479,421,23,2020-08-07
+"1241","United Kingdom","Montserrat",13,10,1,2020-08-07
+"1242","Germany","Niedersachsen",14847,13544,654,2020-08-07
+"1243","Germany","Nordrhein-Westfalen",50937,45532,1755,2020-08-07
+"1244","United Kingdom","Northern Ireland",6064,0,556,2020-08-07
+"1245","Italy","P.A. Bolzano",2761,2341,292,2020-08-07
+"1246","Italy","P.A. Trento",4992,4505,405,2020-08-07
+"1247","Italy","Piemonte",31799,26871,4136,2020-08-07
+"1248","Italy","Puglia",4696,3973,553,2020-08-07
+"1249","Germany","Rheinland-Pfalz",7713,7200,239,2020-08-07
+"1250","Germany","Saarland",2900,2651,174,2020-08-07
+"1251","Germany","Sachsen",5624,5285,225,2020-08-07
+"1252","Germany","Sachsen-Anhalt",2059,1913,64,2020-08-07
+"1253","Italy","Sardegna",1433,1241,134,2020-08-07
+"1254","Germany","Schleswig-Holstein",3578,3200,158,2020-08-07
+"1255","United Kingdom","Scotland",18890,0,2491,2020-08-07
+"1256","Italy","Sicilia",3396,2743,284,2020-08-07
+"1257","Germany","Thuringen",3413,3190,182,2020-08-07
+"1258","Italy","Toscana",10560,8988,1137,2020-08-07
+"1259","United Kingdom","Turks and Caicos Islands",170,39,2,2020-08-07
+"1260","Italy","Umbria",1488,1375,80,2020-08-07
+"1261","Germany","Unknown",1575,0,0,2020-08-07
+"1262","United Kingdom","Unknown",0,0,0,2020-08-07
+"1263","Italy","Valle d'Aosta",1214,1051,146,2020-08-07
+"1264","Italy","Veneto",20535,17242,2078,2020-08-07
+"1265","United Kingdom","Wales",17406,0,1578,2020-08-07
+"1266","Switzerland","",36269,31600,1986,2020-08-07
+"1267","Italy","Abruzzo",3486,2817,472,2020-08-08
+"1268","United Kingdom","Anguilla",3,3,0,2020-08-08
+"1269","Germany","Baden-Wurttemberg",37752,34889,1858,2020-08-08
+"1270","Italy","Basilicata",476,373,28,2020-08-08
+"1271","Germany","Bayern",51794,47800,2626,2020-08-08
+"1272","Germany","Berlin",9687,8908,224,2020-08-08
+"1273","United Kingdom","Bermuda",157,144,9,2020-08-08
+"1274","Germany","Brandenburg",3654,3400,175,2020-08-08
+"1275","Germany","Bremen",1803,1684,56,2020-08-08
+"1276","United Kingdom","British Virgin Islands",9,7,1,2020-08-08
+"1277","Italy","Calabria",1287,1089,97,2020-08-08
+"1278","Italy","Campania",5055,4245,438,2020-08-08
+"1279","United Kingdom","Cayman Islands",203,202,1,2020-08-08
+"1280","United Kingdom","Channel Islands",597,533,47,2020-08-08
+"1281","Italy","Emilia-Romagna",30052,24046,4294,2020-08-08
+"1282","United Kingdom","England",267324,0,41940,2020-08-08
+"1283","United Kingdom","Falkland Islands (Malvinas)",13,13,0,2020-08-08
+"1284","Italy","Friuli Venezia Giulia",3442,2936,346,2020-08-08
+"1285","United Kingdom","Gibraltar",197,184,0,2020-08-08
+"1286","Germany","Hamburg",5633,5000,262,2020-08-08
+"1287","Germany","Hessen",12602,11300,524,2020-08-08
+"1288","United Kingdom","Isle of Man",336,312,24,2020-08-08
+"1289","Italy","Lazio",8784,6901,866,2020-08-08
+"1290","Italy","Liguria",10276,8493,1569,2020-08-08
+"1291","Italy","Lombardia",96782,74403,16832,2020-08-08
+"1292","Italy","Marche",6938,5795,987,2020-08-08
+"1293","Germany","Mecklenburg-Vorpommern",937,828,20,2020-08-08
+"1294","Italy","Molise",479,421,23,2020-08-08
+"1295","United Kingdom","Montserrat",13,12,1,2020-08-08
+"1296","Germany","Niedersachsen",14911,13560,654,2020-08-08
+"1297","Germany","Nordrhein-Westfalen",51330,45740,1759,2020-08-08
+"1298","United Kingdom","Northern Ireland",6064,0,556,2020-08-08
+"1299","Italy","P.A. Bolzano",2766,2351,292,2020-08-08
+"1300","Italy","P.A. Trento",4993,4509,405,2020-08-08
+"1301","Italy","Piemonte",31830,26904,4136,2020-08-08
+"1302","Italy","Puglia",4705,3973,554,2020-08-08
+"1303","Germany","Rheinland-Pfalz",7763,7200,239,2020-08-08
+"1304","Germany","Saarland",2913,2653,174,2020-08-08
+"1305","Germany","Sachsen",5632,5285,225,2020-08-08
+"1306","Germany","Sachsen-Anhalt",2059,1913,64,2020-08-08
+"1307","Italy","Sardegna",1433,1245,134,2020-08-08
+"1308","Germany","Schleswig-Holstein",3586,3200,158,2020-08-08
+"1309","United Kingdom","Scotland",18950,0,2491,2020-08-08
+"1310","Italy","Sicilia",3424,2743,284,2020-08-08
+"1311","Germany","Thuringen",3420,3190,183,2020-08-08
+"1312","Italy","Toscana",10583,8989,1137,2020-08-08
+"1313","United Kingdom","Turks and Caicos Islands",170,39,2,2020-08-08
+"1314","Italy","Umbria",1498,1376,80,2020-08-08
+"1315","Germany","Unknown",1427,0,0,2020-08-08
+"1316","United Kingdom","Unknown",0,0,0,2020-08-08
+"1317","Italy","Valle d'Aosta",1216,1051,146,2020-08-08
+"1318","Italy","Veneto",20598,17287,2083,2020-08-08
+"1319","United Kingdom","Wales",17425,0,1579,2020-08-08
+"1320","Switzerland","",36451,31900,1986,2020-08-08
+"1321","Italy","Abruzzo",3502,2817,472,2020-08-09
+"1322","United Kingdom","Anguilla",3,3,0,2020-08-09
+"1323","Germany","Baden-Wurttemberg",37767,34889,1858,2020-08-09
+"1324","Italy","Basilicata",476,373,28,2020-08-09
+"1325","Germany","Bayern",51803,47900,2626,2020-08-09
+"1326","Germany","Berlin",9697,8936,224,2020-08-09
+"1327","United Kingdom","Bermuda",158,144,9,2020-08-09
+"1328","Germany","Brandenburg",3658,3400,175,2020-08-09
+"1329","Germany","Bremen",1803,1684,56,2020-08-09
+"1330","United Kingdom","British Virgin Islands",9,7,1,2020-08-09
+"1331","Italy","Calabria",1287,1090,97,2020-08-09
+"1332","Italy","Campania",5077,4251,438,2020-08-09
+"1333","United Kingdom","Cayman Islands",203,202,1,2020-08-09
+"1334","United Kingdom","Channel Islands",597,533,47,2020-08-09
+"1335","Italy","Emilia-Romagna",30121,24066,4295,2020-08-09
+"1336","United Kingdom","England",268312,0,41948,2020-08-09
+"1337","United Kingdom","Falkland Islands (Malvinas)",13,13,0,2020-08-09
+"1338","Italy","Friuli Venezia Giulia",3449,2937,346,2020-08-09
+"1339","United Kingdom","Gibraltar",201,186,0,2020-08-09
+"1340","Germany","Hamburg",5677,5000,262,2020-08-09
+"1341","Germany","Hessen",12703,11300,525,2020-08-09
+"1342","United Kingdom","Isle of Man",336,312,24,2020-08-09
+"1343","Italy","Lazio",8822,6910,866,2020-08-09
+"1344","Italy","Liguria",10283,8498,1569,2020-08-09
+"1345","Italy","Lombardia",96853,74432,16833,2020-08-09
+"1346","Italy","Marche",6954,5799,987,2020-08-09
+"1347","Germany","Mecklenburg-Vorpommern",939,832,20,2020-08-09
+"1348","Italy","Molise",479,421,23,2020-08-09
+"1349","United Kingdom","Montserrat",13,12,1,2020-08-09
+"1350","Germany","Niedersachsen",14943,13560,654,2020-08-09
+"1351","Germany","Nordrhein-Westfalen",51561,45800,1759,2020-08-09
+"1352","United Kingdom","Northern Ireland",6064,0,556,2020-08-09
+"1353","Italy","P.A. Bolzano",2773,2353,292,2020-08-09
+"1354","Italy","P.A. Trento",4995,4512,405,2020-08-09
+"1355","Italy","Piemonte",31868,26910,4136,2020-08-09
+"1356","Italy","Puglia",4714,3973,554,2020-08-09
+"1357","Germany","Rheinland-Pfalz",7824,7200,239,2020-08-09
+"1358","Germany","Saarland",2926,2694,174,2020-08-09
+"1359","Germany","Sachsen",5632,5285,225,2020-08-09
+"1360","Germany","Sachsen-Anhalt",2059,1913,64,2020-08-09
+"1361","Italy","Sardegna",1439,1245,134,2020-08-09
+"1362","Germany","Schleswig-Holstein",3588,3200,158,2020-08-09
+"1363","United Kingdom","Scotland",18998,0,2491,2020-08-09
+"1364","Italy","Sicilia",3453,2749,284,2020-08-09
+"1365","Germany","Thuringen",3425,3190,183,2020-08-09
+"1366","Italy","Toscana",10644,8997,1137,2020-08-09
+"1367","United Kingdom","Turks and Caicos Islands",216,39,2,2020-08-09
+"1368","Italy","Umbria",1505,1376,80,2020-08-09
+"1369","Germany","Unknown",1283,0,0,2020-08-09
+"1370","United Kingdom","Unknown",0,0,0,2020-08-09
+"1371","Italy","Valle d'Aosta",1216,1056,146,2020-08-09
+"1372","Italy","Veneto",20656,17333,2083,2020-08-09
+"1373","United Kingdom","Wales",17451,0,1579,2020-08-09
+"1374","Switzerland","",36603,32300,1986,2020-08-09
+"1375","Italy","Abruzzo",3509,2818,472,2020-08-10
+"1376","United Kingdom","Anguilla",3,3,0,2020-08-10
+"1377","Germany","Baden-Wurttemberg",37899,34968,1858,2020-08-10
+"1378","Italy","Basilicata",476,376,28,2020-08-10
+"1379","Germany","Bayern",51882,48000,2627,2020-08-10
+"1380","Germany","Berlin",9739,8984,224,2020-08-10
+"1381","United Kingdom","Bermuda",158,144,9,2020-08-10
+"1382","Germany","Brandenburg",3659,3400,175,2020-08-10
+"1383","Germany","Bremen",1812,1697,56,2020-08-10
+"1384","United Kingdom","British Virgin Islands",9,7,1,2020-08-10
+"1385","Italy","Calabria",1289,1091,97,2020-08-10
+"1386","Italy","Campania",5091,4254,439,2020-08-10
+"1387","United Kingdom","Cayman Islands",203,202,1,2020-08-10
+"1388","United Kingdom","Channel Islands",599,545,47,2020-08-10
+"1389","Italy","Emilia-Romagna",30160,24073,4296,2020-08-10
+"1390","United Kingdom","England",269011,0,41900,2020-08-10
+"1391","United Kingdom","Falkland Islands (Malvinas)",13,13,0,2020-08-10
+"1392","Italy","Friuli Venezia Giulia",3449,2938,347,2020-08-10
+"1393","United Kingdom","Gibraltar",201,186,0,2020-08-10
+"1394","Germany","Hamburg",5690,5100,262,2020-08-10
+"1395","Germany","Hessen",12737,11300,525,2020-08-10
+"1396","United Kingdom","Isle of Man",336,312,24,2020-08-10
+"1397","Italy","Lazio",8860,6912,867,2020-08-10
+"1398","Italy","Liguria",10293,8512,1569,2020-08-10
+"1399","Italy","Lombardia",96884,74504,16833,2020-08-10
+"1400","Italy","Marche",6956,5804,987,2020-08-10
+"1401","Germany","Mecklenburg-Vorpommern",944,833,20,2020-08-10
+"1402","Italy","Molise",479,423,23,2020-08-10
+"1403","United Kingdom","Montserrat",13,12,1,2020-08-10
+"1404","Germany","Niedersachsen",14974,13575,654,2020-08-10
+"1405","Germany","Nordrhein-Westfalen",51762,46000,1759,2020-08-10
+"1406","United Kingdom","Northern Ireland",6140,0,556,2020-08-10
+"1407","Italy","P.A. Bolzano",2774,2354,292,2020-08-10
+"1408","Italy","P.A. Trento",4996,4512,405,2020-08-10
+"1409","Italy","Piemonte",31888,26943,4136,2020-08-10
+"1410","Italy","Puglia",4740,3973,554,2020-08-10
+"1411","Germany","Rheinland-Pfalz",7850,7200,239,2020-08-10
+"1412","Germany","Saarland",2930,2694,174,2020-08-10
+"1413","Germany","Sachsen",5649,5290,225,2020-08-10
+"1414","Germany","Sachsen-Anhalt",2070,1923,64,2020-08-10
+"1415","Italy","Sardegna",1441,1245,134,2020-08-10
+"1416","Germany","Schleswig-Holstein",3620,3218,158,2020-08-10
+"1417","United Kingdom","Scotland",19027,0,2491,2020-08-10
+"1418","Italy","Sicilia",3485,2751,284,2020-08-10
+"1419","Germany","Thuringen",3427,3200,183,2020-08-10
+"1420","Italy","Toscana",10652,8997,1137,2020-08-10
+"1421","United Kingdom","Turks and Caicos Islands",216,39,2,2020-08-10
+"1422","Italy","Umbria",1510,1376,80,2020-08-10
+"1423","Germany","Unknown",1864,0,0,2020-08-10
+"1424","United Kingdom","Unknown",0,0,0,2020-08-10
+"1425","Italy","Valle d'Aosta",1217,1056,146,2020-08-10
+"1426","Italy","Veneto",20676,17336,2083,2020-08-10
+"1427","United Kingdom","Wales",17463,0,1579,2020-08-10
+"1428","Switzerland","",36708,32400,1987,2020-08-10
+"1429","Germany","Baden-Wurttemberg",37978,35115,1859,2020-08-11
+"1430","Germany","Bayern",52069,48100,2627,2020-08-11
+"1431","Germany","Berlin",9850,9035,224,2020-08-11
+"1432","Germany","Brandenburg",3662,3400,175,2020-08-11
+"1433","Germany","Bremen",1822,1699,56,2020-08-11
+"1434","Germany","Hamburg",5747,5100,262,2020-08-11
+"1435","Germany","Hessen",12815,11400,525,2020-08-11
+"1436","Germany","Mecklenburg-Vorpommern",952,841,20,2020-08-11
+"1437","Germany","Niedersachsen",15056,13700,654,2020-08-11
+"1438","Germany","Nordrhein-Westfalen",52175,46400,1763,2020-08-11
+"1439","Germany","Rheinland-Pfalz",7882,7219,239,2020-08-11
+"1440","Germany","Saarland",2942,2694,174,2020-08-11
+"1441","Germany","Sachsen",5671,5300,225,2020-08-11
+"1442","Germany","Sachsen-Anhalt",2078,1926,64,2020-08-11
+"1443","Germany","Schleswig-Holstein",3675,3218,158,2020-08-11
+"1444","Germany","Thuringen",3432,3200,183,2020-08-11
+"1445","Germany","Unknown",1734,0,0,2020-08-11
+"1446","Italy","Abruzzo",3512,2821,472,2020-08-11
+"1447","Italy","Basilicata",477,376,28,2020-08-11
+"1448","Italy","Calabria",1300,1091,97,2020-08-11
+"1449","Italy","Campania",5114,4272,440,2020-08-11
+"1450","Italy","Emilia-Romagna",30179,24091,4298,2020-08-11
+"1451","Italy","Friuli Venezia Giulia",3452,2948,348,2020-08-11
+"1452","Italy","Lazio",8883,6915,867,2020-08-11
+"1453","Italy","Liguria",10304,8512,1569,2020-08-11
+"1454","Italy","Lombardia",96952,74605,16833,2020-08-11
+"1455","Italy","Marche",6960,5811,987,2020-08-11
+"1456","Italy","Molise",479,423,23,2020-08-11
+"1457","Italy","P.A. Bolzano",2775,2355,292,2020-08-11
+"1458","Italy","P.A. Trento",4998,4518,405,2020-08-11
+"1459","Italy","Piemonte",31914,26956,4136,2020-08-11
+"1460","Italy","Puglia",4760,3977,554,2020-08-11
+"1461","Italy","Sardegna",1461,1245,134,2020-08-11
+"1462","Italy","Sicilia",3574,2752,284,2020-08-11
+"1463","Italy","Toscana",10674,9002,1137,2020-08-11
+"1464","Italy","Umbria",1511,1379,80,2020-08-11
+"1465","Italy","Valle d'Aosta",1217,1056,146,2020-08-11
+"1466","Italy","Veneto",20741,17356,2085,2020-08-11
+"1467","Switzerland","",36895,32400,1990,2020-08-11
+"1468","United Kingdom","Anguilla",3,3,0,2020-08-11
+"1469","United Kingdom","Bermuda",159,144,9,2020-08-11
+"1470","United Kingdom","British Virgin Islands",9,7,1,2020-08-11
+"1471","United Kingdom","Cayman Islands",203,202,1,2020-08-11
+"1472","United Kingdom","Channel Islands",599,545,47,2020-08-11
+"1473","United Kingdom","England",269011,0,41900,2020-08-11
+"1474","United Kingdom","Falkland Islands (Malvinas)",13,13,0,2020-08-11
+"1475","United Kingdom","Gibraltar",202,187,0,2020-08-11
+"1476","United Kingdom","Isle of Man",336,312,24,2020-08-11
+"1477","United Kingdom","Montserrat",13,12,1,2020-08-11
+"1478","United Kingdom","Northern Ireland",6140,0,556,2020-08-11
+"1479","United Kingdom","Scotland",19027,0,2491,2020-08-11
+"1480","United Kingdom","Turks and Caicos Islands",216,39,2,2020-08-11
+"1481","United Kingdom","Unknown",0,0,0,2020-08-11
+"1482","United Kingdom","Wales",17463,0,1579,2020-08-11
+"1483","Germany","Baden-Wurttemberg",38165,35200,1859,2020-08-12
+"1484","Germany","Bayern",52203,48200,2627,2020-08-12
+"1485","Germany","Berlin",9975,9088,224,2020-08-12
+"1486","Germany","Brandenburg",3667,3400,175,2020-08-12
+"1487","Germany","Bremen",1825,1709,56,2020-08-12
+"1488","Germany","Hamburg",5773,5100,262,2020-08-12
+"1489","Germany","Hessen",12876,11500,526,2020-08-12
+"1490","Germany","Mecklenburg-Vorpommern",954,848,20,2020-08-12
+"1491","Germany","Niedersachsen",15122,13700,655,2020-08-12
+"1492","Germany","Nordrhein-Westfalen",52588,46600,1765,2020-08-12
+"1493","Germany","Rheinland-Pfalz",7937,7250,239,2020-08-12
+"1494","Germany","Saarland",2952,2694,174,2020-08-12
+"1495","Germany","Sachsen",5682,5305,225,2020-08-12
+"1496","Germany","Sachsen-Anhalt",2093,1937,64,2020-08-12
+"1497","Germany","Schleswig-Holstein",3714,3260,158,2020-08-12
+"1498","Germany","Thuringen",3453,3200,184,2020-08-12
+"1499","Germany","Unknown",1880,0,0,2020-08-12
+"1500","Italy","Abruzzo",3516,2823,472,2020-08-12
+"1501","Italy","Basilicata",477,377,28,2020-08-12
+"1502","Italy","Calabria",1304,1097,97,2020-08-12
+"1503","Italy","Campania",5143,4279,440,2020-08-12
+"1504","Italy","Emilia-Romagna",30220,24115,4298,2020-08-12
+"1505","Italy","Friuli Venezia Giulia",3461,2949,348,2020-08-12
+"1506","Italy","Lazio",8920,6931,868,2020-08-12
+"1507","Italy","Liguria",10330,8534,1569,2020-08-12
+"1508","Italy","Lombardia",97054,74700,16833,2020-08-12
+"1509","Italy","Marche",6976,5822,987,2020-08-12
+"1510","Italy","Molise",479,427,23,2020-08-12
+"1511","Italy","P.A. Bolzano",2779,2357,292,2020-08-12
+"1512","Italy","P.A. Trento",4998,4525,405,2020-08-12
+"1513","Italy","Piemonte",31956,26963,4138,2020-08-12
+"1514","Italy","Puglia",4793,3977,554,2020-08-12
+"1515","Italy","Sardegna",1462,1245,134,2020-08-12
+"1516","Italy","Sicilia",3603,2757,284,2020-08-12
+"1517","Italy","Toscana",10707,9007,1137,2020-08-12
+"1518","Italy","Umbria",1517,1380,80,2020-08-12
+"1519","Italy","Valle d'Aosta",1217,1056,146,2020-08-12
+"1520","Italy","Veneto",20801,17376,2092,2020-08-12
+"1521","Switzerland","",37169,32700,1991,2020-08-12
+"1522","United Kingdom","Anguilla",3,3,0,2020-08-12
+"1523","United Kingdom","Bermuda",159,145,9,2020-08-12
+"1524","United Kingdom","British Virgin Islands",9,7,1,2020-08-12
+"1525","United Kingdom","Cayman Islands",203,202,1,2020-08-12
+"1526","United Kingdom","Channel Islands",603,545,47,2020-08-12
+"1527","United Kingdom","England",270971,0,42072,2020-08-12
+"1528","United Kingdom","Falkland Islands (Malvinas)",13,13,0,2020-08-12
+"1529","United Kingdom","Gibraltar",203,187,0,2020-08-12
+"1530","United Kingdom","Isle of Man",336,312,24,2020-08-12
+"1531","United Kingdom","Montserrat",13,12,1,2020-08-12
+"1532","United Kingdom","Northern Ireland",6217,0,557,2020-08-12
+"1533","United Kingdom","Scotland",19126,0,2491,2020-08-12
+"1534","United Kingdom","Turks and Caicos Islands",241,46,2,2020-08-12
+"1535","United Kingdom","Unknown",0,0,0,2020-08-12
+"1536","United Kingdom","Wales",17484,0,1586,2020-08-12
+"1537","Germany","Baden-Wurttemberg",38273,35300,1859,2020-08-13
+"1538","Germany","Bayern",52436,48300,2627,2020-08-13
+"1539","Germany","Berlin",10106,9132,224,2020-08-13
+"1540","Germany","Brandenburg",3683,3400,175,2020-08-13
+"1541","Germany","Bremen",1831,1717,56,2020-08-13
+"1542","Germany","Hamburg",5820,5100,262,2020-08-13
+"1543","Germany","Hessen",13008,11530,526,2020-08-13
+"1544","Germany","Mecklenburg-Vorpommern",959,855,20,2020-08-13
+"1545","Germany","Niedersachsen",15212,13730,655,2020-08-13
+"1546","Germany","Nordrhein-Westfalen",53123,46838,1767,2020-08-13
+"1547","Germany","Rheinland-Pfalz",8002,7300,240,2020-08-13
+"1548","Germany","Saarland",2955,2694,174,2020-08-13
+"1549","Germany","Sachsen",5703,5310,225,2020-08-13
+"1550","Germany","Sachsen-Anhalt",2102,1938,64,2020-08-13
+"1551","Germany","Schleswig-Holstein",3744,3300,158,2020-08-13
+"1552","Germany","Thuringen",3464,3210,185,2020-08-13
+"1553","Germany","Unknown",1860,0,0,2020-08-13
+"1554","Italy","Abruzzo",3532,2826,472,2020-08-13
+"1555","Italy","Basilicata",478,377,28,2020-08-13
+"1556","Italy","Calabria",1316,1100,97,2020-08-13
+"1557","Italy","Campania",5170,4283,440,2020-08-13
+"1558","Italy","Emilia-Romagna",30257,24132,4298,2020-08-13
+"1559","Italy","Friuli Venezia Giulia",3476,2952,348,2020-08-13
+"1560","Italy","Lazio",8956,6960,869,2020-08-13
+"1561","Italy","Liguria",10393,8567,1569,2020-08-13
+"1562","Italy","Lombardia",97128,74754,16835,2020-08-13
+"1563","Italy","Marche",6987,5831,987,2020-08-13
+"1564","Italy","Molise",485,427,23,2020-08-13
+"1565","Italy","P.A. Bolzano",2781,2367,292,2020-08-13
+"1566","Italy","P.A. Trento",5000,4532,405,2020-08-13
+"1567","Italy","Piemonte",31982,26979,4139,2020-08-13
+"1568","Italy","Puglia",4809,3979,554,2020-08-13
+"1569","Italy","Sardegna",1479,1247,134,2020-08-13
+"1570","Italy","Sicilia",3645,2757,284,2020-08-13
+"1571","Italy","Toscana",10735,9008,1137,2020-08-13
+"1572","Italy","Umbria",1524,1382,80,2020-08-13
+"1573","Italy","Valle d'Aosta",1217,1057,146,2020-08-13
+"1574","Italy","Veneto",20885,17406,2094,2020-08-13
+"1575","Switzerland","",37403,32700,1991,2020-08-13
+"1576","United Kingdom","Anguilla",3,3,0,2020-08-13
+"1577","United Kingdom","Bermuda",159,145,9,2020-08-13
+"1578","United Kingdom","British Virgin Islands",9,7,1,2020-08-13
+"1579","United Kingdom","Cayman Islands",203,202,1,2020-08-13
+"1580","United Kingdom","Channel Islands",603,545,47,2020-08-13
+"1581","United Kingdom","England",270971,0,42072,2020-08-13
+"1582","United Kingdom","Falkland Islands (Malvinas)",13,13,0,2020-08-13
+"1583","United Kingdom","Gibraltar",205,188,0,2020-08-13
+"1584","United Kingdom","Isle of Man",336,312,24,2020-08-13
+"1585","United Kingdom","Montserrat",13,12,1,2020-08-13
+"1586","United Kingdom","Northern Ireland",6217,0,557,2020-08-13
+"1587","United Kingdom","Scotland",19126,0,2491,2020-08-13
+"1588","United Kingdom","Turks and Caicos Islands",258,52,2,2020-08-13
+"1589","United Kingdom","Unknown",0,0,0,2020-08-13
+"1590","United Kingdom","Wales",17484,0,1586,2020-08-13
+"1591","Germany","Baden-Wurttemberg",38425,35400,1859,2020-08-14
+"1592","Germany","Bayern",52645,48400,2631,2020-08-14
+"1593","Germany","Berlin",10195,9193,224,2020-08-14
+"1594","Germany","Brandenburg",3710,3410,173,2020-08-14
+"1595","Germany","Bremen",1838,1721,56,2020-08-14
+"1596","Germany","Hamburg",5849,5100,264,2020-08-14
+"1597","Germany","Hessen",13187,11600,526,2020-08-14
+"1598","Germany","Mecklenburg-Vorpommern",970,857,20,2020-08-14
+"1599","Germany","Niedersachsen",15318,13800,656,2020-08-14
+"1600","Germany","Nordrhein-Westfalen",53661,47192,1772,2020-08-14
+"1601","Germany","Rheinland-Pfalz",8072,7300,242,2020-08-14
+"1602","Germany","Saarland",2976,2695,174,2020-08-14
+"1603","Germany","Sachsen",5718,5310,225,2020-08-14
+"1604","Germany","Sachsen-Anhalt",2117,1952,64,2020-08-14
+"1605","Germany","Schleswig-Holstein",3768,3300,158,2020-08-14
+"1606","Germany","Thuringen",3482,3210,186,2020-08-14
+"1607","Germany","Unknown",1860,0,0,2020-08-14
+"1608","Italy","Abruzzo",3545,2831,472,2020-08-14
+"1609","Italy","Basilicata",482,390,28,2020-08-14
+"1610","Italy","Calabria",1335,1105,97,2020-08-14
+"1611","Italy","Campania",5214,4287,440,2020-08-14
+"1612","Italy","Emilia-Romagna",30314,24150,4298,2020-08-14
+"1613","Italy","Friuli Venezia Giulia",3484,2953,348,2020-08-14
+"1614","Italy","Lazio",9001,6966,870,2020-08-14
+"1615","Italy","Liguria",10413,8572,1569,2020-08-14
+"1616","Italy","Lombardia",97225,75012,16836,2020-08-14
+"1617","Italy","Marche",7019,5842,987,2020-08-14
+"1618","Italy","Molise",485,427,23,2020-08-14
+"1619","Italy","P.A. Bolzano",2784,2369,292,2020-08-14
+"1620","Italy","P.A. Trento",5003,4535,405,2020-08-14
+"1621","Italy","Piemonte",31997,26984,4139,2020-08-14
+"1622","Italy","Puglia",4821,3981,554,2020-08-14
+"1623","Italy","Sardegna",1484,1247,134,2020-08-14
+"1624","Italy","Sicilia",3681,2766,284,2020-08-14
+"1625","Italy","Toscana",10761,9020,1137,2020-08-14
+"1626","Italy","Umbria",1532,1384,80,2020-08-14
+"1627","Italy","Valle d'Aosta",1217,1058,146,2020-08-14
+"1628","Italy","Veneto",21012,17447,2095,2020-08-14
+"1629","Switzerland","",37671,32900,1991,2020-08-14
+"1630","United Kingdom","Anguilla",3,3,0,2020-08-14
+"1631","United Kingdom","Bermuda",159,145,9,2020-08-14
+"1632","United Kingdom","British Virgin Islands",9,7,1,2020-08-14
+"1633","United Kingdom","Cayman Islands",203,202,1,2020-08-14
+"1634","United Kingdom","Channel Islands",607,545,47,2020-08-14
+"1635","United Kingdom","England",270971,0,42072,2020-08-14
+"1636","United Kingdom","Falkland Islands (Malvinas)",13,13,0,2020-08-14
+"1637","United Kingdom","Gibraltar",206,188,0,2020-08-14
+"1638","United Kingdom","Isle of Man",336,312,24,2020-08-14
+"1639","United Kingdom","Montserrat",13,12,1,2020-08-14
+"1640","United Kingdom","Northern Ireland",6217,0,557,2020-08-14
+"1641","United Kingdom","Scotland",19126,0,2491,2020-08-14
+"1642","United Kingdom","Turks and Caicos Islands",274,54,2,2020-08-14
+"1643","United Kingdom","Unknown",0,0,0,2020-08-14
+"1644","United Kingdom","Wales",17484,0,1586,2020-08-14
+"1645","Germany","Baden-Wurttemberg",38425,35400,1859,2020-08-15
+"1646","Germany","Bayern",52873,48436,2631,2020-08-15
+"1647","Germany","Berlin",10237,9239,224,2020-08-15
+"1648","Germany","Brandenburg",3726,3410,173,2020-08-15
+"1649","Germany","Bremen",1838,1721,56,2020-08-15
+"1650","Germany","Hamburg",5877,5100,264,2020-08-15
+"1651","Germany","Hessen",13390,11700,526,2020-08-15
+"1652","Germany","Mecklenburg-Vorpommern",972,863,20,2020-08-15
+"1653","Germany","Niedersachsen",15357,13800,656,2020-08-15
+"1654","Germany","Nordrhein-Westfalen",54106,47310,1777,2020-08-15
+"1655","Germany","Rheinland-Pfalz",8114,7310,242,2020-08-15
+"1656","Germany","Saarland",2986,2695,174,2020-08-15
+"1657","Germany","Sachsen",5719,5310,225,2020-08-15
+"1658","Germany","Sachsen-Anhalt",2117,1952,64,2020-08-15
+"1659","Germany","Schleswig-Holstein",3782,3300,158,2020-08-15
+"1660","Germany","Thuringen",3492,3210,186,2020-08-15
+"1661","Germany","Unknown",1477,0,0,2020-08-15
+"1662","Italy","Abruzzo",3558,2834,472,2020-08-15
+"1663","Italy","Basilicata",486,392,28,2020-08-15
+"1664","Italy","Calabria",1345,1105,97,2020-08-15
+"1665","Italy","Campania",5232,4303,440,2020-08-15
+"1666","Italy","Emilia-Romagna",30385,24178,4453,2020-08-15
+"1667","Italy","Friuli Venezia Giulia",3499,2962,348,2020-08-15
+"1668","Italy","Lazio",9059,6971,870,2020-08-15
+"1669","Italy","Liguria",10446,8604,1569,2020-08-15
+"1670","Italy","Lombardia",97319,75125,16837,2020-08-15
+"1671","Italy","Marche",7030,5849,987,2020-08-15
+"1672","Italy","Molise",487,429,23,2020-08-15
+"1673","Italy","P.A. Bolzano",2793,2375,292,2020-08-15
+"1674","Italy","P.A. Trento",5003,4538,405,2020-08-15
+"1675","Italy","Piemonte",32044,27025,4139,2020-08-15
+"1676","Italy","Puglia",4843,3981,554,2020-08-15
+"1677","Italy","Sardegna",1489,1254,134,2020-08-15
+"1678","Italy","Sicilia",3727,2766,284,2020-08-15
+"1679","Italy","Toscana",10799,9028,1138,2020-08-15
+"1680","Italy","Umbria",1545,1385,80,2020-08-15
+"1681","Italy","Valle d'Aosta",1217,1060,146,2020-08-15
+"1682","Italy","Veneto",21132,17476,2096,2020-08-15
+"1683","Switzerland","",37924,33200,1991,2020-08-15
+"1684","United Kingdom","Anguilla",3,3,0,2020-08-15
+"1685","United Kingdom","Bermuda",162,147,9,2020-08-15
+"1686","United Kingdom","British Virgin Islands",9,7,1,2020-08-15
+"1687","United Kingdom","Cayman Islands",203,202,1,2020-08-15
+"1688","United Kingdom","Channel Islands",607,545,47,2020-08-15
+"1689","United Kingdom","England",274248,0,42072,2020-08-15
+"1690","United Kingdom","Falkland Islands (Malvinas)",13,13,0,2020-08-15
+"1691","United Kingdom","Gibraltar",209,190,0,2020-08-15
+"1692","United Kingdom","Isle of Man",336,312,24,2020-08-15
+"1693","United Kingdom","Montserrat",13,12,1,2020-08-15
+"1694","United Kingdom","Northern Ireland",6299,0,557,2020-08-15
+"1695","United Kingdom","Scotland",19289,0,2491,2020-08-15
+"1696","United Kingdom","Turks and Caicos Islands",298,55,2,2020-08-15
+"1697","United Kingdom","Unknown",0,0,0,2020-08-15
+"1698","United Kingdom","Wales",17543,0,1586,2020-08-15
+"1699","Germany","Baden-Wurttemberg",38480,35500,1859,2020-08-16
+"1700","Germany","Bayern",52888,48500,2631,2020-08-16
+"1701","Germany","Berlin",10252,9273,224,2020-08-16
+"1702","Germany","Brandenburg",3735,3410,173,2020-08-16
+"1703","Germany","Bremen",1841,1721,56,2020-08-16
+"1704","Germany","Hamburg",5886,5100,264,2020-08-16
+"1705","Germany","Hessen",13433,11715,526,2020-08-16
+"1706","Germany","Mecklenburg-Vorpommern",973,877,20,2020-08-16
+"1707","Germany","Niedersachsen",15399,13800,656,2020-08-16
+"1708","Germany","Nordrhein-Westfalen",54390,47500,1777,2020-08-16
+"1709","Germany","Rheinland-Pfalz",8141,7324,242,2020-08-16
+"1710","Germany","Saarland",3000,2695,174,2020-08-16
+"1711","Germany","Sachsen",5730,5310,225,2020-08-16
+"1712","Germany","Sachsen-Anhalt",2123,1952,64,2020-08-16
+"1713","Germany","Schleswig-Holstein",3790,3300,158,2020-08-16
+"1714","Germany","Thuringen",3496,3210,186,2020-08-16
+"1715","Germany","Unknown",1450,0,0,2020-08-16
+"1716","Italy","Abruzzo",3560,2834,472,2020-08-16
+"1717","Italy","Basilicata",485,392,28,2020-08-16
+"1718","Italy","Calabria",1348,1105,97,2020-08-16
+"1719","Italy","Campania",5278,4305,440,2020-08-16
+"1720","Italy","Emilia-Romagna",30436,24178,4453,2020-08-16
+"1721","Italy","Friuli Venezia Giulia",3507,2963,348,2020-08-16
+"1722","Italy","Lazio",9127,6973,870,2020-08-16
+"1723","Italy","Liguria",10458,8604,1569,2020-08-16
+"1724","Italy","Lombardia",97380,75163,16840,2020-08-16
+"1725","Italy","Marche",7035,5854,987,2020-08-16
+"1726","Italy","Molise",487,429,23,2020-08-16
+"1727","Italy","P.A. Bolzano",2802,2381,292,2020-08-16
+"1728","Italy","P.A. Trento",5003,4539,405,2020-08-16
+"1729","Italy","Piemonte",32084,27080,4139,2020-08-16
+"1730","Italy","Puglia",4858,3981,554,2020-08-16
+"1731","Italy","Sardegna",1493,1254,134,2020-08-16
+"1732","Italy","Sicilia",3766,2769,285,2020-08-16
+"1733","Italy","Toscana",10833,9028,1138,2020-08-16
+"1734","Italy","Umbria",1548,1385,80,2020-08-16
+"1735","Italy","Valle d'Aosta",1217,1062,146,2020-08-16
+"1736","Italy","Veneto",21210,17507,2096,2020-08-16
+"1737","Switzerland","",38124,33300,1991,2020-08-16
+"1738","United Kingdom","Anguilla",3,3,0,2020-08-16
+"1739","United Kingdom","Bermuda",162,147,9,2020-08-16
+"1740","United Kingdom","British Virgin Islands",9,7,1,2020-08-16
+"1741","United Kingdom","Cayman Islands",203,202,1,2020-08-16
+"1742","United Kingdom","Channel Islands",607,545,47,2020-08-16
+"1743","United Kingdom","England",275200,0,42072,2020-08-16
+"1744","United Kingdom","Falkland Islands (Malvinas)",13,13,0,2020-08-16
+"1745","United Kingdom","Gibraltar",215,190,0,2020-08-16
+"1746","United Kingdom","Isle of Man",336,312,24,2020-08-16
+"1747","United Kingdom","Montserrat",13,12,1,2020-08-16
+"1748","United Kingdom","Northern Ireland",6391,0,557,2020-08-16
+"1749","United Kingdom","Scotland",19332,0,2491,2020-08-16
+"1750","United Kingdom","Turks and Caicos Islands",298,55,2,2020-08-16
+"1751","United Kingdom","Unknown",0,0,0,2020-08-16
+"1752","United Kingdom","Wales",17561,0,1586,2020-08-16
+"1753","Germany","Baden-Wurttemberg",38743,35500,1859,2020-08-17
+"1754","Germany","Bayern",53088,48600,2631,2020-08-17
+"1755","Germany","Berlin",10318,9322,224,2020-08-17
+"1756","Germany","Brandenburg",3736,3410,173,2020-08-17
+"1757","Germany","Bremen",1854,1726,56,2020-08-17
+"1758","Germany","Hamburg",5900,5200,264,2020-08-17
+"1759","Germany","Hessen",13486,11800,526,2020-08-17
+"1760","Germany","Mecklenburg-Vorpommern",975,882,20,2020-08-17
+"1761","Germany","Niedersachsen",15428,13900,656,2020-08-17
+"1762","Germany","Nordrhein-Westfalen",54653,47942,1778,2020-08-17
+"1763","Germany","Rheinland-Pfalz",8175,7324,242,2020-08-17
+"1764","Germany","Saarland",3000,2705,174,2020-08-17
+"1765","Germany","Sachsen",5731,5335,225,2020-08-17
+"1766","Germany","Sachsen-Anhalt",2129,1973,64,2020-08-17
+"1767","Germany","Schleswig-Holstein",3790,3400,158,2020-08-17
+"1768","Germany","Thuringen",3498,3230,186,2020-08-17
+"1769","Germany","Unknown",2196,0,0,2020-08-17
+"1770","Italy","Abruzzo",3565,2838,472,2020-08-17
+"1771","Italy","Basilicata",485,392,28,2020-08-17
+"1772","Italy","Calabria",1352,1106,97,2020-08-17
+"1773","Italy","Campania",5312,4305,440,2020-08-17
+"1774","Italy","Emilia-Romagna",30477,24210,4453,2020-08-17
+"1775","Italy","Friuli Venezia Giulia",3512,2963,348,2020-08-17
+"1776","Italy","Lazio",9178,6979,870,2020-08-17
+"1777","Italy","Liguria",10474,8610,1569,2020-08-17
+"1778","Italy","Lombardia",97423,75248,16840,2020-08-17
+"1779","Italy","Marche",7043,5861,987,2020-08-17
+"1780","Italy","Molise",487,429,23,2020-08-17
+"1781","Italy","P.A. Bolzano",2804,2385,292,2020-08-17
+"1782","Italy","P.A. Trento",5004,4540,405,2020-08-17
+"1783","Italy","Piemonte",32100,27086,4140,2020-08-17
+"1784","Italy","Puglia",4862,3982,555,2020-08-17
+"1785","Italy","Sardegna",1500,1256,134,2020-08-17
+"1786","Italy","Sicilia",3780,2776,286,2020-08-17
+"1787","Italy","Toscana",10854,9028,1139,2020-08-17
+"1788","Italy","Umbria",1549,1384,80,2020-08-17
+"1789","Italy","Valle d'Aosta",1218,1064,146,2020-08-17
+"1790","Italy","Veneto",21256,17526,2096,2020-08-17
+"1791","Switzerland","",38252,33300,1991,2020-08-17
+"1792","United Kingdom","Anguilla",3,3,0,2020-08-17
+"1793","United Kingdom","Bermuda",166,147,9,2020-08-17
+"1794","United Kingdom","British Virgin Islands",9,7,1,2020-08-17
+"1795","United Kingdom","Cayman Islands",203,202,1,2020-08-17
+"1796","United Kingdom","Channel Islands",609,545,47,2020-08-17
+"1797","United Kingdom","England",275834,0,36731,2020-08-17
+"1798","United Kingdom","Falkland Islands (Malvinas)",13,13,0,2020-08-17
+"1799","United Kingdom","Gibraltar",217,194,0,2020-08-17
+"1800","United Kingdom","Isle of Man",336,312,24,2020-08-17
+"1801","United Kingdom","Montserrat",13,12,1,2020-08-17
+"1802","United Kingdom","Northern Ireland",6430,0,558,2020-08-17
+"1803","United Kingdom","Scotland",19358,0,2491,2020-08-17
+"1804","United Kingdom","Turks and Caicos Islands",298,55,2,2020-08-17
+"1805","United Kingdom","Unknown",0,0,0,2020-08-17
+"1806","United Kingdom","Wales",17575,0,1589,2020-08-17
+"1807","Germany","Baden-Wurttemberg",38971,35613,1860,2020-08-18
+"1808","Germany","Bayern",53418,48800,2631,2020-08-18
+"1809","Germany","Berlin",10393,9376,224,2020-08-18
+"1810","Germany","Brandenburg",3752,3410,173,2020-08-18
+"1811","Germany","Bremen",1867,1730,56,2020-08-18
+"1812","Germany","Hamburg",5926,5200,264,2020-08-18
+"1813","Germany","Hessen",13675,11900,528,2020-08-18
+"1814","Germany","Mecklenburg-Vorpommern",978,884,20,2020-08-18
+"1815","Germany","Niedersachsen",15524,14000,656,2020-08-18
+"1816","Germany","Nordrhein-Westfalen",55049,48707,1780,2020-08-18
+"1817","Germany","Rheinland-Pfalz",8264,7396,242,2020-08-18
+"1818","Germany","Saarland",3008,2709,174,2020-08-18
+"1819","Germany","Sachsen",5746,5343,225,2020-08-18
+"1820","Germany","Sachsen-Anhalt",2137,1979,64,2020-08-18
+"1821","Germany","Schleswig-Holstein",3825,3400,158,2020-08-18
+"1822","Germany","Thuringen",3505,3230,186,2020-08-18
+"1823","Germany","Unknown",2082,0,0,2020-08-18
+"1824","Italy","Abruzzo",3570,2840,472,2020-08-18
+"1825","Italy","Basilicata",491,393,28,2020-08-18
+"1826","Italy","Calabria",1357,1106,97,2020-08-18
+"1827","Italy","Campania",5347,4311,440,2020-08-18
+"1828","Italy","Emilia-Romagna",30498,24255,4454,2020-08-18
+"1829","Italy","Friuli Venezia Giulia",3522,2970,348,2020-08-18
+"1830","Italy","Lazio",9221,6991,871,2020-08-18
+"1831","Italy","Liguria",10501,8610,1569,2020-08-18
+"1832","Italy","Lombardia",97473,75319,16840,2020-08-18
+"1833","Italy","Marche",7058,5866,987,2020-08-18
+"1834","Italy","Molise",496,429,23,2020-08-18
+"1835","Italy","P.A. Bolzano",2804,2385,292,2020-08-18
+"1836","Italy","P.A. Trento",5006,4542,405,2020-08-18
+"1837","Italy","Piemonte",32127,27089,4141,2020-08-18
+"1838","Italy","Puglia",4882,3987,555,2020-08-18
+"1839","Italy","Sardegna",1512,1256,134,2020-08-18
+"1840","Italy","Sicilia",3793,2785,286,2020-08-18
+"1841","Italy","Toscana",10885,9028,1139,2020-08-18
+"1842","Italy","Umbria",1559,1386,80,2020-08-18
+"1843","Italy","Valle d'Aosta",1218,1064,146,2020-08-18
+"1844","Italy","Veneto",21316,17530,2098,2020-08-18
+"1845","Switzerland","",38449,33500,1992,2020-08-18
+"1846","United Kingdom","Anguilla",3,3,0,2020-08-18
+"1847","United Kingdom","Bermuda",166,147,9,2020-08-18
+"1848","United Kingdom","British Virgin Islands",11,8,1,2020-08-18
+"1849","United Kingdom","Cayman Islands",203,202,1,2020-08-18
+"1850","United Kingdom","Channel Islands",609,545,47,2020-08-18
+"1851","United Kingdom","England",276809,0,36742,2020-08-18
+"1852","United Kingdom","Falkland Islands (Malvinas)",13,13,0,2020-08-18
+"1853","United Kingdom","Gibraltar",222,195,0,2020-08-18
+"1854","United Kingdom","Isle of Man",336,312,24,2020-08-18
+"1855","United Kingdom","Montserrat",13,12,1,2020-08-18
+"1856","United Kingdom","Northern Ireland",6471,0,559,2020-08-18
+"1857","United Kingdom","Scotland",19407,0,2491,2020-08-18
+"1858","United Kingdom","Turks and Caicos Islands",315,56,2,2020-08-18
+"1859","United Kingdom","Unknown",0,0,0,2020-08-18
+"1860","United Kingdom","Wales",17599,0,1589,2020-08-18
+"1861","Germany","Baden-Wurttemberg",39230,35704,1860,2020-08-19
+"1862","Germany","Bayern",53748,48867,2631,2020-08-19
+"1863","Germany","Berlin",10462,9442,224,2020-08-19
+"1864","Germany","Brandenburg",3765,3446,173,2020-08-19
+"1865","Germany","Bremen",1881,1741,56,2020-08-19
+"1866","Germany","Hamburg",5953,5217,264,2020-08-19
+"1867","Germany","Hessen",13842,11980,528,2020-08-19
+"1868","Germany","Mecklenburg-Vorpommern",981,889,20,2020-08-19
+"1869","Germany","Niedersachsen",15681,14050,658,2020-08-19
+"1870","Germany","Nordrhein-Westfalen",55375,48973,1783,2020-08-19
+"1871","Germany","Rheinland-Pfalz",8369,7434,242,2020-08-19
+"1872","Germany","Saarland",3017,2741,174,2020-08-19
+"1873","Germany","Sachsen",5761,5351,225,2020-08-19
+"1874","Germany","Sachsen-Anhalt",2149,1979,65,2020-08-19
+"1875","Germany","Schleswig-Holstein",3851,3400,160,2020-08-19
+"1876","Germany","Thuringen",3509,3240,186,2020-08-19
+"1877","Germany","Unknown",2132,0,0,2020-08-19
+"1878","Italy","Abruzzo",3577,2840,472,2020-08-19
+"1879","Italy","Basilicata",492,393,28,2020-08-19
+"1880","Italy","Calabria",1367,1120,97,2020-08-19
+"1881","Italy","Campania",5403,4345,440,2020-08-19
+"1882","Italy","Emilia-Romagna",30574,24324,4455,2020-08-19
+"1883","Italy","Friuli Venezia Giulia",3533,2975,348,2020-08-19
+"1884","Italy","Lazio",9296,6996,871,2020-08-19
+"1885","Italy","Liguria",10531,8619,1569,2020-08-19
+"1886","Italy","Lombardia",97564,75398,16844,2020-08-19
+"1887","Italy","Marche",7065,5871,987,2020-08-19
+"1888","Italy","Molise",503,429,23,2020-08-19
+"1889","Italy","P.A. Bolzano",2811,2397,292,2020-08-19
+"1890","Italy","P.A. Trento",5008,4559,405,2020-08-19
+"1891","Italy","Piemonte",32169,27096,4142,2020-08-19
+"1892","Italy","Puglia",4915,3990,555,2020-08-19
+"1893","Italy","Sardegna",1549,1261,134,2020-08-19
+"1894","Italy","Sicilia",3838,2786,286,2020-08-19
+"1895","Italy","Toscana",10925,9040,1139,2020-08-19
+"1896","Italy","Umbria",1563,1388,80,2020-08-19
+"1897","Italy","Valle d'Aosta",1220,1064,146,2020-08-19
+"1898","Italy","Veneto",21375,17615,2099,2020-08-19
+"1899","Switzerland","",38760,33500,1996,2020-08-19
+"1900","United Kingdom","Anguilla",3,3,0,2020-08-19
+"1901","United Kingdom","Bermuda",166,147,9,2020-08-19
+"1902","United Kingdom","British Virgin Islands",11,8,1,2020-08-19
+"1903","United Kingdom","Cayman Islands",205,202,1,2020-08-19
+"1904","United Kingdom","Channel Islands",613,545,48,2020-08-19
+"1905","United Kingdom","England",277516,0,36757,2020-08-19
+"1906","United Kingdom","Falkland Islands (Malvinas)",13,13,0,2020-08-19
+"1907","United Kingdom","Gibraltar",223,197,0,2020-08-19
+"1908","United Kingdom","Isle of Man",336,312,24,2020-08-19
+"1909","United Kingdom","Montserrat",13,12,1,2020-08-19
+"1910","United Kingdom","Northern Ireland",6505,0,559,2020-08-19
+"1911","United Kingdom","Scotland",19457,0,2492,2020-08-19
+"1912","United Kingdom","Turks and Caicos Islands",327,56,2,2020-08-19
+"1913","United Kingdom","Unknown",0,0,0,2020-08-19
+"1914","United Kingdom","Wales",17620,0,1589,2020-08-19
+"1915","Germany","Baden-Wurttemberg",39496,35788,1863,2020-08-20
+"1916","Germany","Bayern",54147,48977,2631,2020-08-20
+"1917","Germany","Berlin",10542,9513,226,2020-08-20
+"1918","Germany","Brandenburg",3782,3453,173,2020-08-20
+"1919","Germany","Bremen",1888,1744,56,2020-08-20
+"1920","Germany","Hamburg",5988,5261,264,2020-08-20
+"1921","Germany","Hessen",14029,12064,528,2020-08-20
+"1922","Germany","Mecklenburg-Vorpommern",984,894,20,2020-08-20
+"1923","Germany","Niedersachsen",15800,14121,659,2020-08-20
+"1924","Germany","Nordrhein-Westfalen",55770,49289,1790,2020-08-20
+"1925","Germany","Rheinland-Pfalz",8475,7468,242,2020-08-20
+"1926","Germany","Saarland",3039,2748,174,2020-08-20
+"1927","Germany","Sachsen",5784,5389,226,2020-08-20
+"1928","Germany","Sachsen-Anhalt",2158,1982,65,2020-08-20
+"1929","Germany","Schleswig-Holstein",3872,3418,160,2020-08-20
+"1930","Germany","Thuringen",3523,3250,186,2020-08-20
+"1931","Germany","Unknown",2015,0,0,2020-08-20
+"1932","Italy","Abruzzo",3581,2841,472,2020-08-20
+"1933","Italy","Basilicata",494,393,28,2020-08-20
+"1934","Italy","Calabria",1377,1129,97,2020-08-20
+"1935","Italy","Campania",5456,4345,440,2020-08-20
+"1936","Italy","Emilia-Romagna",30626,24355,4455,2020-08-20
+"1937","Italy","Friuli Venezia Giulia",3547,2977,348,2020-08-20
+"1938","Italy","Lazio",9411,6999,872,2020-08-20
+"1939","Italy","Liguria",10562,8636,1571,2020-08-20
+"1940","Italy","Lombardia",97718,75449,16846,2020-08-20
+"1941","Italy","Marche",7078,5874,987,2020-08-20
+"1942","Italy","Molise",507,429,23,2020-08-20
+"1943","Italy","P.A. Bolzano",2832,2401,292,2020-08-20
+"1944","Italy","P.A. Trento",5012,4563,405,2020-08-20
+"1945","Italy","Piemonte",32221,27102,4142,2020-08-20
+"1946","Italy","Puglia",4935,3991,555,2020-08-20
+"1947","Italy","Sardegna",1567,1262,134,2020-08-20
+"1948","Italy","Sicilia",3875,2799,286,2020-08-20
+"1949","Italy","Toscana",10984,9044,1139,2020-08-20
+"1950","Italy","Umbria",1580,1388,80,2020-08-20
+"1951","Italy","Valle d'Aosta",1221,1064,146,2020-08-20
+"1952","Italy","Veneto",21534,17645,2100,2020-08-20
+"1953","Switzerland","",39026,33900,1998,2020-08-20
+"1954","United Kingdom","Anguilla",3,3,0,2020-08-20
+"1955","United Kingdom","Bermuda",166,147,9,2020-08-20
+"1956","United Kingdom","British Virgin Islands",11,8,1,2020-08-20
+"1957","United Kingdom","Cayman Islands",205,202,1,2020-08-20
+"1958","United Kingdom","Channel Islands",613,545,48,2020-08-20
+"1959","United Kingdom","England",278551,0,36763,2020-08-20
+"1960","United Kingdom","Falkland Islands (Malvinas)",13,13,0,2020-08-20
+"1961","United Kingdom","Gibraltar",229,200,0,2020-08-20
+"1962","United Kingdom","Isle of Man",336,312,24,2020-08-20
+"1963","United Kingdom","Montserrat",13,12,1,2020-08-20
+"1964","United Kingdom","Northern Ireland",6556,0,559,2020-08-20
+"1965","United Kingdom","Scotland",19534,0,2492,2020-08-20
+"1966","United Kingdom","Turks and Caicos Islands",334,102,2,2020-08-20
+"1967","United Kingdom","Unknown",0,0,0,2020-08-20
+"1968","United Kingdom","Wales",17639,0,1589,2020-08-20
+"1969","Germany","Baden-Wurttemberg",39832,35866,1863,2020-08-21
+"1970","Germany","Bayern",54494,49084,2632,2020-08-21
+"1971","Germany","Berlin",10654,9609,226,2020-08-21
+"1972","Germany","Brandenburg",3800,3464,173,2020-08-21
+"1973","Germany","Bremen",1896,1753,56,2020-08-21
+"1974","Germany","Hamburg",6018,5282,265,2020-08-21
+"1975","Germany","Hessen",14260,12183,528,2020-08-21
+"1976","Germany","Mecklenburg-Vorpommern",989,906,20,2020-08-21
+"1977","Germany","Niedersachsen",15941,14221,659,2020-08-21
+"1978","Germany","Nordrhein-Westfalen",56157,49947,1792,2020-08-21
+"1979","Germany","Rheinland-Pfalz",8541,7518,242,2020-08-21
+"1980","Germany","Saarland",3044,2756,174,2020-08-21
+"1981","Germany","Sachsen",5800,5389,225,2020-08-21
+"1982","Germany","Sachsen-Anhalt",2173,1982,65,2020-08-21
+"1983","Germany","Schleswig-Holstein",3890,3446,160,2020-08-21
+"1984","Germany","Thuringen",3530,3250,186,2020-08-21
+"1985","Germany","Unknown",2010,0,0,2020-08-21
+"1986","Italy","Abruzzo",3604,2843,472,2020-08-21
+"1987","Italy","Basilicata",494,403,28,2020-08-21
+"1988","Italy","Calabria",1379,1129,97,2020-08-21
+"1989","Italy","Campania",5523,4348,440,2020-08-21
+"1990","Italy","Emilia-Romagna",30708,24392,4455,2020-08-21
+"1991","Italy","Friuli Venezia Giulia",3583,2992,348,2020-08-21
+"1992","Italy","Lazio",9548,7009,873,2020-08-21
+"1993","Italy","Liguria",10583,8647,1571,2020-08-21
+"1994","Italy","Lombardia",97892,75546,16852,2020-08-21
+"1995","Italy","Marche",7095,5876,987,2020-08-21
+"1996","Italy","Molise",509,430,23,2020-08-21
+"1997","Italy","P.A. Bolzano",2837,2404,292,2020-08-21
+"1998","Italy","P.A. Trento",5016,4570,405,2020-08-21
+"1999","Italy","Piemonte",32260,27117,4142,2020-08-21
+"2000","Italy","Puglia",4970,3996,555,2020-08-21
+"2001","Italy","Sardegna",1609,1262,134,2020-08-21
+"2002","Italy","Sicilia",3919,2805,286,2020-08-21
+"2003","Italy","Toscana",11063,9046,1139,2020-08-21
+"2004","Italy","Umbria",1602,1398,80,2020-08-21
+"2005","Italy","Valle d'Aosta",1221,1064,146,2020-08-21
+"2006","Italy","Veneto",21650,17683,2102,2020-08-21
+"2007","Switzerland","",39332,33900,2000,2020-08-21
+"2008","United Kingdom","Anguilla",3,3,0,2020-08-21
+"2009","United Kingdom","Bermuda",167,147,9,2020-08-21
+"2010","United Kingdom","British Virgin Islands",21,8,1,2020-08-21
+"2011","United Kingdom","Cayman Islands",205,202,1,2020-08-21
+"2012","United Kingdom","Channel Islands",614,545,48,2020-08-21
+"2013","United Kingdom","England",279459,0,36765,2020-08-21
+"2014","United Kingdom","Falkland Islands (Malvinas)",13,13,0,2020-08-21
+"2015","United Kingdom","Gibraltar",231,200,0,2020-08-21
+"2016","United Kingdom","Isle of Man",336,312,24,2020-08-21
+"2017","United Kingdom","Montserrat",13,12,1,2020-08-21
+"2018","United Kingdom","Northern Ireland",6576,0,559,2020-08-21
+"2019","United Kingdom","Scotland",19605,0,2492,2020-08-21
+"2020","United Kingdom","Turks and Caicos Islands",347,102,2,2020-08-21
+"2021","United Kingdom","Unknown",0,0,0,2020-08-21
+"2022","United Kingdom","Wales",17673,0,1589,2020-08-21
+"2023","Germany","Baden-Wurttemberg",40034,35934,1863,2020-08-22
+"2024","Germany","Bayern",54843,49182,2633,2020-08-22
+"2025","Germany","Berlin",10716,9660,226,2020-08-22
+"2026","Germany","Brandenburg",3817,3470,173,2020-08-22
+"2027","Germany","Bremen",1896,1758,56,2020-08-22
+"2028","Germany","Hamburg",6045,5308,265,2020-08-22
+"2029","Germany","Hessen",14409,12262,528,2020-08-22
+"2030","Germany","Mecklenburg-Vorpommern",992,913,20,2020-08-22
+"2031","Germany","Niedersachsen",16038,14281,659,2020-08-22
+"2032","Germany","Nordrhein-Westfalen",56599,50411,1797,2020-08-22
+"2033","Germany","Rheinland-Pfalz",8608,7563,242,2020-08-22
+"2034","Germany","Saarland",3055,2760,174,2020-08-22
+"2035","Germany","Sachsen",5806,5407,225,2020-08-22
+"2036","Germany","Sachsen-Anhalt",2173,1993,65,2020-08-22
+"2037","Germany","Schleswig-Holstein",3902,3454,160,2020-08-22
+"2038","Germany","Thuringen",3546,3250,186,2020-08-22
+"2039","Germany","Unknown",1382,0,0,2020-08-22
+"2040","Italy","Abruzzo",3628,2843,472,2020-08-22
+"2041","Italy","Basilicata",497,403,28,2020-08-22
+"2042","Italy","Calabria",1390,1135,97,2020-08-22
+"2043","Italy","Campania",5584,4352,440,2020-08-22
+"2044","Italy","Emilia-Romagna",30788,24408,4455,2020-08-22
+"2045","Italy","Friuli Venezia Giulia",3616,2996,348,2020-08-22
+"2046","Italy","Lazio",9763,7020,873,2020-08-22
+"2047","Italy","Liguria",10617,8671,1571,2020-08-22
+"2048","Italy","Lombardia",98077,75649,16852,2020-08-22
+"2049","Italy","Marche",7105,5876,987,2020-08-22
+"2050","Italy","Molise",510,430,23,2020-08-22
+"2051","Italy","P.A. Bolzano",2856,2418,292,2020-08-22
+"2052","Italy","P.A. Trento",5025,4580,405,2020-08-22
+"2053","Italy","Piemonte",32301,27127,4143,2020-08-22
+"2054","Italy","Puglia",4992,4001,555,2020-08-22
+"2055","Italy","Sardegna",1653,1262,134,2020-08-22
+"2056","Italy","Sicilia",3967,2807,286,2020-08-22
+"2057","Italy","Toscana",11116,9049,1139,2020-08-22
+"2058","Italy","Umbria",1620,1398,80,2020-08-22
+"2059","Italy","Valle d'Aosta",1221,1064,146,2020-08-22
+"2060","Italy","Veneto",21810,17714,2104,2020-08-22
+"2061","Switzerland","",39627,34100,2000,2020-08-22
+"2062","United Kingdom","Anguilla",3,3,0,2020-08-22
+"2063","United Kingdom","Bermuda",167,149,9,2020-08-22
+"2064","United Kingdom","British Virgin Islands",21,8,1,2020-08-22
+"2065","United Kingdom","Cayman Islands",205,202,1,2020-08-22
+"2066","United Kingdom","Channel Islands",614,545,48,2020-08-22
+"2067","United Kingdom","England",280519,0,36782,2020-08-22
+"2068","United Kingdom","Falkland Islands (Malvinas)",13,13,0,2020-08-22
+"2069","United Kingdom","Gibraltar",239,201,0,2020-08-22
+"2070","United Kingdom","Isle of Man",336,312,24,2020-08-22
+"2071","United Kingdom","Montserrat",13,12,1,2020-08-22
+"2072","United Kingdom","Northern Ireland",6647,0,559,2020-08-22
+"2073","United Kingdom","Scotland",19728,0,2492,2020-08-22
+"2074","United Kingdom","Turks and Caicos Islands",383,102,2,2020-08-22
+"2075","United Kingdom","Unknown",0,0,0,2020-08-22
+"2076","United Kingdom","Wales",17707,0,1590,2020-08-22
+"2077","Germany","Baden-Wurttemberg",40034,35997,1863,2020-08-23
+"2078","Germany","Bayern",54858,49267,2633,2020-08-23
+"2079","Germany","Berlin",10727,9721,226,2020-08-23
+"2080","Germany","Brandenburg",3826,3477,173,2020-08-23
+"2081","Germany","Bremen",1900,1759,56,2020-08-23
+"2082","Germany","Hamburg",6053,5321,265,2020-08-23
+"2083","Germany","Hessen",14587,12311,528,2020-08-23
+"2084","Germany","Mecklenburg-Vorpommern",994,915,20,2020-08-23
+"2085","Germany","Niedersachsen",16079,14311,660,2020-08-23
+"2086","Germany","Nordrhein-Westfalen",56784,50411,1798,2020-08-23
+"2087","Germany","Rheinland-Pfalz",8661,7578,243,2020-08-23
+"2088","Germany","Saarland",3071,2760,174,2020-08-23
+"2089","Germany","Sachsen",5820,5410,225,2020-08-23
+"2090","Germany","Sachsen-Anhalt",2182,1997,65,2020-08-23
+"2091","Germany","Schleswig-Holstein",3904,3500,160,2020-08-23
+"2092","Germany","Thuringen",3547,3250,186,2020-08-23
+"2093","Germany","Unknown",1467,0,0,2020-08-23
+"2094","Italy","Abruzzo",3648,2844,472,2020-08-23
+"2095","Italy","Basilicata",502,403,28,2020-08-23
+"2096","Italy","Calabria",1398,1135,97,2020-08-23
+"2097","Italy","Campania",5722,4356,441,2020-08-23
+"2098","Italy","Emilia-Romagna",30915,24425,4456,2020-08-23
+"2099","Italy","Friuli Venezia Giulia",3640,3001,348,2020-08-23
+"2100","Italy","Lazio",9947,7046,874,2020-08-23
+"2101","Italy","Liguria",10645,8676,1571,2020-08-23
+"2102","Italy","Lombardia",98316,75678,16856,2020-08-23
+"2103","Italy","Marche",7110,5878,987,2020-08-23
+"2104","Italy","Molise",511,430,23,2020-08-23
+"2105","Italy","P.A. Bolzano",2869,2420,292,2020-08-23
+"2106","Italy","P.A. Trento",5028,4580,405,2020-08-23
+"2107","Italy","Piemonte",32343,27139,4143,2020-08-23
+"2108","Italy","Puglia",5025,4003,555,2020-08-23
+"2109","Italy","Sardegna",1734,1262,134,2020-08-23
+"2110","Italy","Sicilia",4002,2813,286,2020-08-23
+"2111","Italy","Toscana",11175,9056,1139,2020-08-23
+"2112","Italy","Umbria",1639,1399,80,2020-08-23
+"2113","Italy","Valle d'Aosta",1221,1064,146,2020-08-23
+"2114","Italy","Veneto",21955,17862,2104,2020-08-23
+"2115","Switzerland","",39903,34400,2001,2020-08-23
+"2116","United Kingdom","Anguilla",3,3,0,2020-08-23
+"2117","United Kingdom","Bermuda",167,149,9,2020-08-23
+"2118","United Kingdom","British Virgin Islands",21,8,1,2020-08-23
+"2119","United Kingdom","Cayman Islands",205,202,1,2020-08-23
+"2120","United Kingdom","Channel Islands",614,545,48,2020-08-23
+"2121","United Kingdom","England",281457,0,36786,2020-08-23
+"2122","United Kingdom","Falkland Islands (Malvinas)",13,13,0,2020-08-23
+"2123","United Kingdom","Gibraltar",246,201,0,2020-08-23
+"2124","United Kingdom","Isle of Man",336,312,24,2020-08-23
+"2125","United Kingdom","Montserrat",13,12,1,2020-08-23
+"2126","United Kingdom","Northern Ireland",6647,0,559,2020-08-23
+"2127","United Kingdom","Scotland",19811,0,2492,2020-08-23
+"2128","United Kingdom","Turks and Caicos Islands",383,102,2,2020-08-23
+"2129","United Kingdom","Unknown",0,0,0,2020-08-23
+"2130","United Kingdom","Wales",17727,0,1592,2020-08-23
+"2131","Germany","Baden-Wurttemberg",40360,36103,1863,2020-08-24
+"2132","Germany","Bayern",55156,49444,2634,2020-08-24
+"2133","Germany","Berlin",10785,9806,226,2020-08-24
+"2134","Germany","Brandenburg",3827,3480,173,2020-08-24
+"2135","Germany","Bremen",1915,1767,56,2020-08-24
+"2136","Germany","Hamburg",6082,5335,265,2020-08-24
+"2137","Germany","Hessen",14657,12419,528,2020-08-24
+"2138","Germany","Mecklenburg-Vorpommern",997,917,20,2020-08-24
+"2139","Germany","Niedersachsen",16096,14376,660,2020-08-24
+"2140","Germany","Nordrhein-Westfalen",56916,50411,1798,2020-08-24
+"2141","Germany","Rheinland-Pfalz",8675,7628,243,2020-08-24
+"2142","Germany","Saarland",3076,2774,174,2020-08-24
+"2143","Germany","Sachsen",5825,5421,225,2020-08-24
+"2144","Germany","Sachsen-Anhalt",2186,2009,65,2020-08-24
+"2145","Germany","Schleswig-Holstein",3927,3500,160,2020-08-24
+"2146","Germany","Thuringen",3553,3263,186,2020-08-24
+"2147","Germany","Unknown",2089,0,0,2020-08-24
+"2148","Italy","Abruzzo",3652,2844,472,2020-08-24
+"2149","Italy","Basilicata",502,404,28,2020-08-24
+"2150","Italy","Calabria",1400,1136,97,2020-08-24
+"2151","Italy","Campania",5838,4356,441,2020-08-24
+"2152","Italy","Emilia-Romagna",31031,24434,4458,2020-08-24
+"2153","Italy","Friuli Venezia Giulia",3642,3003,348,2020-08-24
+"2154","Italy","Lazio",10093,7067,875,2020-08-24
+"2155","Italy","Liguria",10671,8699,1571,2020-08-24
+"2156","Italy","Lombardia",98426,75705,16857,2020-08-24
+"2157","Italy","Marche",7113,5883,987,2020-08-24
+"2158","Italy","Molise",511,432,23,2020-08-24
+"2159","Italy","P.A. Bolzano",2884,2420,292,2020-08-24
+"2160","Italy","P.A. Trento",5029,4580,405,2020-08-24
+"2161","Italy","Piemonte",32383,27145,4143,2020-08-24
+"2162","Italy","Puglia",5070,4010,555,2020-08-24
+"2163","Italy","Sardegna",1825,1262,134,2020-08-24
+"2164","Italy","Sicilia",4067,2834,286,2020-08-24
+"2165","Italy","Toscana",11219,9065,1139,2020-08-24
+"2166","Italy","Umbria",1650,1400,80,2020-08-24
+"2167","Italy","Valle d'Aosta",1221,1064,146,2020-08-24
+"2168","Italy","Veneto",22071,17919,2104,2020-08-24
+"2169","Switzerland","",40060,34400,2001,2020-08-24
+"2170","United Kingdom","Anguilla",3,3,0,2020-08-24
+"2171","United Kingdom","Bermuda",168,150,9,2020-08-24
+"2172","United Kingdom","British Virgin Islands",21,8,1,2020-08-24
+"2173","United Kingdom","Cayman Islands",205,202,1,2020-08-24
+"2174","United Kingdom","Channel Islands",616,545,48,2020-08-24
+"2175","United Kingdom","England",282215,0,36789,2020-08-24
+"2176","United Kingdom","Falkland Islands (Malvinas)",13,13,0,2020-08-24
+"2177","United Kingdom","Gibraltar",248,203,0,2020-08-24
+"2178","United Kingdom","Isle of Man",336,312,24,2020-08-24
+"2179","United Kingdom","Montserrat",13,12,1,2020-08-24
+"2180","United Kingdom","Northern Ireland",6776,0,559,2020-08-24
+"2181","United Kingdom","Scotland",19877,0,2492,2020-08-24
+"2182","United Kingdom","Turks and Caicos Islands",383,102,2,2020-08-24
+"2183","United Kingdom","Unknown",0,0,0,2020-08-24
+"2184","United Kingdom","Wales",17746,0,1593,2020-08-24
+"2185","Germany","Baden-Wurttemberg",40687,36212,1862,2020-08-25
+"2186","Germany","Bayern",55493,49624,2634,2020-08-25
+"2187","Germany","Berlin",10851,9875,226,2020-08-25
+"2188","Germany","Brandenburg",3843,3491,173,2020-08-25
+"2189","Germany","Bremen",1927,1767,56,2020-08-25
+"2190","Germany","Hamburg",6109,5365,265,2020-08-25
+"2191","Germany","Hessen",14809,12525,528,2020-08-25
+"2192","Germany","Mecklenburg-Vorpommern",998,925,20,2020-08-25
+"2193","Germany","Niedersachsen",16223,14458,662,2020-08-25
+"2194","Germany","Nordrhein-Westfalen",57213,51380,1802,2020-08-25
+"2195","Germany","Rheinland-Pfalz",8734,7671,243,2020-08-25
+"2196","Germany","Saarland",3080,2786,174,2020-08-25
+"2197","Germany","Sachsen",5834,5432,225,2020-08-25
+"2198","Germany","Sachsen-Anhalt",2202,2017,65,2020-08-25
+"2199","Germany","Schleswig-Holstein",3960,3536,160,2020-08-25
+"2200","Germany","Thuringen",3564,3269,186,2020-08-25
+"2201","Germany","Unknown",2056,0,0,2020-08-25
+"2202","Italy","Abruzzo",3662,2848,472,2020-08-25
+"2203","Italy","Basilicata",505,404,28,2020-08-25
+"2204","Italy","Calabria",1408,1141,97,2020-08-25
+"2205","Italy","Campania",5976,4370,442,2020-08-25
+"2206","Italy","Emilia-Romagna",31094,24447,4458,2020-08-25
+"2207","Italy","Friuli Venezia Giulia",3651,3005,348,2020-08-25
+"2208","Italy","Lazio",10236,7077,875,2020-08-25
+"2209","Italy","Liguria",10683,8699,1571,2020-08-25
+"2210","Italy","Lombardia",98545,75901,16857,2020-08-25
+"2211","Italy","Marche",7124,5889,987,2020-08-25
+"2212","Italy","Molise",511,432,23,2020-08-25
+"2213","Italy","P.A. Bolzano",2893,2424,292,2020-08-25
+"2214","Italy","P.A. Trento",5032,4580,405,2020-08-25
+"2215","Italy","Piemonte",32440,27155,4143,2020-08-25
+"2216","Italy","Puglia",5119,4016,555,2020-08-25
+"2217","Italy","Sardegna",1859,1262,134,2020-08-25
+"2218","Italy","Sicilia",4091,2858,286,2020-08-25
+"2219","Italy","Toscana",11253,9075,1139,2020-08-25
+"2220","Italy","Umbria",1679,1404,80,2020-08-25
+"2221","Italy","Valle d'Aosta",1223,1064,146,2020-08-25
+"2222","Italy","Veneto",22190,17964,2107,2020-08-25
+"2223","Switzerland","",40262,34400,2002,2020-08-25
+"2224","United Kingdom","Anguilla",3,3,0,2020-08-25
+"2225","United Kingdom","Bermuda",168,151,9,2020-08-25
+"2226","United Kingdom","British Virgin Islands",26,8,1,2020-08-25
+"2227","United Kingdom","Cayman Islands",205,202,1,2020-08-25
+"2228","United Kingdom","Channel Islands",620,545,48,2020-08-25
+"2229","United Kingdom","England",283280,0,36805,2020-08-25
+"2230","United Kingdom","Falkland Islands (Malvinas)",13,13,0,2020-08-25
+"2231","United Kingdom","Gibraltar",256,203,0,2020-08-25
+"2232","United Kingdom","Isle of Man",336,312,24,2020-08-25
+"2233","United Kingdom","Montserrat",13,12,1,2020-08-25
+"2234","United Kingdom","Northern Ireland",6823,0,559,2020-08-25
+"2235","United Kingdom","Scotland",19921,0,2492,2020-08-25
+"2236","United Kingdom","Turks and Caicos Islands",383,102,2,2020-08-25
+"2237","United Kingdom","Unknown",0,0,0,2020-08-25
+"2238","United Kingdom","Wales",17774,0,1593,2020-08-25
+"2239","Germany","Baden-Wurttemberg",40964,36357,1863,2020-08-26
+"2240","Germany","Bayern",55840,49799,2635,2020-08-26
+"2241","Germany","Berlin",10933,9972,226,2020-08-26
+"2242","Germany","Brandenburg",3855,3511,173,2020-08-26
+"2243","Germany","Bremen",1947,1780,56,2020-08-26
+"2244","Germany","Hamburg",6136,5401,265,2020-08-26
+"2245","Germany","Hessen",15025,12675,528,2020-08-26
+"2246","Germany","Mecklenburg-Vorpommern",999,932,20,2020-08-26
+"2247","Germany","Niedersachsen",16354,14541,662,2020-08-26
+"2248","Germany","Nordrhein-Westfalen",57560,51884,1804,2020-08-26
+"2249","Germany","Rheinland-Pfalz",8802,7729,243,2020-08-26
+"2250","Germany","Saarland",3085,2795,174,2020-08-26
+"2251","Germany","Sachsen",5860,5442,225,2020-08-26
+"2252","Germany","Sachsen-Anhalt",2212,2021,65,2020-08-26
+"2253","Germany","Schleswig-Holstein",3980,3566,160,2020-08-26
+"2254","Germany","Thuringen",3571,3286,186,2020-08-26
+"2255","Germany","Unknown",1887,0,0,2020-08-26
+"2256","Italy","Abruzzo",3687,2849,472,2020-08-26
+"2257","Italy","Basilicata",508,406,28,2020-08-26
+"2258","Italy","Calabria",1416,1146,97,2020-08-26
+"2259","Italy","Campania",6111,4373,443,2020-08-26
+"2260","Italy","Emilia-Romagna",31214,24455,4458,2020-08-26
+"2261","Italy","Friuli Venezia Giulia",3684,3015,348,2020-08-26
+"2262","Italy","Lazio",10398,7110,876,2020-08-26
+"2263","Italy","Liguria",10724,8713,1571,2020-08-26
+"2264","Italy","Lombardia",98814,75988,16857,2020-08-26
+"2265","Italy","Marche",7133,5905,987,2020-08-26
+"2266","Italy","Molise",520,432,23,2020-08-26
+"2267","Italy","P.A. Bolzano",2898,2428,292,2020-08-26
+"2268","Italy","P.A. Trento",5039,4587,405,2020-08-26
+"2269","Italy","Piemonte",32515,27163,4144,2020-08-26
+"2270","Italy","Puglia",5170,4018,555,2020-08-26
+"2271","Italy","Sardegna",1912,1265,134,2020-08-26
+"2272","Italy","Sicilia",4124,2858,286,2020-08-26
+"2273","Italy","Toscana",11414,9083,1140,2020-08-26
+"2274","Italy","Umbria",1699,1407,80,2020-08-26
+"2275","Italy","Valle d'Aosta",1223,1065,146,2020-08-26
+"2276","Italy","Veneto",22337,18063,2116,2020-08-26
+"2277","Switzerland","",40645,34800,2003,2020-08-26
+"2278","United Kingdom","Anguilla",3,3,0,2020-08-26
+"2279","United Kingdom","Bermuda",168,151,9,2020-08-26
+"2280","United Kingdom","British Virgin Islands",26,8,1,2020-08-26
+"2281","United Kingdom","Cayman Islands",205,202,1,2020-08-26
+"2282","United Kingdom","Channel Islands",623,545,48,2020-08-26
+"2283","United Kingdom","England",284155,0,36818,2020-08-26
+"2284","United Kingdom","Falkland Islands (Malvinas)",13,13,0,2020-08-26
+"2285","United Kingdom","Gibraltar",270,203,0,2020-08-26
+"2286","United Kingdom","Isle of Man",336,312,24,2020-08-26
+"2287","United Kingdom","Montserrat",13,12,1,2020-08-26
+"2288","United Kingdom","Northern Ireland",6895,0,559,2020-08-26
+"2289","United Kingdom","Scotland",19988,0,2494,2020-08-26
+"2290","United Kingdom","Turks and Caicos Islands",464,102,3,2020-08-26
+"2291","United Kingdom","Unknown",0,0,0,2020-08-26
+"2292","United Kingdom","Wales",17808,0,1594,2020-08-26
+"2293","Germany","Baden-Wurttemberg",41247,36481,1864,2020-08-27
+"2294","Germany","Bayern",56332,50014,2635,2020-08-27
+"2295","Germany","Berlin",11010,10051,226,2020-08-27
+"2296","Germany","Brandenburg",3881,3523,173,2020-08-27
+"2297","Germany","Bremen",1960,1785,56,2020-08-27
+"2298","Germany","Hamburg",6166,5423,266,2020-08-27
+"2299","Germany","Hessen",15105,12816,529,2020-08-27
+"2300","Germany","Mecklenburg-Vorpommern",1001,936,20,2020-08-27
+"2301","Germany","Niedersachsen",16463,14630,661,2020-08-27
+"2302","Germany","Nordrhein-Westfalen",57826,52265,1807,2020-08-27
+"2303","Germany","Rheinland-Pfalz",8851,7798,243,2020-08-27
+"2304","Germany","Saarland",3095,2805,174,2020-08-27
+"2305","Germany","Sachsen",5889,5452,225,2020-08-27
+"2306","Germany","Sachsen-Anhalt",2221,2025,65,2020-08-27
+"2307","Germany","Schleswig-Holstein",3999,3595,160,2020-08-27
+"2308","Germany","Thuringen",3585,3310,186,2020-08-27
+"2309","Germany","Unknown",1940,0,0,2020-08-27
+"2310","Italy","Abruzzo",3705,2852,472,2020-08-27
+"2311","Italy","Basilicata",514,406,28,2020-08-27
+"2312","Italy","Calabria",1422,1146,97,2020-08-27
+"2313","Italy","Campania",6241,4373,445,2020-08-27
+"2314","Italy","Emilia-Romagna",31385,24460,4458,2020-08-27
+"2315","Italy","Friuli Venezia Giulia",3709,3026,348,2020-08-27
+"2316","Italy","Lazio",10550,7118,877,2020-08-27
+"2317","Italy","Liguria",10761,8732,1571,2020-08-27
+"2318","Italy","Lombardia",99100,76018,16857,2020-08-27
+"2319","Italy","Marche",7194,5924,987,2020-08-27
+"2320","Italy","Molise",521,432,23,2020-08-27
+"2321","Italy","P.A. Bolzano",2907,2430,292,2020-08-27
+"2322","Italy","P.A. Trento",5054,4588,405,2020-08-27
+"2323","Italy","Piemonte",32603,27178,4144,2020-08-27
+"2324","Italy","Puglia",5217,4024,556,2020-08-27
+"2325","Italy","Sardegna",1967,1265,134,2020-08-27
+"2326","Italy","Sicilia",4174,2869,286,2020-08-27
+"2327","Italy","Toscana",11513,9100,1140,2020-08-27
+"2328","Italy","Umbria",1719,1417,80,2020-08-27
+"2329","Italy","Valle d'Aosta",1224,1065,146,2020-08-27
+"2330","Italy","Veneto",22469,18131,2117,2020-08-27
+"2331","Switzerland","",41006,34800,2003,2020-08-27
+"2332","United Kingdom","Anguilla",3,3,0,2020-08-27
+"2333","United Kingdom","Bermuda",168,151,9,2020-08-27
+"2334","United Kingdom","British Virgin Islands",26,8,1,2020-08-27
+"2335","United Kingdom","Cayman Islands",205,202,1,2020-08-27
+"2336","United Kingdom","Channel Islands",623,545,48,2020-08-27
+"2337","United Kingdom","England",285505,0,36828,2020-08-27
+"2338","United Kingdom","Falkland Islands (Malvinas)",13,13,0,2020-08-27
+"2339","United Kingdom","Gibraltar",272,216,0,2020-08-27
+"2340","United Kingdom","Isle of Man",336,312,24,2020-08-27
+"2341","United Kingdom","Montserrat",13,12,1,2020-08-27
+"2342","United Kingdom","Northern Ireland",6964,0,560,2020-08-27
+"2343","United Kingdom","Scotland",20056,0,2494,2020-08-27
+"2344","United Kingdom","Turks and Caicos Islands",482,102,3,2020-08-27
+"2345","United Kingdom","Unknown",0,0,0,2020-08-27
+"2346","United Kingdom","Wales",17843,0,1595,2020-08-27
+"2347","Germany","Baden-Wurttemberg",41574,36630,1862,2020-08-28
+"2348","Germany","Bayern",56764,50250,2636,2020-08-28
+"2349","Germany","Berlin",11124,10129,226,2020-08-28
+"2350","Germany","Brandenburg",3895,3541,173,2020-08-28
+"2351","Germany","Bremen",1983,1774,56,2020-08-28
+"2352","Germany","Hamburg",6192,5500,266,2020-08-28
+"2353","Germany","Hessen",15232,12983,530,2020-08-28
+"2354","Germany","Mecklenburg-Vorpommern",1004,938,20,2020-08-28
+"2355","Germany","Niedersachsen",16555,14700,659,2020-08-28
+"2356","Germany","Nordrhein-Westfalen",58189,52620,1808,2020-08-28
+"2357","Germany","Rheinland-Pfalz",8920,7841,243,2020-08-28
+"2358","Germany","Saarland",3112,2820,175,2020-08-28
+"2359","Germany","Sachsen",5930,5500,225,2020-08-28
+"2360","Germany","Sachsen-Anhalt",2229,2035,65,2020-08-28
+"2361","Germany","Schleswig-Holstein",4014,3615,160,2020-08-28
+"2362","Germany","Thuringen",3592,3310,186,2020-08-28
+"2363","Germany","Unknown",1817,0,0,2020-08-28
+"2364","Italy","Abruzzo",3725,2870,472,2020-08-28
+"2365","Italy","Basilicata",518,407,28,2020-08-28
+"2366","Italy","Calabria",1432,1146,97,2020-08-28
+"2367","Italy","Campania",6424,4383,445,2020-08-28
+"2368","Italy","Emilia-Romagna",31547,24467,4459,2020-08-28
+"2369","Italy","Friuli Venezia Giulia",3728,3033,348,2020-08-28
+"2370","Italy","Lazio",10716,7122,878,2020-08-28
+"2371","Italy","Liguria",10807,8767,1571,2020-08-28
+"2372","Italy","Lombardia",99416,76102,16860,2020-08-28
+"2373","Italy","Marche",7211,5933,987,2020-08-28
+"2374","Italy","Molise",522,432,23,2020-08-28
+"2375","Italy","P.A. Bolzano",2915,2434,292,2020-08-28
+"2376","Italy","P.A. Trento",5070,4591,405,2020-08-28
+"2377","Italy","Piemonte",32694,27203,4145,2020-08-28
+"2378","Italy","Puglia",5268,4028,556,2020-08-28
+"2379","Italy","Sardegna",2022,1266,134,2020-08-28
+"2380","Italy","Sicilia",4228,2884,286,2020-08-28
+"2381","Italy","Toscana",11595,9105,1141,2020-08-28
+"2382","Italy","Umbria",1741,1432,80,2020-08-28
+"2383","Italy","Valle d'Aosta",1226,1065,146,2020-08-28
+"2384","Italy","Veneto",22604,18232,2119,2020-08-28
+"2385","Switzerland","",41346,34800,2004,2020-08-28
+"2386","United Kingdom","Anguilla",3,3,0,2020-08-28
+"2387","United Kingdom","Bermuda",168,151,9,2020-08-28
+"2388","United Kingdom","British Virgin Islands",35,8,1,2020-08-28
+"2389","United Kingdom","Cayman Islands",205,202,1,2020-08-28
+"2390","United Kingdom","Channel Islands",625,545,48,2020-08-28
+"2391","United Kingdom","England",286611,0,36837,2020-08-28
+"2392","United Kingdom","Falkland Islands (Malvinas)",13,13,0,2020-08-28
+"2393","United Kingdom","Gibraltar",274,221,0,2020-08-28
+"2394","United Kingdom","Isle of Man",336,312,24,2020-08-28
+"2395","United Kingdom","Montserrat",13,12,1,2020-08-28
+"2396","United Kingdom","Northern Ireland",7049,0,560,2020-08-28
+"2397","United Kingdom","Scotland",20107,0,2494,2020-08-28
+"2398","United Kingdom","Turks and Caicos Islands",490,148,3,2020-08-28
+"2399","United Kingdom","Unknown",0,0,0,2020-08-28
+"2400","United Kingdom","Wales",17877,0,1595,2020-08-28
+"2401","Germany","Baden-Wurttemberg",41773,36717,1866,2020-08-29
+"2402","Germany","Bayern",57044,50386,2638,2020-08-29
+"2403","Germany","Berlin",11182,10185,226,2020-08-29
+"2404","Germany","Brandenburg",3904,3548,173,2020-08-29
+"2405","Germany","Bremen",1983,1800,56,2020-08-29
+"2406","Germany","Hamburg",6226,5500,266,2020-08-29
+"2407","Germany","Hessen",15351,13112,530,2020-08-29
+"2408","Germany","Mecklenburg-Vorpommern",1007,946,20,2020-08-29
+"2409","Germany","Niedersachsen",16672,14773,661,2020-08-29
+"2410","Germany","Nordrhein-Westfalen",58452,52620,1809,2020-08-29
+"2411","Germany","Rheinland-Pfalz",9000,7875,243,2020-08-29
+"2412","Germany","Saarland",3126,2836,175,2020-08-29
+"2413","Germany","Sachsen",5934,5500,225,2020-08-29
+"2414","Germany","Sachsen-Anhalt",2229,2040,65,2020-08-29
+"2415","Germany","Schleswig-Holstein",4021,3632,160,2020-08-29
+"2416","Germany","Thuringen",3611,3320,186,2020-08-29
+"2417","Germany","Unknown",1320,0,0,2020-08-29
+"2418","Italy","Abruzzo",3739,2872,472,2020-08-29
+"2419","Italy","Basilicata",523,408,28,2020-08-29
+"2420","Italy","Calabria",1443,1148,97,2020-08-29
+"2421","Italy","Campania",6612,4396,445,2020-08-29
+"2422","Italy","Emilia-Romagna",31696,24468,4459,2020-08-29
+"2423","Italy","Friuli Venezia Giulia",3748,3052,348,2020-08-29
+"2424","Italy","Lazio",10887,7127,878,2020-08-29
+"2425","Italy","Liguria",10854,8790,1571,2020-08-29
+"2426","Italy","Lombardia",99705,76200,16860,2020-08-29
+"2427","Italy","Marche",7223,5940,987,2020-08-29
+"2428","Italy","Molise",524,432,23,2020-08-29
+"2429","Italy","P.A. Bolzano",2924,2442,292,2020-08-29
+"2430","Italy","P.A. Trento",5084,4595,405,2020-08-29
+"2431","Italy","Piemonte",32784,27256,4145,2020-08-29
+"2432","Italy","Puglia",5333,4029,556,2020-08-29
+"2433","Italy","Sardegna",2092,1267,134,2020-08-29
+"2434","Italy","Sicilia",4257,2887,286,2020-08-29
+"2435","Italy","Toscana",11687,9125,1141,2020-08-29
+"2436","Italy","Umbria",1753,1435,80,2020-08-29
+"2437","Italy","Valle d'Aosta",1230,1065,146,2020-08-29
+"2438","Italy","Veneto",22755,19290,2120,2020-08-29
+"2439","Switzerland","",41722,35200,2005,2020-08-29
+"2440","United Kingdom","Anguilla",3,3,0,2020-08-29
+"2441","United Kingdom","Bermuda",169,153,9,2020-08-29
+"2442","United Kingdom","British Virgin Islands",35,8,1,2020-08-29
+"2443","United Kingdom","Cayman Islands",205,202,1,2020-08-29
+"2444","United Kingdom","Channel Islands",625,545,48,2020-08-29
+"2445","United Kingdom","England",287502,0,36849,2020-08-29
+"2446","United Kingdom","Falkland Islands (Malvinas)",13,13,0,2020-08-29
+"2447","United Kingdom","Gibraltar",275,226,0,2020-08-29
+"2448","United Kingdom","Isle of Man",336,312,24,2020-08-29
+"2449","United Kingdom","Montserrat",13,12,1,2020-08-29
+"2450","United Kingdom","Northern Ireland",7138,0,560,2020-08-29
+"2451","United Kingdom","Scotland",20195,0,2494,2020-08-29
+"2452","United Kingdom","Turks and Caicos Islands",490,148,3,2020-08-29
+"2453","United Kingdom","Unknown",0,0,0,2020-08-29
+"2454","United Kingdom","Wales",17917,0,1595,2020-08-29
+"2455","Germany","Baden-Wurttemberg",41773,36794,1866,2020-08-30
+"2456","Germany","Bayern",57059,50553,2638,2020-08-30
+"2457","Germany","Berlin",11188,10220,226,2020-08-30
+"2458","Germany","Brandenburg",3905,3560,173,2020-08-30
+"2459","Germany","Bremen",1992,1805,56,2020-08-30
+"2460","Germany","Hamburg",6249,5506,266,2020-08-30
+"2461","Germany","Hessen",15399,13202,531,2020-08-30
+"2462","Germany","Mecklenburg-Vorpommern",1008,949,20,2020-08-30
+"2463","Germany","Niedersachsen",16723,14809,661,2020-08-30
+"2464","Germany","Nordrhein-Westfalen",58584,52620,1809,2020-08-30
+"2465","Germany","Rheinland-Pfalz",9045,7918,243,2020-08-30
+"2466","Germany","Saarland",3153,2840,175,2020-08-30
+"2467","Germany","Sachsen",5949,5500,225,2020-08-30
+"2468","Germany","Sachsen-Anhalt",2232,2045,65,2020-08-30
+"2469","Germany","Schleswig-Holstein",4022,3642,160,2020-08-30
+"2470","Germany","Thuringen",3624,3320,186,2020-08-30
+"2471","Germany","Unknown",1400,0,0,2020-08-30
+"2472","Italy","Abruzzo",3773,2872,472,2020-08-30
+"2473","Italy","Basilicata",524,408,28,2020-08-30
+"2474","Italy","Calabria",1477,1148,97,2020-08-30
+"2475","Italy","Campania",6882,4412,445,2020-08-30
+"2476","Italy","Emilia-Romagna",31805,24478,4459,2020-08-30
+"2477","Italy","Friuli Venezia Giulia",3764,3056,348,2020-08-30
+"2478","Italy","Lazio",11043,7130,878,2020-08-30
+"2479","Italy","Liguria",10907,8827,1571,2020-08-30
+"2480","Italy","Lombardia",99940,76248,16863,2020-08-30
+"2481","Italy","Marche",7238,5949,987,2020-08-30
+"2482","Italy","Molise",525,432,23,2020-08-30
+"2483","Italy","P.A. Bolzano",2932,2450,292,2020-08-30
+"2484","Italy","P.A. Trento",5092,4600,405,2020-08-30
+"2485","Italy","Piemonte",32844,27293,4146,2020-08-30
+"2486","Italy","Puglia",5402,4029,556,2020-08-30
+"2487","Italy","Sardegna",2114,1268,134,2020-08-30
+"2488","Italy","Sicilia",4291,2891,286,2020-08-30
+"2489","Italy","Toscana",11785,9141,1141,2020-08-30
+"2490","Italy","Umbria",1784,1442,80,2020-08-30
+"2491","Italy","Valle d'Aosta",1232,1063,146,2020-08-30
+"2492","Italy","Veneto",22864,19399,2120,2020-08-30
+"2493","Switzerland","",42014,35800,2005,2020-08-30
+"2494","United Kingdom","Anguilla",3,3,0,2020-08-30
+"2495","United Kingdom","Bermuda",169,153,9,2020-08-30
+"2496","United Kingdom","British Virgin Islands",47,8,1,2020-08-30
+"2497","United Kingdom","Cayman Islands",205,202,1,2020-08-30
+"2498","United Kingdom","Channel Islands",625,545,48,2020-08-30
+"2499","United Kingdom","England",288989,0,36850,2020-08-30
+"2500","United Kingdom","Falkland Islands (Malvinas)",13,13,0,2020-08-30
+"2501","United Kingdom","Gibraltar",285,228,0,2020-08-30
+"2502","United Kingdom","Isle of Man",336,312,24,2020-08-30
+"2503","United Kingdom","Montserrat",13,12,1,2020-08-30
+"2504","United Kingdom","Northern Ireland",7187,0,560,2020-08-30
+"2505","United Kingdom","Scotland",20318,0,2494,2020-08-30
+"2506","United Kingdom","Turks and Caicos Islands",505,148,3,2020-08-30
+"2507","United Kingdom","Unknown",0,0,0,2020-08-30
+"2508","United Kingdom","Wales",17973,0,1595,2020-08-30
