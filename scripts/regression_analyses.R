@@ -197,7 +197,27 @@ df_ana_2 <- inner_join(
     x = cases, y = temp_sentiment,
     by = c("date" = "date", "location_code" = "user_location")
 )
+
+# month category
+df_ana_2 <- df_ana_2 %>%
+    mutate(month = ifelse(
+        between(date, as.Date("2020-03-20"), as.Date("2020-05-10")),
+        "April", "August"
+    ))
+df_ana_2$month <- as.factor(df_ana_2$month)
+
+# polarity category
+summary(df_ana_2$sentiment_mean)
+hist(df_ana_2$sentiment_mean)
+
+df_ana_2 <- df_ana_2 %>%
+    mutate(sentiment_polarity = ifelse(
+        sentiment_mean < -0.33, "NEG",
+        ifelse(sentiment_mean > 0.33, "POS", "NEU")
+    ))
+df_ana_2$sentiment_polarity <- as.factor(df_ana_2$sentiment_polarity)
 glimpse(df_ana_2)
+
 
 ## analysis Q1 ####
 # look for correlation between covariates
@@ -236,7 +256,23 @@ exp(coefs2)
 # statistical test (Z-test)
 z2 <- coefs2 / s2$standard.error[, c(1, 6:20)]
 p2 <- pnorm(abs(z2), lower.tail = FALSE) * 2
-p2 ## again very extreme p-values
+p2 ## again some very extreme p-values
 
 
 ## analysis Q3 ####
+## this analysis will only be looking at the relationship between
+## sentiment and covid measures because of lack of data for August mitigations
+
+# model
+multi_mod_3 <- multinom(sentiment_polarity ~
+(confirmed + recovered + deaths) * month,
+data = df_ana_2
+)
+(s3 <- summary(multi_mod_3))
+coefs3 <- coef(multi_mod_3)
+exp(coefs3)
+
+# statistical test (Z-test)
+z3 <- coefs3 / s3$standard.error
+p3 <- pnorm(abs(z3), lower.tail = FALSE) * 2
+p3 ## again some very extreme p-values
