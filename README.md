@@ -25,11 +25,16 @@ The two factors we are analysing are:
 
 - Mitigation Measures: https://www.kaggle.com/barun2104/government-measures-to-combat-covid19
 
-## Questions
-- Is there any relationship between the pandemic course and the sentiments from the tweets? 
-- Does the sentiment of the general public influence governmental decisions on mitigation measures?
-- Does the relationship of sentiments and pandemic course differ in the 4 countries (or regions)? 
-- Are the two months April and August comparable?
+## Questions & Predictions
+- Q1: Is there any relationship between the mitigation measures and the sentiments from the tweets? 
+- Q2: Does the relationship of sentiments and covid measures (confirmed cases, deaths, recovered) differ in the 4 countries? 
+- Q3: Are the two months April and August comparable?   
+   
+-----------------------------------------------------------------------------------------------------------------------------  
+  
+- P1: We think that there should be no influence of the general public's sentiment on the governmental mitigation measures
+- P2: We don't think that there should be a difference between the 4 analysed countries
+- P3: We don't think there would be differences between the two months
  
 ## Analysis
 *Analysed countries*:

@@ -1,0 +1,242 @@
+################################################################################
+## Author: Alessandro De Luca
+## Description: Multinomial regression analysis using sentiment polarity of tweets
+## and moving average of daily infections as explanatory variables of tmitigation
+################################################################################
+
+## Q1: Is there any relationship between the mitigation measures
+##      and the sentiments from the tweets? 
+## Q2: Does the relationship of sentiments and covid measures
+##      (confirmed cases, deaths, recovered)
+##      differ in the 4 countries? 
+## Q3: Are the two months April and August comparable?
+
+## prelims ####
+rm(list = ls())
+
+library(tidyverse)
+library(nnet)
+library(ggfortify)
+
+## load the data ####
+cases <- read.csv("datasets/measurementrs_Covid_all_Countries&dates.csv")
+sentiment <- read.csv("datasets/tweets_sentiment_scores_method.csv")
+mitigation <- read.csv("datasets/filtered_Mitigation_gov1.csv")
+
+
+## cleaning of the data ####
+
+# cases #
+glimpse(cases)
+cases$Date <- as.Date(cases$Date, format = "%Y-%m-%d")
+
+anyNA(cases)
+which(is.na(cases$Recovered) | is.na(cases$Deaths) | is.na(cases$Confirmed))
+cases[which(is.na(cases$Recovered) | is.na(cases$Deaths)), ]
+## results from beginning of the pandemic measuring
+## -> not important for the time period we are analysing
+
+# change the var names
+names(cases) <- c(
+    "ID", "country", "province", "confirmed",
+    "recovered", "deaths", "date"
+)
+
+# coding locations
+cases$location_code <- with(
+    cases,
+    ifelse(country == "United Kingdom", "UK",
+        ifelse(country == "Germany", "DE",
+            ifelse(country == "Italy", "IT",
+                "CH"
+            )
+        )
+    )
+)
+cases$location_code <- as.factor(cases$location_code)
+
+# sum together the province cases
+cases <- cases %>%
+    select(-province) %>%
+    group_by(location_code, date) %>%
+    summarise(
+        confirmed = sum(confirmed),
+        recovered = sum(recovered),
+        deaths = sum(deaths)
+    ) %>%
+    ungroup()
+
+
+# sentiment #
+glimpse(sentiment)
+sentiment$date <- as.Date(sentiment$date, format = "%Y-%m-%d")
+sentiment$user_location <- as.factor(sentiment$user_location)
+names(sentiment)[1] <- "ID"
+anyNA(sentiment)
+# filter for only NRC method
+sentiment <- filter(sentiment, method == "NRC")
+
+# mitigation #
+glimpse(mitigation)
+names(mitigation) <- tolower(names(mitigation))
+names(mitigation)[1] <- "ID"
+mitigation$date_implemented <- as.Date(mitigation$date_implemented,
+    format = "%d-%m-%Y"
+)
+mitigation$entry_date <- as.Date(mitigation$entry_date,
+    format = "%d-%m-%Y"
+)
+
+# coding locations
+mitigation$location_code <- with(
+    mitigation,
+    ifelse(country == "United Kingdom", "UK",
+        ifelse(country == "Germany", "DE",
+            ifelse(country == "Italy", "IT",
+                "CH"
+            )
+        )
+    )
+)
+mitigation$location_code <- as.factor(mitigation$location_code)
+
+anyNA(mitigation)
+colnames(mitigation)[apply(mitigation, 2, anyNA)]
+
+any(mitigation$date_implemented > mitigation$entry_date)
+mitigation[
+    which(mitigation$date_implemented > mitigation$entry_date),
+    c("date_implemented", "entry_date")
+] # I think this is due to errors in the entry_date insertion or
+# inaccuracies from the source for the date_implemented
+
+# substitute NA date_implemented w/ entry_date
+mitigation <- mitigation %>%
+    mutate(date_implemented = as.Date(
+        ifelse(is.na(date_implemented), entry_date, date_implemented),
+        origin = "1970-01-01"
+    ))
+
+# create categories based on category and introduction/phase-out
+mitigation <- mitigation %>%
+    mutate(category_log = ifelse(
+        log_type == "Introduction / extension of measures",
+        paste("INTRO -", category),
+        paste("END -", category)
+    ))
+mitigation$category_log <- as.factor(mitigation$category_log)
+mitigation$category_log <- relevel(mitigation$category_log,
+    ref = "INTRO - Social distancing"
+) # reference level
+
+# filter for April and August
+max(mitigation$date_implemented) # unfortunately no data for August
+mitigation <- filter(
+    mitigation,
+    between(mitigation$date, as.Date("2020-03-29"), as.Date("2020-05-01"))
+)
+
+## EDA ####
+ggplot(data = cases, aes(x = date, y = confirmed)) +
+    geom_point() +
+    facet_wrap(~location_code)
+
+
+ggplot(data = sentiment, aes(x = date, y = net_sentiment, colour = date)) +
+    geom_point() +
+    facet_wrap(~user_location)
+
+table(mitigation$category_log, mitigation$location_code)
+
+
+## preparing for analysis ####
+# get a weekly mean before each measure for Q1 & Q2
+df_ana_1 <- data.frame()
+for (i in seq_len(nrow(mitigation))) {
+    mit_row <- mitigation[i, ]
+
+    start_date <- mit_row$date_implemented - 7
+    end_date <- mit_row$date_implemented
+    temp_cases <- cases %>%
+        filter(
+            location_code == mit_row$location_code,
+            between(date, start_date, end_date)
+        ) %>%
+        summarise(
+            confirmed_mean = mean(confirmed),
+            deaths_mean = mean(deaths),
+            recovered_mean = mean(recovered)
+        )
+
+    temp_sentiment <- sentiment %>%
+        filter(
+            user_location == mit_row$location_code,
+            between(date, start_date, end_date)
+        ) %>%
+        summarise(sentiment_mean = mean(net_sentiment))
+
+    temp_df <- cbind(mit_row, temp_cases, temp_sentiment)
+    temp_df <- temp_df %>%
+        select(
+            location_code, date_implemented, category_log,
+            confirmed_mean, deaths_mean, recovered_mean, sentiment_mean
+        )
+
+    df_ana_1 <- rbind(df_ana_1, temp_df)
+}
+glimpse(df_ana_1)
+
+# gather the data for Q3
+temp_sentiment <- sentiment %>%
+    group_by(user_location, date) %>%
+    summarise(sentiment_mean = mean(net_sentiment)) %>%
+    ungroup()
+head(temp_sentiment)
+
+df_ana_2 <- inner_join(
+    x = cases, y = temp_sentiment,
+    by = c("date" = "date", "location_code" = "user_location")
+)
+glimpse(df_ana_2)
+
+## analysis Q1 ####
+# look for correlation between covariates
+cor(df_ana_1[, 4:7]) # normal correlation only between covid measures
+multi_mod <- multinom(
+    category_log ~ confirmed_mean + deaths_mean
+        + recovered_mean + sentiment_mean,
+    data = df_ana_1
+)
+(s1 <- summary(multi_mod))
+coefs1 <- coef(multi_mod)
+# coefficients on the odds-scale
+exp(coefs1)
+
+# statistical test (Z-test)
+z <- s1$coefficients / s1$standard.error
+p <- pnorm(abs(z), lower.tail = FALSE) * 2
+p ## some extreme z scores => p-values = 0
+# compute p-values on log-scale
+p_extr <- log(2) + pnorm(abs(z), lower.tail = FALSE, log.p = TRUE)
+p_extr
+
+
+## analysis Q2 ####
+multi_mod_2 <- multinom(category_log ~ (confirmed_mean + deaths_mean
+    + recovered_mean + sentiment_mean) * location_code,
+data = df_ana_1
+)
+(s2 <- summary(multi_mod_2))
+coefs2 <- coef(multi_mod_2)
+# only concerned w/ location_code and interaction terms
+coefs2 <- coefs2[, c(1, 6:20)]
+# on the odds-scale
+exp(coefs2)
+
+# statistical test (Z-test)
+z2 <- coefs2 / s2$standard.error[, c(1, 6:20)]
+p2 <- pnorm(abs(z2), lower.tail = FALSE) * 2
+p2 ## again very extreme p-values
+
+
+## analysis Q3 ####
