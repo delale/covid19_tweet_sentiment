@@ -136,7 +136,7 @@ mitigation <- filter(
     between(mitigation$date, as.Date("2020-03-29"), as.Date("2020-05-01"))
 )
 
-## EDA ####
+## quick preliminary EDA ####
 ggplot(data = cases, aes(x = date, y = confirmed)) +
     geom_point() +
     facet_wrap(~location_code)
@@ -264,6 +264,38 @@ p2 ## again some very extreme p-values
 ## sentiment and covid measures because of lack of data for August mitigations
 
 # model
+ggplot(
+    data = gather(df_ana_2[, 3:6], key = "variable", value = "value"),
+    aes(x = value)
+) +
+    geom_histogram(bins = 15) +
+    facet_wrap(~variable, scales = "free") ## covid measures bimodal (2 months)
+
+df_ana_2 <- df_ana_2 %>%
+    group_by(month) %>%
+    mutate(
+        scale_confirmed = scale(confirmed),
+        scale_deaths = scale(deaths),
+        scale_recovered = scale(recovered)
+    )
+ggplot(
+    data = gather(df_ana_2[, c(6, 9:11)], key = "variable", value = "value"),
+    aes(x = value)
+) +
+    geom_histogram(bins = 15) +
+    facet_wrap(~variable, scales = "free") ## better
+
+# model
+lm_mod <- lm(sentiment_mean ~ (scale_confirmed + scale_recovered
+    + scale_deaths) * month,
+data = df_ana_2
+)
+autoplot(lm_mod) # model diagnostics -> normality assumption?
+
+# model summary
+summary(lm_mod)
+
+# multinomial model
 multi_mod_3 <- multinom(sentiment_polarity ~
 (confirmed + recovered + deaths) * month,
 data = df_ana_2
