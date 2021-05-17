@@ -269,14 +269,15 @@ ggplot(
     aes(x = value)
 ) +
     geom_histogram(bins = 15) +
-    facet_wrap(~variable, scales = "free") ## covid measures bimodal (2 months)
+    facet_wrap(~variable, scales = "free") ## slightly bimodal?
 
+# log transform
 df_ana_2 <- df_ana_2 %>%
     group_by(month) %>%
     mutate(
-        scale_confirmed = scale(confirmed),
-        scale_deaths = scale(deaths),
-        scale_recovered = scale(recovered)
+        log_confirmed = log(confirmed),
+        log_deaths = log(deaths),
+        log_recovered = log(recovered)
     )
 ggplot(
     data = gather(df_ana_2[, c(6, 9:11)], key = "variable", value = "value"),
@@ -286,8 +287,8 @@ ggplot(
     facet_wrap(~variable, scales = "free") ## better
 
 # model
-lm_mod <- lm(sentiment_mean ~ (scale_confirmed + scale_recovered
-    + scale_deaths) * month,
+lm_mod <- lm(sentiment_mean ~ (log_confirmed + log_recovered
+    + log_deaths) * month,
 data = df_ana_2
 )
 autoplot(lm_mod) # model diagnostics -> normality assumption?
@@ -308,3 +309,7 @@ exp(coefs3)
 z3 <- coefs3 / s3$standard.error
 p3 <- pnorm(abs(z3), lower.tail = FALSE) * 2
 p3 ## again some very extreme p-values
+
+
+## figures ####
+# figure 1
