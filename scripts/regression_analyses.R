@@ -242,8 +242,8 @@ p_extr
 
 
 ## analysis Q2 ####
-multi_mod_2 <- multinom(category_log ~ (confirmed_mean + deaths_mean
-    + recovered_mean + sentiment_mean) * location_code,
+multi_mod_2 <- multinom(category_log ~ confirmed_mean + deaths_mean
+    + recovered_mean + sentiment_mean + location_code,
 data = df_ana_1
 )
 (s2 <- summary(multi_mod_2))
@@ -286,7 +286,7 @@ ggplot(
     geom_histogram(bins = 15) +
     facet_wrap(~variable, scales = "free") ## better
 
-# model
+# linear model
 lm_mod <- lm(sentiment_mean ~ (log_confirmed + log_recovered
     + log_deaths) * month,
 data = df_ana_2
@@ -312,4 +312,122 @@ p3 ## again some very extreme p-values
 
 
 ## figures ####
-# figure 1
+# figure 1 #
+newdf_1 <- data.frame(
+    sentiment_mean = seq(
+        from = min(df_ana_1$sentiment_mean),
+        to = max(df_ana_1$sentiment_mean),
+        length.out = 100
+    ),
+    confirmed_mean = rep(mean(df_ana_1$confirmed_mean), 100),
+    deaths_mean = rep(mean(df_ana_1$deaths_mean), 100),
+    recovered_mean = rep(mean(df_ana_1$recovered_mean), 100)
+)
+prob_1 <- predict(multi_mod, newdata = newdf_1, type = "probs", se = TRUE)
+predicted_probs_1 <- cbind(newdf_1, prob_1)
+
+# to long format
+long_predicted_probs_1 <- gather(predicted_probs_1,
+    key = "Mitigation",
+    value = "probability",
+    -sentiment_mean, -confirmed_mean, -deaths_mean, -recovered_mean,
+    factor_key = TRUE
+)
+
+ggplot(
+    data = long_predicted_probs_1,
+    aes(x = sentiment_mean, y = probability, color = Mitigation)
+) +
+    geom_line(size = 1.3) +
+    scale_color_brewer(type = "div") +
+    xlab("Sentiment (mean over 1 week periob before measure)") +
+    theme_bw()
+
+
+# figure 2 #
+newdf_2 <- data.frame(
+    sentiment_mean = seq(
+        from = min(df_ana_1$sentiment_mean),
+        to = max(df_ana_1$sentiment_mean),
+        length.out = 100
+    ),
+    location_code = as.factor(rep(levels(df_ana_1$location_code), 100)),
+    confirmed_mean = rep(mean(df_ana_1$confirmed_mean), 100),
+    deaths_mean = rep(mean(df_ana_1$deaths_mean), 100),
+    recovered_mean = rep(mean(df_ana_1$recovered_mean), 100)
+)
+prob_2 <- predict(multi_mod_2, newdata = newdf_2, type = "probs", se = TRUE)
+predicted_probs_2 <- cbind(newdf_2, prob_2)
+
+# to long format
+long_predicted_probs_2 <- gather(predicted_probs_2,
+    key = "Mitigation",
+    value = "probability",
+    -sentiment_mean, -confirmed_mean, -deaths_mean, -recovered_mean,
+    -location_code,
+    factor_key = TRUE
+)
+
+ggplot(
+    data = long_predicted_probs_2,
+    aes(x = sentiment_mean, y = probability, color = Mitigation)
+) +
+    geom_line(size = 1.3) +
+    scale_color_brewer(type = "div") +
+    xlab("Sentiment (mean over 1 week periob before measure)") +
+    theme_bw() +
+    facet_wrap(~location_code, scales = "free")
+
+
+# figure 3 & 4 #
+newdf_3_lm <- data.frame(
+    log_confirmed = seq(
+        from = min(df_ana_2$log_confirmed),
+        to = max(df_ana_2$log_confirmed), length.out = 100
+    ),
+    log_deaths = rep(mean(df_ana_2$log_deaths), 100),
+    log_recovered = rep(mean(df_ana_2$log_recovered), 100),
+    month = as.factor(rep(levels(df_ana_2$month), 100))
+)
+pred_sentiment <- predict(lm_mod, newdata = newdf_3_lm, interval = "confidence")
+predicted_3_lm <- cbind(newdf_3_lm, pred_sentiment)
+predicted_3_lm <- rename(predicted_probs_3_lm, sentiment = fit)
+
+ggplot(
+    predicted_3_lm,
+    aes(x = log_confirmed, y = sentiment, color = month)
+) +
+    geom_point(alpha = .5) +
+    geom_smooth(mapping = aes(ymin = lwr, ymax = upr), stat = "identity") +
+    theme_bw()
+
+newdf_3_multinom <- data.frame(
+    confirmed = seq(
+        from = min(df_ana_2$confirmed),
+        to = max(df_ana_2$confirmed), length.out = 100
+    ),
+    deaths = rep(mean(df_ana_2$deaths), 100),
+    recovered = rep(mean(df_ana_2$recovered), 100),
+    month = as.factor(rep(levels(df_ana_2$month), 100))
+)
+prob_sentiment <- predict(multi_mod_3,
+    newdata = newdf_3_multinom,
+    type = "probs", se = TRUE
+)
+predicted_probs_3 <- cbind(newdf_3_multinom, prob_sentiment)
+
+# to long format
+long_predicted_probs_3 <- gather(predicted_probs_3,
+    key = "Sentiment_Polarity",
+    value = "probability",
+    -confirmed, -deaths, -recovered, -month,
+    factor_key = TRUE
+)
+ggplot(
+    data = long_predicted_probs_3,
+    aes(x = confirmed, y = probability, color = Sentiment_Polarity)
+) +
+    geom_line(size = 1.3) +
+    xlab("Confirmed cases") +
+    theme_bw() +
+    facet_wrap(~month, scales = "free")
