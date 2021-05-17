@@ -12,7 +12,8 @@ library(tseries)
 
 
 # cases <- read.csv("datasets/measurementrs_Covid_all")
-cases <- read.csv("datasets/new_filtered_cases.csv")
+#  cases <- read.csv("datasets/new_filtered_cases.csv")
+cases <- read.csv("datasets/measurementrs_Covid_all_Countries&dates.csv")
 glimpse(cases)
 
 ## clean the data ####
@@ -50,15 +51,12 @@ confirmed_uk <- cases %>%
     select(Date, Confirmed)
 confirmed_ch <- cases %>%
     filter(location_code == "CH") %>%
-    select(Date, Confirmed) %>%
     select(Date, Confirmed)
 confirmed_it <- cases %>%
     filter(location_code == "IT") %>%
-    select(Date, Confirmed) %>%
     select(Date, Confirmed)
 confirmed_de <- cases %>%
     filter(location_code == "DE") %>%
-    select(Date, Confirmed) %>%
     select(Date, Confirmed)
 
 ## time-series obj ####
