@@ -1,7 +1,7 @@
 ################################################################################
 ## Author: Alessandro De Luca
 ## Description: Multinomial regression analysis using sentiment polarity of tweets
-## and moving average of daily infections as explanatory variables of tmitigation
+## and average of daily covid measures as explanatory variables of tmitigation
 ################################################################################
 
 ## Q1: Is there any relationship between the mitigation measures
@@ -340,7 +340,8 @@ ggplot(
 ) +
     geom_line(size = 1.3) +
     scale_color_brewer(type = "div") +
-    xlab("Sentiment (mean over 1 week periob before measure)") +
+    xlab("Sentiment (mean over 1 week period before measure)") +
+    ylab("P(category_log = Y)") +
     theme_bw()
 
 
