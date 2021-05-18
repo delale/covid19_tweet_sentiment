@@ -1,7 +1,5 @@
 *.pdf
 *.zip
-*.Rmd
-*.rmd
 ..gitignore.un~
 .gitignore~
 *.docx

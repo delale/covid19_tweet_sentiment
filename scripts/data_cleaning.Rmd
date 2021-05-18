@@ -1,0 +1,443 @@
+---
+title: "IntroductiontoDataSience"
+author: "Michael"
+date: "1 5 2021"
+output: pdf_document
+---
+
+
+---
+title: "IntroToDataScience"
+author: "Michael"
+date: "26 3 2021"
+output: pdf_document
+---
+#Load data +clean
+
+##tweets data august
+```{r}
+#rm(list = ls())
+library(tidyverse)
+
+## load data ####august
+covid19_tweets <- read.csv("covid19_tweets.csv", comment.char = "#")
+glimpse(covid19_tweets)
+#covid19_tweets$date <- as.Date(covid19_tweets$date)
+#covid19_tweets$is_retweet <- as.logical(covid19_tweets$is_retweet)
+#covid19_tweets$user_friends <- as.numeric(covid19_tweets$user_friends)
+#covid19_tweets$user_followers <- as.numeric(covid19_tweets$user_followers)
+#covid19_tweets$user_favourites <- as.numeric(covid19_tweets$user_favourites)
+#covid19_tweets$user_verified <- as.logical(covid19_tweets$user_verified)
+
+head(covid19_tweets)
+summary(covid19_tweets)
+```
+
+
+##tweets data april
+```{r}
+covid_tweets_april <- data.frame()
+
+filePaths <- list.files("C:/Users/micha/Desktop/Semester8/Introduction to Data Sience/Project_Group/Neuer Ordner/Data/covid19_tweets_april",  full.names = TRUE)
+covid_tweets_april <- do.call(rbind, lapply(filePaths, read.csv))
+
+#View(covid_tweets_april)
+```
+
+
+##make sure dates are safed as dates remove NA's
+```{r}
+covid19_tweets$date <- as.Date(covid19_tweets$date, format = "%Y-%m-%d")
+covid_tweets_april$created_at <- as.Date(covid_tweets_april$created_at, format = "%Y-%m-%d")
+
+covid19_tweets_august <-data.frame()
+covid19_tweets_april <- data.frame()
+
+covid19_tweets_august <- covid19_tweets[complete.cases(covid19_tweets$date),]
+covid19_tweets_april <- covid_tweets_april[complete.cases(covid_tweets_april$created_at),]
+```
+
+
+#remove not used colums: using colums(date, text, country, ??any thing else??)
+```{r}
+new_covid19_tweets_august <- data.frame()
+new_covid19_tweets_april <- data.frame()
+
+new_covid19_tweets_april <- subset(covid19_tweets_april, select = -c(source:retweet_count, followers_count:verified))
+new_covid19_tweets_august <- subset(covid19_tweets_august, select = -c(user_created:user_verified,user_description, hashtags, source:is_retweet))
+
+library(dplyr)
+new_covid19_tweets_april <- new_covid19_tweets_april %>% rename(user_name = screen_name, date = created_at , text = text)
+
+```
+
+##combine location colums in april data
+```{r}
+
+paste_noNA <- function(user_location,sep=", ") {
+gsub(", " ,sep, toString(user_location[!is.na(user_location) & user_location!="" & user_location!="NA"] ) ) }
+
+sep=" "
+new_covid19_tweets_april$user_location <- apply( new_covid19_tweets_april[ ,c(6:8) ] , 1 , paste_noNA , sep=sep)
+View(new_covid19_tweets_april)
+
+new_covid19_tweets_april <- subset(new_covid19_tweets_april, select = -c(status_id, user_id, country_code, place_full_name, place_type, lang))
+
+```
+
+
+## select only Germany and United Kingdom ####
+
+```{r}
+## select only Germany and United Kingdom ## august ##
+# using regex and str_detect from stringr
+
+library(tidyverse)
+
+# cleaning for regex: space padding for exact match
+new_covid19_tweets_august$user_location <- paste(" ", new_covid19_tweets_august$user_location, " ")
+
+
+tweetsUK_august <- filter(
+    new_covid19_tweets_august,
+    str_detect(user_location, regex(" United Kingdom ", ignore_case = TRUE)) |
+        str_detect(user_location, regex(" Britain ", ignore_case = TRUE)) |
+        str_detect(user_location, regex(" Wales ", ignore_case = TRUE)) |
+        str_detect(user_location, regex(" Northern Ireland ", ignore_case = TRUE)) |
+        str_detect(user_location, regex(" Scotland ", ignore_case = TRUE)) |
+        str_detect(user_location, regex(" England ", ignore_case = TRUE)) |
+        str_detect(user_location, regex(" UK ", ignore_case = TRUE)) |
+        str_detect(user_location, regex(" GB ", ignore_case = TRUE)) 
+)
+
+##Look if there are other labeling for the countries??
+
+tweetsDE_august <- filter(
+    new_covid19_tweets_august,
+    str_detect(user_location, regex(" Germany ", ignore_case = TRUE)) |
+        str_detect(user_location, regex(" Deutschland ", ignore_case = TRUE))
+)
+
+tweetsCH_august <- filter(
+    new_covid19_tweets_august,
+    str_detect(user_location, regex(" Switzerland ", ignore_case = TRUE)) |
+        str_detect(user_location, regex(" CH ", ignore_case = TRUE)) |
+        str_detect(user_location, regex(" Svizzera ", ignore_case = TRUE)) |
+        str_detect(user_location, regex(" Swiss ", ignore_case = TRUE))
+)
+
+tweetsIT_august <- filter(
+    new_covid19_tweets_august,
+    str_detect(user_location, regex(" Italy ", ignore_case = TRUE)) |
+        str_detect(user_location, regex(" Italia ", ignore_case = TRUE)) 
+)
+
+## clean the tweet location ####
+tweetsDE_august$user_location <- rep("DE", nrow(tweetsDE_august))
+tweetsUK_august$user_location <- rep("UK", nrow(tweetsUK_august))
+tweetsCH_august$user_location <- rep("CH", nrow(tweetsCH_august))
+tweetsIT_august$user_location <- rep("IT", nrow(tweetsIT_august))
+
+
+
+## filtered set ####
+filtered_tweets_august <- rbind(tweetsUK_august, tweetsDE_august, tweetsCH_august, tweetsIT_august)
+filtered_tweets_august$user_location <- as.factor(filtered_tweets_august$user_location)
+```
+
+
+```{r}
+## select only Germany and United Kingdom ## april ##
+# using regex and str_detect from stringr
+
+library(tidyverse)
+
+# cleaning for regex: space padding for exact match
+new_covid19_tweets_april$user_location <- paste(" ", new_covid19_tweets_april$user_location, " ")
+
+
+tweetsUK_april <- filter(
+    new_covid19_tweets_april,
+    str_detect(user_location, regex(" United Kingdom ", ignore_case = TRUE)) |
+        str_detect(user_location, regex(" Britain ", ignore_case = TRUE)) |
+        str_detect(user_location, regex(" Wales ", ignore_case = TRUE)) |
+        str_detect(user_location, regex(" Northern Ireland ", ignore_case = TRUE)) |
+        str_detect(user_location, regex(" Scotland ", ignore_case = TRUE)) |
+        str_detect(user_location, regex(" England ", ignore_case = TRUE)) |
+        str_detect(user_location, regex(" UK ", ignore_case = TRUE)) |
+        str_detect(user_location, regex(" GB ", ignore_case = TRUE)) 
+)
+
+##Look if there are other labeling for the countries??
+
+tweetsDE_april <- filter(
+    new_covid19_tweets_april,
+    str_detect(user_location, regex(" Germany ", ignore_case = TRUE)) |
+        str_detect(user_location, regex(" Deutschland ", ignore_case = TRUE))
+)
+
+tweetsCH_april <- filter(
+    new_covid19_tweets_april,
+    str_detect(user_location, regex(" Switzerland ", ignore_case = TRUE)) |
+        str_detect(user_location, regex(" CH ", ignore_case = TRUE)) |
+        str_detect(user_location, regex(" Svizzera ", ignore_case = TRUE)) |
+        str_detect(user_location, regex(" Swiss ", ignore_case = TRUE))
+)
+
+tweetsIT_april <- filter(
+    new_covid19_tweets_april,
+    str_detect(user_location, regex(" Italy ", ignore_case = TRUE)) |
+        str_detect(user_location, regex(" Italia ", ignore_case = TRUE)) 
+)
+
+## clean the tweet location ####
+tweetsDE_april$user_location <- rep("DE", nrow(tweetsDE_april))
+tweetsUK_april$user_location <- rep("UK", nrow(tweetsUK_april))
+tweetsCH_april$user_location <- rep("CH", nrow(tweetsCH_april))
+tweetsIT_april$user_location <- rep("IT", nrow(tweetsIT_april))
+
+## filtered set ####
+filtered_tweets_april <- rbind(tweetsUK_april, tweetsDE_april, tweetsCH_april, tweetsIT_april)
+filtered_tweets_april$user_location <- as.factor(filtered_tweets_april$user_location)
+```
+
+```{r}
+filtered_tweets <-full_join(filtered_tweets_april, filtered_tweets_august)
+
+```
+
+#exporting Cleaned data
+```{r}
+
+write.csv(filtered_tweets, file = "filtered_tweets.csv")
+write.csv(filtered_tweets_april, file = "filtered_tweets_april.csv")
+write.csv(filtered_tweets_august, file = "filtered_tweets_august.csv")
+
+```
+
+#############################################################################################################
+#############################################################################################################
+
+#mitigation measurements
+##Load Data
+```{r}
+###https://www.kaggle.com/barun2104/government-measures-to-combat-covid19### --> gov
+
+acaps_covid19_government_measures_dataset <- read.csv("C:/Users/micha/Desktop/Semester8/Introduction to Data Sience/Project_Group/Neuer Ordner/Data/government-measures-to-combat-covid19/acaps_covid19_government_measures_dataset.csv")
+
+```
+
+##filtering by country UK + De + CH + IT
+
+###https://www.kaggle.com/barun2104/government-measures-to-combat-covid19### --> gov
+```{r}
+
+#filter for countries 
+library(dplyr)
+vec2=c("Switzerland","Italy","Germany", "United Kingdom")
+filtered_Mitigation_gov <- filter(acaps_covid19_government_measures_dataset, COUNTRY %in% vec2)
+
+```
+
+#```{r}
+## select only Italy, Switzerland, Germany, and United Kingdom ## 
+# using regex and str_detect from stringr
+
+library(tidyverse)
+
+# cleaning for regex: space padding for exact match
+acaps_covid19_government_measures_dataset$COUNTRY <- paste(" ", acaps_covid19_government_measures_dataset$COUNTRY, " ")
+
+
+mitigationUK_GOV <- filter(
+    acaps_covid19_government_measures_dataset,
+    str_detect(COUNTRY, regex(" United Kingdom ", ignore_case = TRUE)) |
+        str_detect(COUNTRY, regex(" Britain ", ignore_case = TRUE)) |
+        str_detect(COUNTRY, regex(" Wales ", ignore_case = TRUE)) |
+        str_detect(COUNTRY, regex(" Northern Ireland ", ignore_case = TRUE)) |
+        str_detect(COUNTRY, regex(" Scotland ", ignore_case = TRUE)) |
+        str_detect(COUNTRY, regex(" England ", ignore_case = TRUE)) |
+        str_detect(COUNTRY, regex(" UK ", ignore_case = TRUE)) |
+        str_detect(COUNTRY, regex(" GB ", ignore_case = TRUE)) 
+)
+
+##Look if there are other labeling for the countries??
+
+mitigationDE_GOV <- filter(
+    acaps_covid19_government_measures_dataset,
+    str_detect(COUNTRY, regex("Germany", ignore_case = TRUE)) |
+        str_detect(COUNTRY, regex("Deutschland", ignore_case = TRUE))|
+        str_detect(COUNTRY, regex("DE", ignore_case = TRUE))
+)
+
+mitigationCH_GOV <- filter(
+    acaps_covid19_government_measures_dataset,
+    str_detect(COUNTRY, regex(" Switzerland ", ignore_case = TRUE)) |
+        str_detect(COUNTRY, regex(" CH ", ignore_case = TRUE)) |
+        str_detect(COUNTRY, regex(" Svizzera ", ignore_case = TRUE)) |
+        str_detect(COUNTRY, regex(" Swiss ", ignore_case = TRUE))
+)
+
+mitigationIT_GOV <- filter(
+    acaps_covid19_government_measures_dataset,
+    str_detect(COUNTRY, regex(" Italy ", ignore_case = TRUE)) |
+        str_detect(COUNTRY, regex(" Italia ", ignore_case = TRUE)) 
+)
+
+## clean the tweet location ####
+mitigationDE_GOV$COUNTRY <- rep("DE", nrow(mitigationDE_GOV))
+mitigationUK_GOV$COUNTRY <- rep("UK", nrow(mitigationUK_GOV))
+mitigationCH_GOV$COUNTRY <- rep("CH", nrow(mitigationCH_GOV))
+mitigationIT_GOV$COUNTRY <- rep("IT", nrow(mitigationIT_GOV))
+
+## filtered set ####
+filtered_Mitigation_gov <- rbind(mitigationUK_GOV, mitigationDE_GOV, mitigationCH_GOV, mitigationIT_GOV)
+filtered_Mitigation_gov$COUNTRY <- as.factor(filtered_Mitigation_gov$COUNTRY)
+#```
+
+
+##remove not used colums
+    ```{r}
+#filtered_Mitigation_con1 <- subset(filtered_Mitigation_con, select = -c(ï..ID, Applies.To, Exceptions, Implementing.City, Implementing.State.Province, Quantity, Source, Target.city, Target.country, Target.region, Target.state))
+    
+#filtered_Mitigation_nat1 <- subset(filtered_Mitigation_nat, select = -c(ID, Applies.To, Exceptions, Implementing.City, Implementing.State.Province, Quantity, Source, Target.city, Target.country, Target.region, Target.state))
+    
+filtered_Mitigation_gov1 <- subset(filtered_Mitigation_gov, select = -c(ID, ADMIN_LEVEL_NAME, PCODE, REGION, MEASURE, COMMENTS, NON_COMPLIANCE, SOURCE, SOURCE_TYPE, LINK, Alternative.source))
+
+
+```
+
+
+
+
+##filter by date
+```{r}
+
+
+```
+
+
+
+#exporting Cleaned data
+```{r}
+write.csv(filtered_Mitigation_gov1, file = "filtered_Mitigation_gov1.csv")
+
+```
+
+
+
+#############################################################################################################
+#############################################################################################################
+
+#covid measures
+```{r}
+covid.19.all <- read.csv("C:/Users/micha/Desktop/Semester8/Introduction to Data Sience/Project_Group/Neuer Ordner/Data/covid-19-all.csv")
+
+#View(covid.19.all)
+#head(covid.19.all)
+#tail(covid.19.all)
+summary(covid.19.all)
+str(covid.19.all)
+#count(covid.19.all$Country.Region,"Switzerland")
+
+#colums cleaning
+new_covid19_all <- subset(covid.19.all, select =-c(Latitude:Longitude))
+summary(new_covid19_all)
+
+#row cleaning
+#emty data frames
+new_Switzerland_covid19_all <- data.frame()
+new_Italy_covid19_all <- data.frame()
+new_Germany_covid19_all <- data.frame()
+new_UnitedKingdom_covid19_all <- data.frame()
+new1_covid19_all <- data.frame()
+
+#filter for countries 
+library(dplyr)
+vec=c("Switzerland","Italy","Germany", "United Kingdom")
+#vec=c("United Kingdom", "Germany")
+new1_covid19_all <- filter(new_covid19_all, Country.Region %in% vec)
+
+new_Switzerland_covid19_all <- filter(new_covid19_all, Country.Region %in% "Switzerland")
+
+new_Italy_covid19_all <- filter(new_covid19_all, Country.Region %in% "Italy")
+
+new_UnitedKingdom_covid19_all <-filter(new_covid19_all, Country.Region %in% "United Kingdom")
+
+new_Germany_covid19_all <- filter(new_covid19_all, Country.Region %in% "Germany")
+
+#dataset for Switzerland, Germany and Italy
+```
+
+##make sure dates are safed as dates
+```{r}
+new_Switzerland_covid19_all$Date <- as.Date(new_Switzerland_covid19_all$Date, format = "%Y-%m-%d")
+new_Italy_covid19_all$Date <- as.Date(new_Italy_covid19_all$Date, format = "%Y-%m-%d")
+new_UnitedKingdom_covid19_all$Date <-as.Date(new_UnitedKingdom_covid19_all$Date, format = "%Y-%m-%d")
+new_Germany_covid19_all$Date <-as.Date(new_Germany_covid19_all$Date, format = "%Y-%m-%d")
+new1_covid19_all$Date <- as.Date(new1_covid19_all$Date, format = "%Y-%m-%d")
+```
+
+#cleaning data _measurements: april(29.3.2020-30.4.2020) + august 2020-07-24 23:47:08 (24.7.2020-30.8.2020)
+```{r}
+measurementrs_Covid_all <- data.frame()
+measurementrs_Covid_Switzerland <-data.frame()
+measurementrs_Covid_Italy <- data.frame()
+measurementrs_Covid_UnitedKingdom <- data.frame()
+measurementrs_Covid_Germany <- data.frame()
+
+##Covid19 Measurements_all
+cov1_all_april <- filter(new1_covid19_all, between(Date, as.Date("2020-03-29"), as.Date("2020-04-30")))
+cov1_all_august <- filter(new1_covid19_all, between(Date, as.Date("2020-07-24"), as.Date("2020-08-30")))
+measurementrs_Covid_all <- full_join(cov1_all_april, cov1_all_august)
+View(measurementrs_Covid_all)
+
+###covid19 measurements_Switzerland
+cov1_Swiss_april <- filter(new_Switzerland_covid19_all, between(Date, as.Date("2020-03-29"), as.Date("2020-04-30")))
+cov1_Swiss_august <- filter(new_Switzerland_covid19_all, between(Date, as.Date("2020-07-24"), as.Date("2020-08-30")))
+measurementrs_Covid_Switzerland <- full_join(cov1_Swiss_april, cov1_Swiss_august)
+View(measurementrs_Covid_Switzerland)
+
+###covid 19 measurements_Italy
+cov1_Italy_april <- filter(new_Italy_covid19_all, between(Date, as.Date("2020-03-29"), as.Date("2020-04-30")))
+cov1_Italy_august <- filter(new_Italy_covid19_all, between(Date, as.Date("2020-07-24"), as.Date("2020-08-30")))
+measurementrs_Covid_Italy <- full_join(cov1_Italy_april, cov1_Italy_august)
+View(measurementrs_Covid_Italy)
+
+##covid 19 measurements_united kingdom
+cov1_UK_april <- filter(new_UnitedKingdom_covid19_all, between(Date, as.Date("2020-03-29"), as.Date("2020-04-30")))
+cov1_UK_august <- filter(new_UnitedKingdom_covid19_all, between(Date, as.Date("2020-07-24"), as.Date("2020-08-30")))
+measurementrs_Covid_UnitedKingdom <- full_join(cov1_UK_april, cov1_UK_august)
+View(measurementrs_Covid_UnitedKingdom)
+
+##covid 19 measurements_germany
+cov1_germ_april <- filter(new_Germany_covid19_all, between(Date, as.Date("2020-03-29"), as.Date("2020-04-30")))
+cov1_germ_august <- filter(new_Germany_covid19_all, between(Date, as.Date("2020-07-24"), as.Date("2020-08-30")))
+measurementrs_Covid_Germany <- full_join(cov1_germ_april, cov1_germ_august)
+View(measurementrs_Covid_Germany)
+
+
+
+#date <- c("2020-03-29":"2020-04-30", "2020-07-24":"2020-08-30")
+#View(date)
+#measurementrs_Covid_all <- filter(new1_covid19_all, Date %in% date)
+```
+
+
+
+#exporting Cleaned data
+```{r}
+write.csv(measurementrs_Covid_all, file = "measurementrs_Covid_all.csv")
+write.csv(measurementrs_Covid_Switzerland, file = "measurementrs_Covid_Switzerland.csv")
+write.csv(measurementrs_Covid_Italy, file = "measurementrs_Covid_Italy.csv")
+write.csv(measurementrs_Covid_Germany, file = "measurementrs_Covid_Germany.csv")
+write.csv(measurementrs_Covid_UnitedKingdom, file = "measurementrs_Covid_UnitedKingdom.csv")
+write.csv(new1_covid19_all, file = "measurementrs_Covid_all_Countries&dates.csv")
+
+```
+
+
+
+
+
+

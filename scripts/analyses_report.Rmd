@@ -1,0 +1,325 @@
+---
+title: "ESC403 - Regression Anayses of the Relationship between Public Sentiment and Government Mitigation Measures during the ongoing COVID19 pandemic"
+author: "Alessandro De Luca"
+date: "18-05-2020"
+output: "html_document"
+---
+  
+## Questions and Predictions
+- Q1: Is there any relationship between the mitigation measures and the sentiments from the tweets? 
+- Q2: Does the relationship of sentiments and covid measures (confirmed cases, deaths, recovered)
+- Q3: Are the two months April and August comparable?
+  
+------------------------------------------------------------------------------------------------------------
+  
+- P1: We think that there should be no influence of the general public's sentiment on the governmental mitigation measures
+- P2: We don't think that there should be a difference between the 4 analysed countries
+- P3: We don't think there would be differences between the two months
+
+## Data Importing and Libraries
+```{r, message = FALSE, warning = FALSE, cache = TRUE, results = "hide"}
+rm(list = ls())
+
+library(tidyverse)
+library(nnet)
+library(ggfortify)
+
+## load the data ####
+cases <- read.csv("../datasets/measurementrs_Covid_all_Countries&dates.csv")
+sentiment <- read.csv("../datasets/tweets_sentiment_scores_method.csv")
+mitigation <- read.csv("../datasets/filtered_Mitigation_gov1.csv")
+```
+
+## Data Cleaning (Preliminary)
+```{r, message = FALSE, warning = FALSE, cache = TRUE, results = "hide"}
+# cases #
+glimpse(cases)
+cases$Date <- as.Date(cases$Date, format = "%Y-%m-%d")
+
+anyNA(cases)
+which(is.na(cases$Recovered) | is.na(cases$Deaths) | is.na(cases$Confirmed))
+cases[which(is.na(cases$Recovered) | is.na(cases$Deaths)), ]
+## results from beginning of the pandemic measuring
+## -> not important for the time period we are analysing
+
+# change the var names
+names(cases) <- c(
+    "ID", "country", "province", "confirmed",
+    "recovered", "deaths", "date"
+)
+
+# coding locations
+cases$location_code <- with(
+    cases,
+    ifelse(country == "United Kingdom", "UK",
+        ifelse(country == "Germany", "DE",
+            ifelse(country == "Italy", "IT",
+                "CH"
+            )
+        )
+    )
+)
+cases$location_code <- as.factor(cases$location_code)
+
+# sum together the province cases
+cases <- cases %>%
+    select(-province) %>%
+    group_by(location_code, date) %>%
+    summarise(
+        confirmed = sum(confirmed),
+        recovered = sum(recovered),
+        deaths = sum(deaths)
+    ) %>%
+    ungroup()
+
+
+# sentiment #
+glimpse(sentiment)
+sentiment$date <- as.Date(sentiment$date, format = "%Y-%m-%d")
+sentiment$user_location <- as.factor(sentiment$user_location)
+names(sentiment)[1] <- "ID"
+anyNA(sentiment)
+# filter for only NRC method
+sentiment <- filter(sentiment, method == "NRC")
+
+# mitigation #
+glimpse(mitigation)
+names(mitigation) <- tolower(names(mitigation))
+names(mitigation)[1] <- "ID"
+mitigation$date_implemented <- as.Date(mitigation$date_implemented,
+    format = "%d-%m-%Y"
+)
+mitigation$entry_date <- as.Date(mitigation$entry_date,
+    format = "%d-%m-%Y"
+)
+
+# coding locations
+mitigation$location_code <- with(
+    mitigation,
+    ifelse(country == "United Kingdom", "UK",
+        ifelse(country == "Germany", "DE",
+            ifelse(country == "Italy", "IT",
+                "CH"
+            )
+        )
+    )
+)
+mitigation$location_code <- as.factor(mitigation$location_code)
+
+anyNA(mitigation)
+colnames(mitigation)[apply(mitigation, 2, anyNA)]
+
+any(mitigation$date_implemented > mitigation$entry_date)
+mitigation[
+    which(mitigation$date_implemented > mitigation$entry_date),
+    c("date_implemented", "entry_date")
+] # I think this is due to errors in the entry_date insertion or
+# inaccuracies from the source for the date_implemented
+
+# substitute NA date_implemented w/ entry_date
+mitigation <- mitigation %>%
+    mutate(date_implemented = as.Date(
+        ifelse(is.na(date_implemented), entry_date, date_implemented),
+        origin = "1970-01-01"
+    ))
+
+# create categories based on category and introduction/phase-out
+mitigation <- mitigation %>%
+    mutate(category_log = ifelse(
+        log_type == "Introduction / extension of measures",
+        paste("INTRO -", category),
+        paste("END -", category)
+    ))
+mitigation$category_log <- as.factor(mitigation$category_log)
+mitigation$category_log <- relevel(mitigation$category_log,
+    ref = "INTRO - Social distancing"
+) # reference level
+
+# filter for April and August
+max(mitigation$date_implemented) # unfortunately no data for August
+mitigation <- filter(
+    mitigation,
+    between(mitigation$date, as.Date("2020-03-29"), as.Date("2020-05-01"))
+)
+```
+#### Cleaned data:
+```{r, cache = TRUE}
+glimpse(cases)
+glimpse(sentiment)
+glimpse(mitigation)
+```
+We have to point out here that to answer Q3 we will not be able to use a similar model to those of Q1 and Q2, because of the lack of data for the mitigation measures during the month of August.  
+Unfortunately using a different month as reference is not possible due to the fact that data from Twitter is available only for the months of April and Augst.   
+
+## EDA
+```{r, fig.width = 5, fig.height = 5, cache = TRUE, fig.align = "center"}
+# confirmed cases by country
+ggplot(data = cases, aes(x = date, y = confirmed)) +
+    geom_point() +
+    facet_wrap(~location_code)
+
+# sentiment by country
+ggplot(data = sentiment, aes(x = date, y = net_sentiment, colour = date)) +
+    geom_point() +
+    facet_wrap(~user_location)
+
+# mitigation measures counts by country
+table(mitigation$category_log, mitigation$location_code)
+```
+## Preparation for analysis
+#### For the analyses to answer Q1 & Q2:
+```{r, message = FALSE, warning = FALSE, cache = TRUE}
+# get a weekly mean before each measure for Q1 & Q2
+df_ana_1 <- data.frame()
+for (i in seq_len(nrow(mitigation))) {
+    mit_row <- mitigation[i, ]
+
+    start_date <- mit_row$date_implemented - 7
+    end_date <- mit_row$date_implemented
+    temp_cases <- cases %>%
+        filter(
+            location_code == mit_row$location_code,
+            between(date, start_date, end_date)
+        ) %>%
+        summarise(
+            confirmed_mean = mean(confirmed),
+            deaths_mean = mean(deaths),
+            recovered_mean = mean(recovered)
+        )
+
+    temp_sentiment <- sentiment %>%
+        filter(
+            user_location == mit_row$location_code,
+            between(date, start_date, end_date)
+        ) %>%
+        summarise(sentiment_mean = mean(net_sentiment))
+
+    temp_df <- cbind(mit_row, temp_cases, temp_sentiment)
+    temp_df <- temp_df %>%
+        select(
+            location_code, date_implemented, category_log,
+            confirmed_mean, deaths_mean, recovered_mean, sentiment_mean
+        )
+
+    df_ana_1 <- rbind(df_ana_1, temp_df)
+}
+```
+```{r, cache = TRUE}
+glimpse(df_ana_1)
+# look for correlation between covariates
+cor(df_ana_1[, 4:7]) # normal correlation only between covid measures
+```
+  
+#### For the analysis to answer Q3:
+```{r, message = FALSE, warning = FALSE, cache = TRUE, results = "hide"}
+# gather the data for Q3
+temp_sentiment <- sentiment %>%
+    group_by(user_location, date) %>%
+    summarise(sentiment_mean = mean(net_sentiment)) %>%
+    ungroup()
+head(temp_sentiment)
+
+df_ana_2 <- inner_join(
+    x = cases, y = temp_sentiment,
+    by = c("date" = "date", "location_code" = "user_location")
+)
+
+# month category
+df_ana_2 <- df_ana_2 %>%
+    mutate(month = ifelse(
+        between(date, as.Date("2020-03-20"), as.Date("2020-05-10")),
+        "April", "August"
+    ))
+df_ana_2$month <- as.factor(df_ana_2$month)
+
+# polarity category (only for the multinomial regression)
+summary(df_ana_2$sentiment_mean)
+hist(df_ana_2$sentiment_mean)
+
+df_ana_2 <- df_ana_2 %>%
+    mutate(sentiment_polarity = ifelse(
+        sentiment_mean < -0.33, "NEG",
+        ifelse(sentiment_mean > 0.33, "POS", "NEU")
+    ))
+df_ana_2$sentiment_polarity <- as.factor(df_ana_2$sentiment_polarity)
+```
+```{r, cache = TRUE}
+glimpse(df_ana_2)
+```
+
+## Q1: Is there any relationship between the mitigation measures and the sentiments from the tweets? 
+
+#### Model:
+$$\log\left(\frac{P(category\_log = Y_k)}{P(category\_log = Y_{INTRO-Social Distancing})}\right)= \beta_{k0} + \beta_{k1}(confirmed\_mean) + \beta_{k2}(recovered\_mean) + \beta_{k3}(deaths\_mean) + \beta_{k4}(sentiment\_mean)$$ 
+With $k=$ number of levels of `category_log` (i.e. number of mitigation categories) $-1$.
+```{r, cache = TRUE, results = "hide"}
+multi_mod <- multinom(
+    category_log ~ confirmed_mean + deaths_mean
+        + recovered_mean + sentiment_mean,
+    data = df_ana_1
+)
+```
+
+#### Summary table and Coefficients on the odds scale:
+```{r, cache = TRUE}
+(s1 <- summary(multi_mod))
+coefs1 <- coef(multi_mod)
+# coefficients on the odds-scale
+exp(coefs1)
+```
+Unlike our predictions the public sentiment has a **huge effect** on the decision-making of governments on mitigation measures (measured as odds of a certain category of mitigation measures).  
+Moreover, the other predictors, which are all COVID-19 measures indicating the course of the pandemic on average in the week before the implementation of a mitigation measure, have a miniscule impact on the mitigation measure taken compared to the public sentiment.  
+Another important aspect is that looking at the `(Intercept)` $\beta_{k0}$ there seems to be a difference in odds for the mitigation categories w.r.t. the reference category *INTRO-Social Distancing*; an interesting insight from this is that both the introduction and ending of lockdown measures have very low odds compared to the reference category.
+
+#### Statistical test (Z-test):
+```{r, cache = TRUE}
+# statistical test (Z-test)
+z <- s1$coefficients / s1$standard.error
+p <- pnorm(abs(z), lower.tail = FALSE) * 2
+p ## some extreme z scores => p-values = 0
+
+# compute p-values on log-scale
+p_extr <- log(2) + pnorm(abs(z), lower.tail = FALSE, log.p = TRUE)
+p_extr
+```
+The p-values of the coefficients confirm the significant difference in the odds of the different categories of mitigation measures and the significant impact the public sentiment has on these odds.  
+An important aspect is that although difficult to notice by looking at the coefficients table, there is weak to very strong evidence of a relationship between COVID-19 measures and the odds of certain categories of mitigation measures.
+
+#### Results Figure:
+```{r, results = "hide", cache = TRUE, fig.align = "center"}
+newdf_1 <- data.frame(
+    sentiment_mean = seq(
+        from = min(df_ana_1$sentiment_mean),
+        to = max(df_ana_1$sentiment_mean),
+        length.out = 100
+    ),
+    confirmed_mean = rep(mean(df_ana_1$confirmed_mean), 100),
+    deaths_mean = rep(mean(df_ana_1$deaths_mean), 100),
+    recovered_mean = rep(mean(df_ana_1$recovered_mean), 100)
+)
+prob_1 <- predict(multi_mod, newdata = newdf_1, type = "probs", se = TRUE)
+predicted_probs_1 <- cbind(newdf_1, prob_1)
+
+# to long format
+long_predicted_probs_1 <- gather(predicted_probs_1,
+    key = "Mitigation",
+    value = "probability",
+    -sentiment_mean, -confirmed_mean, -deaths_mean, -recovered_mean,
+    factor_key = TRUE
+)
+
+ggplot(
+    data = long_predicted_probs_1,
+    aes(x = sentiment_mean, y = probability, color = Mitigation)
+) +
+    geom_line(size = 1.3) +
+    scale_color_brewer(type = "div") +
+    xlab("Sentiment (mean over 1 week period before measure)") +
+    ylab("P(category_log = Y)") +
+    theme_bw()
+```
+
+#### Conclusions:
+In conclusion, we found evidence of a strong relationship between public sentiment and the odds of a government introducing certain categories of mitigation measures.  
+This is in contrast with our prediction that the public sentiment would have no influence on the odds of a government introducing certain categories of mitigation measures.  
+The main drawbacks of this analysis is the uncertainty in the significance of using averaged sentiment data over a week and the fact that the sentiment analysis does not differ between opinions on COVID-19 and the management of the pandemic by a governemnt, thus possibly losing important information or misclassifying the opinion.
