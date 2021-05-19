@@ -37,6 +37,8 @@ The two factors we are analysing are:
 - P3: We don't think there would be differences between the two months
  
 ## Analysis
+*Coded in R*
+  
 *Analysed countries*:
 - United Kingdom (UK)
 - Germany (DE)
@@ -65,4 +67,21 @@ This is due to the limiting dates on the tweets dataset.
         - Artificial neural network ❌
 5.	If time: temporal analysis of response changes (i.e., first wave, second wave) using the same predictors.
 
-*Packages used*: (?)
+*R Packages used*:
+- VIM
+- tidyverse
+- nnet
+- ggfortify
+- gridExtra
+- stargazer
+- knitr
+- GGally
+- corrplot
+- rtweets
+- textcat
+- ggcharts
+- scales
+- reshape2
+- lubridate
+- tm
+- syuzhet
