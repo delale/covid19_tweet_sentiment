@@ -1,6 +1,6 @@
 ---
 title: "ESC403 - Regression Anayses of the Relationship between Public Sentiment and Government Mitigation Measures during the ongoing COVID19 pandemic"
-author: "Alessandro De Luca"
+author: "Alessandro De Luca - Jessy J. Duran Ramirez - Michael Süter"
 date: "18-05-2020"
 output: "html_document"
 ---
@@ -251,7 +251,7 @@ glimpse(df_ana_2)
 ```
 
 #### Looking at the relationships for the models:
-```{r, cache = TRUE, fig.align = "center"}
+```{r, cache = TRUE, fig.align = "center", results = "hide", warning = FALSE, message = FALSE}
 # Q1
 ggplot(data = df_ana_1, aes(x = sentiment_mean, y = category_log)) +
     geom_boxplot() +
@@ -311,10 +311,10 @@ plt2 <- ggplot(data = df_ana_2, aes(
     geom_boxplot() +
     geom_point() # maybe some interaction
 grid.arrange(plt1, plt2, ncol = 2)
-
 ```
 
 ## Q1: Is there any relationship between the mitigation measures and the sentiments from the tweets? 
+### P1: We think that there should be no influence of the general public's sentiment on the governmental mitigation measures
 
 #### Model:
 $$\log\left(\frac{P(category\_log = Y_k)}{P(category\_log = Y_{INTRO-Social Distancing})}\right)= \beta_{k0} + \beta_{k1}(confirmed\_mean) + \beta_{k2}(recovered\_mean) + \beta_{k3}(deaths\_mean) + \beta_{k4}(sentiment\_mean)$$ 
@@ -397,11 +397,13 @@ The main drawbacks of this analysis is the uncertainty in the significance of us
 
 
 ## Q2: Does the relationship of sentiments and mitigation category differ between the 4 countries?
+### P2: We don't think that there should be a difference between the 4 analysed countries
+
 #### Model:
 Essentially the same model as in Q1 but with added covariate `location_code`and interaction terms relative to this new predictors' categories: 
 $$\log\left(\frac{P(category\_log = Y_k)}{P(category\_log = Y_{INTRO-Social Distancing})}\right)= \dotsc + \beta_{k5}location\_code_{DE} + \beta_{k6}location\_code_{IT} + \beta_{k7}location\_code_{UK} + z_{k1}(confirmed\_mean)(location\_code_{DE}) + z_{k2}(confirmed\_mean)(location\_code_{IT}) + z_{k2}(confirmed\_mean)(location\_code_{UK}) + \dotsc$$ 
 With $k=$ number of levels of `category_log` (i.e. number of mitigation categories) $-1$.  
-$z_{kn}$ are the interaction coefficients: $n=12$ 3 interaction terms (num. of countries - 1) for each other covariate.
+$z_{kn}$ are the interaction coefficients: $n=12$, 3 interaction terms (num. of countries - 1) for each other covariate.
 ```{r, cache = TRUE, results = "hide"}
 multi_mod_2 <- multinom(category_log ~ (confirmed_mean + deaths_mean
     + recovered_mean + sentiment_mean) * location_code,
@@ -410,10 +412,12 @@ data = df_ana_1
 ```
 
 #### Summary table and Coefficients on the odds scale:
-```{r, cache = TRUE, results = "asis"}
+```{r, cache = TRUE, results = "asis", message = FALSE}
 s2 <- summary(multi_mod_2)
 stargazer(multi_mod_2, type = "html")
 ```
+  
+Because of the large amount of model coefficients the table of the coefficients on the odds-scale contains only those of interest for the question at hand, namely the coefficients for the different levels of `location_code` and the interaction terms. 
 ```{r, cache = TRUE}
 coefs2 <- coef(multi_mod_2)
 # only concerned w/ location_code and interaction terms
@@ -465,7 +469,8 @@ ggplot(
 ) +
     geom_line(size = 1.3) +
     scale_color_brewer(type = "div") +
-    xlab("Sentiment (mean over 1 week periob before measure)") +
+    xlab("Sentiment (mean over 1 week period before measure)") +
+    ylab("P(category_log = Y)") +
     theme_bw() +
     facet_wrap(~location_code, scales = "free")
 ```
@@ -476,3 +481,123 @@ We found also strong evidence of interaction between the other model covariates 
 Some issues present in this analysis are the same regarding the sentiment scores as in the first analysis to answer Q1. In addition to this none of the 4 countries analysed have data for all categories of mitigation measures. This is evident with the model's reference country Switzerland (by default `R` chooses in alphabetical order) which does not present many of the categories of mitigation measures, possibly skewing the results due to lack of data for certain categories.  
 This last point is a problem in the statistical terms, but in my opinion should not overrule the analysis results, as the simple fact that not all countries have taken all types of mitigation measures is an indication of the underlying differences between them despite the fact that they are all European countries.  
 In conlusions, our results suggest that different governments have different odds of introducing certain categories of mitigation measures also w.r.t. COVID-19 measures and public sentiment.
+
+## Q3: Are the two months April and August comparable?
+### P3: We don't think there would be differences between the two months
+
+#### Models:
+**Linear Model:**
+$$sentiment\_mean = \beta_0 + \beta_1(log(confirmed)) + \beta_2(log(recovered)) + \beta_3(log(deaths)) + \beta_4(month_{August}) + z_1(log(confirmed))(month_{August}) + z_2(log(recovered))(month_{August}) + z_3(log(deaths))(month_{August})$$  
+In this case `sentiment_mean` unlike the previous two models is not the mean of the public sentiment score over a 1 week period, but simply the daily sentiment mean.  
+```{r, cache = TRUE, results = "hide", fig.align = "center", warning = FALSE, message = FALSE}
+lm_mod <- lm(sentiment_mean ~ (log_confirmed + log_recovered
+    + log_deaths) * month,
+data = df_ana_2
+)
+
+autoplot(lm_mod) # model diagnostics -> normality & homoskedasticity ?
+```
+There are some doubts on some of the linear model assumptions not being met (mainly normality of the residuals and homoskedasticity). The transformation of the COVID-19 measures to the log scale does not seem to help in this case and only minimizes differences between the two months. Rescaling and other transformations were excluded due to creating too skewed distributions or impossible values (e.g. negative number of deaths).
+Hence a factor coding of the sentiment scores and a multinomial regression was also applied to answer this question.  
+
+**Multinomial Model:**
+$$\log\left(\frac{P(sentiment\_polarity = Y_k)}{P(sentiment\_polarity = Y_{NEG})}\right)=\beta_{k0} + \beta_{k1}(confirmed) + \beta_{k2}(recovered) + \beta_{k3}(deaths) + \beta_{k4}(month_{August}) + z_{k1}(confirmed)(month_{August}) + z_{k2}(recovered)(month_{August}) + z_{k3}(deaths)(month_{August})$$  
+With $k=$ number of levels of `sentiment_polarity` (i.e. NEG, NEU, POS) $-1$.  
+```{r, cache = TRUE, results = "hide"}
+multi_mod_3 <- multinom(sentiment_polarity ~
+(confirmed + recovered + deaths) * month,
+data = df_ana_2
+)
+```
+
+#### Summary table and Coefficients:
+
+**Linear Model:**
+```{r, cache = TRUE, results = "asis", message = FALSE}
+stargazer(lm_mod, type = "html")
+```
+  
+**Multinomial Model:**
+```{r, cache = TRUE, results = "asis", message = FALSE}
+s3 <- summary(multi_mod_3)
+stargazer(multi_mod_3, type = "html")
+```
+```{r, cache = TRUE}
+coefs3 <- coef(multi_mod_3)
+kable(exp(coefs3))
+```
+
+#### Statistical test (Z-test) for the multinomial model:
+```{r, cache = TRUE}
+# statistical test (Z-test)
+# statistical test (Z-test)
+z3 <- coefs3 / s3$standard.error
+p3 <- pnorm(abs(z3), lower.tail = FALSE) * 2
+kable(p3) ## again some very extreme p-values
+```
+
+#### Results Figure:
+```{r, results = "hide", cache = TRUE, fig.align = "center", fig.width = 15, fig.height = 7}
+## linear model ####
+newdf_3_lm <- data.frame(
+    log_confirmed = seq(
+        from = min(df_ana_2$log_confirmed),
+        to = max(df_ana_2$log_confirmed), length.out = 100
+    ),
+    log_deaths = rep(mean(df_ana_2$log_deaths), 100),
+    log_recovered = rep(mean(df_ana_2$log_recovered), 100),
+    month = as.factor(rep(levels(df_ana_2$month), 100))
+)
+pred_sentiment <- predict(lm_mod, newdata = newdf_3_lm, interval = "confidence")
+predicted_3_lm <- cbind(newdf_3_lm, pred_sentiment)
+predicted_3_lm <- rename(predicted_3_lm, sentiment = fit)
+
+plt1 <- ggplot(
+    predicted_3_lm,
+    aes(x = log_confirmed, y = sentiment, color = month)
+) +
+    geom_point(alpha = .5) +
+    geom_smooth(mapping = aes(ymin = lwr, ymax = upr), stat = "identity") +
+    xlab("log(confirmed cases)") +
+    ylab("Daily Sentiment mean") +
+    theme_bw() +
+    theme(legend.position = "bottom")
+
+
+## multinomial model ####
+newdf_3_multinom <- data.frame(
+    confirmed = seq(
+        from = min(df_ana_2$confirmed),
+        to = max(df_ana_2$confirmed), length.out = 100
+    ),
+    deaths = rep(mean(df_ana_2$deaths), 100),
+    recovered = rep(mean(df_ana_2$recovered), 100),
+    month = as.factor(rep(levels(df_ana_2$month), 100))
+)
+prob_sentiment <- predict(multi_mod_3,
+    newdata = newdf_3_multinom,
+    type = "probs", se = TRUE
+)
+predicted_probs_3 <- cbind(newdf_3_multinom, prob_sentiment)
+
+# to long format
+long_predicted_probs_3 <- gather(predicted_probs_3,
+    key = "Sentiment_Polarity",
+    value = "probability",
+    -confirmed, -deaths, -recovered, -month,
+    factor_key = TRUE
+)
+plt2 <- ggplot(
+    data = long_predicted_probs_3,
+    aes(x = confirmed, y = probability, color = Sentiment_Polarity)
+) +
+    geom_line(size = 1.3) +
+    xlab("Confirmed cases") +
+    ylab("P(sentiment_polarity = Y)") +
+    theme_bw() +
+    facet_wrap(~month, scales = "free")
+
+grid.arrange(plt1, plt2, ncol = 2)
+```
+
+#### Conclusions:
