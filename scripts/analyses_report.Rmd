@@ -391,3 +391,8 @@ The main drawbacks of this analysis is the uncertainty in the significance of us
 
 
 ## Q2: Does the relationship of sentiments and mitigation category differ between the 4 countries?
+#### Model:
+Essentially the same model as in Q1 but with added covariate `location_code`and interaction terms relative to this new predictors' categories: 
+$$\log\left(\frac{P(category\_log = Y_k)}{P(category\_log = Y_{INTRO-Social Distancing})}\right)= \dotsc + \beta_{k5}location\_code_{DE} + \beta_{k6}location\_code_{IT} + \beta_{k7}location\_code_{UK} + z_{k1}(confirmed\_mean)(location\_code_{DE}) + z_{k2}(confirmed\_mean)(location\_code_{IT}) + z_{k2}(confirmed\_mean)(location\_code_{UK}) + \dotsc$$ 
+With $k=$ number of levels of `category_log` (i.e. number of mitigation categories) $-1$.  
+$z_{kn}$ are the interaction coefficients: $n=12$ 3 interaction terms (num. of countries - 1) for each other covariate.

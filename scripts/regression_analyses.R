@@ -266,6 +266,7 @@ plt2 <- ggplot(data = df_ana_1, aes(
     theme(axis.text.y = element_blank())
 grid.arrange(plt1, plt2, ncol = 2)
 
+# model
 multi_mod_2 <- multinom(category_log ~ (confirmed_mean + deaths_mean
     + recovered_mean + sentiment_mean) * location_code,
 data = df_ana_1

@@ -913,6 +913,11 @@ The main drawbacks of this analysis is the uncertainty in the significance of us
 </div>
 <div id="q2-does-the-relationship-of-sentiments-and-mitigation-category-differ-between-the-4-countries" class="section level2">
 <h2>Q2: Does the relationship of sentiments and mitigation category differ between the 4 countries?</h2>
+<div id="model-1" class="section level4">
+<h4>Model:</h4>
+<p>Essentially the same model as in Q1 but with added covariate <code>location_code</code>and interaction terms relative to this new predictors’ categories: <span class="math display">\[\log\left(\frac{P(category\_log = Y_k)}{P(category\_log = Y_{INTRO-Social Distancing})}\right)= \dotsc + \beta_{k5}location\_code_{DE} + \beta_{k6}location\_code_{IT} + \beta_{k7}location\_code_{UK} + z_{k1}(confirmed\_mean)(location\_code_{DE}) + z_{k2}(confirmed\_mean)(location\_code_{IT}) + z_{k2}(confirmed\_mean)(location\_code_{UK}) + \dotsc\]</span> With <span class="math inline">\(k=\)</span> number of levels of <code>category_log</code> (i.e. number of mitigation categories) <span class="math inline">\(-1\)</span>.<br />
+<span class="math inline">\(z_{kn}\)</span> are the interaction coefficients: <span class="math inline">\(n=12\)</span> 3 interaction terms (num. of countries - 1) for each other covariate.</p>
+</div>
 </div>
 
 
