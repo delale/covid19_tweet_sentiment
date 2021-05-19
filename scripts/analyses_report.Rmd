@@ -167,74 +167,8 @@ ggplot(data = sentiment, aes(x = date, y = net_sentiment, colour = date)) +
 # mitigation measures counts by country
 table(mitigation$category_log, mitigation$location_code)
 ```
-
-#### Looking at the relationships for the models:
-```{r, fig.width = 5, fig.height = 5, cache = TRUE, fig.align = "center"}
-# Q1
-ggplot(data = df_ana_1, aes(x = sentiment_mean, y = category_log)) +
-    geom_boxplot() +
-    geom_point()
-
-# Q2
-plt1 <- ggplot(data = df_ana_1, aes(
-    x = sentiment_mean, y = category_log, color = location_code
-)) +
-    geom_boxplot() +
-    geom_point() +
-    theme(legend.position = "none")
-plt2 <- ggplot(data = df_ana_1, aes(
-    x = confirmed_mean, y = category_log, color = location_code
-)) +
-    geom_boxplot() +
-    geom_point() +
-    ylab("") +
-    theme(axis.text.y = element_blank()) 
-    # there is some sort of interaction
-grid.arrange(plt1, plt2, ncol = 2)
-
-# Q3
-## variable exploration
-ggplot(
-    data = gather(df_ana_2[, 3:6], key = "variable", value = "value"),
-    aes(x = value)
-) +
-    geom_histogram(bins = 15) +
-    facet_wrap(~variable, scales = "free") ## slightly bimodal?
-
-## log transform
-df_ana_2 <- df_ana_2 %>%
-    group_by(month) %>%
-    mutate(
-        log_confirmed = log(confirmed),
-        log_deaths = log(deaths),
-        log_recovered = log(recovered)
-    )
-ggplot(
-    data = gather(df_ana_2[, c(6, 9:11)], key = "variable", value = "value"),
-    aes(x = value)
-) +
-    geom_histogram(bins = 15) +
-    facet_wrap(~variable, scales = "free") ## better
-
-## relationships (lm and multinomial models)
-# linear
-plt1 <- ggplot(data = df_ana_2, aes(
-    x = log_confirmed, y = sentiment_mean, color = month
-)) +
-    geom_point() +
-    geom_smooth(method = "lm", se = FALSE) + # maybe slight interaction
-    theme(legend.position = "none")
-# multinomial
-plt2 <- ggplot(data = df_ana_2, aes(
-    x = confirmed, y = sentiment_polarity, color = month
-)) +
-    geom_boxplot() +
-    geom_point() # maybe some interaction
-grid.arrange(plt1, plt2, ncol = 2)
-
-```
-## Preparation for analysis
-#### For the analyses to answer Q1 & Q2:
+#### Preparation for analysis
+For the analyses to answer Q1 & Q2:
 ```{r, message = FALSE, warning = FALSE, cache = TRUE}
 # get a weekly mean before each measure for Q1 & Q2
 df_ana_1 <- data.frame()
@@ -277,7 +211,7 @@ glimpse(df_ana_1)
 cor(df_ana_1[, 4:7]) # normal correlation only between covid measures
 ```
   
-#### For the analysis to answer Q3:
+For the analysis to answer Q3:
 ```{r, message = FALSE, warning = FALSE, cache = TRUE, results = "hide"}
 # gather the data for Q3
 temp_sentiment <- sentiment %>%
@@ -312,6 +246,70 @@ df_ana_2$sentiment_polarity <- as.factor(df_ana_2$sentiment_polarity)
 ```
 ```{r, cache = TRUE}
 glimpse(df_ana_2)
+```
+
+#### Looking at the relationships for the models:
+```{r, cache = TRUE, fig.align = "center"}
+# Q1
+ggplot(data = df_ana_1, aes(x = sentiment_mean, y = category_log)) +
+    geom_boxplot() +
+    geom_point()
+
+# Q2
+plt1 <- ggplot(data = df_ana_1, aes(
+    x = sentiment_mean, y = category_log, color = location_code
+)) +
+    geom_boxplot() +
+    geom_point()
+plt2 <- ggplot(data = df_ana_1, aes(
+    x = confirmed_mean, y = category_log, color = location_code
+)) +
+    geom_boxplot() +
+    geom_point() +
+    ylab("") # there is some sort of interaction
+plt1 # Q2: sentiment and category interaction w/ country
+plt2 # Q2: confirmed cases and category interaction w/ country
+
+# Q3
+## variable exploration
+ggplot(
+    data = gather(df_ana_2[, 3:6], key = "variable", value = "value"),
+    aes(x = value)
+) +
+    geom_histogram(bins = 15) +
+    facet_wrap(~variable, scales = "free") ## slightly bimodal?
+
+## log transform
+df_ana_2 <- df_ana_2 %>%
+    group_by(month) %>%
+    mutate(
+        log_confirmed = log(confirmed),
+        log_deaths = log(deaths),
+        log_recovered = log(recovered)
+    )
+ggplot(
+    data = gather(df_ana_2[, c(6, 9:11)], key = "variable", value = "value"),
+    aes(x = value)
+) +
+    geom_histogram(bins = 15) +
+    facet_wrap(~variable, scales = "free") ## better
+
+## relationships (lm and multinomial models)
+# linear
+plt1 <- ggplot(data = df_ana_2, aes(
+    x = log_confirmed, y = sentiment_mean, color = month
+)) +
+    geom_point() +
+    geom_smooth(method = "lm", se = FALSE) + # maybe slight interaction
+    theme(legend.position = "none")
+# multinomial
+plt2 <- ggplot(data = df_ana_2, aes(
+    x = confirmed, y = sentiment_polarity, color = month
+)) +
+    geom_boxplot() +
+    geom_point() # maybe some interaction
+grid.arrange(plt1, plt2, ncol = 2)
+
 ```
 
 ## Q1: Is there any relationship between the mitigation measures and the sentiments from the tweets? 
