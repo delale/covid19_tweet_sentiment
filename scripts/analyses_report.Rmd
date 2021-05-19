@@ -7,7 +7,7 @@ output: "html_document"
   
 ## Questions and Predictions
 - Q1: Is there any relationship between the mitigation measures and the sentiments from the tweets? 
-- Q2: Does the relationship of sentiments and covid measures (confirmed cases, deaths, recovered)
+- Q2: Does the relationship of sentiments and mitigation category differ between the 4 countries?
 - Q3: Are the two months April and August comparable?
   
 ------------------------------------------------------------------------------------------------------------
@@ -23,6 +23,7 @@ rm(list = ls())
 library(tidyverse)
 library(nnet)
 library(ggfortify)
+library(gridExtra)
 
 ## load the data ####
 cases <- read.csv("../datasets/measurementrs_Covid_all_Countries&dates.csv")
@@ -166,6 +167,72 @@ ggplot(data = sentiment, aes(x = date, y = net_sentiment, colour = date)) +
 # mitigation measures counts by country
 table(mitigation$category_log, mitigation$location_code)
 ```
+
+#### Looking at the relationships for the models:
+```{r, fig.width = 5, fig.height = 5, cache = TRUE, fig.align = "center"}
+# Q1
+ggplot(data = df_ana_1, aes(x = sentiment_mean, y = category_log)) +
+    geom_boxplot() +
+    geom_point()
+
+# Q2
+plt1 <- ggplot(data = df_ana_1, aes(
+    x = sentiment_mean, y = category_log, color = location_code
+)) +
+    geom_boxplot() +
+    geom_point() +
+    theme(legend.position = "none")
+plt2 <- ggplot(data = df_ana_1, aes(
+    x = confirmed_mean, y = category_log, color = location_code
+)) +
+    geom_boxplot() +
+    geom_point() +
+    ylab("") +
+    theme(axis.text.y = element_blank()) 
+    # there is some sort of interaction
+grid.arrange(plt1, plt2, ncol = 2)
+
+# Q3
+## variable exploration
+ggplot(
+    data = gather(df_ana_2[, 3:6], key = "variable", value = "value"),
+    aes(x = value)
+) +
+    geom_histogram(bins = 15) +
+    facet_wrap(~variable, scales = "free") ## slightly bimodal?
+
+## log transform
+df_ana_2 <- df_ana_2 %>%
+    group_by(month) %>%
+    mutate(
+        log_confirmed = log(confirmed),
+        log_deaths = log(deaths),
+        log_recovered = log(recovered)
+    )
+ggplot(
+    data = gather(df_ana_2[, c(6, 9:11)], key = "variable", value = "value"),
+    aes(x = value)
+) +
+    geom_histogram(bins = 15) +
+    facet_wrap(~variable, scales = "free") ## better
+
+## relationships (lm and multinomial models)
+# linear
+plt1 <- ggplot(data = df_ana_2, aes(
+    x = log_confirmed, y = sentiment_mean, color = month
+)) +
+    geom_point() +
+    geom_smooth(method = "lm", se = FALSE) + # maybe slight interaction
+    theme(legend.position = "none")
+# multinomial
+plt2 <- ggplot(data = df_ana_2, aes(
+    x = confirmed, y = sentiment_polarity, color = month
+)) +
+    geom_boxplot() +
+    geom_point() # maybe some interaction
+grid.arrange(plt1, plt2, ncol = 2)
+
+```
 ## Preparation for analysis
 #### For the analyses to answer Q1 & Q2:
 ```{r, message = FALSE, warning = FALSE, cache = TRUE}
@@ -291,11 +358,11 @@ newdf_1 <- data.frame(
     sentiment_mean = seq(
         from = min(df_ana_1$sentiment_mean),
         to = max(df_ana_1$sentiment_mean),
-        length.out = 100
+        length.out = 500
     ),
-    confirmed_mean = rep(mean(df_ana_1$confirmed_mean), 100),
-    deaths_mean = rep(mean(df_ana_1$deaths_mean), 100),
-    recovered_mean = rep(mean(df_ana_1$recovered_mean), 100)
+    confirmed_mean = rep(mean(df_ana_1$confirmed_mean), 500),
+    deaths_mean = rep(mean(df_ana_1$deaths_mean), 500),
+    recovered_mean = rep(mean(df_ana_1$recovered_mean), 500)
 )
 prob_1 <- predict(multi_mod, newdata = newdf_1, type = "probs", se = TRUE)
 predicted_probs_1 <- cbind(newdf_1, prob_1)
@@ -323,3 +390,6 @@ ggplot(
 In conclusion, we found evidence of a strong relationship between public sentiment and the odds of a government introducing certain categories of mitigation measures.  
 This is in contrast with our prediction that the public sentiment would have no influence on the odds of a government introducing certain categories of mitigation measures.  
 The main drawbacks of this analysis is the uncertainty in the significance of using averaged sentiment data over a week and the fact that the sentiment analysis does not differ between opinions on COVID-19 and the management of the pandemic by a governemnt, thus possibly losing important information or misclassifying the opinion.
+
+
+## Q2: Does the relationship of sentiments and mitigation category differ between the 4 countries?

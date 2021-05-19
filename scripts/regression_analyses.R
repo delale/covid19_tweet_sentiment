@@ -17,6 +17,7 @@ rm(list = ls())
 library(tidyverse)
 library(nnet)
 library(ggfortify)
+library(gridExtra)
 
 ## load the data ####
 cases <- read.csv("datasets/measurementrs_Covid_all_Countries&dates.csv")
@@ -222,6 +223,13 @@ glimpse(df_ana_2)
 ## analysis Q1 ####
 # look for correlation between covariates
 cor(df_ana_1[, 4:7]) # normal correlation only between covid measures
+
+# visualization of the relationship
+ggplot(data = df_ana_1, aes(x = sentiment_mean, y = category_log)) +
+    geom_boxplot() +
+    geom_point()
+
+# model
 multi_mod <- multinom(
     category_log ~ confirmed_mean + deaths_mean
         + recovered_mean + sentiment_mean,
@@ -242,8 +250,24 @@ p_extr
 
 
 ## analysis Q2 ####
-multi_mod_2 <- multinom(category_log ~ confirmed_mean + deaths_mean
-    + recovered_mean + sentiment_mean + location_code,
+# visualization of the relationships
+plt1 <- ggplot(data = df_ana_1, aes(
+    x = sentiment_mean, y = category_log, color = location_code
+)) +
+    geom_boxplot() +
+    geom_point() +
+    theme(legend.position = "none")
+plt2 <- ggplot(data = df_ana_1, aes(
+    x = confirmed_mean, y = category_log, color = location_code
+)) +
+    geom_boxplot() +
+    geom_point() + # there is some sort of interaction
+    ylab("") +
+    theme(axis.text.y = element_blank())
+grid.arrange(plt1, plt2, ncol = 2)
+
+multi_mod_2 <- multinom(category_log ~ (confirmed_mean + deaths_mean
+    + recovered_mean + sentiment_mean) * location_code,
 data = df_ana_1
 )
 (s2 <- summary(multi_mod_2))
@@ -263,7 +287,7 @@ p2 ## again some very extreme p-values
 ## this analysis will only be looking at the relationship between
 ## sentiment and covid measures because of lack of data for August mitigations
 
-# model
+# variable exploration
 ggplot(
     data = gather(df_ana_2[, 3:6], key = "variable", value = "value"),
     aes(x = value)
@@ -285,6 +309,22 @@ ggplot(
 ) +
     geom_histogram(bins = 15) +
     facet_wrap(~variable, scales = "free") ## better
+
+# visualization of the relationship
+# linear
+plt1 <- ggplot(data = df_ana_2, aes(
+    x = log_confirmed, y = sentiment_mean, color = month
+)) +
+    geom_point() +
+    geom_smooth(method = "lm", se = FALSE) + # maybe slight interaction
+    theme(legend.position = "none")
+# multinomial
+plt2 <- ggplot(data = df_ana_2, aes(
+    x = confirmed, y = sentiment_polarity, color = month
+)) +
+    geom_boxplot() +
+    geom_point() # maybe some interaction
+grid.arrange(plt1, plt2, ncol = 2)
 
 # linear model
 lm_mod <- lm(sentiment_mean ~ (log_confirmed + log_recovered
@@ -317,11 +357,11 @@ newdf_1 <- data.frame(
     sentiment_mean = seq(
         from = min(df_ana_1$sentiment_mean),
         to = max(df_ana_1$sentiment_mean),
-        length.out = 100
+        length.out = 500
     ),
-    confirmed_mean = rep(mean(df_ana_1$confirmed_mean), 100),
-    deaths_mean = rep(mean(df_ana_1$deaths_mean), 100),
-    recovered_mean = rep(mean(df_ana_1$recovered_mean), 100)
+    confirmed_mean = rep(mean(df_ana_1$confirmed_mean), 500),
+    deaths_mean = rep(mean(df_ana_1$deaths_mean), 500),
+    recovered_mean = rep(mean(df_ana_1$recovered_mean), 500)
 )
 prob_1 <- predict(multi_mod, newdata = newdf_1, type = "probs", se = TRUE)
 predicted_probs_1 <- cbind(newdf_1, prob_1)
@@ -350,12 +390,16 @@ newdf_2 <- data.frame(
     sentiment_mean = seq(
         from = min(df_ana_1$sentiment_mean),
         to = max(df_ana_1$sentiment_mean),
-        length.out = 100
+        length.out = 500
     ),
-    location_code = as.factor(rep(levels(df_ana_1$location_code), 100)),
-    confirmed_mean = rep(mean(df_ana_1$confirmed_mean), 100),
-    deaths_mean = rep(mean(df_ana_1$deaths_mean), 100),
-    recovered_mean = rep(mean(df_ana_1$recovered_mean), 100)
+    location_code = as.factor(rep(levels(df_ana_1$location_code), 500)),
+    confirmed_mean = seq(
+        from = min(df_ana_1$confirmed_mean),
+        to = max(df_ana_1$confirmed_mean),
+        length.out = 500
+    ),
+    deaths_mean = rep(mean(df_ana_1$deaths_mean), 500),
+    recovered_mean = rep(mean(df_ana_1$recovered_mean), 500)
 )
 prob_2 <- predict(multi_mod_2, newdata = newdf_2, type = "probs", se = TRUE)
 predicted_probs_2 <- cbind(newdf_2, prob_2)
@@ -392,7 +436,7 @@ newdf_3_lm <- data.frame(
 )
 pred_sentiment <- predict(lm_mod, newdata = newdf_3_lm, interval = "confidence")
 predicted_3_lm <- cbind(newdf_3_lm, pred_sentiment)
-predicted_3_lm <- rename(predicted_probs_3_lm, sentiment = fit)
+predicted_3_lm <- rename(predicted_3_lm, sentiment = fit)
 
 ggplot(
     predicted_3_lm,

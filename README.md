@@ -27,7 +27,7 @@ The two factors we are analysing are:
 
 ## Questions & Predictions
 - Q1: Is there any relationship between the mitigation measures and the sentiments from the tweets? 
-- Q2: Does the relationship of sentiments and covid measures (confirmed cases, deaths, recovered) differ in the 4 countries? 
+- Q2: Does the relationship of sentiments and mitigation category differ between the 4 countries?
 - Q3: Are the two months April and August comparable?   
    
 -----------------------------------------------------------------------------------------------------------------------------  
