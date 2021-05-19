@@ -498,7 +498,7 @@ data = df_ana_2
 autoplot(lm_mod) # model diagnostics -> normality & homoskedasticity ?
 ```
 There are some doubts on some of the linear model assumptions not being met (mainly normality of the residuals and homoskedasticity). The transformation of the COVID-19 measures to the log scale does not seem to help in this case and only minimizes differences between the two months. Rescaling and other transformations were excluded due to creating too skewed distributions or impossible values (e.g. negative number of deaths).
-Hence a factor coding of the sentiment scores and a multinomial regression was also applied to answer this question.  
+Hence a categorical encoding of the sentiment scores and a multinomial regression was also applied to answer this question.  
 
 **Multinomial Model:**
 $$\log\left(\frac{P(sentiment\_polarity = Y_k)}{P(sentiment\_polarity = Y_{NEG})}\right)=\beta_{k0} + \beta_{k1}(confirmed) + \beta_{k2}(recovered) + \beta_{k3}(deaths) + \beta_{k4}(month_{August}) + z_{k1}(confirmed)(month_{August}) + z_{k2}(recovered)(month_{August}) + z_{k3}(deaths)(month_{August})$$  
@@ -538,41 +538,15 @@ kable(p3) ## again some very extreme p-values
 
 #### Results Figure:
 ```{r, results = "hide", cache = TRUE, fig.align = "center", fig.width = 15, fig.height = 7}
-## linear model ####
-newdf_3_lm <- data.frame(
-    log_confirmed = seq(
-        from = min(df_ana_2$log_confirmed),
-        to = max(df_ana_2$log_confirmed), length.out = 100
-    ),
-    log_deaths = rep(mean(df_ana_2$log_deaths), 100),
-    log_recovered = rep(mean(df_ana_2$log_recovered), 100),
-    month = as.factor(rep(levels(df_ana_2$month), 100))
-)
-pred_sentiment <- predict(lm_mod, newdata = newdf_3_lm, interval = "confidence")
-predicted_3_lm <- cbind(newdf_3_lm, pred_sentiment)
-predicted_3_lm <- rename(predicted_3_lm, sentiment = fit)
-
-plt1 <- ggplot(
-    predicted_3_lm,
-    aes(x = log_confirmed, y = sentiment, color = month)
-) +
-    geom_point(alpha = .5) +
-    geom_smooth(mapping = aes(ymin = lwr, ymax = upr), stat = "identity") +
-    xlab("log(confirmed cases)") +
-    ylab("Daily Sentiment mean") +
-    theme_bw() +
-    theme(legend.position = "bottom")
-
-
 ## multinomial model ####
 newdf_3_multinom <- data.frame(
     confirmed = seq(
         from = min(df_ana_2$confirmed),
         to = max(df_ana_2$confirmed), length.out = 100
     ),
-    deaths = rep(mean(df_ana_2$deaths), 100),
-    recovered = rep(mean(df_ana_2$recovered), 100),
-    month = as.factor(rep(levels(df_ana_2$month), 100))
+    deaths = rep(mean(df_ana_2$deaths), 500),
+    recovered = rep(mean(df_ana_2$recovered), 500),
+    month = as.factor(rep(levels(df_ana_2$month), 500))
 )
 prob_sentiment <- predict(multi_mod_3,
     newdata = newdf_3_multinom,
@@ -587,17 +561,19 @@ long_predicted_probs_3 <- gather(predicted_probs_3,
     -confirmed, -deaths, -recovered, -month,
     factor_key = TRUE
 )
-plt2 <- ggplot(
+ggplot(
     data = long_predicted_probs_3,
-    aes(x = confirmed, y = probability, color = Sentiment_Polarity)
+    aes(x = confirmed, y = probability, color = month)
 ) +
     geom_line(size = 1.3) +
-    xlab("Confirmed cases") +
+    xlab("") +
     ylab("P(sentiment_polarity = Y)") +
     theme_bw() +
-    facet_wrap(~month, scales = "free")
-
-grid.arrange(plt1, plt2, ncol = 2)
+    facet_wrap(~Sentiment_Polarity, scales = "free")
 ```
 
 #### Conclusions:
+The **Linear Model** results do not show any significant relationship between public sentiment and the two months. Not all model assumptions are met though so these results cannot be reliable in my opinion.  
+The multinomial model is much more flexible and the only transformation needed was a categorical encoding of the sentiment score. These results are more reliable in my opinion and show a clear relationship between the odds of a sentiment category and the months (April or August), albeit the effect size is quite samll comapred to other factors. Other important observations resulting from this analysis are the clear difference in the odds of the 3 sentiment categories and the lack of evidence of interaction between COVID-19 measures and month. 
+In conclusion the most reliable results (multinomial model) show an unexpected relationship between sentiment and period.
+Especially during August the odds of different sentiments seem to not change with the increase of confirmed COVID-19 cases, with the highest odds for the sentiment category neutral.
