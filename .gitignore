@@ -2,7 +2,6 @@
 *.zip
 ..gitignore.un~
 .gitignore~
-*.docx
 datasets/original/
 *.txt
 scripts/analyses_report_cache/
