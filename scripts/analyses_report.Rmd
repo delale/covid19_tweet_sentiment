@@ -24,6 +24,8 @@ library(tidyverse)
 library(nnet)
 library(ggfortify)
 library(gridExtra)
+library(stargazer)
+library(knitr)
 
 ## load the data ####
 cases <- read.csv("../datasets/measurementrs_Covid_all_Countries&dates.csv")
@@ -326,29 +328,28 @@ multi_mod <- multinom(
 ```
 
 #### Summary table and Coefficients on the odds scale:
-```{r, cache = TRUE}
-(s1 <- summary(multi_mod))
+```{r, cache = TRUE, results = "asis"}
+s1 <- summary(multi_mod)
+stargazer(multi_mod, type = "html")
+```
+```{r , cache = TRUE}
 coefs1 <- coef(multi_mod)
 # coefficients on the odds-scale
-exp(coefs1)
+kable(exp(coefs1))
 ```
-Unlike our predictions the public sentiment has a **huge effect** on the decision-making of governments on mitigation measures (measured as odds of a certain category of mitigation measures).  
-Moreover, the other predictors, which are all COVID-19 measures indicating the course of the pandemic on average in the week before the implementation of a mitigation measure, have a miniscule impact on the mitigation measure taken compared to the public sentiment.  
-Another important aspect is that looking at the `(Intercept)` $\beta_{k0}$ there seems to be a difference in odds for the mitigation categories w.r.t. the reference category *INTRO-Social Distancing*; an interesting insight from this is that both the introduction and ending of lockdown measures have very low odds compared to the reference category.
 
 #### Statistical test (Z-test):
 ```{r, cache = TRUE}
 # statistical test (Z-test)
 z <- s1$coefficients / s1$standard.error
 p <- pnorm(abs(z), lower.tail = FALSE) * 2
-p ## some extreme z scores => p-values = 0
+kable(p) ## some extreme z scores => p-values = 0
 
 # compute p-values on log-scale
 p_extr <- log(2) + pnorm(abs(z), lower.tail = FALSE, log.p = TRUE)
-p_extr
+kable(p_extr)
 ```
-The p-values of the coefficients confirm the significant difference in the odds of the different categories of mitigation measures and the significant impact the public sentiment has on these odds.  
-An important aspect is that although difficult to notice by looking at the coefficients table, there is weak to very strong evidence of a relationship between COVID-19 measures and the odds of certain categories of mitigation measures.
+
 
 #### Results Figure:
 ```{r, results = "hide", cache = TRUE, fig.align = "center"}
@@ -385,6 +386,11 @@ ggplot(
 ```
 
 #### Conclusions:
+Unlike our predictions the public sentiment has a **huge effect** on the decision-making of governments on mitigation measures (measured as odds of a certain category of mitigation measures).  
+Moreover, the other predictors, which are all COVID-19 measures indicating the course of the pandemic on average in the week before the implementation of a mitigation measure, have a miniscule impact on the mitigation measure taken compared to the public sentiment.  
+Another important aspect is that looking at the `(Intercept)` $\beta_{k0}$ there seems to be a difference in odds for the mitigation categories w.r.t. the reference category *INTRO-Social Distancing*; an interesting insight from this is that both the introduction and ending of lockdown measures have very low odds compared to the reference category.  
+The p-values of the coefficients confirm the significant difference in the odds of the different categories of mitigation measures and the significant impact the public sentiment has on these odds.  
+An important aspect is that although difficult to notice by looking at the coefficients table, there is weak to very strong evidence of a relationship between COVID-19 measures and the odds of certain categories of mitigation measures.  
 In conclusion, we found evidence of a strong relationship between public sentiment and the odds of a government introducing certain categories of mitigation measures.  
 This is in contrast with our prediction that the public sentiment would have no influence on the odds of a government introducing certain categories of mitigation measures.  
 The main drawbacks of this analysis is the uncertainty in the significance of using averaged sentiment data over a week and the fact that the sentiment analysis does not differ between opinions on COVID-19 and the management of the pandemic by a governemnt, thus possibly losing important information or misclassifying the opinion.
@@ -396,3 +402,77 @@ Essentially the same model as in Q1 but with added covariate `location_code`and 
 $$\log\left(\frac{P(category\_log = Y_k)}{P(category\_log = Y_{INTRO-Social Distancing})}\right)= \dotsc + \beta_{k5}location\_code_{DE} + \beta_{k6}location\_code_{IT} + \beta_{k7}location\_code_{UK} + z_{k1}(confirmed\_mean)(location\_code_{DE}) + z_{k2}(confirmed\_mean)(location\_code_{IT}) + z_{k2}(confirmed\_mean)(location\_code_{UK}) + \dotsc$$ 
 With $k=$ number of levels of `category_log` (i.e. number of mitigation categories) $-1$.  
 $z_{kn}$ are the interaction coefficients: $n=12$ 3 interaction terms (num. of countries - 1) for each other covariate.
+```{r, cache = TRUE, results = "hide"}
+multi_mod_2 <- multinom(category_log ~ (confirmed_mean + deaths_mean
+    + recovered_mean + sentiment_mean) * location_code,
+data = df_ana_1
+)
+```
+
+#### Summary table and Coefficients on the odds scale:
+```{r, cache = TRUE, results = "asis"}
+s2 <- summary(multi_mod_2)
+stargazer(multi_mod_2, type = "html")
+```
+```{r, cache = TRUE}
+coefs2 <- coef(multi_mod_2)
+# only concerned w/ location_code and interaction terms
+coefs2 <- coefs2[, c(1, 6:20)]
+# on the odds-scale
+kable(exp(coefs2))
+```
+
+#### Statistical test (Z-test):
+```{r, cache = TRUE}
+# statistical test (Z-test)
+z2 <- coefs2 / s2$standard.error[, c(1, 6:20)]
+p2 <- pnorm(abs(z2), lower.tail = FALSE) * 2
+kable(p2) ## again some very extreme p-values
+```
+
+#### Results Figure:
+```{r, results = "hide", cache = TRUE, fig.align = "center", fig.width = 12, fig.height = 7}
+newdf_2 <- data.frame(
+    sentiment_mean = seq(
+        from = min(df_ana_1$sentiment_mean),
+        to = max(df_ana_1$sentiment_mean),
+        length.out = 500
+    ),
+    location_code = as.factor(rep(levels(df_ana_1$location_code), 500)),
+    confirmed_mean = seq(
+        from = min(df_ana_1$confirmed_mean),
+        to = max(df_ana_1$confirmed_mean),
+        length.out = 500
+    ),
+    deaths_mean = rep(mean(df_ana_1$deaths_mean), 500),
+    recovered_mean = rep(mean(df_ana_1$recovered_mean), 500)
+)
+prob_2 <- predict(multi_mod_2, newdata = newdf_2, type = "probs", se = TRUE)
+predicted_probs_2 <- cbind(newdf_2, prob_2)
+
+# to long format
+long_predicted_probs_2 <- gather(predicted_probs_2,
+    key = "Mitigation",
+    value = "probability",
+    -sentiment_mean, -confirmed_mean, -deaths_mean, -recovered_mean,
+    -location_code,
+    factor_key = TRUE
+)
+
+ggplot(
+    data = long_predicted_probs_2,
+    aes(x = sentiment_mean, y = probability, color = Mitigation)
+) +
+    geom_line(size = 1.3) +
+    scale_color_brewer(type = "div") +
+    xlab("Sentiment (mean over 1 week periob before measure)") +
+    theme_bw() +
+    facet_wrap(~location_code, scales = "free")
+```
+
+#### Conclusions:
+In contrast to our prediction there is a clear effect of the country (`location_code`) on the odds of a government introducing certain categories of mitigation measures.  
+We found also strong evidence of interaction between the other model covariates and country which is to be expected surely for COVID-19 measures and even for the public sentiment as this can be influenced by the social and cultural background of a certain country.  
+Some issues present in this analysis are the same regarding the sentiment scores as in the first analysis to answer Q1. In addition to this none of the 4 countries analysed have data for all categories of mitigation measures. This is evident with the model's reference country Switzerland (by default `R` chooses in alphabetical order) which does not present many of the categories of mitigation measures, possibly skewing the results due to lack of data for certain categories.  
+This last point is a problem in the statistical terms, but in my opinion should not overrule the analysis results, as the simple fact that not all countries have taken all types of mitigation measures is an indication of the underlying differences between them despite the fact that they are all European countries.  
+In conlusions, our results suggest that different governments have different odds of introducing certain categories of mitigation measures also w.r.t. COVID-19 measures and public sentiment.

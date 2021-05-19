@@ -193,6 +193,8 @@ library(tidyverse)
 library(nnet)
 library(ggfortify)
 library(gridExtra)
+library(stargazer)
+library(knitr)
 
 ## load the data ####
 cases &lt;- read.csv(&quot;../datasets/measurementrs_Covid_all_Countries&amp;dates.csv&quot;)
@@ -590,285 +592,861 @@ grid.arrange(plt1, plt2, ncol = 2)</code></pre>
 </div>
 <div id="summary-table-and-coefficients-on-the-odds-scale" class="section level4">
 <h4>Summary table and Coefficients on the odds scale:</h4>
-<pre class="r"><code>(s1 &lt;- summary(multi_mod))</code></pre>
-<pre><code>## Call:
-## multinom(formula = category_log ~ confirmed_mean + deaths_mean + 
-##     recovered_mean + sentiment_mean, data = df_ana_1)
-## 
-## Coefficients:
-##                                                 (Intercept)
-## END - Governance and socio-economic measures    -3.17554922
-## END - Lockdown                                 -12.84932186
-## END - Movement restrictions                     -1.56131289
-## END - Public health measures                     0.93152217
-## END - Social distancing                          0.02552625
-## INTRO - Governance and socio-economic measures  -0.01118318
-## INTRO - Lockdown                                -5.24004003
-## INTRO - Movement restrictions                   -3.75519342
-## INTRO - Public health measures                  -0.40142936
-##                                                confirmed_mean
-## END - Governance and socio-economic measures    -3.169770e-04
-## END - Lockdown                                   1.895202e-04
-## END - Movement restrictions                     -1.042054e-07
-## END - Public health measures                    -1.363908e-04
-## END - Social distancing                         -4.944208e-05
-## INTRO - Governance and socio-economic measures   1.429199e-05
-## INTRO - Lockdown                                 1.109452e-04
-## INTRO - Movement restrictions                    6.269283e-05
-## INTRO - Public health measures                   4.658951e-06
-##                                                  deaths_mean
-## END - Governance and socio-economic measures    1.254158e-03
-## END - Lockdown                                 -3.063449e-04
-## END - Movement restrictions                     5.598353e-05
-## END - Public health measures                    7.601187e-04
-## END - Social distancing                         2.668926e-04
-## INTRO - Governance and socio-economic measures -9.793988e-05
-## INTRO - Lockdown                               -3.496508e-04
-## INTRO - Movement restrictions                  -2.225599e-04
-## INTRO - Public health measures                  3.722504e-05
-##                                                recovered_mean
-## END - Governance and socio-economic measures     3.315362e-04
-## END - Lockdown                                  -3.348615e-04
-## END - Movement restrictions                      1.501633e-05
-## END - Public health measures                     1.646943e-04
-## END - Social distancing                          6.994306e-05
-## INTRO - Governance and socio-economic measures  -1.144836e-06
-## INTRO - Lockdown                                -1.333386e-04
-## INTRO - Movement restrictions                   -6.571013e-05
-## INTRO - Public health measures                   1.723487e-05
-##                                                sentiment_mean
-## END - Governance and socio-economic measures       12.6225765
-## END - Lockdown                                     -0.2639318
-## END - Movement restrictions                        -3.9429586
-## END - Public health measures                       -6.2594036
-## END - Social distancing                            -0.3060549
-## INTRO - Governance and socio-economic measures      4.2591938
-## INTRO - Lockdown                                   -5.5193468
-## INTRO - Movement restrictions                       5.5523270
-## INTRO - Public health measures                      3.4698666
-## 
-## Std. Errors:
-##                                                 (Intercept)
-## END - Governance and socio-economic measures   5.792771e-07
-## END - Lockdown                                 7.088870e-08
-## END - Movement restrictions                    9.165818e-09
-## END - Public health measures                   4.239488e-08
-## END - Social distancing                        1.209815e-08
-## INTRO - Governance and socio-economic measures 3.143960e-07
-## INTRO - Lockdown                               1.302755e-08
-## INTRO - Movement restrictions                  2.106061e-08
-## INTRO - Public health measures                 1.527377e-07
-##                                                confirmed_mean
-## END - Governance and socio-economic measures     1.493037e-04
-## END - Lockdown                                   1.300619e-04
-## END - Movement restrictions                      3.383210e-05
-## END - Public health measures                     5.700686e-05
-## END - Social distancing                          2.756906e-05
-## INTRO - Governance and socio-economic measures   1.522994e-05
-## INTRO - Lockdown                                 3.434737e-05
-## INTRO - Movement restrictions                    1.858580e-05
-## INTRO - Public health measures                   1.568536e-05
-##                                                 deaths_mean
-## END - Governance and socio-economic measures   2.059370e-03
-## END - Lockdown                                 1.029902e-03
-## END - Movement restrictions                    2.094864e-04
-## END - Public health measures                   3.284990e-04
-## END - Social distancing                        1.678022e-04
-## INTRO - Governance and socio-economic measures 9.731589e-05
-## INTRO - Lockdown                               1.887929e-04
-## INTRO - Movement restrictions                  1.105724e-04
-## INTRO - Public health measures                 9.860838e-05
-##                                                recovered_mean
-## END - Governance and socio-economic measures     1.920717e-04
-## END - Lockdown                                   1.833383e-04
-## END - Movement restrictions                      4.955674e-05
-## END - Public health measures                     6.506617e-05
-## END - Social distancing                          3.593662e-05
-## INTRO - Governance and socio-economic measures   2.389741e-05
-## INTRO - Lockdown                                 7.204255e-05
-## INTRO - Movement restrictions                    3.307933e-05
-## INTRO - Public health measures                   2.415582e-05
-##                                                sentiment_mean
-## END - Governance and socio-economic measures     2.389503e-07
-## END - Lockdown                                   9.134605e-10
-## END - Movement restrictions                      8.289383e-10
-## END - Public health measures                     1.210667e-08
-## END - Social distancing                          1.026686e-08
-## INTRO - Governance and socio-economic measures   1.394023e-07
-## INTRO - Lockdown                                 3.273394e-09
-## INTRO - Movement restrictions                    4.384928e-09
-## INTRO - Public health measures                   5.970058e-08
-## 
-## Residual Deviance: 609.6508 
-## AIC: 699.6508</code></pre>
+<pre class="r"><code>s1 &lt;- summary(multi_mod)
+stargazer(multi_mod, type = &quot;html&quot;)</code></pre>
+<table style="text-align:center">
+<tr>
+<td colspan="10" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="9">
+<em>Dependent variable:</em>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td colspan="9" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+END - Governance and socio-economic measures
+</td>
+<td>
+END - Lockdown
+</td>
+<td>
+END - Movement restrictions
+</td>
+<td>
+END - Public health measures
+</td>
+<td>
+END - Social distancing
+</td>
+<td>
+INTRO - Governance and socio-economic measures
+</td>
+<td>
+INTRO - Lockdown
+</td>
+<td>
+INTRO - Movement restrictions
+</td>
+<td>
+INTRO - Public health measures
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1)
+</td>
+<td>
+(2)
+</td>
+<td>
+(3)
+</td>
+<td>
+(4)
+</td>
+<td>
+(5)
+</td>
+<td>
+(6)
+</td>
+<td>
+(7)
+</td>
+<td>
+(8)
+</td>
+<td>
+(9)
+</td>
+</tr>
+<tr>
+<td colspan="10" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+confirmed_mean
+</td>
+<td>
+-0.0003<sup>**</sup>
+</td>
+<td>
+0.0002
+</td>
+<td>
+-0.00000
+</td>
+<td>
+-0.0001<sup>**</sup>
+</td>
+<td>
+-0.00005<sup>*</sup>
+</td>
+<td>
+0.00001
+</td>
+<td>
+0.0001<sup>***</sup>
+</td>
+<td>
+0.0001<sup>***</sup>
+</td>
+<td>
+0.00000
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.0001)
+</td>
+<td>
+(0.0001)
+</td>
+<td>
+(0.00003)
+</td>
+<td>
+(0.0001)
+</td>
+<td>
+(0.00003)
+</td>
+<td>
+(0.00002)
+</td>
+<td>
+(0.00003)
+</td>
+<td>
+(0.00002)
+</td>
+<td>
+(0.00002)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+deaths_mean
+</td>
+<td>
+0.001
+</td>
+<td>
+-0.0003
+</td>
+<td>
+0.0001
+</td>
+<td>
+0.001<sup>**</sup>
+</td>
+<td>
+0.0003
+</td>
+<td>
+-0.0001
+</td>
+<td>
+-0.0003<sup>*</sup>
+</td>
+<td>
+-0.0002<sup>**</sup>
+</td>
+<td>
+0.00004
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.002)
+</td>
+<td>
+(0.001)
+</td>
+<td>
+(0.0002)
+</td>
+<td>
+(0.0003)
+</td>
+<td>
+(0.0002)
+</td>
+<td>
+(0.0001)
+</td>
+<td>
+(0.0002)
+</td>
+<td>
+(0.0001)
+</td>
+<td>
+(0.0001)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+recovered_mean
+</td>
+<td>
+0.0003<sup>*</sup>
+</td>
+<td>
+-0.0003<sup>*</sup>
+</td>
+<td>
+0.00002
+</td>
+<td>
+0.0002<sup>**</sup>
+</td>
+<td>
+0.0001<sup>*</sup>
+</td>
+<td>
+-0.00000
+</td>
+<td>
+-0.0001<sup>*</sup>
+</td>
+<td>
+-0.0001<sup>**</sup>
+</td>
+<td>
+0.00002
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.0002)
+</td>
+<td>
+(0.0002)
+</td>
+<td>
+(0.00005)
+</td>
+<td>
+(0.0001)
+</td>
+<td>
+(0.00004)
+</td>
+<td>
+(0.00002)
+</td>
+<td>
+(0.0001)
+</td>
+<td>
+(0.00003)
+</td>
+<td>
+(0.00002)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+sentiment_mean
+</td>
+<td>
+12.623<sup>***</sup>
+</td>
+<td>
+-0.264<sup>***</sup>
+</td>
+<td>
+-3.943<sup>***</sup>
+</td>
+<td>
+-6.259<sup>***</sup>
+</td>
+<td>
+-0.306<sup>***</sup>
+</td>
+<td>
+4.259<sup>***</sup>
+</td>
+<td>
+-5.519<sup>***</sup>
+</td>
+<td>
+5.552<sup>***</sup>
+</td>
+<td>
+3.470<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.00000)
+</td>
+<td>
+(0.000)
+</td>
+<td>
+(0.000)
+</td>
+<td>
+(0.000)
+</td>
+<td>
+(0.000)
+</td>
+<td>
+(0.00000)
+</td>
+<td>
+(0.000)
+</td>
+<td>
+(0.000)
+</td>
+<td>
+(0.00000)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+-3.176<sup>***</sup>
+</td>
+<td>
+-12.849<sup>***</sup>
+</td>
+<td>
+-1.561<sup>***</sup>
+</td>
+<td>
+0.932<sup>***</sup>
+</td>
+<td>
+0.026<sup>***</sup>
+</td>
+<td>
+-0.011<sup>***</sup>
+</td>
+<td>
+-5.240<sup>***</sup>
+</td>
+<td>
+-3.755<sup>***</sup>
+</td>
+<td>
+-0.401<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.00000)
+</td>
+<td>
+(0.00000)
+</td>
+<td>
+(0.000)
+</td>
+<td>
+(0.00000)
+</td>
+<td>
+(0.000)
+</td>
+<td>
+(0.00000)
+</td>
+<td>
+(0.000)
+</td>
+<td>
+(0.00000)
+</td>
+<td>
+(0.00000)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="10" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Akaike Inf. Crit.
+</td>
+<td>
+699.651
+</td>
+<td>
+699.651
+</td>
+<td>
+699.651
+</td>
+<td>
+699.651
+</td>
+<td>
+699.651
+</td>
+<td>
+699.651
+</td>
+<td>
+699.651
+</td>
+<td>
+699.651
+</td>
+<td>
+699.651
+</td>
+</tr>
+<tr>
+<td colspan="10" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em>Note:</em>
+</td>
+<td colspan="9" style="text-align:right">
+<sup><em></sup>p&lt;0.1; <sup><strong></sup>p&lt;0.05; <sup></strong></em></sup>p&lt;0.01
+</td>
+</tr>
+</table>
 <pre class="r"><code>coefs1 &lt;- coef(multi_mod)
 # coefficients on the odds-scale
-exp(coefs1)</code></pre>
-<pre><code>##                                                 (Intercept)
-## END - Governance and socio-economic measures   4.177116e-02
-## END - Lockdown                                 2.627910e-06
-## END - Movement restrictions                    2.098604e-01
-## END - Public health measures                   2.538370e+00
-## END - Social distancing                        1.025855e+00
-## INTRO - Governance and socio-economic measures 9.888791e-01
-## INTRO - Lockdown                               5.300045e-03
-## INTRO - Movement restrictions                  2.339592e-02
-## INTRO - Public health measures                 6.693626e-01
-##                                                confirmed_mean
-## END - Governance and socio-economic measures        0.9996831
-## END - Lockdown                                      1.0001895
-## END - Movement restrictions                         0.9999999
-## END - Public health measures                        0.9998636
-## END - Social distancing                             0.9999506
-## INTRO - Governance and socio-economic measures      1.0000143
-## INTRO - Lockdown                                    1.0001110
-## INTRO - Movement restrictions                       1.0000627
-## INTRO - Public health measures                      1.0000047
-##                                                deaths_mean
-## END - Governance and socio-economic measures     1.0012549
-## END - Lockdown                                   0.9996937
-## END - Movement restrictions                      1.0000560
-## END - Public health measures                     1.0007604
-## END - Social distancing                          1.0002669
-## INTRO - Governance and socio-economic measures   0.9999021
-## INTRO - Lockdown                                 0.9996504
-## INTRO - Movement restrictions                    0.9997775
-## INTRO - Public health measures                   1.0000372
-##                                                recovered_mean
-## END - Governance and socio-economic measures        1.0003316
-## END - Lockdown                                      0.9996652
-## END - Movement restrictions                         1.0000150
-## END - Public health measures                        1.0001647
-## END - Social distancing                             1.0000699
-## INTRO - Governance and socio-economic measures      0.9999989
-## INTRO - Lockdown                                    0.9998667
-## INTRO - Movement restrictions                       0.9999343
-## INTRO - Public health measures                      1.0000172
-##                                                sentiment_mean
-## END - Governance and socio-economic measures     3.033300e+05
-## END - Lockdown                                   7.680259e-01
-## END - Movement restrictions                      1.939076e-02
-## END - Public health measures                     1.912386e-03
-## END - Social distancing                          7.363462e-01
-## INTRO - Governance and socio-economic measures   7.075292e+01
-## INTRO - Lockdown                                 4.008466e-03
-## INTRO - Movement restrictions                    2.578369e+02
-## INTRO - Public health measures                   3.213246e+01</code></pre>
-<p>Unlike our predictions the public sentiment has a <strong>huge effect</strong> on the decision-making of governments on mitigation measures (measured as odds of a certain category of mitigation measures).<br />
-Moreover, the other predictors, which are all COVID-19 measures indicating the course of the pandemic on average in the week before the implementation of a mitigation measure, have a miniscule impact on the mitigation measure taken compared to the public sentiment.<br />
-Another important aspect is that looking at the <code>(Intercept)</code> <span class="math inline">\(\beta_{k0}\)</span> there seems to be a difference in odds for the mitigation categories w.r.t. the reference category <em>INTRO-Social Distancing</em>; an interesting insight from this is that both the introduction and ending of lockdown measures have very low odds compared to the reference category.</p>
+kable(exp(coefs1))</code></pre>
+<table style="width:100%;">
+<colgroup>
+<col width="40%" />
+<col width="10%" />
+<col width="12%" />
+<col width="10%" />
+<col width="12%" />
+<col width="12%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">(Intercept)</th>
+<th align="right">confirmed_mean</th>
+<th align="right">deaths_mean</th>
+<th align="right">recovered_mean</th>
+<th align="right">sentiment_mean</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">END - Governance and socio-economic measures</td>
+<td align="right">0.0417712</td>
+<td align="right">0.9996831</td>
+<td align="right">1.0012549</td>
+<td align="right">1.0003316</td>
+<td align="right">3.033300e+05</td>
+</tr>
+<tr class="even">
+<td align="left">END - Lockdown</td>
+<td align="right">0.0000026</td>
+<td align="right">1.0001895</td>
+<td align="right">0.9996937</td>
+<td align="right">0.9996652</td>
+<td align="right">7.680259e-01</td>
+</tr>
+<tr class="odd">
+<td align="left">END - Movement restrictions</td>
+<td align="right">0.2098604</td>
+<td align="right">0.9999999</td>
+<td align="right">1.0000560</td>
+<td align="right">1.0000150</td>
+<td align="right">1.939080e-02</td>
+</tr>
+<tr class="even">
+<td align="left">END - Public health measures</td>
+<td align="right">2.5383701</td>
+<td align="right">0.9998636</td>
+<td align="right">1.0007604</td>
+<td align="right">1.0001647</td>
+<td align="right">1.912400e-03</td>
+</tr>
+<tr class="odd">
+<td align="left">END - Social distancing</td>
+<td align="right">1.0258548</td>
+<td align="right">0.9999506</td>
+<td align="right">1.0002669</td>
+<td align="right">1.0000699</td>
+<td align="right">7.363462e-01</td>
+</tr>
+<tr class="even">
+<td align="left">INTRO - Governance and socio-economic measures</td>
+<td align="right">0.9888791</td>
+<td align="right">1.0000143</td>
+<td align="right">0.9999021</td>
+<td align="right">0.9999989</td>
+<td align="right">7.075292e+01</td>
+</tr>
+<tr class="odd">
+<td align="left">INTRO - Lockdown</td>
+<td align="right">0.0053000</td>
+<td align="right">1.0001110</td>
+<td align="right">0.9996504</td>
+<td align="right">0.9998667</td>
+<td align="right">4.008500e-03</td>
+</tr>
+<tr class="even">
+<td align="left">INTRO - Movement restrictions</td>
+<td align="right">0.0233959</td>
+<td align="right">1.0000627</td>
+<td align="right">0.9997775</td>
+<td align="right">0.9999343</td>
+<td align="right">2.578369e+02</td>
+</tr>
+<tr class="odd">
+<td align="left">INTRO - Public health measures</td>
+<td align="right">0.6693626</td>
+<td align="right">1.0000047</td>
+<td align="right">1.0000372</td>
+<td align="right">1.0000172</td>
+<td align="right">3.213246e+01</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="statistical-test-z-test" class="section level4">
 <h4>Statistical test (Z-test):</h4>
 <pre class="r"><code># statistical test (Z-test)
 z &lt;- s1$coefficients / s1$standard.error
 p &lt;- pnorm(abs(z), lower.tail = FALSE) * 2
-p ## some extreme z scores =&gt; p-values = 0</code></pre>
-<pre><code>##                                                (Intercept)
-## END - Governance and socio-economic measures             0
-## END - Lockdown                                           0
-## END - Movement restrictions                              0
-## END - Public health measures                             0
-## END - Social distancing                                  0
-## INTRO - Governance and socio-economic measures           0
-## INTRO - Lockdown                                         0
-## INTRO - Movement restrictions                            0
-## INTRO - Public health measures                           0
-##                                                confirmed_mean
-## END - Governance and socio-economic measures     0.0337509046
-## END - Lockdown                                   0.1450738679
-## END - Movement restrictions                      0.9975424602
-## END - Public health measures                     0.0167325010
-## END - Social distancing                          0.0729105959
-## INTRO - Governance and socio-economic measures   0.3480316490
-## INTRO - Lockdown                                 0.0012375062
-## INTRO - Movement restrictions                    0.0007431148
-## INTRO - Public health measures                   0.7664471486
-##                                                deaths_mean
-## END - Governance and socio-economic measures    0.54252390
-## END - Lockdown                                  0.76612264
-## END - Movement restrictions                     0.78928299
-## END - Public health measures                    0.02067241
-## END - Social distancing                         0.11171782
-## INTRO - Governance and socio-economic measures  0.31421746
-## INTRO - Lockdown                                0.06402093
-## INTRO - Movement restrictions                   0.04413577
-## INTRO - Public health measures                  0.70579919
-##                                                recovered_mean
-## END - Governance and socio-economic measures       0.08432829
-## END - Lockdown                                     0.06777980
-## END - Movement restrictions                        0.76188000
-## END - Public health measures                       0.01136787
-## END - Social distancing                            0.05162000
-## INTRO - Governance and socio-economic measures     0.96179095
-## INTRO - Lockdown                                   0.06419379
-## INTRO - Movement restrictions                      0.04698442
-## INTRO - Public health measures                     0.47554445
-##                                                sentiment_mean
-## END - Governance and socio-economic measures                0
-## END - Lockdown                                              0
-## END - Movement restrictions                                 0
-## END - Public health measures                                0
-## END - Social distancing                                     0
-## INTRO - Governance and socio-economic measures              0
-## INTRO - Lockdown                                            0
-## INTRO - Movement restrictions                               0
-## INTRO - Public health measures                              0</code></pre>
+kable(p) ## some extreme z scores =&gt; p-values = 0</code></pre>
+<table style="width:100%;">
+<colgroup>
+<col width="40%" />
+<col width="10%" />
+<col width="12%" />
+<col width="10%" />
+<col width="12%" />
+<col width="12%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">(Intercept)</th>
+<th align="right">confirmed_mean</th>
+<th align="right">deaths_mean</th>
+<th align="right">recovered_mean</th>
+<th align="right">sentiment_mean</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">END - Governance and socio-economic measures</td>
+<td align="right">0</td>
+<td align="right">0.0337509</td>
+<td align="right">0.5425239</td>
+<td align="right">0.0843283</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">END - Lockdown</td>
+<td align="right">0</td>
+<td align="right">0.1450739</td>
+<td align="right">0.7661226</td>
+<td align="right">0.0677798</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">END - Movement restrictions</td>
+<td align="right">0</td>
+<td align="right">0.9975425</td>
+<td align="right">0.7892830</td>
+<td align="right">0.7618800</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">END - Public health measures</td>
+<td align="right">0</td>
+<td align="right">0.0167325</td>
+<td align="right">0.0206724</td>
+<td align="right">0.0113679</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">END - Social distancing</td>
+<td align="right">0</td>
+<td align="right">0.0729106</td>
+<td align="right">0.1117178</td>
+<td align="right">0.0516200</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">INTRO - Governance and socio-economic measures</td>
+<td align="right">0</td>
+<td align="right">0.3480316</td>
+<td align="right">0.3142175</td>
+<td align="right">0.9617909</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">INTRO - Lockdown</td>
+<td align="right">0</td>
+<td align="right">0.0012375</td>
+<td align="right">0.0640209</td>
+<td align="right">0.0641938</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">INTRO - Movement restrictions</td>
+<td align="right">0</td>
+<td align="right">0.0007431</td>
+<td align="right">0.0441358</td>
+<td align="right">0.0469844</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">INTRO - Public health measures</td>
+<td align="right">0</td>
+<td align="right">0.7664471</td>
+<td align="right">0.7057992</td>
+<td align="right">0.4755444</td>
+<td align="right">0</td>
+</tr>
+</tbody>
+</table>
 <pre class="r"><code># compute p-values on log-scale
 p_extr &lt;- log(2) + pnorm(abs(z), lower.tail = FALSE, log.p = TRUE)
-p_extr</code></pre>
-<pre><code>##                                                  (Intercept)
-## END - Governance and socio-economic measures   -1.502571e+13
-## END - Lockdown                                 -1.642768e+16
-## END - Movement restrictions                    -1.450800e+16
-## END - Public health measures                   -2.413957e+14
-## END - Social distancing                        -2.225904e+12
-## INTRO - Governance and socio-economic measures -6.326258e+08
-## INTRO - Lockdown                               -8.089356e+16
-## INTRO - Movement restrictions                  -1.589618e+16
-## INTRO - Public health measures                 -3.453789e+12
-##                                                confirmed_mean
-## END - Governance and socio-economic measures     -3.388748058
-## END - Lockdown                                   -1.930512232
-## END - Movement restrictions                      -0.002460564
-## END - Public health measures                     -4.090402286
-## END - Social distancing                          -2.618521302
-## INTRO - Governance and socio-economic measures   -1.055461858
-## INTRO - Lockdown                                 -6.694657057
-## INTRO - Movement restrictions                    -7.204660070
-## INTRO - Public health measures                   -0.265989535
-##                                                deaths_mean
-## END - Governance and socio-economic measures    -0.6115231
-## END - Lockdown                                  -0.2664130
-## END - Movement restrictions                     -0.2366304
-## END - Public health measures                    -3.8789555
-## END - Social distancing                         -2.1917791
-## INTRO - Governance and socio-economic measures  -1.1576700
-## INTRO - Lockdown                                -2.7485453
-## INTRO - Movement restrictions                   -3.1204846
-## INTRO - Public health measures                  -0.3484245
-##                                                recovered_mean
-## END - Governance and socio-economic measures      -2.47303788
-## END - Lockdown                                    -2.69149100
-## END - Movement restrictions                       -0.27196622
-## END - Public health measures                      -4.47696404
-## END - Social distancing                           -2.96384607
-## INTRO - Governance and socio-economic measures    -0.03895816
-## INTRO - Lockdown                                  -2.74584884
-## INTRO - Movement restrictions                     -3.05793918
-## INTRO - Public health measures                    -0.74329492
-##                                                sentiment_mean
-## END - Governance and socio-economic measures    -1.395247e+15
-## END - Lockdown                                  -4.174208e+16
-## END - Movement restrictions                     -1.131280e+19
-## END - Public health measures                    -1.336554e+17
-## END - Social distancing                         -4.443176e+14
-## INTRO - Governance and socio-economic measures  -4.667508e+14
-## INTRO - Lockdown                                -1.421507e+18
-## INTRO - Movement restrictions                   -8.016691e+17
-## INTRO - Public health measures                  -1.689034e+15</code></pre>
-<p>The p-values of the coefficients confirm the significant difference in the odds of the different categories of mitigation measures and the significant impact the public sentiment has on these odds.<br />
-An important aspect is that although difficult to notice by looking at the coefficients table, there is weak to very strong evidence of a relationship between COVID-19 measures and the odds of certain categories of mitigation measures.</p>
+kable(p_extr)</code></pre>
+<table>
+<colgroup>
+<col width="39%" />
+<col width="11%" />
+<col width="12%" />
+<col width="10%" />
+<col width="12%" />
+<col width="12%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">(Intercept)</th>
+<th align="right">confirmed_mean</th>
+<th align="right">deaths_mean</th>
+<th align="right">recovered_mean</th>
+<th align="right">sentiment_mean</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">END - Governance and socio-economic measures</td>
+<td align="right">-1.502571e+13</td>
+<td align="right">-3.3887481</td>
+<td align="right">-0.6115231</td>
+<td align="right">-2.4730379</td>
+<td align="right">-1.395247e+15</td>
+</tr>
+<tr class="even">
+<td align="left">END - Lockdown</td>
+<td align="right">-1.642768e+16</td>
+<td align="right">-1.9305122</td>
+<td align="right">-0.2664130</td>
+<td align="right">-2.6914910</td>
+<td align="right">-4.174208e+16</td>
+</tr>
+<tr class="odd">
+<td align="left">END - Movement restrictions</td>
+<td align="right">-1.450800e+16</td>
+<td align="right">-0.0024606</td>
+<td align="right">-0.2366304</td>
+<td align="right">-0.2719662</td>
+<td align="right">-1.131280e+19</td>
+</tr>
+<tr class="even">
+<td align="left">END - Public health measures</td>
+<td align="right">-2.413957e+14</td>
+<td align="right">-4.0904023</td>
+<td align="right">-3.8789555</td>
+<td align="right">-4.4769640</td>
+<td align="right">-1.336554e+17</td>
+</tr>
+<tr class="odd">
+<td align="left">END - Social distancing</td>
+<td align="right">-2.225904e+12</td>
+<td align="right">-2.6185213</td>
+<td align="right">-2.1917791</td>
+<td align="right">-2.9638461</td>
+<td align="right">-4.443176e+14</td>
+</tr>
+<tr class="even">
+<td align="left">INTRO - Governance and socio-economic measures</td>
+<td align="right">-6.326258e+08</td>
+<td align="right">-1.0554619</td>
+<td align="right">-1.1576700</td>
+<td align="right">-0.0389582</td>
+<td align="right">-4.667508e+14</td>
+</tr>
+<tr class="odd">
+<td align="left">INTRO - Lockdown</td>
+<td align="right">-8.089356e+16</td>
+<td align="right">-6.6946571</td>
+<td align="right">-2.7485453</td>
+<td align="right">-2.7458488</td>
+<td align="right">-1.421507e+18</td>
+</tr>
+<tr class="even">
+<td align="left">INTRO - Movement restrictions</td>
+<td align="right">-1.589618e+16</td>
+<td align="right">-7.2046601</td>
+<td align="right">-3.1204846</td>
+<td align="right">-3.0579392</td>
+<td align="right">-8.016691e+17</td>
+</tr>
+<tr class="odd">
+<td align="left">INTRO - Public health measures</td>
+<td align="right">-3.453789e+12</td>
+<td align="right">-0.2659895</td>
+<td align="right">-0.3484245</td>
+<td align="right">-0.7432949</td>
+<td align="right">-1.689034e+15</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="results-figure" class="section level4">
 <h4>Results Figure:</h4>
@@ -906,7 +1484,12 @@ ggplot(
 </div>
 <div id="conclusions" class="section level4">
 <h4>Conclusions:</h4>
-<p>In conclusion, we found evidence of a strong relationship between public sentiment and the odds of a government introducing certain categories of mitigation measures.<br />
+<p>Unlike our predictions the public sentiment has a <strong>huge effect</strong> on the decision-making of governments on mitigation measures (measured as odds of a certain category of mitigation measures).<br />
+Moreover, the other predictors, which are all COVID-19 measures indicating the course of the pandemic on average in the week before the implementation of a mitigation measure, have a miniscule impact on the mitigation measure taken compared to the public sentiment.<br />
+Another important aspect is that looking at the <code>(Intercept)</code> <span class="math inline">\(\beta_{k0}\)</span> there seems to be a difference in odds for the mitigation categories w.r.t. the reference category <em>INTRO-Social Distancing</em>; an interesting insight from this is that both the introduction and ending of lockdown measures have very low odds compared to the reference category.<br />
+The p-values of the coefficients confirm the significant difference in the odds of the different categories of mitigation measures and the significant impact the public sentiment has on these odds.<br />
+An important aspect is that although difficult to notice by looking at the coefficients table, there is weak to very strong evidence of a relationship between COVID-19 measures and the odds of certain categories of mitigation measures.<br />
+In conclusion, we found evidence of a strong relationship between public sentiment and the odds of a government introducing certain categories of mitigation measures.<br />
 This is in contrast with our prediction that the public sentiment would have no influence on the odds of a government introducing certain categories of mitigation measures.<br />
 The main drawbacks of this analysis is the uncertainty in the significance of using averaged sentiment data over a week and the fact that the sentiment analysis does not differ between opinions on COVID-19 and the management of the pandemic by a governemnt, thus possibly losing important information or misclassifying the opinion.</p>
 </div>
@@ -917,6 +1500,2338 @@ The main drawbacks of this analysis is the uncertainty in the significance of us
 <h4>Model:</h4>
 <p>Essentially the same model as in Q1 but with added covariate <code>location_code</code>and interaction terms relative to this new predictors’ categories: <span class="math display">\[\log\left(\frac{P(category\_log = Y_k)}{P(category\_log = Y_{INTRO-Social Distancing})}\right)= \dotsc + \beta_{k5}location\_code_{DE} + \beta_{k6}location\_code_{IT} + \beta_{k7}location\_code_{UK} + z_{k1}(confirmed\_mean)(location\_code_{DE}) + z_{k2}(confirmed\_mean)(location\_code_{IT}) + z_{k2}(confirmed\_mean)(location\_code_{UK}) + \dotsc\]</span> With <span class="math inline">\(k=\)</span> number of levels of <code>category_log</code> (i.e. number of mitigation categories) <span class="math inline">\(-1\)</span>.<br />
 <span class="math inline">\(z_{kn}\)</span> are the interaction coefficients: <span class="math inline">\(n=12\)</span> 3 interaction terms (num. of countries - 1) for each other covariate.</p>
+<pre class="r"><code>multi_mod_2 &lt;- multinom(category_log ~ (confirmed_mean + deaths_mean
+    + recovered_mean + sentiment_mean) * location_code,
+data = df_ana_1
+)</code></pre>
+</div>
+<div id="summary-table-and-coefficients-on-the-odds-scale-1" class="section level4">
+<h4>Summary table and Coefficients on the odds scale:</h4>
+<pre class="r"><code>s2 &lt;- summary(multi_mod_2)
+stargazer(multi_mod_2, type = &quot;html&quot;)</code></pre>
+<table style="text-align:center">
+<tr>
+<td colspan="10" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="9">
+<em>Dependent variable:</em>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td colspan="9" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+END - Governance and socio-economic measures
+</td>
+<td>
+END - Lockdown
+</td>
+<td>
+END - Movement restrictions
+</td>
+<td>
+END - Public health measures
+</td>
+<td>
+END - Social distancing
+</td>
+<td>
+INTRO - Governance and socio-economic measures
+</td>
+<td>
+INTRO - Lockdown
+</td>
+<td>
+INTRO - Movement restrictions
+</td>
+<td>
+INTRO - Public health measures
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1)
+</td>
+<td>
+(2)
+</td>
+<td>
+(3)
+</td>
+<td>
+(4)
+</td>
+<td>
+(5)
+</td>
+<td>
+(6)
+</td>
+<td>
+(7)
+</td>
+<td>
+(8)
+</td>
+<td>
+(9)
+</td>
+</tr>
+<tr>
+<td colspan="10" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+confirmed_mean
+</td>
+<td>
+0.0004<sup>***</sup>
+</td>
+<td>
+-0.003<sup>***</sup>
+</td>
+<td>
+-0.002<sup>***</sup>
+</td>
+<td>
+0.004<sup>***</sup>
+</td>
+<td>
+0.002<sup>***</sup>
+</td>
+<td>
+-0.0004<sup>***</sup>
+</td>
+<td>
+-0.003<sup>***</sup>
+</td>
+<td>
+0.00002
+</td>
+<td>
+-0.0005<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.0001)
+</td>
+<td>
+(0.0002)
+</td>
+<td>
+(0.0001)
+</td>
+<td>
+(0.0002)
+</td>
+<td>
+(0.0002)
+</td>
+<td>
+(0.0001)
+</td>
+<td>
+(0.0002)
+</td>
+<td>
+(0.0002)
+</td>
+<td>
+(0.0001)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+deaths_mean
+</td>
+<td>
+-0.033<sup>***</sup>
+</td>
+<td>
+0.195<sup>***</sup>
+</td>
+<td>
+0.130<sup>***</sup>
+</td>
+<td>
+-0.274<sup>***</sup>
+</td>
+<td>
+-0.157<sup>***</sup>
+</td>
+<td>
+0.027<sup>***</sup>
+</td>
+<td>
+0.185<sup>***</sup>
+</td>
+<td>
+-0.010<sup>***</sup>
+</td>
+<td>
+0.030<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.003)
+</td>
+<td>
+(0.002)
+</td>
+<td>
+(0.003)
+</td>
+<td>
+(0.0001)
+</td>
+<td>
+(0.003)
+</td>
+<td>
+(0.001)
+</td>
+<td>
+(0.005)
+</td>
+<td>
+(0.002)
+</td>
+<td>
+(0.001)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+recovered_mean
+</td>
+<td>
+0.002<sup>***</sup>
+</td>
+<td>
+-0.010<sup>***</sup>
+</td>
+<td>
+-0.007<sup>***</sup>
+</td>
+<td>
+0.015<sup>***</sup>
+</td>
+<td>
+0.009<sup>***</sup>
+</td>
+<td>
+-0.001<sup>***</sup>
+</td>
+<td>
+-0.010<sup>***</sup>
+</td>
+<td>
+0.001<sup>**</sup>
+</td>
+<td>
+-0.002<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.0002)
+</td>
+<td>
+(0.0004)
+</td>
+<td>
+(0.0003)
+</td>
+<td>
+(0.0002)
+</td>
+<td>
+(0.0003)
+</td>
+<td>
+(0.0001)
+</td>
+<td>
+(0.0005)
+</td>
+<td>
+(0.0003)
+</td>
+<td>
+(0.0001)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+sentiment_mean
+</td>
+<td>
+0.015<sup>***</sup>
+</td>
+<td>
+-0.022<sup>***</sup>
+</td>
+<td>
+-0.410<sup>***</sup>
+</td>
+<td>
+-0.492<sup>***</sup>
+</td>
+<td>
+-0.239<sup>***</sup>
+</td>
+<td>
+0.144<sup>***</sup>
+</td>
+<td>
+-0.415<sup>***</sup>
+</td>
+<td>
+0.848<sup>***</sup>
+</td>
+<td>
+0.242<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.00000)
+</td>
+<td>
+(0.00000)
+</td>
+<td>
+(0.00000)
+</td>
+<td>
+(0.00000)
+</td>
+<td>
+(0.00000)
+</td>
+<td>
+(0.00000)
+</td>
+<td>
+(0.00000)
+</td>
+<td>
+(0.00000)
+</td>
+<td>
+(0.00000)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+location_codeDE
+</td>
+<td>
+-0.087<sup>***</sup>
+</td>
+<td>
+-0.059<sup>***</sup>
+</td>
+<td>
+-0.069<sup>***</sup>
+</td>
+<td>
+-0.041<sup>***</sup>
+</td>
+<td>
+-0.043<sup>***</sup>
+</td>
+<td>
+1.133<sup>***</sup>
+</td>
+<td>
+-0.097<sup>***</sup>
+</td>
+<td>
+-0.969<sup>***</sup>
+</td>
+<td>
+0.346<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.00000)
+</td>
+<td>
+(0.00000)
+</td>
+<td>
+(0.00000)
+</td>
+<td>
+(0.00000)
+</td>
+<td>
+(0.00000)
+</td>
+<td>
+(0.00000)
+</td>
+<td>
+(0.00000)
+</td>
+<td>
+(0.00000)
+</td>
+<td>
+(0.00000)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+location_codeIT
+</td>
+<td>
+-0.001<sup>***</sup>
+</td>
+<td>
+0.037<sup>***</sup>
+</td>
+<td>
+-0.044<sup>***</sup>
+</td>
+<td>
+-0.035<sup>***</sup>
+</td>
+<td>
+0.039<sup>***</sup>
+</td>
+<td>
+0.021<sup>***</sup>
+</td>
+<td>
+0.014<sup>***</sup>
+</td>
+<td>
+0.110<sup>***</sup>
+</td>
+<td>
+-0.040<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.00000)
+</td>
+<td>
+(0.00000)
+</td>
+<td>
+(0.00000)
+</td>
+<td>
+(0.00000)
+</td>
+<td>
+(0.00000)
+</td>
+<td>
+(0.00000)
+</td>
+<td>
+(0.00000)
+</td>
+<td>
+(0.00000)
+</td>
+<td>
+(0.00000)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+location_codeUK
+</td>
+<td>
+-0.00002<sup>***</sup>
+</td>
+<td>
+0.0001<sup>***</sup>
+</td>
+<td>
+0.0001<sup>***</sup>
+</td>
+<td>
+-0.0002<sup>***</sup>
+</td>
+<td>
+-0.0001<sup>***</sup>
+</td>
+<td>
+0.00002<sup>***</sup>
+</td>
+<td>
+0.0001<sup>***</sup>
+</td>
+<td>
+-0.00000<sup>***</sup>
+</td>
+<td>
+0.00002<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.00000)
+</td>
+<td>
+(0.000)
+</td>
+<td>
+(0.000)
+</td>
+<td>
+(0.000)
+</td>
+<td>
+(0.000)
+</td>
+<td>
+(0.00000)
+</td>
+<td>
+(0.00000)
+</td>
+<td>
+(0.00000)
+</td>
+<td>
+(0.00000)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+confirmed_mean:location_codeDE
+</td>
+<td>
+-0.0004<sup>**</sup>
+</td>
+<td>
+0.003<sup>***</sup>
+</td>
+<td>
+0.002<sup>***</sup>
+</td>
+<td>
+-0.004<sup>***</sup>
+</td>
+<td>
+-0.002<sup>***</sup>
+</td>
+<td>
+0.0004<sup>***</sup>
+</td>
+<td>
+0.003<sup>***</sup>
+</td>
+<td>
+0.0001
+</td>
+<td>
+0.001<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.0002)
+</td>
+<td>
+(0.0002)
+</td>
+<td>
+(0.0002)
+</td>
+<td>
+(0.0002)
+</td>
+<td>
+(0.0002)
+</td>
+<td>
+(0.0001)
+</td>
+<td>
+(0.0002)
+</td>
+<td>
+(0.0002)
+</td>
+<td>
+(0.0001)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+confirmed_mean:location_codeIT
+</td>
+<td>
+-0.001
+</td>
+<td>
+0.003<sup>***</sup>
+</td>
+<td>
+0.002<sup>***</sup>
+</td>
+<td>
+-0.005<sup>***</sup>
+</td>
+<td>
+-0.003<sup>***</sup>
+</td>
+<td>
+0.0002
+</td>
+<td>
+0.003<sup>***</sup>
+</td>
+<td>
+-0.0004
+</td>
+<td>
+0.0005<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.001)
+</td>
+<td>
+(0.0005)
+</td>
+<td>
+(0.001)
+</td>
+<td>
+(0.0002)
+</td>
+<td>
+(0.001)
+</td>
+<td>
+(0.0002)
+</td>
+<td>
+(0.001)
+</td>
+<td>
+(0.001)
+</td>
+<td>
+(0.0002)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+confirmed_mean:location_codeUK
+</td>
+<td>
+0.0001
+</td>
+<td>
+0.003<sup>***</sup>
+</td>
+<td>
+0.002<sup>*</sup>
+</td>
+<td>
+-0.004<sup>***</sup>
+</td>
+<td>
+-0.002<sup>***</sup>
+</td>
+<td>
+0.001<sup>*</sup>
+</td>
+<td>
+0.003<sup>***</sup>
+</td>
+<td>
+0.0004
+</td>
+<td>
+0.001
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.001)
+</td>
+<td>
+(0.001)
+</td>
+<td>
+(0.001)
+</td>
+<td>
+(0.001)
+</td>
+<td>
+(0.001)
+</td>
+<td>
+(0.001)
+</td>
+<td>
+(0.001)
+</td>
+<td>
+(0.001)
+</td>
+<td>
+(0.001)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+deaths_mean:location_codeDE
+</td>
+<td>
+0.051<sup>***</sup>
+</td>
+<td>
+-0.182<sup>***</sup>
+</td>
+<td>
+-0.129<sup>***</sup>
+</td>
+<td>
+0.296<sup>***</sup>
+</td>
+<td>
+0.162<sup>***</sup>
+</td>
+<td>
+-0.009<sup>***</sup>
+</td>
+<td>
+-0.181<sup>***</sup>
+</td>
+<td>
+0.027<sup>***</sup>
+</td>
+<td>
+-0.008<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.0001)
+</td>
+<td>
+(0.00004)
+</td>
+<td>
+(0.0001)
+</td>
+<td>
+(0.00005)
+</td>
+<td>
+(0.0003)
+</td>
+<td>
+(0.002)
+</td>
+<td>
+(0.001)
+</td>
+<td>
+(0.003)
+</td>
+<td>
+(0.002)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+deaths_mean:location_codeIT
+</td>
+<td>
+0.033<sup>***</sup>
+</td>
+<td>
+-0.193<sup>***</sup>
+</td>
+<td>
+-0.127<sup>***</sup>
+</td>
+<td>
+0.286<sup>***</sup>
+</td>
+<td>
+0.161<sup>***</sup>
+</td>
+<td>
+-0.025<sup>***</sup>
+</td>
+<td>
+-0.180<sup>***</sup>
+</td>
+<td>
+0.014<sup>***</sup>
+</td>
+<td>
+-0.030<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.003)
+</td>
+<td>
+(0.002)
+</td>
+<td>
+(0.003)
+</td>
+<td>
+(0.0001)
+</td>
+<td>
+(0.003)
+</td>
+<td>
+(0.002)
+</td>
+<td>
+(0.003)
+</td>
+<td>
+(0.003)
+</td>
+<td>
+(0.001)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+deaths_mean:location_codeUK
+</td>
+<td>
+0.028<sup>***</sup>
+</td>
+<td>
+-0.189<sup>***</sup>
+</td>
+<td>
+-0.129<sup>***</sup>
+</td>
+<td>
+0.276<sup>***</sup>
+</td>
+<td>
+0.158<sup>***</sup>
+</td>
+<td>
+-0.034<sup>***</sup>
+</td>
+<td>
+-0.185<sup>***</sup>
+</td>
+<td>
+0.007<sup>***</sup>
+</td>
+<td>
+-0.034<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.0001)
+</td>
+<td>
+(0.0001)
+</td>
+<td>
+(0.0001)
+</td>
+<td>
+(0.0001)
+</td>
+<td>
+(0.0001)
+</td>
+<td>
+(0.00004)
+</td>
+<td>
+(0.001)
+</td>
+<td>
+(0.002)
+</td>
+<td>
+(0.0001)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+recovered_mean:location_codeDE
+</td>
+<td>
+-0.003<sup>***</sup>
+</td>
+<td>
+0.010<sup>***</sup>
+</td>
+<td>
+0.007<sup>***</sup>
+</td>
+<td>
+-0.016<sup>***</sup>
+</td>
+<td>
+-0.009<sup>***</sup>
+</td>
+<td>
+0.0005<sup>***</sup>
+</td>
+<td>
+0.010<sup>***</sup>
+</td>
+<td>
+-0.002<sup>***</sup>
+</td>
+<td>
+0.0003<sup>*</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.0002)
+</td>
+<td>
+(0.0004)
+</td>
+<td>
+(0.0003)
+</td>
+<td>
+(0.0003)
+</td>
+<td>
+(0.0002)
+</td>
+<td>
+(0.0002)
+</td>
+<td>
+(0.0004)
+</td>
+<td>
+(0.0003)
+</td>
+<td>
+(0.0002)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+recovered_mean:location_codeIT
+</td>
+<td>
+-0.002<sup>***</sup>
+</td>
+<td>
+0.010<sup>***</sup>
+</td>
+<td>
+0.007<sup>***</sup>
+</td>
+<td>
+-0.016<sup>***</sup>
+</td>
+<td>
+-0.009<sup>***</sup>
+</td>
+<td>
+0.001<sup>***</sup>
+</td>
+<td>
+0.009<sup>***</sup>
+</td>
+<td>
+-0.001<sup>**</sup>
+</td>
+<td>
+0.002<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.0005)
+</td>
+<td>
+(0.0005)
+</td>
+<td>
+(0.0005)
+</td>
+<td>
+(0.0004)
+</td>
+<td>
+(0.0004)
+</td>
+<td>
+(0.0002)
+</td>
+<td>
+(0.001)
+</td>
+<td>
+(0.0005)
+</td>
+<td>
+(0.0002)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+recovered_mean:location_codeUK
+</td>
+<td>
+-0.001<sup>***</sup>
+</td>
+<td>
+0.010<sup>***</sup>
+</td>
+<td>
+0.007<sup>***</sup>
+</td>
+<td>
+-0.015<sup>***</sup>
+</td>
+<td>
+-0.008<sup>***</sup>
+</td>
+<td>
+0.002<sup>***</sup>
+</td>
+<td>
+0.010<sup>***</sup>
+</td>
+<td>
+-0.0004<sup>***</sup>
+</td>
+<td>
+0.002<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.00001)
+</td>
+<td>
+(0.00000)
+</td>
+<td>
+(0.00001)
+</td>
+<td>
+(0.00000)
+</td>
+<td>
+(0.00000)
+</td>
+<td>
+(0.00001)
+</td>
+<td>
+(0.0001)
+</td>
+<td>
+(0.0001)
+</td>
+<td>
+(0.00001)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+sentiment_mean:location_codeDE
+</td>
+<td>
+-0.014<sup>***</sup>
+</td>
+<td>
+-0.010<sup>***</sup>
+</td>
+<td>
+-0.026<sup>***</sup>
+</td>
+<td>
+0.012<sup>***</sup>
+</td>
+<td>
+-0.046<sup>***</sup>
+</td>
+<td>
+0.308<sup>***</sup>
+</td>
+<td>
+-0.013<sup>***</sup>
+</td>
+<td>
+-0.150<sup>***</sup>
+</td>
+<td>
+-0.052<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.00000)
+</td>
+<td>
+(0.00000)
+</td>
+<td>
+(0.00000)
+</td>
+<td>
+(0.00000)
+</td>
+<td>
+(0.00000)
+</td>
+<td>
+(0.00000)
+</td>
+<td>
+(0.00000)
+</td>
+<td>
+(0.00000)
+</td>
+<td>
+(0.00000)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+sentiment_mean:location_codeIT
+</td>
+<td>
+-0.004<sup>***</sup>
+</td>
+<td>
+-0.005<sup>***</sup>
+</td>
+<td>
+-0.533<sup>***</sup>
+</td>
+<td>
+-0.415<sup>***</sup>
+</td>
+<td>
+0.129<sup>***</sup>
+</td>
+<td>
+-0.521<sup>***</sup>
+</td>
+<td>
+-0.395<sup>***</sup>
+</td>
+<td>
+0.920<sup>***</sup>
+</td>
+<td>
+0.185<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.00000)
+</td>
+<td>
+(0.00000)
+</td>
+<td>
+(0.00000)
+</td>
+<td>
+(0.00000)
+</td>
+<td>
+(0.00000)
+</td>
+<td>
+(0.00000)
+</td>
+<td>
+(0.00000)
+</td>
+<td>
+(0.00000)
+</td>
+<td>
+(0.00000)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+sentiment_mean:location_codeUK
+</td>
+<td>
+-0.00000<sup>***</sup>
+</td>
+<td>
+0.00003<sup>***</sup>
+</td>
+<td>
+0.00002<sup>***</sup>
+</td>
+<td>
+-0.00004<sup>***</sup>
+</td>
+<td>
+-0.00002<sup>***</sup>
+</td>
+<td>
+0.00001<sup>***</sup>
+</td>
+<td>
+0.00003<sup>***</sup>
+</td>
+<td>
+-0.00000<sup>***</sup>
+</td>
+<td>
+0.00001<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.000)
+</td>
+<td>
+(0.000)
+</td>
+<td>
+(0.000)
+</td>
+<td>
+(0.000)
+</td>
+<td>
+(0.000)
+</td>
+<td>
+(0.000)
+</td>
+<td>
+(0.00000)
+</td>
+<td>
+(0.00000)
+</td>
+<td>
+(0.00000)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+-0.117<sup>***</sup>
+</td>
+<td>
+-0.038<sup>***</sup>
+</td>
+<td>
+-0.226<sup>***</sup>
+</td>
+<td>
+-0.216<sup>***</sup>
+</td>
+<td>
+-0.464<sup>***</sup>
+</td>
+<td>
+1.699<sup>***</sup>
+</td>
+<td>
+-0.092<sup>***</sup>
+</td>
+<td>
+-0.913<sup>***</sup>
+</td>
+<td>
+0.265<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.00000)
+</td>
+<td>
+(0.00000)
+</td>
+<td>
+(0.00000)
+</td>
+<td>
+(0.00000)
+</td>
+<td>
+(0.00000)
+</td>
+<td>
+(0.00000)
+</td>
+<td>
+(0.00000)
+</td>
+<td>
+(0.00000)
+</td>
+<td>
+(0.00000)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="10" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Akaike Inf. Crit.
+</td>
+<td>
+871.809
+</td>
+<td>
+871.809
+</td>
+<td>
+871.809
+</td>
+<td>
+871.809
+</td>
+<td>
+871.809
+</td>
+<td>
+871.809
+</td>
+<td>
+871.809
+</td>
+<td>
+871.809
+</td>
+<td>
+871.809
+</td>
+</tr>
+<tr>
+<td colspan="10" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em>Note:</em>
+</td>
+<td colspan="9" style="text-align:right">
+<sup><em></sup>p&lt;0.1; <sup><strong></sup>p&lt;0.05; <sup></strong></em></sup>p&lt;0.01
+</td>
+</tr>
+</table>
+<pre class="r"><code>coefs2 &lt;- coef(multi_mod_2)
+# only concerned w/ location_code and interaction terms
+coefs2 &lt;- coefs2[, c(1, 6:20)]
+# on the odds-scale
+kable(exp(coefs2))</code></pre>
+<table>
+<colgroup>
+<col width="10%" />
+<col width="2%" />
+<col width="3%" />
+<col width="3%" />
+<col width="3%" />
+<col width="6%" />
+<col width="6%" />
+<col width="6%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="6%" />
+<col width="6%" />
+<col width="6%" />
+<col width="6%" />
+<col width="6%" />
+<col width="6%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">(Intercept)</th>
+<th align="right">location_codeDE</th>
+<th align="right">location_codeIT</th>
+<th align="right">location_codeUK</th>
+<th align="right">confirmed_mean:location_codeDE</th>
+<th align="right">confirmed_mean:location_codeIT</th>
+<th align="right">confirmed_mean:location_codeUK</th>
+<th align="right">deaths_mean:location_codeDE</th>
+<th align="right">deaths_mean:location_codeIT</th>
+<th align="right">deaths_mean:location_codeUK</th>
+<th align="right">recovered_mean:location_codeDE</th>
+<th align="right">recovered_mean:location_codeIT</th>
+<th align="right">recovered_mean:location_codeUK</th>
+<th align="right">sentiment_mean:location_codeDE</th>
+<th align="right">sentiment_mean:location_codeIT</th>
+<th align="right">sentiment_mean:location_codeUK</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">END - Governance and socio-economic measures</td>
+<td align="right">0.8894035</td>
+<td align="right">0.9166489</td>
+<td align="right">0.9988234</td>
+<td align="right">0.9999817</td>
+<td align="right">0.9996077</td>
+<td align="right">0.9994875</td>
+<td align="right">1.0000668</td>
+<td align="right">1.0524906</td>
+<td align="right">1.0339808</td>
+<td align="right">1.0280332</td>
+<td align="right">0.9970926</td>
+<td align="right">0.9980765</td>
+<td align="right">0.9985548</td>
+<td align="right">0.9856651</td>
+<td align="right">0.9964136</td>
+<td align="right">0.9999957</td>
+</tr>
+<tr class="even">
+<td align="left">END - Lockdown</td>
+<td align="right">0.9629146</td>
+<td align="right">0.9428519</td>
+<td align="right">1.0376200</td>
+<td align="right">1.0001252</td>
+<td align="right">1.0033762</td>
+<td align="right">1.0031345</td>
+<td align="right">1.0026799</td>
+<td align="right">0.8337764</td>
+<td align="right">0.8248251</td>
+<td align="right">0.8278424</td>
+<td align="right">1.0095759</td>
+<td align="right">1.0100593</td>
+<td align="right">1.0099694</td>
+<td align="right">0.9904082</td>
+<td align="right">0.9947653</td>
+<td align="right">1.0000294</td>
+</tr>
+<tr class="odd">
+<td align="left">END - Movement restrictions</td>
+<td align="right">0.7977992</td>
+<td align="right">0.9337455</td>
+<td align="right">0.9568054</td>
+<td align="right">1.0000854</td>
+<td align="right">1.0022156</td>
+<td align="right">1.0018952</td>
+<td align="right">1.0020441</td>
+<td align="right">0.8790668</td>
+<td align="right">0.8804378</td>
+<td align="right">0.8790894</td>
+<td align="right">1.0068344</td>
+<td align="right">1.0066675</td>
+<td align="right">1.0067918</td>
+<td align="right">0.9746973</td>
+<td align="right">0.5870747</td>
+<td align="right">1.0000201</td>
+</tr>
+<tr class="even">
+<td align="left">END - Public health measures</td>
+<td align="right">0.8060953</td>
+<td align="right">0.9601012</td>
+<td align="right">0.9652594</td>
+<td align="right">0.9998170</td>
+<td align="right">0.9959210</td>
+<td align="right">0.9946955</td>
+<td align="right">0.9957341</td>
+<td align="right">1.3447043</td>
+<td align="right">1.3304950</td>
+<td align="right">1.3181593</td>
+<td align="right">0.9838571</td>
+<td align="right">0.9841738</td>
+<td align="right">0.9855965</td>
+<td align="right">1.0119898</td>
+<td align="right">0.6604038</td>
+<td align="right">0.9999570</td>
+</tr>
+<tr class="odd">
+<td align="left">END - Social distancing</td>
+<td align="right">0.6289225</td>
+<td align="right">0.9575859</td>
+<td align="right">1.0399882</td>
+<td align="right">0.9998951</td>
+<td align="right">0.9976879</td>
+<td align="right">0.9972781</td>
+<td align="right">0.9975923</td>
+<td align="right">1.1761059</td>
+<td align="right">1.1745533</td>
+<td align="right">1.1715585</td>
+<td align="right">0.9910198</td>
+<td align="right">0.9910168</td>
+<td align="right">0.9917190</td>
+<td align="right">0.9547061</td>
+<td align="right">1.1375956</td>
+<td align="right">0.9999753</td>
+</tr>
+<tr class="even">
+<td align="left">INTRO - Governance and socio-economic measures</td>
+<td align="right">5.4693740</td>
+<td align="right">3.1046889</td>
+<td align="right">1.0211606</td>
+<td align="right">1.0000225</td>
+<td align="right">1.0004410</td>
+<td align="right">1.0001628</td>
+<td align="right">1.0011465</td>
+<td align="right">0.9912861</td>
+<td align="right">0.9754496</td>
+<td align="right">0.9667168</td>
+<td align="right">1.0004947</td>
+<td align="right">1.0013309</td>
+<td align="right">1.0017867</td>
+<td align="right">1.3609793</td>
+<td align="right">0.5941063</td>
+<td align="right">1.0000053</td>
+</tr>
+<tr class="odd">
+<td align="left">INTRO - Lockdown</td>
+<td align="right">0.9117337</td>
+<td align="right">0.9075510</td>
+<td align="right">1.0136117</td>
+<td align="right">1.0001226</td>
+<td align="right">1.0032015</td>
+<td align="right">1.0027048</td>
+<td align="right">1.0033417</td>
+<td align="right">0.8344763</td>
+<td align="right">0.8353155</td>
+<td align="right">0.8311323</td>
+<td align="right">1.0095558</td>
+<td align="right">1.0092654</td>
+<td align="right">1.0097676</td>
+<td align="right">0.9869641</td>
+<td align="right">0.6737217</td>
+<td align="right">1.0000288</td>
+</tr>
+<tr class="even">
+<td align="left">INTRO - Movement restrictions</td>
+<td align="right">0.4013732</td>
+<td align="right">0.3793351</td>
+<td align="right">1.1163314</td>
+<td align="right">0.9999955</td>
+<td align="right">1.0000723</td>
+<td align="right">0.9995694</td>
+<td align="right">1.0003851</td>
+<td align="right">1.0268680</td>
+<td align="right">1.0138889</td>
+<td align="right">1.0068707</td>
+<td align="right">0.9982816</td>
+<td align="right">0.9988853</td>
+<td align="right">0.9996462</td>
+<td align="right">0.8609191</td>
+<td align="right">2.5091060</td>
+<td align="right">0.9999989</td>
+</tr>
+<tr class="odd">
+<td align="left">INTRO - Public health measures</td>
+<td align="right">1.3037969</td>
+<td align="right">1.4133285</td>
+<td align="right">0.9611705</td>
+<td align="right">1.0000227</td>
+<td align="right">1.0005217</td>
+<td align="right">1.0004799</td>
+<td align="right">1.0007831</td>
+<td align="right">0.9924872</td>
+<td align="right">0.9702326</td>
+<td align="right">0.9663241</td>
+<td align="right">1.0003411</td>
+<td align="right">1.0016126</td>
+<td align="right">1.0018038</td>
+<td align="right">0.9494203</td>
+<td align="right">1.2030081</td>
+<td align="right">1.0000053</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="statistical-test-z-test-1" class="section level4">
+<h4>Statistical test (Z-test):</h4>
+<pre class="r"><code># statistical test (Z-test)
+z2 &lt;- coefs2 / s2$standard.error[, c(1, 6:20)]
+p2 &lt;- pnorm(abs(z2), lower.tail = FALSE) * 2
+kable(p2) ## again some very extreme p-values</code></pre>
+<table>
+<colgroup>
+<col width="10%" />
+<col width="2%" />
+<col width="3%" />
+<col width="3%" />
+<col width="3%" />
+<col width="6%" />
+<col width="6%" />
+<col width="6%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="6%" />
+<col width="6%" />
+<col width="6%" />
+<col width="6%" />
+<col width="6%" />
+<col width="6%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">(Intercept)</th>
+<th align="right">location_codeDE</th>
+<th align="right">location_codeIT</th>
+<th align="right">location_codeUK</th>
+<th align="right">confirmed_mean:location_codeDE</th>
+<th align="right">confirmed_mean:location_codeIT</th>
+<th align="right">confirmed_mean:location_codeUK</th>
+<th align="right">deaths_mean:location_codeDE</th>
+<th align="right">deaths_mean:location_codeIT</th>
+<th align="right">deaths_mean:location_codeUK</th>
+<th align="right">recovered_mean:location_codeDE</th>
+<th align="right">recovered_mean:location_codeIT</th>
+<th align="right">recovered_mean:location_codeUK</th>
+<th align="right">sentiment_mean:location_codeDE</th>
+<th align="right">sentiment_mean:location_codeIT</th>
+<th align="right">sentiment_mean:location_codeUK</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">END - Governance and socio-economic measures</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0.00e+00</td>
+<td align="right">0.0107897</td>
+<td align="right">0.3274555</td>
+<td align="right">0.9411472</td>
+<td align="right">0.0000000</td>
+<td align="right">0.00e+00</td>
+<td align="right">0e+00</td>
+<td align="right">0.0000000</td>
+<td align="right">0.0000757</td>
+<td align="right">0.00e+00</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0.00e+00</td>
+</tr>
+<tr class="even">
+<td align="left">END - Lockdown</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0.00e+00</td>
+<td align="right">0.0000000</td>
+<td align="right">0.0000000</td>
+<td align="right">0.0000069</td>
+<td align="right">0.0000000</td>
+<td align="right">0.00e+00</td>
+<td align="right">0e+00</td>
+<td align="right">0.0000000</td>
+<td align="right">0.0000000</td>
+<td align="right">0.00e+00</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0.00e+00</td>
+</tr>
+<tr class="odd">
+<td align="left">END - Movement restrictions</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0.00e+00</td>
+<td align="right">0.0000000</td>
+<td align="right">0.0033877</td>
+<td align="right">0.0522892</td>
+<td align="right">0.0000000</td>
+<td align="right">0.00e+00</td>
+<td align="right">0e+00</td>
+<td align="right">0.0000000</td>
+<td align="right">0.0000000</td>
+<td align="right">0.00e+00</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0.00e+00</td>
+</tr>
+<tr class="even">
+<td align="left">END - Public health measures</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0.00e+00</td>
+<td align="right">0.0000000</td>
+<td align="right">0.0000000</td>
+<td align="right">0.0000000</td>
+<td align="right">0.0000000</td>
+<td align="right">0.00e+00</td>
+<td align="right">0e+00</td>
+<td align="right">0.0000000</td>
+<td align="right">0.0000000</td>
+<td align="right">0.00e+00</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0.00e+00</td>
+</tr>
+<tr class="odd">
+<td align="left">END - Social distancing</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0.00e+00</td>
+<td align="right">0.0000000</td>
+<td align="right">0.0000128</td>
+<td align="right">0.0001399</td>
+<td align="right">0.0000000</td>
+<td align="right">0.00e+00</td>
+<td align="right">0e+00</td>
+<td align="right">0.0000000</td>
+<td align="right">0.0000000</td>
+<td align="right">0.00e+00</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0.00e+00</td>
+</tr>
+<tr class="even">
+<td align="left">INTRO - Governance and socio-economic measures</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0.00e+00</td>
+<td align="right">0.0000000</td>
+<td align="right">0.4639808</td>
+<td align="right">0.0770984</td>
+<td align="right">0.0000366</td>
+<td align="right">0.00e+00</td>
+<td align="right">0e+00</td>
+<td align="right">0.0046702</td>
+<td align="right">0.0000001</td>
+<td align="right">0.00e+00</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0.00e+00</td>
+</tr>
+<tr class="odd">
+<td align="left">INTRO - Lockdown</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0.00e+00</td>
+<td align="right">0.0000000</td>
+<td align="right">0.0004914</td>
+<td align="right">0.0002923</td>
+<td align="right">0.0000000</td>
+<td align="right">0.00e+00</td>
+<td align="right">0e+00</td>
+<td align="right">0.0000000</td>
+<td align="right">0.0000000</td>
+<td align="right">0.00e+00</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0.00e+00</td>
+</tr>
+<tr class="even">
+<td align="left">INTRO - Movement restrictions</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">1.03e-05</td>
+<td align="right">0.6751916</td>
+<td align="right">0.3969711</td>
+<td align="right">0.5535166</td>
+<td align="right">0.0000000</td>
+<td align="right">2.44e-05</td>
+<td align="right">6e-06</td>
+<td align="right">0.0000000</td>
+<td align="right">0.0154049</td>
+<td align="right">1.43e-05</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">1.04e-05</td>
+</tr>
+<tr class="odd">
+<td align="left">INTRO - Public health measures</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0.00e+00</td>
+<td align="right">0.0000000</td>
+<td align="right">0.0026855</td>
+<td align="right">0.5449511</td>
+<td align="right">0.0006287</td>
+<td align="right">0.00e+00</td>
+<td align="right">0e+00</td>
+<td align="right">0.0624503</td>
+<td align="right">0.0000000</td>
+<td align="right">0.00e+00</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0.00e+00</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="results-figure-1" class="section level4">
+<h4>Results Figure:</h4>
+<pre class="r"><code>newdf_2 &lt;- data.frame(
+    sentiment_mean = seq(
+        from = min(df_ana_1$sentiment_mean),
+        to = max(df_ana_1$sentiment_mean),
+        length.out = 500
+    ),
+    location_code = as.factor(rep(levels(df_ana_1$location_code), 500)),
+    confirmed_mean = seq(
+        from = min(df_ana_1$confirmed_mean),
+        to = max(df_ana_1$confirmed_mean),
+        length.out = 500
+    ),
+    deaths_mean = rep(mean(df_ana_1$deaths_mean), 500),
+    recovered_mean = rep(mean(df_ana_1$recovered_mean), 500)
+)
+prob_2 &lt;- predict(multi_mod_2, newdata = newdf_2, type = &quot;probs&quot;, se = TRUE)
+predicted_probs_2 &lt;- cbind(newdf_2, prob_2)
+
+# to long format
+long_predicted_probs_2 &lt;- gather(predicted_probs_2,
+    key = &quot;Mitigation&quot;,
+    value = &quot;probability&quot;,
+    -sentiment_mean, -confirmed_mean, -deaths_mean, -recovered_mean,
+    -location_code,
+    factor_key = TRUE
+)
+
+ggplot(
+    data = long_predicted_probs_2,
+    aes(x = sentiment_mean, y = probability, color = Mitigation)
+) +
+    geom_line(size = 1.3) +
+    scale_color_brewer(type = &quot;div&quot;) +
+    xlab(&quot;Sentiment (mean over 1 week periob before measure)&quot;) +
+    theme_bw() +
+    facet_wrap(~location_code, scales = &quot;free&quot;)</code></pre>
+<p><img src="data:image/png;base64,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" width="1152" style="display: block; margin: auto;" /></p>
+</div>
+<div id="conclusions-1" class="section level4">
+<h4>Conclusions:</h4>
+<p>In contrast to our prediction there is a clear effect of the country (<code>location_code</code>) on the odds of a government introducing certain categories of mitigation measures.<br />
+We found also strong evidence of interaction between the other model covariates and country which is to be expected surely for COVID-19 measures and even for the public sentiment as this can be influenced by the social and cultural background of a certain country.<br />
+Some issues present in this analysis are the same regarding the sentiment scores as in the first analysis to answer Q1. In addition to this none of the 4 countries analysed have data for all categories of mitigation measures. This is evident with the model’s reference country Switzerland (by default <code>R</code> chooses in alphabetical order) which does not present many of the categories of mitigation measures, possibly skewing the results due to lack of data for certain categories.<br />
+This last point is a problem in the statistical terms, but in my opinion should not overrule the analysis results, as the simple fact that not all countries have taken all types of mitigation measures is an indication of the underlying differences between them despite the fact that they are all European countries.<br />
+In conlusions, our results suggest that different governments have different odds of introducing certain categories of mitigation measures also w.r.t. COVID-19 measures and public sentiment.</p>
 </div>
 </div>
 
