@@ -36,9 +36,7 @@ The two factors we are analysing are:
 - P2: We don't think that there should be a difference between the 4 analysed countries
 - P3: We don't think there would be differences between the two months
  
-## Analysis
-*Coded in R*
-  
+## Analysis  
 *Analysed countries*:
 - United Kingdom (UK)
 - Germany (DE)
@@ -65,8 +63,13 @@ This is due to the limiting dates on the tweets dataset.
     - Possible machine learning models: 
         - Logistic regression ✔
         - Artificial neural network ❌
-5.	If time: temporal analysis of response changes (i.e., first wave, second wave) using the same predictors.
-
+5.	If time: temporal analysis of response changes (i.e., first wave, second wave) using the same predictors.  
+  
+*Coded in R:*
+R version 4.0.5 (2021-03-31) -- "Shake and Throw"  
+Copyright (C) 2021 The R Foundation for Statistical Computing  
+Platform: x86_64-w64-mingw32/x64 (64-bit)  
+  
 *R Packages used*:
 - VIM
 - tidyverse
