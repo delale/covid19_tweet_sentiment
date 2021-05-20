@@ -11,7 +11,7 @@
 The goal of this work is to analyse the possible impact of different factors to the decision making of a governments  
 related to COVID-19 mitigation measures.  
 The two factors we are analysing are:  
-- Daily/Weekly COVID-19 cases
+- Daily/Weekly COVID-19 measures (confirmed cases, deaths, recovered)
 - General public's opinion on the matter (Tweets)
 
 ## Datasets Used
@@ -19,9 +19,8 @@ The two factors we are analysing are:
     - https://www.kaggle.com/gpreda/covid19-tweets
     - https://www.kaggle.com/smid80/coronavirus-covid19-tweets-late-april
     - https://www.kaggle.com/smid80/coronavirus-covid19-tweets-early-april  
-    ⇒ combined into `covid19_tweets.csv`.  
   
-- COVID-19 Cases: https://www.kaggle.com/gpreda/coronavirus-2019ncov  ⇒ `covid-19-all.csv`    
+- COVID-19 Cases: https://www.kaggle.com/gpreda/coronavirus-2019ncov
 
 - Mitigation Measures: https://www.kaggle.com/barun2104/government-measures-to-combat-covid19
 
@@ -61,7 +60,7 @@ This is due to the limiting dates on the tweets dataset.
 4.	Inferential modelling of mitigation measure based on sentiment and pandemic course
     - Importantly the response and predictors are polytomous variables (>2 possible categories)
     - Possible machine learning models: 
-        - Logistic regression ✔
+        - Multinomial regression ✔
         - Artificial neural network ❌
 5.	If time: temporal analysis of response changes (i.e., first wave, second wave) using the same predictors.  
   
