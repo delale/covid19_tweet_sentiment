@@ -471,9 +471,10 @@ long_predicted_probs_3 <- gather(predicted_probs_3,
 )
 ggplot(
     data = long_predicted_probs_3,
-    aes(x = confirmed, y = probability, color = Sentiment_Polarity)
+    aes(x = confirmed, y = probability, color = month)
 ) +
     geom_line(size = 1.3) +
-    xlab("Confirmed cases") +
+    xlab("") +
+    ylab("P(sentiment_polarity = Y)") +
     theme_bw() +
-    facet_wrap(~month, scales = "free")
+    facet_wrap(~Sentiment_Polarity, scales = "free")

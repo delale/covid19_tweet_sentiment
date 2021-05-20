@@ -6,3 +6,4 @@ datasets/original/
 *.txt
 scripts/analyses_report_cache/
 scripts/analyses_report_files/
+scripts/*.html

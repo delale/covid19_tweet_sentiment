@@ -318,7 +318,8 @@ grid.arrange(plt1, plt2, ncol = 2)
 
 #### Model:
 $$\log\left(\frac{P(category\_log = Y_k)}{P(category\_log = Y_{INTRO-Social Distancing})}\right)= \beta_{k0} + \beta_{k1}(confirmed\_mean) + \beta_{k2}(recovered\_mean) + \beta_{k3}(deaths\_mean) + \beta_{k4}(sentiment\_mean)$$ 
-With $k=$ number of levels of `category_log` (i.e. number of mitigation categories) $-1$.
+With $k=$ number of levels of `category_log` (i.e. number of mitigation categories) $-1$.  
+$216$ observations $-$ $5$ estimated model coefficients $*9$ levels of `category_log` (excluding the reference) $=171$ degrees of freedom. 
 ```{r, cache = TRUE, results = "hide"}
 multi_mod <- multinom(
     category_log ~ confirmed_mean + deaths_mean
@@ -403,6 +404,7 @@ The main drawbacks of this analysis is the uncertainty in the significance of us
 Essentially the same model as in Q1 but with added covariate `location_code`and interaction terms relative to this new predictors' categories: 
 $$\log\left(\frac{P(category\_log = Y_k)}{P(category\_log = Y_{INTRO-Social Distancing})}\right)= \dotsc + \beta_{k5}location\_code_{DE} + \beta_{k6}location\_code_{IT} + \beta_{k7}location\_code_{UK} + z_{k1}(confirmed\_mean)(location\_code_{DE}) + z_{k2}(confirmed\_mean)(location\_code_{IT}) + z_{k2}(confirmed\_mean)(location\_code_{UK}) + \dotsc$$ 
 With $k=$ number of levels of `category_log` (i.e. number of mitigation categories) $-1$.  
+$216$ observations $-$ $20$ estimated model coefficients $*9$ levels of `category_log` (excluding the reference) $=36$ degrees of freedom.
 $z_{kn}$ are the interaction coefficients: $n=12$, 3 interaction terms (num. of countries - 1) for each other covariate.
 ```{r, cache = TRUE, results = "hide"}
 multi_mod_2 <- multinom(category_log ~ (confirmed_mean + deaths_mean
@@ -489,6 +491,7 @@ In conlusions, our results suggest that different governments have different odd
 **Linear Model:**
 $$sentiment\_mean = \beta_0 + \beta_1(log(confirmed)) + \beta_2(log(recovered)) + \beta_3(log(deaths)) + \beta_4(month_{August}) + z_1(log(confirmed))(month_{August}) + z_2(log(recovered))(month_{August}) + z_3(log(deaths))(month_{August})$$  
 In this case `sentiment_mean` unlike the previous two models is not the mean of the public sentiment score over a 1 week period, but simply the daily sentiment mean.  
+$219$ observations $-$ $8$ estimated model coefficients $=211$ degrees of freedom.
 ```{r, cache = TRUE, results = "hide", fig.align = "center", warning = FALSE, message = FALSE}
 lm_mod <- lm(sentiment_mean ~ (log_confirmed + log_recovered
     + log_deaths) * month,
@@ -503,6 +506,7 @@ Hence a categorical encoding of the sentiment scores and a multinomial regressio
 **Multinomial Model:**
 $$\log\left(\frac{P(sentiment\_polarity = Y_k)}{P(sentiment\_polarity = Y_{NEG})}\right)=\beta_{k0} + \beta_{k1}(confirmed) + \beta_{k2}(recovered) + \beta_{k3}(deaths) + \beta_{k4}(month_{August}) + z_{k1}(confirmed)(month_{August}) + z_{k2}(recovered)(month_{August}) + z_{k3}(deaths)(month_{August})$$  
 With $k=$ number of levels of `sentiment_polarity` (i.e. NEG, NEU, POS) $-1$.  
+$219$ observations $-$ $8$ estimated model coefficients $*2$ levels of `sentiment_polarity` (excluding the reference) $=203$ degrees of freedom.
 ```{r, cache = TRUE, results = "hide"}
 multi_mod_3 <- multinom(sentiment_polarity ~
 (confirmed + recovered + deaths) * month,
