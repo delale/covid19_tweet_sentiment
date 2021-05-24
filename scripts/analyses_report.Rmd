@@ -4,7 +4,9 @@ author: "Alessandro De Luca - Jessy J. Duran Ramirez - Michael Süter"
 date: "18-05-2020"
 output: "html_document"
 ---
-  
+**GitHub repository:** https://github.com/delale/esc403_proj
+
+
 ## Questions and Predictions
 - Q1: Is there any relationship between the mitigation measures and the sentiments from the tweets? 
 - Q2: Does the relationship of sentiments and mitigation category differ between the 4 countries?
@@ -570,7 +572,6 @@ ggplot(
     aes(x = confirmed, y = probability, color = month)
 ) +
     geom_line(size = 1.3) +
-    xlab("") +
     ylab("P(sentiment_polarity = Y)") +
     theme_bw() +
     facet_wrap(~Sentiment_Polarity, scales = "free")

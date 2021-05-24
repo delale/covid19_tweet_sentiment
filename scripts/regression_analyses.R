@@ -474,7 +474,6 @@ ggplot(
     aes(x = confirmed, y = probability, color = month)
 ) +
     geom_line(size = 1.3) +
-    xlab("") +
     ylab("P(sentiment_polarity = Y)") +
     theme_bw() +
     facet_wrap(~Sentiment_Polarity, scales = "free")
