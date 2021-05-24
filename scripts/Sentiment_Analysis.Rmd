@@ -1,9 +1,13 @@
 ---
-title: "ESC403 - Sentiment Analyses Covid 19 Tweets""
-author: "Alessandro De Luca - Jessy J. Duran Ramirez - Michael Süter"
+title: "ESC403 - Sentiment Analyses Covid 19 Tweets"
+author: "Alessandro De Luca - Jessy J. Duran Ramirez - Michael Suter"
 date: "`r format(Sys.time(), '%d/%m/%y')`"
-output: "html_document"
+output:
+  html_document:
+    df_print: paged
+  pdf_document: default
 ---
+
 # Introduction
 
 EDA and Sentiment Analyses on COVID-19 Tweets
@@ -19,8 +23,6 @@ rm(list=ls())
 #if (!require("rtweets")) {install.packages("rtweets", dependencies=TRUE)} 
 if (!require("dplyr")) {install.packages("dplyr", dependencies=TRUE)} 
 if (!require("tidyr")) {install.packages("tidyr", dependencies=TRUE)} 
-if (!require("tidyext")) {install.packages("tidyext", dependencies=TRUE)}
-
 
 #tweets check up:
 if (!require("textcat")) {install.packages("textcat", dependencies=TRUE)} #language detection
@@ -34,7 +36,7 @@ if (!require("syuzhet")) {install.packages("syuzhet", dependencies=TRUE)}
 if (!require("lubridate")) {install.packages("lubridate", dependencies=TRUE)} # for date and time
 if (!require("scales")) {install.packages("scales", dependencies=TRUE)}  # show the colors
 if (!require("reshape2")) {install.packages("reshape2", dependencies=TRUE)} 
-if (!require("tidytext")) {install.packages("tidytext", dependencies=TRUE)} # tokenization
+if (!require(tidytext)) {install.packages(tidytext, dependencies=TRUE)} # tokenization
 
 if (!require("circlize")) {install.packages("circlize", dependencies=TRUE)} # chord diagramm
 
