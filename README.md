@@ -50,11 +50,10 @@ This is due to the limiting dates on the tweets dataset.
 *Data Analysis & Processing*:
 1.	Clean the dataset and filter for the three countries 
 2.	Sentiment analysis (there is no need for modifications for non-English countries as most tweets are in English): 
-    - Tokenization (segregation into words)
     - Cleaning (removing the special characters)
     - Removing Stop words (preposition, auxiliary verbs, etc.) 
-    - Classification of words (+1: positive, -1 negative, 0: neutral)
-    - Apply supervised algorithm for classification (train model with word or lexicons, and test on the analysis statement)
+    - Tokenization (segregation into words)
+    - Apply lexicon-based classification of words (+1: positive, -1 negative, 0: neutral)
     - Calculate sentiment of statement (look at polarity)
 3.  - Timeseries analysis of daily COVID-19 cases ⇒ moving average used as predictor in the model 
 4.	Inferential modelling of mitigation measure based on sentiment and pandemic course
@@ -65,9 +64,9 @@ This is due to the limiting dates on the tweets dataset.
 5.	If time: temporal analysis of response changes (i.e., first wave, second wave) using the same predictors.  
   
 *Coded in R:*
-R version 4.0.5 (2021-03-31) -- "Shake and Throw"  
+R versions 4.0.4 (2021-02-15) & 4.0.5 (2021-03-31) -- "Shake and Throw"  
 Copyright (C) 2021 The R Foundation for Statistical Computing  
-Platform: x86_64-w64-mingw32/x64 (64-bit)  
+Platform: x86_64-apple-darwin17.0  & x86_64-w64-mingw32/x64 (64-bit)  
   
 *R Packages used*:
 - VIM
@@ -79,8 +78,8 @@ Platform: x86_64-w64-mingw32/x64 (64-bit)
 - knitr
 - GGally
 - corrplot
-- rtweets
 - textcat
+- ggplot2
 - ggcharts
 - scales
 - reshape2
@@ -88,3 +87,7 @@ Platform: x86_64-w64-mingw32/x64 (64-bit)
 - tm
 - syuzhet
 - tidytext
+- dplyr
+- tidyr
+- wordcloud
+- wordcloud2
