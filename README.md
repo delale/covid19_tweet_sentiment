@@ -1,4 +1,4 @@
-# ESC403 Project
+# ESC403 Project University of Zurich
 
 ## Project Members
 - Alessandro De Luca
